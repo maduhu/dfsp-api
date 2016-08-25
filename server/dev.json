@@ -1,0 +1,56 @@
+{
+  "implementation": "dfsp-api",
+  "console": {
+    "server": {
+      "host": "0.0.0.0",
+      "port": 30010
+    }
+  },
+  "stdOut": {
+    "mode": "dev"
+  },
+  "log": {
+    "streams": [{
+      "level": "trace",
+      "stream": "../logRotateStream",
+      "streamConfig": {
+        "path": "ut5_%Y-%m-%d.log",
+        "symlink": "ut5.log",
+        "compress": true
+      }
+    }]
+  },
+  "masterBus": {
+    "logLevel": "debug",
+    "socket": "dfsp-api"
+  },
+  "workerBus": {
+    "logLevel": "debug"
+  },
+  "db": {
+    "logLevel": "trace",
+    "db": {
+      "host": "cisco"
+    },
+    "permission": {
+      "requireSession": true
+    }
+  },
+  "ussd": {
+     "shortCodes": {
+       "*123#": "menu/home"
+     },
+     "wrongInputState": "menu/error/wrongInput",
+     "timeOut": 60,
+     "expireRule": "refresh",
+     "defaultPhone": "0122523365225",
+     "defaultShortCode": "*123#"
+  },
+  "cache": {
+    "storage": "memory",
+    "encoding": "json",
+    "checkFrequency": 1000,
+    "defaultTTL": 3600
+  },
+  "debug": true
+}
