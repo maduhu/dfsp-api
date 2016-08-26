@@ -6,6 +6,7 @@ module.exports = {
     require('../httpclient/directory'),
     require('../httpclient/notification'),
     require('../httpclient/subscription'),
+    require('../httpclient/rule'),
     require('../httpclient/transfer')
   ],
   modules: {
