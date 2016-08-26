@@ -30,7 +30,7 @@
     "joi":"9.0.4",
     "ut-bus": "~5.4.7",
     "ut-port-httpserver":"~6.2.6",
-    "ut-port-jsonrpc": "~5.4.1",
+    "ut-port-jsonrpc": "~5.5.0",
     "ut-port-script":"~5.4.3",
     "ut-run":"~6.0.2",
     "pm2":"1.1.3"
