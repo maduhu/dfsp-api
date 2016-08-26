@@ -39,7 +39,8 @@
     "blue-tape":"0.2.0",
     "tap-xunit": "1.4.0",
     "ut-port-performance": "~5.4.5",
-    "ut-tools": "^5.8.0"
+    "ut-port-console": "~6.1.4",
+    "ut-tools": "^5.8.1"
   },
   "repository": {
     "type": "git",
