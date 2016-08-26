@@ -33,11 +33,6 @@
     "ut-port-jsonrpc": "~5.4.1",
     "ut-port-script":"~5.4.3",
     "ut-run":"~6.0.2",
-    "dfsp-account": "*",
-    "dfsp-directory": "*",
-    "dfsp-notification": "*",
-    "dfsp-subscription": "*",
-    "dfsp-transfer": "*",
     "pm2":"1.1.3"
   },
   "devDependencies": {
