@@ -50,6 +50,9 @@
     "node": ">=4.4.7",
     "npm": ">=3.10.6"
   },
+  "publishConfig": {
+    "registry": "https://modusbox.jfrog.io/modusbox/api/npm/level1-npm-release"
+  },
   "author": "Stamen Peev <stamen.peev@softwaregroup-bg.com>",
   "license": "UNLICENSED"
 }
