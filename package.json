@@ -29,17 +29,17 @@
   "dependencies": {
     "joi": "9.0.4",
     "ut-bus": "~5.4.8",
+    "ut-port-console": "~6.1.4",
     "ut-port-httpserver": "~6.3.0",
     "ut-port-jsonrpc": "~5.5.1",
     "ut-port-script": "~5.4.3",
+    "ut-port-performance": "~5.4.5",
     "ut-run": "~6.1.2",
     "pm2": "2.0.12"
   },
   "devDependencies": {
     "blue-tape": "1.0.0",
     "tap-xunit": "1.4.0",
-    "ut-port-performance": "~5.4.5",
-    "ut-port-console": "~6.1.4",
     "ut-tools": "^5.8.1"
   },
   "repository": {
