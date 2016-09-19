@@ -1,6 +1,7 @@
 {
   "implementation": "dfsp-api",
   "console": {
+    "port": 30010,
     "server": {
       "host": "0.0.0.0",
       "port": 30010
