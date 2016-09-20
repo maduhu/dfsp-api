@@ -1,3 +1,13 @@
+<a name="0.1.2"></a>
+## [0.1.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.1.1...v0.1.2) (2016-09-19)
+
+
+### Bug Fixes
+
+* fix console port settings ([440648c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/440648c))
+
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.1.0...v0.1.1) (2016-09-19)
 
