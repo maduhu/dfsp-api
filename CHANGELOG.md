@@ -1,3 +1,13 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.1.2...v0.2.0) (2016-09-21)
+
+
+### Features
+
+* add identity.add method encapsulating bussiness logic for adding user, account and subscription ([0d5dd78](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0d5dd78))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.1.1...v0.1.2) (2016-09-19)
 
