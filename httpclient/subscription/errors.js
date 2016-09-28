@@ -1,5 +1,5 @@
 var create = require('ut-error').define
-var GeneralApiError = require('../generalApiError');
+var GeneralApiError = require('../generalApiError')
 var Subscription = create('subscription', GeneralApiError)
 
 module.exports = {

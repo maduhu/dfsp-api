@@ -1,5 +1,5 @@
 var create = require('ut-error').define
-var GeneralApiError = require('../generalApiError');
+var GeneralApiError = require('../generalApiError')
 var Rule = create('rule', GeneralApiError)
 
 module.exports = {

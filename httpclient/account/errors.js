@@ -1,5 +1,5 @@
 var create = require('ut-error').define
-var GeneralApiError = require('../generalApiError');
+var GeneralApiError = require('../generalApiError')
 var Account = create('account', GeneralApiError)
 var WrongParams = create('WrongParams', Account)
 
