@@ -1,4 +1,3 @@
-var errors = require('./errors')
 module.exports = {
   id: 'account',
   createPort: require('ut-port-jsonrpc'),

@@ -33,7 +33,7 @@ module.exports = {
         if (!res.accountNumber) {
           throw errors.accountNotFound({
             phoneNumber: params.phoneNumber
-          });
+          })
         }
         msg.payload.params.accountNumber = res.accountNumber
         return msg
@@ -46,7 +46,7 @@ module.exports = {
         if (!res.actorId) {
           throw errors.unknownPhone({
             phoneNumber: params.phoneNumber
-          });
+          })
         }
         return this.bus.importMethod('account.account.get')({
           actorId: res.actorId
@@ -55,7 +55,7 @@ module.exports = {
           if (!res.accountNumber) {
             throw errors.accountNotFound({
               phoneNumber: params.phoneNumber
-            });
+            })
           }
           msg.payload.params.accountNumber = res.accountNumber
           return msg
