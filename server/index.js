@@ -4,6 +4,7 @@ module.exports = {
     require('../script'),
     require('../httpclient/account'),
     require('../httpclient/directory'),
+    require('../httpclient/ledger'),
     require('../httpclient/notification'),
     require('../httpclient/subscription'),
     require('../httpclient/rule'),

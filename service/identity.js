@@ -9,20 +9,32 @@ module.exports = {
     }
   },
   add: function (msg, $meta) {
+    /* e.g.
+      {
+        "userNumber": "123456789",
+        "name": "Test Testov",
+        "phoneNumber": "0122523365225",
+        "accountNumber": "000000044"
+      }
+    */
     var reversals = []
+    var actorId
     $meta.method = 'directory.user.add'
     return importMethod($meta.method)(msg, $meta)
       .then((res) => {
-        msg.actorId = '' + res.actorId
+        actorId = '' + res.actorId
         reversals.push({
           method: 'directory.user.remove',
           msg: {
-            actorId: res.actorId
+            actorId: actorId
           }
         })
         if (msg.phoneNumber) {
           $meta.method = 'subscription.subscription.add'
-          return importMethod($meta.method)(msg, $meta)
+          return importMethod($meta.method)({
+            actorId: actorId,
+            phoneNumber: msg.phoneNumber
+          }, $meta)
             .then((res) => {
               reversals.push({
                 method: 'subscription.subscription.remove',
@@ -34,15 +46,32 @@ module.exports = {
         }
       })
       .then(() => {
-        if (msg.accountId) {
-          $meta.method = 'account.account.add'
-          return importMethod($meta.method)(msg, $meta)
+        if (msg.accountNumber) {
+          $meta.method = 'ledger.account.edit'
+          return importMethod($meta.method)({
+            accountNumber: msg.accountNumber,
+            balance: 100,
+            name: msg.accountNumber
+          }, $meta)
           .then((res) => {
             reversals.push({
-              method: 'account.account.remove',
+              method: 'ledger.account.remove',
               msg: {
-                accountId: res.accountId
+                accountNumber: msg.accountNumber
               }
+            })
+            $meta.method = 'account.account.add'
+            return importMethod($meta.method)({
+              actorId: actorId,
+              accountNumber: msg.accountNumber
+            }, $meta)
+            .then((res) => {
+              reversals.push({
+                method: 'account.account.remove',
+                msg: {
+                  accountNumber: msg.accountNumber
+                }
+              })
             })
           })
         }
