@@ -23,6 +23,11 @@ module.exports = {
         phoneNumber: params.phoneNumber
       })
       .then(function (result) {
+        if (!result.actorId) {
+          throw errors.unknownPhone({
+            phoneNumber: params.phoneNumber
+          });
+        }
         msg.payload.params.actorId = result.actorId
         return msg
       })
