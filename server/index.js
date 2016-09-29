@@ -11,7 +11,8 @@ module.exports = {
     require('../httpclient/transfer')
   ],
   modules: {
-    identity: require('../service/identity')
+    identity: require('../service/identity'),
+    wallet: require('../service/wallet')
   },
   validations: {
 
