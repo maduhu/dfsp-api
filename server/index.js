@@ -1,5 +1,6 @@
 module.exports = {
   ports: [
+    require('../httpclient/identity'),
     require('../httpserver'),
     require('../script'),
     require('../httpclient/account'),
@@ -11,10 +12,9 @@ module.exports = {
     require('../httpclient/transfer')
   ],
   modules: {
-    identity: require('../service/identity'),
     wallet: require('../service/wallet')
   },
   validations: {
-
+    wallet: require('../service/wallet/api')
   }
 }
