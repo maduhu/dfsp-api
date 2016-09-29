@@ -1,3 +1,23 @@
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.2.1...v0.3.0) (2016-09-29)
+
+
+### Bug Fixes
+
+* add http client to ledger service and implement ledger.account.get method for multiple cases ([e3ee09e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e3ee09e))
+* fix linting ([ee4865b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ee4865b))
+* fix linting ([f6d780f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f6d780f))
+* improve error handling ([08ad357](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/08ad357))
+* rename identity.add to wallet.add ([644f5ac](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/644f5ac))
+
+
+### Features
+
+* call identity.add during wallet.add ([4422cb5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4422cb5))
+* refactor http clients by moving them into separate folders. Implement account.add method ([f1d4c18](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f1d4c18))
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.2.0...v0.2.1) (2016-09-27)
 
