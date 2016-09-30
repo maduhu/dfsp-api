@@ -9,7 +9,27 @@ module.exports = {
     require('../httpclient/notification'),
     require('../httpclient/subscription'),
     require('../httpclient/rule'),
-    require('../httpclient/transfer')
+    require('../httpclient/transfer'),
+    {
+      id: 'ist',
+      createPort: require('ut-port-http'),
+      url: 'http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/user',
+      namespace: ['ist/directory'],
+      raw: {
+        json: true,
+        jar: true,
+        strictSSL: false
+      },
+      parseResponse: false,
+      requestTimeout: 300000,
+      method: 'post',
+      'directory.user.add.request.send': function (msg) {
+        return {
+          uri: '/add',
+          payload: msg
+        }
+      }
+    }
   ],
   modules: {
     wallet: require('../service/wallet')

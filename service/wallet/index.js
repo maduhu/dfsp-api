@@ -13,14 +13,14 @@ module.exports = {
       }
     */
     var reversals = []
-    var actorId
+    var result = Object.assign({}, msg)
     return importMethod('directory.user.add')(msg)
     .then((res) => {
-      actorId = '' + res.actorId
+      result.actorId = '' + res.actorId
       reversals.push({
         method: 'directory.user.remove',
         msg: {
-          actorId: actorId
+          actorId: result.actorId
         }
       })
       return res
@@ -28,7 +28,7 @@ module.exports = {
     .then((res) => {
       if (msg.phoneNumber) { // add subscription for the phone number
         return importMethod('subscription.subscription.add')({
-          actorId: actorId,
+          actorId: result.actorId,
           phoneNumber: msg.phoneNumber
         })
         .then((res) => {
@@ -52,6 +52,16 @@ module.exports = {
           name: msg.accountNumber
         })
         .then((res) => {
+          // {
+          //   id: 'http://localhost:8014/ledger/accounts/zzz',
+          //   name: 'zzz',
+          //   balance: '1000.00',
+          //   currency: 'TZS',
+          //   is_disabled: false
+          // }
+          result.uri = 'number:' + msg.userNumber
+          result.account = res.id
+          result.currency = res.currency
           reversals.push({
             method: 'ledger.account.remove',
             msg: {
@@ -67,7 +77,7 @@ module.exports = {
     .then((res) => { // create the account in the account service
       if (msg.accountNumber) {
         return importMethod('account.account.add')({
-          actorId: actorId,
+          actorId: result.actorId,
           accountNumber: msg.accountNumber
         })
         .then((res) => {
@@ -83,25 +93,38 @@ module.exports = {
         return res
       }
     })
-    .then(() => { // add the user and pin, note that in future the user identifier may not be the phone
+    .then((res) => { // add the user to the central directory
+      return importMethod('ist/directory.user.add')({
+        users: [
+          {
+            uri: result.uri,
+            name: msg.name,
+            account: result.account,
+            currency: result.currency
+          }
+        ]
+      })
+    })
+    .then((res) => { // add the user and pin, note that in future the user identifier may not be the phone
       return importMethod('identity.add')({
         hash: {
-          actorId: actorId,
+          actorId: result.actorId,
           identifier: msg.phoneNumber,
           type: 'password',
           password: msg.password
         }
       })
     })
-    .then(() => { // add the phone as identification
+    .then((res) => { // add the phone as identification
       return importMethod('identity.add')({
         hash: {
-          actorId: actorId,
+          actorId: result.actorId,
           identifier: msg.phoneNumber,
           type: 'ussd'
         }
       })
     })
+    .then((res) => (result))
     .catch((err) => {
       if (reversals.length) {
         return Promise.all(reversals.map((reversal) => {
