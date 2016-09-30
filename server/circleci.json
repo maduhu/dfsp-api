@@ -12,17 +12,15 @@
   "workerBus": {
     "logLevel": "error"
   },
-  "performance": {
-    "id": "dfsp-api",
-    "influx": {
-      "host": "influxdb",
-      "port": 4444
-    }
+  "performance": false,
+  "script": {
+    "mock": true
   },
   "db": {
     "logLevel": "trace",
     "db": {
-      "host": "postgres"
+      "host": "localhost",
+      "database": "circle_test"
     },
     "permission": {
       "requireSession": true
