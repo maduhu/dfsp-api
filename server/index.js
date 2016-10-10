@@ -32,7 +32,15 @@ module.exports = {
     }
   ],
   modules: {
-    wallet: require('../service/wallet')
+    wallet: require('../service/wallet'),
+    account: require('../service/account'),
+    directory: require('../service/directory'),
+    identity: require('../service/identity'),
+    ledger: require('../service/ledger'),
+    notification: require('../service/notification'),
+    rule: require('../service/rule'),
+    subscription: require('../service/subscription'),
+    transfer: require('../service/transfer')
   },
   validations: {
     wallet: require('../service/wallet/api')

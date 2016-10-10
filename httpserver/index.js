@@ -7,6 +7,16 @@ module.exports = {
   port: 8010,
   bundle: 'ussd',
   dist: path.resolve(__dirname, '../dist'),
+  imports: [
+    'account.start',
+    'directory.start',
+    'identity.start',
+    'ledger.start',
+    'notification.start',
+    'rule.start',
+    'subscription.start',
+    'transfer.start'
+  ],
   routes: {
     rpc: {
       method: '*',

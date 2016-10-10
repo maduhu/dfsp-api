@@ -4,6 +4,7 @@ module.exports = {
   createPort: require('ut-port-jsonrpc'),
   url: 'http://localhost:8014',
   namespace: ['ledger'],
+  imports: ['ledger'],
   method: 'post',
   'ledger.account.get.request.send': function (params, $meta) {
     /*
