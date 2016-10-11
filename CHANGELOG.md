@@ -1,3 +1,24 @@
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.3.0...v0.4.0) (2016-10-11)
+
+
+### Bug Fixes
+
+* add .npmrc ([60933e4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/60933e4))
+* add missing dependency ([fdbefed](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/fdbefed))
+* fix circle ci build ([5c71c30](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/5c71c30))
+* refactor resthooks behaviour ([c5456e6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/c5456e6))
+* wallet.add now adds user to the central directory ([147bf1b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/147bf1b))
+
+
+### Features
+
+* automate build ([b5d1abb](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b5d1abb))
+* prepare REST implementation infrastructure around all dfsp-api methods ([ae4aed4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ae4aed4))
+* split rest logic into separate files by implementing a resthooks module for bootstraping the rest methods ([90d53f3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/90d53f3))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.2.1...v0.3.0) (2016-09-29)
 
