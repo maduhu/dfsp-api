@@ -28,11 +28,11 @@
   },
   "dependencies": {
     "joi": "9.0.4",
-    "ut-bus": "^5.4.9",
+    "ut-bus": "^5.4.14",
     "ut-port-console": "^6.1.5",
-    "ut-port-httpserver": "^6.5.2",
-    "ut-port-http": "^6.3.6",
-    "ut-port-jsonrpc": "^5.5.3",
+    "ut-port-httpserver": "^6.6.0",
+    "ut-port-http": "^6.3.8",
+    "ut-port-jsonrpc": "^5.5.4",
     "ut-port-script": "^5.4.4",
     "ut-port-performance": "^5.4.6",
     "ut-run": "^6.3.1",
@@ -42,7 +42,7 @@
   "devDependencies": {
     "blue-tape": "1.0.0",
     "tap-xunit": "1.4.0",
-    "ut-tools": "^5.8.2"
+    "ut-tools": "^5.9.9"
   },
   "repository": {
     "type": "git",
