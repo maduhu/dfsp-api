@@ -42,12 +42,10 @@ module.exports = {
     },
     method: 'get'
   },
-  hooks: {
-    'account.get.request.send': function (msg, $meta) {
-      return this.config.send(msg, $meta)
-    },
-    'account.get.response.receive': function (msg, $meta) {
-      return this.config.receive(msg, $meta)
-    }
+  'account.get.request.send': function (msg, $meta) {
+    return this.config.send(msg, $meta)
+  },
+  'account.get.response.receive': function (msg, $meta) {
+    return this.config.receive(msg, $meta)
   }
 }

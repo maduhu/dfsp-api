@@ -48,30 +48,36 @@ function defaultReply (reply, response, $meta) {
   }, (response.debug && response.debug.statusCode) || 400)
 }
 
-module.exports = function (methodsArray) {
-  var methods = {
+module.exports = function (methods) {
+  var spec = {
     rest: [],
     hooks: {}
   }
-  methodsArray.forEach(function (method) {
+  methods.forEach(function (method) {
     if (method.rest) {
       if (!method.rest.reply) {
         method.rest.reply = defaultReply
       }
-      if (method.config && method.config.validate && !method.config.validate.failAction) {
-        method.config.validate.failAction = validationFailHandler
+      if (method.rest.config && method.rest.config.validate && !method.rest.config.validate.failAction) {
+        method.rest.config.validate.failAction = validationFailHandler
       }
-      methods.rest.push(method.rest)
+      spec.rest.push(method.rest)
     }
-    method.hooks && Object.assign(methods.hooks, method.hooks)
+    delete method.rest
+    Object.assign(spec.hooks, Object.keys(method).reduce((hooks, prop) => {
+      if (typeof method[prop] === 'function') {
+        hooks[prop] = method[prop]
+      }
+      return hooks
+    }, {}))
   })
   return Object.assign({
     start: function () {
       if (!this.registerRequestHandler) {
         return
       }
-      methods.rest.length && this.registerRequestHandler(
-        methods.rest.map((route) => {
+      spec.rest.length && this.registerRequestHandler(
+        spec.rest.map((route) => {
           return {
             method: route.method,
             path: route.path,
@@ -83,5 +89,5 @@ module.exports = function (methodsArray) {
         })
       )
     }
-  }, methods.hooks)
+  }, spec.hooks)
 }
