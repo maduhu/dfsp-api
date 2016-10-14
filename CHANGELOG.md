@@ -1,3 +1,18 @@
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.4.0...v0.5.0) (2016-10-14)
+
+
+### Bug Fixes
+
+* upgrade dependencies ([9841272](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9841272))
+
+
+### Features
+
+* changes related to requiring peer implementations from tests ([f8c051e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f8c051e))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.3.0...v0.4.0) (2016-10-11)
 
