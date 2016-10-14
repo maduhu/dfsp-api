@@ -30,22 +30,22 @@
     "version": "ut-version"
   },
   "dependencies": {
-    "joi": "9.1.0",
+    "joi": "9.1.1",
     "ut-bus": "^5.4.14",
     "ut-port-console": "^6.1.5",
-    "ut-port-httpserver": "^6.6.0",
-    "ut-port-http": "^6.3.8",
+    "ut-port-httpserver": "^6.8.0",
+    "ut-port-http": "^6.3.10",
     "ut-port-jsonrpc": "^5.5.4",
     "ut-port-script": "^5.4.4",
     "ut-port-performance": "^5.4.6",
-    "ut-run": "^6.3.1",
+    "ut-run": "^6.4.0",
     "ut-error": "^5.3.15",
     "pm2": "2.0.18"
   },
   "devDependencies": {
     "blue-tape": "1.0.0",
     "tap-xunit": "1.4.0",
-    "ut-tools": "^5.9.9"
+    "ut-tools": "^5.9.10"
   },
   "repository": {
     "type": "git",
