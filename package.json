@@ -35,7 +35,7 @@
     "ut-port-console": "^6.1.5",
     "ut-port-httpserver": "^6.8.0",
     "ut-port-http": "^6.3.10",
-    "ut-port-jsonrpc": "^5.5.4",
+    "ut-port-jsonrpc": "^5.5.5",
     "ut-port-script": "^5.4.4",
     "ut-port-performance": "^5.4.6",
     "ut-run": "^6.4.0",
@@ -45,7 +45,7 @@
   "devDependencies": {
     "blue-tape": "1.0.0",
     "tap-xunit": "1.4.0",
-    "ut-tools": "^5.9.10"
+    "ut-tools": "^5.10.2"
   },
   "repository": {
     "type": "git",
