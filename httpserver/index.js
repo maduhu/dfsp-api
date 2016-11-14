@@ -8,6 +8,7 @@ module.exports = {
   bundle: 'ussd',
   dist: path.resolve(__dirname, '../dist'),
   imports: [
+    // http client modules
     'account.start',
     'directory.start',
     'identity.start',
@@ -15,7 +16,9 @@ module.exports = {
     'notification.start',
     'rule.start',
     'subscription.start',
-    'transfer.start'
+    'transfer.start',
+    // script modules
+    'receivers.start'
   ],
   routes: {
     rpc: {
