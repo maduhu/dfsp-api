@@ -30,7 +30,24 @@ module.exports = {
   },
   'payee.get': function (msg, $meta) {
     return this.bus.importMethod('ledger.account.get')({
-        accountNumber: '000000001'
+      accountNumber: msg.payee
+    }).then((ledgerRes) => {
+      return this.bus.importMethod('account.account.get')({
+        accountNumber: msg.payee
+      }).then((accountRes) => {
+        return this.bus.importMethod('directory.user.get')({
+          URI: 'actor:' + accountRes.actorId
+        }).then((directoryRes) => {
+          return {
+            type: 'payee',
+            name: directoryRes.name,
+            account: ledgerRes.id,
+            currencyCode: ledgerRes.currencyCode,
+            currencySymbol: ledgerRes.currencySymbol,
+            imageUrl: 'https://red.ilpdemo.org/api/receivers/' + directoryRes.name + '/profile_pic.jpg'
+          }
+        })
+      })
     })
   }
 }

@@ -7,6 +7,7 @@ module.exports = {
   port: 8010,
   bundle: 'ussd',
   dist: path.resolve(__dirname, '../dist'),
+  validationPassThrough: true,
   imports: [
     // http client modules
     'account.start',
