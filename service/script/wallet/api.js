@@ -3,6 +3,7 @@ module.exports = {
   add: {
     description: 'Create wallet account',
     notes: 'Create wallet account based on phone number',
+    auth: false,
     params: joi.object({
       userNumber: joi.string(),
       name: joi.string(),

@@ -47,9 +47,6 @@
      "defaultPhone": "0122523365225",
      "defaultShortCode": "*123#"
   },
-  "######ist" : {
-    "url": "http://localhost:8021/directory/user"
-  },
   "cache": {
     "storage": "memory",
     "encoding": "json",
