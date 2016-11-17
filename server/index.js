@@ -27,6 +27,6 @@ module.exports = {
     transfer: require('../service/http/transfer')
   },
   validations: {
-    wallet: require('../service/script/wallet/api')
+    // wallet: require('../service/script/wallet/api')
   }
 }

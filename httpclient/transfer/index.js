@@ -5,4 +5,4 @@ module.exports = {
   namespace: ['transfer'],
   imports: ['transfer'],
   method: 'post'
-}
+  }
