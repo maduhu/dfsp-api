@@ -31,11 +31,11 @@ module.exports = {
   'invoice.edit.request.send': function (msg, $meta) {
     return this.config.send({
       invoiceId: msg.invoiceId,
-      status: 'e'
+      statusCode: 'e'
     }, $meta)
   },
   'invoice.edit.response.receive': function (msg, $meta) {
-    return this.config.receive({
+    return this.config.receive(msg.payload.error ? msg : {
       payload: {
         result: {
           senderIdentifier: msg.payload.result.userNumber,
