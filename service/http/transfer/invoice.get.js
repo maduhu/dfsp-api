@@ -4,8 +4,8 @@ module.exports = {
     rpc: 'transfer.invoice.get',
     path: '/receivers/invoices/{invoiceId}',
     config: {
-      description: 'Add transfer notification',
-      notes: 'Add transfer notification',
+      description: 'Get information about an invoice',
+      notes: 'Get information about an invoice',
       tags: ['api'],
       validate: {
         params: joi.object({
@@ -17,7 +17,17 @@ module.exports = {
           responses: {
             '200': {
               description: 'Invoice information',
-              schema: joi.any()
+              schema: joi.object().keys({
+                invoiceId: joi.number().description('Invoice Id'),
+                account: joi.string().description('Account'),
+                name: joi.string().description('Name'),
+                currencyCode: joi.string().description('Currency Code'),
+                currencySymbol: joi.string().description('Currency Symbol'),
+                amount: joi.string().description('Amount'),
+                status: joi.string().description('Status'),
+                userNumber: joi.string().description('User Number'),
+                invoiceInfo: joi.string().description('Invoice Info')
+              })
             }
           }
         }

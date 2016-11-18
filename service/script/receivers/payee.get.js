@@ -4,22 +4,26 @@ module.exports = {
     rpc: 'receivers.payee.get',
     path: '/receivers/{payee}',
     config: {
-      description: 'Get account info',
-      notes: 'Obtains information about what actor is associated with a certain account',
+      description: 'Get Payee information',
+      notes: 'Obtains information about a payee',
       tags: ['api'],
       validate: {
         params: joi.object({
-          payee: joi.string().description('Account Number')
+          payee: joi.string().description('Payee')
         })
       },
       plugins: {
         'hapi-swagger': {
           responses: {
             '200': {
-              description: 'Account information was obtained successfully',
+              description: 'Payee information was obtained successfully',
               schema: joi.object({
-                accountNumber: joi.string(),
-                actorId: joi.string()
+                type: joi.string().description('Receiver type'),
+                name: joi.string().description('Receiver name'),
+                account: joi.string().description('Account'),
+                currencyCode: joi.string().description('Currency Code'),
+                currencySymbol: joi.string().description('Currency Symbol'),
+                imageUrl: joi.string().description('Imaage URL')
               })
             }
           }

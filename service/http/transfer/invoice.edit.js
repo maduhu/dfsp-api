@@ -4,8 +4,8 @@ module.exports = {
     rpc: 'transfer.invoice.edit',
     path: '/receivers/invoices/{invoiceId}',
     config: {
-      description: 'Add transfer notification',
-      notes: 'Add transfer notification',
+      description: 'Approve an invoice transfer',
+      notes: 'Approve an invoice transfer',
       tags: ['api'],
      validate: {
         params: joi.object({
@@ -17,7 +17,10 @@ module.exports = {
           responses: {
             '200': {
               description: 'Invoice approved',
-              schema: joi.any()
+              schema: joi.object().keys({
+                senderIdentifier: joi.string().description('Sender Identifier'),
+                status: joi.string().description('Status')
+              })
             }
           }
         }
@@ -28,7 +31,7 @@ module.exports = {
   'invoice.edit.request.send': function (msg, $meta) {
     return this.config.send({
       invoiceId: msg.invoiceId,
-      status: 'a'
+      status: 'e'
     }, $meta)
   },
   'invoice.edit.response.receive': function (msg, $meta) {
@@ -36,7 +39,7 @@ module.exports = {
       payload: {
         result: {
           senderIdentifier: msg.payload.result.userNumber,
-          status: 'executed'
+          status: msg.payload.result.status
         }
       }
     }, $meta)

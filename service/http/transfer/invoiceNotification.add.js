@@ -15,8 +15,8 @@ module.exports = {
       }, (response.debug && response.debug.statusCode) || 400)
     },
     config: {
-      description: 'Add transfer notification',
-      notes: 'Add transfer notification',
+      description: 'Add invoice notification',
+      notes: 'Add invoice notification',
       tags: ['api'],
       validate: {
         payload: joi.object({
