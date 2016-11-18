@@ -27,16 +27,17 @@ module.exports = {
       msg.payload.params.accountNumber = params.accountNumber
       return msg
     } else if (params.actorId) {
-      return this.bus.importMethod('account.account.get')({
+      return this.bus.importMethod('account.account.fetch')({
         actorId: params.actorId
       })
       .then((res) => {
-        if (!res.accountNumber) {
+        var account = Array.isArray(res) && res[0]
+        if (!account) {
           throw errors.accountNotFound({
             phoneNumber: params.phoneNumber
           })
         }
-        msg.payload.params.accountNumber = res.accountNumber
+        msg.payload.params.accountNumber = account.accountNumber
         return msg
       })
     } else if (params.phoneNumber) {
@@ -49,16 +50,17 @@ module.exports = {
             phoneNumber: params.phoneNumber
           })
         }
-        return this.bus.importMethod('account.account.get')({
+        return this.bus.importMethod('account.account.fetch')({
           actorId: res.actorId
         })
         .then((res) => {
-          if (!res.accountNumber) {
+          var account = Array.isArray(res) && res[0]
+          if (!account) {
             throw errors.accountNotFound({
               phoneNumber: params.phoneNumber
             })
           }
-          msg.payload.params.accountNumber = res.accountNumber
+          msg.payload.params.accountNumber = account.accountNumber
           return msg
         })
       })
