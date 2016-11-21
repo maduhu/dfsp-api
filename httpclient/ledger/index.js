@@ -15,7 +15,7 @@ module.exports = {
 
     */
     var msg = {
-      uri: '/rpc',
+      uri: '/rpc/' + $meta.method,
       payload: {
         id: '1',
         jsonrpc: '2.0',
