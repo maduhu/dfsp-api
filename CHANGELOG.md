@@ -1,3 +1,30 @@
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.5.1...v0.6.0) (2016-11-22)
+
+
+### Bug Fixes
+
+* add invoice.edit method ([893d900](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/893d900))
+* add rest methods invoice.get and invoiceNotification.add ([ced1d55](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ced1d55))
+* change uri according to latest ut-port-httpserver changes to add rpc method after /rpc/ ([aa94fb4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/aa94fb4))
+* improve documentation ([dd4b032](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/dd4b032))
+* issue [#283](https://github.com/LevelOneProject/dfsp-api/issues/283) - DFSP License files are incorrect ([4f565c0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4f565c0))
+* lint errors ([50ed7c2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/50ed7c2))
+* put ist service into separate folder and add possibility for mock configuration ([db516f8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/db516f8))
+* refactoring ([4289a31](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4289a31))
+* update dependencies ([26eb9b7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/26eb9b7))
+* update dependency ([a933826](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/a933826))
+* use account.account.fetch instead of account.account.get when using actorId ([f54cc7c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f54cc7c))
+* use statusCode instead of status and add more robust error handling ([f763dd7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f763dd7))
+* validations and mock config ([deac1e1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/deac1e1))
+
+
+### Features
+
+* initial implementation for receivers.payee.get method ([d550f35](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d550f35))
+
+
+
 <a name="0.5.1"></a>
 ## [0.5.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.5.0...v0.5.1) (2016-10-14)
 
