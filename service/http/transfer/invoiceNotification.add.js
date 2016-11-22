@@ -40,9 +40,9 @@ module.exports = {
   },
   'invoiceNotification.add.request.send': function (msg, $meta) {
     return this.config.send({
-        invoiceUrl: msg.invoiceUrl,
-        userNumber: msg.clientUserNumber,
-        memo: msg.memo
+      invoiceUrl: msg.invoiceUrl,
+      userNumber: msg.clientUserNumber,
+      memo: msg.memo
     }, $meta)
   },
   'invoiceNotification.add.response.receive': function (msg, $meta) {

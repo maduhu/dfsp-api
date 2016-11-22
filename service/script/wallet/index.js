@@ -103,7 +103,7 @@ module.exports = {
             currency: result.currency
           }
         ]
-      })
+      }).catch(e => e)
     })
     .then((res) => { // add the user and pin, note that in future the user identifier may not be the phone
       return importMethod('identity.add')({

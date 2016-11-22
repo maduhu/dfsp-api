@@ -7,7 +7,7 @@ module.exports = {
       description: 'Approve an invoice transfer',
       notes: 'Approve an invoice transfer',
       tags: ['api'],
-     validate: {
+      validate: {
         params: joi.object({
           invoiceId: joi.string().description('Invoice Id')
         })
