@@ -1,3 +1,13 @@
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.6.0...v0.7.0) (2016-11-22)
+
+
+### Features
+
+* mock merchant invoice ([d1f2f01](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d1f2f01))
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.5.1...v0.6.0) (2016-11-22)
 
