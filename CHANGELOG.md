@@ -1,3 +1,13 @@
+<a name="0.7.1"></a>
+## [0.7.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.7.0...v0.7.1) (2016-11-24)
+
+
+### Bug Fixes
+
+* swap clientUserNumber with senderIndentifier ([44e162f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/44e162f))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.6.0...v0.7.0) (2016-11-22)
 
