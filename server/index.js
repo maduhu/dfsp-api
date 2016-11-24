@@ -10,6 +10,7 @@ module.exports = {
     require('../httpclient/subscription'),
     require('../httpclient/rule'),
     require('../httpclient/transfer'),
+    require('../httpclient/spsp'),
     require('../httpclient/ist')
   ],
   modules: {

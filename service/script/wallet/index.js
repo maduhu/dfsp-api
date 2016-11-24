@@ -9,7 +9,8 @@ module.exports = {
         "userNumber": "123456789",
         "name": "Test Testov",
         "phoneNumber": "0122523365225",
-        "accountNumber": "000000044"
+        "accountNumber": "000000044",
+        "password": 123
       }
     */
     var reversals = []
@@ -78,7 +79,8 @@ module.exports = {
       if (msg.accountNumber) {
         return importMethod('account.account.add')({
           actorId: result.actorId,
-          accountNumber: msg.accountNumber
+          accountNumber: msg.accountNumber,
+          isDefault: true
         })
         .then((res) => {
           reversals.push({
@@ -92,18 +94,6 @@ module.exports = {
       } else {
         return res
       }
-    })
-    .then((res) => { // add the user to the central directory
-      return importMethod('ist/directory.user.add')({
-        users: [
-          {
-            uri: result.uri,
-            name: msg.name,
-            account: result.account,
-            currency: result.currency
-          }
-        ]
-      }).catch(e => e)
     })
     .then((res) => { // add the user and pin, note that in future the user identifier may not be the phone
       return importMethod('identity.add')({

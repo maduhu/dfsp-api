@@ -33,15 +33,16 @@ module.exports = {
     method: 'get'
   },
   'payee.get': function (msg, $meta) {
-    return this.bus.importMethod('ledger.account.get')({
-      accountNumber: msg.payee
-    }).then((ledgerRes) => {
-      return this.bus.importMethod('account.account.get')({
-        accountNumber: msg.payee
+    return this.bus.importMethod('directory.user.get')({
+      userNumber: msg.payee
+    }).then((directoryRes) => {
+      return this.bus.importMethod('account.account.fetch')({
+        actorId: '' + directoryRes.actorId,
+        isDefault: true
       }).then((accountRes) => {
-        return this.bus.importMethod('directory.user.get')({
-          URI: 'actor:' + accountRes.actorId
-        }).then((directoryRes) => {
+        return this.bus.importMethod('ledger.account.get')({
+          accountNumber: accountRes[0].accountNumber
+        }).then((ledgerRes) => {
           return {
             type: 'payee',
             name: directoryRes.name,
