@@ -13,7 +13,7 @@ module.exports = {
   },
   parseResponse: false,
   requestTimeout: 300000,
-  method: 'get',
+  method: 'post',
   'directory.user.get.request.send': function (msg) {
     return {
       uri: '/resources',
@@ -25,6 +25,17 @@ module.exports = {
     }
   },
   'directory.user.get.response.receive': function (msg) {
+    return msg.payload
+  },
+  'directory.user.add.request.send': function (msg) {
+    return {
+      uri: '/user-registration/users',
+      payload: {
+        url: msg.url
+      }
+    }
+  },
+  'directory.user.add.response.receive': function (msg) {
     return msg.payload
   }
 }

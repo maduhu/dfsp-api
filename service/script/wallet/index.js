@@ -27,6 +27,7 @@ module.exports = {
       return res
     })
     .then((res) => {
+      result.userNumber = res.endUserNumber
       if (msg.phoneNumber) { // add subscription for the phone number
         return importMethod('subscription.subscription.add')({
           actorId: result.actorId,
@@ -60,7 +61,6 @@ module.exports = {
           //   currency: 'TZS',
           //   is_disabled: false
           // }
-          result.uri = 'number:' + msg.userNumber
           result.account = res.id
           result.currency = res.currency
           reversals.push({
