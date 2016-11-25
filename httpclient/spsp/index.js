@@ -11,15 +11,15 @@ module.exports = {
   requestTimeout: 300000,
   method: 'get',
   uri: '',
-  'spsp.invoice.get.request.send': function(msg) {
+  'spsp.invoice.get.request.send': function (msg) {
     return {
       url: msg.url
     }
   },
-  'spsp.invoice.get.error.receive': function(msg) {
+  'spsp.invoice.get.error.receive': function (msg) {
     return msg
   },
-  'spsp.invoice.get.response.receive': function(msg) {
+  'spsp.invoice.get.response.receive': function (msg) {
     return msg.payload
   },
   'spsp.payee.get.request.send': function (msg, $meta) {
