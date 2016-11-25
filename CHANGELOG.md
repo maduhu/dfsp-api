@@ -1,3 +1,13 @@
+<a name="0.7.3"></a>
+## [0.7.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.7.2...v0.7.3) (2016-11-25)
+
+
+### Bug Fixes
+
+* move ist integration entirely into dfsp-api ([de1d94d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/de1d94d))
+
+
+
 <a name="0.7.2"></a>
 ## [0.7.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.7.1...v0.7.2) (2016-11-25)
 
