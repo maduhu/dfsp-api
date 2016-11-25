@@ -10,7 +10,7 @@ module.exports = {
   parseResponse: false,
   requestTimeout: 300000,
   method: 'get',
-  'spsp.payee.get.request.send': function(msg, $meta) {
+  'spsp.payee.get.request.send': function (msg, $meta) {
     return this.bus.importMethod('ist/directory.user.get')({
       identifier: msg.identifier
     })
@@ -21,7 +21,7 @@ module.exports = {
       }
     })
   },
-  'spsp.payee.get.response.receive': function(msg, $meta) {
+  'spsp.payee.get.response.receive': function (msg, $meta) {
     return msg.payload
   }
 }
