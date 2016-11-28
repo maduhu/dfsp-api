@@ -1,3 +1,13 @@
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.7.4...v0.8.0) (2016-11-28)
+
+
+### Features
+
+* add 'userNotFound' error in case user is not found in central directory ([dfb2c16](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/dfb2c16))
+
+
+
 <a name="0.7.4"></a>
 ## [0.7.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.7.3...v0.7.4) (2016-11-25)
 
