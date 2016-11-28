@@ -1,3 +1,4 @@
+var errors = require('./errors')
 module.exports = {
   id: 'ist',
   createPort: require('ut-port-http'),
@@ -26,6 +27,9 @@ module.exports = {
   },
   'directory.user.get.response.receive': function (msg) {
     return msg.payload
+  },
+  'directory.user.get.error.receive': function (err) {
+    throw errors.userNotFound({error: err})
   },
   'directory.user.add.request.send': function (msg) {
     return {
