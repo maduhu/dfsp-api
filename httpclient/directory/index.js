@@ -12,7 +12,7 @@ module.exports = {
       })
       .then((res) => {
         return this.config.send({
-          userNumber: msg.userNumber,
+          userNumber: res.number,
           name: msg.name
         }, $meta)
       })

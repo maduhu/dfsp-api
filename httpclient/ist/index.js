@@ -41,5 +41,8 @@ module.exports = {
   },
   'directory.user.add.response.receive': function (msg) {
     return msg.payload
+  },
+  'directory.user.add.error.receive': function (err) {
+    throw err;
   }
 }
