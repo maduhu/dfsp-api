@@ -1,3 +1,13 @@
+<a name="0.9.0"></a>
+# [0.9.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.8.0...v0.9.0) (2016-11-28)
+
+
+### Features
+
+* add possibility to add predefined users in central directory when opening a new wallet ([22f4765](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/22f4765))
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.7.4...v0.8.0) (2016-11-28)
 
