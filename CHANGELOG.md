@@ -1,3 +1,14 @@
+<a name="0.7.4"></a>
+## [0.7.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.7.3...v0.7.4) (2016-11-25)
+
+
+### Bug Fixes
+
+* add spsp.invoice.get method ([3f9cce6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3f9cce6))
+* linting ([e2a2b34](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e2a2b34))
+
+
+
 <a name="0.7.3"></a>
 ## [0.7.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.7.2...v0.7.3) (2016-11-25)
 
