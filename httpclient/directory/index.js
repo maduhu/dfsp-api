@@ -6,14 +6,17 @@ module.exports = {
   imports: ['directory'],
   method: 'post',
   'directory.user.add.request.send': function (msg, $meta) {
-    return this.bus.importMethod('ist/directory.user.add')({
-      url: 'http://localhost:8010'
-    })
-    .then((res) => {
-      return this.config.send({
-        userNumber: res.number,
-        name: msg.name
-      }, $meta)
-    })
+    if (!msg.userNumber) {
+      return this.bus.importMethod('ist/directory.user.add')({
+        url: 'http://localhost:8010'
+      })
+      .then((res) => {
+        return this.config.send({
+          userNumber: msg.userNumber,
+          name: msg.name
+        }, $meta)
+      })
+    }
+    return this.config.send(msg, $meta)
   }
 }

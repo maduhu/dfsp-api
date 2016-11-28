@@ -15,16 +15,36 @@ module.exports = {
     */
     var reversals = []
     var result = Object.assign({}, msg)
-    return importMethod('directory.user.add')(msg)
+    return new Promise((resolve, reject) => {
+      if (msg.userNumber) {
+        return this.bus.importMethod('ist/directory.user.get')({
+          identifier: msg.userNumber
+        })
+        .then((res) => {
+          return resolve({
+            userNumber: msg.userNumber
+          })
+        })
+        .catch((err) => {
+          return reject(err)
+        })
+      } else {
+        resolve({})
+      }
+    })
     .then((res) => {
-      result.actorId = '' + res.actorId
-      reversals.push({
-        method: 'directory.user.remove',
-        msg: {
-          actorId: result.actorId
-        }
+      msg.userNumber = res.userNumber
+      return importMethod('directory.user.add')(msg)
+      .then((res) => {
+        result.actorId = '' + res.actorId
+        reversals.push({
+          method: 'directory.user.remove',
+          msg: {
+            actorId: result.actorId
+          }
+        })
+        return res
       })
-      return res
     })
     .then((res) => {
       result.userNumber = res.endUserNumber
