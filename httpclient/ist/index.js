@@ -43,6 +43,6 @@ module.exports = {
     return msg.payload
   },
   'directory.user.add.error.receive': function (err) {
-    throw err;
+    throw errors.userCouldNotBeAdded({error: err})
   }
 }
