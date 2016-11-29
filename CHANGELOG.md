@@ -1,3 +1,14 @@
+<a name="0.9.1"></a>
+## [0.9.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.9.0...v0.9.1) (2016-11-28)
+
+
+### Bug Fixes
+
+* linting ([86b47c0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/86b47c0))
+* update dependencies ([3b106bd](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3b106bd))
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.8.0...v0.9.0) (2016-11-28)
 
