@@ -2,7 +2,7 @@ var joi = require('joi')
 module.exports = {
   rest: {
     rpc: 'transfer.invoiceNotification.add',
-    path: '/receivers/invoices',
+    path: '/invoices',
     reply: (reply, response, $meta) => {
       if (!response.error) {
         return reply(null, null, 201)

@@ -14,7 +14,8 @@ module.exports = {
           currencyCode: joi.string().description('currencyCode').example('USD'),
           currencySymbol: joi.string().description('currencySymbol').example('$'),
           amount: joi.number().description('amount').example(222),
-          userNumber: joi.string().description('userNumber').example('l1p')
+          userNumber: joi.string().description('userNumber').example('l1p'),
+          submissionUrl: joi.string().description('http://localhost:8010')
         })
       },
       plugins: {
