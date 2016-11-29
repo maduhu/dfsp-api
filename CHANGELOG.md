@@ -1,3 +1,13 @@
+<a name="0.9.2"></a>
+## [0.9.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.9.1...v0.9.2) (2016-11-29)
+
+
+### Bug Fixes
+
+* change /receivers/invoices to /invoices ([d0ed346](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d0ed346))
+
+
+
 <a name="0.9.1"></a>
 ## [0.9.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.9.0...v0.9.1) (2016-11-28)
 
