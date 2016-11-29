@@ -23,7 +23,7 @@ module.exports = {
           invoiceUrl: joi.string().description('Invoice URL'),
           senderIdentifier: joi.string().description('Client userNumber'),
           memo: joi.string().description('memo')
-        })
+        }).unknown()
       },
       plugins: {
         'hapi-swagger': {
