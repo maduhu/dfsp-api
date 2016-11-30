@@ -1,3 +1,13 @@
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.9.3...v0.10.0) (2016-11-30)
+
+
+### Features
+
+* add more detailed logging to http clients ([156d552](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/156d552))
+
+
+
 <a name="0.9.3"></a>
 ## [0.9.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.9.2...v0.9.3) (2016-11-29)
 
