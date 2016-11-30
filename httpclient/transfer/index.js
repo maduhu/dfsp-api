@@ -4,5 +4,6 @@ module.exports = {
   url: 'http://localhost:8018',
   namespace: ['transfer'],
   imports: ['transfer'],
+  logLevel: 'debug',
   method: 'post'
 }

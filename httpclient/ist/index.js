@@ -14,6 +14,7 @@ module.exports = {
   },
   parseResponse: false,
   requestTimeout: 300000,
+  logLevel: 'debug',
   method: 'post',
   'directory.user.get.request.send': function (msg) {
     return {

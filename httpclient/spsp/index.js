@@ -9,6 +9,7 @@ module.exports = {
   },
   parseResponse: false,
   requestTimeout: 300000,
+  logLevel: 'debug',
   method: 'get',
   uri: '',
   'spsp.invoice.get.request.send': function (msg) {

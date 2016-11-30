@@ -4,5 +4,6 @@ module.exports = {
   url: 'http://localhost:8016',
   namespace: ['rule'],
   imports: ['rule'],
+  logLevel: 'debug',
   method: 'post'
 }

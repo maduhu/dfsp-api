@@ -5,6 +5,7 @@ module.exports = {
   url: 'http://localhost:8014',
   namespace: ['ledger'],
   imports: ['ledger'],
+  logLevel: 'debug',
   method: 'post',
   'ledger.account.get.request.send': function (params, $meta) {
     /*

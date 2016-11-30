@@ -4,6 +4,7 @@ module.exports = {
   url: 'http://localhost:8011',
   namespace: ['directory'],
   imports: ['directory'],
+  logLevel: 'debug',
   method: 'post',
   'directory.user.add.request.send': function (msg, $meta) {
     if (!msg.userNumber) {

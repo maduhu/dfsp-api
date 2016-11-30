@@ -4,6 +4,7 @@ module.exports = {
   url: 'http://localhost:8012',
   namespace: ['identity'],
   imports: ['identity'],
+  logLevel: 'debug',
   method: 'post',
   'identity.check': function () {
     return {
