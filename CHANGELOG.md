@@ -1,3 +1,13 @@
+<a name="0.9.3"></a>
+## [0.9.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.9.2...v0.9.3) (2016-11-29)
+
+
+### Bug Fixes
+
+* make transfer.invoiceNotification.add rest method validations tolerant ([90a2dbb](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/90a2dbb))
+
+
+
 <a name="0.9.2"></a>
 ## [0.9.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.9.1...v0.9.2) (2016-11-29)
 
