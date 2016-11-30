@@ -1,3 +1,13 @@
+<a name="0.11.0"></a>
+# [0.11.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.10.0...v0.11.0) (2016-11-30)
+
+
+### Features
+
+* add type property of GET receivers/invoices/:id ([628a9b6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/628a9b6))
+
+
+
 <a name="0.10.0"></a>
 # [0.10.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.9.3...v0.10.0) (2016-11-30)
 
