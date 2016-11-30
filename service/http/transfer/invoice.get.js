@@ -18,6 +18,7 @@ module.exports = {
             '200': {
               description: 'Invoice information',
               schema: joi.object().keys({
+                type: joi.string().description('Type'),
                 invoiceId: joi.number().description('Invoice Id'),
                 account: joi.string().description('Account'),
                 name: joi.string().description('Name'),
