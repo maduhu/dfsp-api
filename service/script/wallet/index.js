@@ -17,7 +17,7 @@ module.exports = {
     var result = Object.assign({}, msg)
     return new Promise((resolve, reject) => {
       if (msg.userNumber) {
-        return this.bus.importMethod('ist/directory.user.get')({
+        return importMethod('ist/directory.user.get')({
           identifier: msg.userNumber
         })
         .then((res) => {

@@ -19,7 +19,8 @@ module.exports = {
     'subscription.start',
     'transfer.start',
     // script modules
-    'receivers.start'
+    'receivers.start',
+    'utils.start'
   ],
   routes: {
     rpc: {
