@@ -17,6 +17,7 @@ module.exports = {
     // modules to be imported in the script port
     wallet: require('../service/script/wallet'),
     receivers: require('../service/script/receivers'),
+    utils: require('../service/script/utils'),
     // modules to be imported in the http ports
     account: require('../service/http/account'),
     directory: require('../service/http/directory'),
