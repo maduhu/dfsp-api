@@ -1,3 +1,4 @@
 module.exports = require('../../resthooks')([
-  require('./wallet.add')
+  require('./samples.add'),
+  require('./samples.get')
 ])

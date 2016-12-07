@@ -1,0 +1,92 @@
+{
+  "dfsp1": [
+    {
+      "userNumber": "26547070",
+      "name": "bob",
+      "accountNumber": "bob",
+      "phoneNumber": "bob",
+      "password": "1234"
+    },
+    {
+      "userNumber": "85555384",
+      "name": "alice",
+      "accountNumber": "alice",
+      "phoneNumber": "alice",
+      "password": "1234"
+    },
+    {
+      "userNumber": "47168965",
+      "name": "merchant",
+      "accountNumber": "merchant",
+      "phoneNumber": "merchant",
+      "password": "1234"
+    },
+    {
+      "userNumber": "34654426",
+      "name": "dfsp1connector",
+      "accountNumber": "dfsp1connector",
+      "phoneNumber": "dfsp1connector",
+      "password": "1234"
+    }
+  ],
+  "dfsp2": [
+    {
+      "userNumber": "78956562",
+      "name": "bob",
+      "accountNumber": "bob",
+      "phoneNumber": "bob",
+      "password": "1234"
+    },
+    {
+      "userNumber": "38439659",
+      "name": "alice",
+      "accountNumber": "alice",
+      "phoneNumber": "alice",
+      "password": "1234"
+    },
+    {
+      "userNumber": "29201743",
+      "name": "merchant",
+      "accountNumber": "merchant",
+      "phoneNumber": "merchant",
+      "password": "1234"
+    },
+    {
+      "userNumber": "63109827",
+      "name": "dfsp2connector",
+      "accountNumber": "dfsp2connector",
+      "phoneNumber": "dfsp2connector",
+      "password": "1234"
+    }
+  ],
+  "dev": [
+    {
+      "userNumber": "26547070",
+      "name": "bob",
+      "accountNumber": "bob",
+      "phoneNumber": "bob",
+      "password": "1234"
+    },
+    {
+      "userNumber": "85555384",
+      "name": "alice",
+      "accountNumber": "alice",
+      "phoneNumber": "alice",
+      "password": "1234"
+    },
+    {
+      "userNumber": "47168965",
+      "name": "merchant",
+      "accountNumber": "merchant",
+      "phoneNumber": "merchant",
+      "password": "1234"
+    },
+    {
+      "userNumber": "34654426",
+      "name": "dfspconnector",
+      "accountNumber": "dfspconnector",
+      "phoneNumber": "dfspconnector",
+      "password": "1234"
+    }
+  ]
+}
