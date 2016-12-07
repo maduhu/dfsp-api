@@ -1,3 +1,14 @@
+<a name="0.12.0"></a>
+# [0.12.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.11.0...v0.12.0) (2016-12-07)
+
+
+### Features
+
+* add initial implementation for wallet.add utils method ([181078b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/181078b))
+* add utility methods for adding sample data ([2b620e8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/2b620e8))
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.10.0...v0.11.0) (2016-11-30)
 
