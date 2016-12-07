@@ -1,3 +1,9 @@
+var snakeToCamelRegExp = /_\w/g
+function snakeToCamel (value) {
+  return value.replace(snakeToCamelRegExp, function (m) {
+    return m[1].toUpperCase()
+  })
+}
 module.exports = {
   id: 'spsp',
   createPort: require('ut-port-http'),
@@ -21,7 +27,10 @@ module.exports = {
     return msg
   },
   'spsp.invoice.get.response.receive': function (msg) {
-    return msg.payload
+    return msg.payload && Object.keys(msg.payload).reduce((obj, key) => {
+      obj[snakeToCamel(key)] = msg.payload[key]
+      return obj
+    }, {})
   },
   'spsp.payee.get.request.send': function (msg, $meta) {
     return this.bus.importMethod('ist/directory.user.get')({
