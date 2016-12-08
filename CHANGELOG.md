@@ -1,3 +1,13 @@
+<a name="0.12.3"></a>
+## [0.12.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.2...v0.12.3) (2016-12-08)
+
+
+### Bug Fixes
+
+* add receiver when approving pending transaction and making p2p transfer ([3e0e486](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3e0e486))
+
+
+
 <a name="0.12.2"></a>
 ## [0.12.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.1...v0.12.2) (2016-12-08)
 
