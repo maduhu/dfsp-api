@@ -1,9 +1,17 @@
 var create = require('ut-error').define
-var GeneralApiError = require('../generalApiError')
-var Subscription = create('subscription', GeneralApiError)
+
+var RPC = create('SPSP')
+var Generic = create('Generic', RPC)
+var WrongJsonRpcFormat = create('WrongJsonRpcFormat', RPC)
 
 module.exports = {
-  subscription: function (cause) {
-    return new Subscription(cause)
+  rpc: function (cause) {
+    return new RPC(cause)
+  },
+  generic: function (cause) {
+    return new Generic(cause)
+  },
+  wrongJsonRpcFormat: function (cause) {
+    return new WrongJsonRpcFormat(cause)
   }
 }

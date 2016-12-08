@@ -9,13 +9,13 @@ module.exports = {
       tags: ['api'],
       validate: {
         payload: joi.object({
-          account: joi.string().description('account').example('l1p'),
-          name: joi.string().description('name').example('l1p'),
+          account: joi.string().description('account').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8014/ledger/accounts/merchant'),
+          name: joi.string().description('name').example('merchant'),
           currencyCode: joi.string().description('currencyCode').example('USD'),
           currencySymbol: joi.string().description('currencySymbol').example('$'),
-          amount: joi.number().description('amount').example(222),
-          userNumber: joi.string().description('userNumber').example('l1p'),
-          submissionUrl: joi.string().description('http://localhost:8010')
+          amount: joi.number().description('amount').example(123),
+          userNumber: joi.string().description('userNumber').example('78956562'),
+          submissionUrl: joi.string().description('submissionUrl').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1')
         })
       },
       plugins: {
@@ -36,12 +36,5 @@ module.exports = {
       }
     },
     method: 'post'
-  },
-  'invoice.add.request.send': function (msg, $meta) {
-    msg.invoiceInfo = 'Invoice from ' + msg.name + ' for ' + msg.amount + ' ' + msg.currencyCode
-    return this.config.send(msg, $meta)
-  },
-  'invoice.add.response.receive': function (msg, $meta) {
-    return this.config.receive(msg, $meta)
   }
 }
