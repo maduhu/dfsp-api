@@ -115,7 +115,7 @@ module.exports = {
       identifier: msg.identifier
     })
     .then((res) => {
-      $meta.submissionUrl = res.spspReceiver
+      $meta.spspServer = res.spspReceiver
       return {
         uri: '/query',
         httpMethod: 'get',
@@ -126,8 +126,8 @@ module.exports = {
     })
   },
   'spsp.transfer.payee.get.response.receive': function (msg, $meta) {
-    msg.payload.submissionUrl = $meta.submissionUrl
-    delete $meta.submissionUrl
+    msg.payload.spspServer = $meta.spspServer
+    delete $meta.spspServer
     return msg.payload
   },
   'receive': function (msg, $meta) {

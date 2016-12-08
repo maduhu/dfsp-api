@@ -15,7 +15,7 @@ module.exports = {
           currencySymbol: joi.string().description('currencySymbol').example('$'),
           amount: joi.number().description('amount').example(123),
           userNumber: joi.string().description('userNumber').example('78956562'),
-          submissionUrl: joi.string().description('submissionUrl').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1')
+          spspServer: joi.string().description('spspServer').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1')
         })
       },
       plugins: {

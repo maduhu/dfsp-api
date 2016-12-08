@@ -8,7 +8,7 @@ module.exports = {
   method: 'post',
   'transfer.push.execute.request.send': function (msg, $meta) {
     return this.bus.importMethod('spsp.transfer.transfer.setup')({
-      receiver: msg.destinationAccount,
+      receiver: msg.receiver,
       sourceAccount: msg.sourceAccount,
       destinationAmount: msg.destinationAmount,
       memo: '',
@@ -22,7 +22,7 @@ module.exports = {
     })
   },
   'transfer.invoice.add.request.send': function (msg, $meta) {
-    $meta.submissionUrl = msg.submissionUrl
+    $meta.spspServer = msg.spspServer
     return this.config.send(msg, $meta)
   },
   'transfer.invoice.add.response.receive': function (msg, $meta) {
@@ -40,7 +40,7 @@ module.exports = {
     // }
     var params = {
       memo: 'Invoice from ' + result.name + ' for ' + result.amount + ' ' + result.currencyCode,
-      submissionUrl: $meta.submissionUrl + '/invoices'
+      submissionUrl: $meta.spspServer + '/invoices'
     }
     if (this.bus.config.spsp && this.bus.config.spsp.url && this.bus.config.spsp.url.startsWith('http://localhost')) {
       $meta.method = 'transfer.invoiceNotification.add'
