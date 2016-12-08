@@ -1,3 +1,13 @@
+<a name="0.12.1"></a>
+## [0.12.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.0...v0.12.1) (2016-12-07)
+
+
+### Bug Fixes
+
+* convert snake_case to camelCase after receiving invoice from invoice.get ([e6e3a8a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e6e3a8a))
+
+
+
 <a name="0.12.0"></a>
 # [0.12.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.11.0...v0.12.0) (2016-12-07)
 
