@@ -1,3 +1,14 @@
+<a name="0.12.2"></a>
+## [0.12.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.1...v0.12.2) (2016-12-08)
+
+
+### Bug Fixes
+
+* refactoring - move spsp integration from dfsp-transfer to dfsp-api ([6afd1ee](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6afd1ee))
+* update dependency to ut-port-jsonrpc ([28d5dd0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/28d5dd0))
+
+
+
 <a name="0.12.1"></a>
 ## [0.12.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.0...v0.12.1) (2016-12-07)
 
