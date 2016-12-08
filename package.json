@@ -35,7 +35,7 @@
     "ut-port-console": "^6.1.6",
     "ut-port-httpserver": "8.1.1",
     "ut-port-http": "^6.3.12",
-    "ut-port-jsonrpc": "^5.5.6",
+    "ut-port-jsonrpc": "^5.5.9",
     "ut-port-script": "^5.4.6",
     "ut-port-performance": "^5.4.7",
     "ut-run": "^7.0.0",
