@@ -1,3 +1,13 @@
+<a name="0.12.4"></a>
+## [0.12.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.3...v0.12.4) (2016-12-09)
+
+
+### Bug Fixes
+
+* remove $meta from method call chain ([e6adb72](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e6adb72))
+
+
+
 <a name="0.12.3"></a>
 ## [0.12.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.2...v0.12.3) (2016-12-08)
 
