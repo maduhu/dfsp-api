@@ -1,8 +1,8 @@
-var errors = require('./errors')
 module.exports = {
   id: 'spsp',
   createPort: require('ut-port-http'),
-  url: 'http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
+  _url: 'http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
+  url: 'http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
   namespace: ['spsp'],
   raw: {
     json: true,
@@ -14,7 +14,7 @@ module.exports = {
   logLevel: 'debug',
   method: 'post',
   'spsp.rule.decision.fetch.request.send': function (msg, $meta) {
-    return this.bus.importMethod('ist/directory.user.get')({
+    return this.bus.importMethod('ist.directory.user.get')({
       identifier: msg.identifier
     })
     .then((res) => {
@@ -111,7 +111,7 @@ module.exports = {
     throw err
   },
   'spsp.transfer.payee.get.request.send': function (msg, $meta) {
-    return this.bus.importMethod('ist/directory.user.get')({
+    return this.bus.importMethod('ist.directory.user.get')({
       identifier: msg.identifier
     })
     .then((res) => {
@@ -129,19 +129,5 @@ module.exports = {
     msg.payload.spspServer = $meta.spspServer
     delete $meta.spspServer
     return msg.payload
-  },
-  'receive': function (msg, $meta) {
-    if ($meta.mtid === 'error') {
-      return msg
-    }
-    if (msg && msg.payload) {
-      if (msg.payload.result) {
-        return msg.payload.result
-      } else if (msg.payload.error) {
-        throw msg.payload.error
-      }
-      throw errors.wrongJsonRpcFormat(msg)
-    }
-    throw errors.generic(msg)
   }
 }

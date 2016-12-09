@@ -3,7 +3,7 @@ module.exports = {
   id: 'ist',
   createPort: require('ut-port-http'),
   url: 'http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/directory/v1',
-  namespace: ['ist/directory'],
+  namespace: ['ist'],
   headers: {
     Authorization: 'Basic ' + new Buffer('dfsp1' + ':' + 'dfsp1').toString('base64')
   },
@@ -16,7 +16,7 @@ module.exports = {
   requestTimeout: 300000,
   logLevel: 'debug',
   method: 'post',
-  'directory.user.get.request.send': function (msg) {
+  'ist.directory.user.get.request.send': function (msg) {
     return {
       uri: '/resources',
       httpMethod: 'get',
@@ -26,13 +26,13 @@ module.exports = {
       }
     }
   },
-  'directory.user.get.response.receive': function (msg) {
+  'ist.directory.user.get.response.receive': function (msg) {
     return msg.payload
   },
-  'directory.user.get.error.receive': function (err) {
+  'ist.directory.user.get.error.receive': function (err) {
     throw errors.userNotFound({error: err})
   },
-  'directory.user.add.request.send': function (msg) {
+  'ist.directory.user.add.request.send': function (msg) {
     return {
       uri: '/user-registration/users',
       payload: {
@@ -40,10 +40,10 @@ module.exports = {
       }
     }
   },
-  'directory.user.add.response.receive': function (msg) {
+  'ist.directory.user.add.response.receive': function (msg) {
     return msg.payload
   },
-  'directory.user.add.error.receive': function (err) {
+  'ist.directory.user.add.error.receive': function (err) {
     throw errors.userCouldNotBeAdded({error: err})
   }
 }

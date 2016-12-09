@@ -1,6 +1,5 @@
 var create = require('ut-error').define
-var GeneralApiError = require('../generalApiError')
-var Ist = create('ist', GeneralApiError)
+var Ist = create('ist')
 var UserNotFound = create('UserNotFound', Ist)
 var UserCouldNotBeAdded = create('UserNotFound', Ist)
 module.exports = {

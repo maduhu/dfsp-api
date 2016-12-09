@@ -3,13 +3,13 @@ module.exports = {
   id: 'httpserver',
   createPort: require('ut-port-httpserver'),
   logLevel: 'trace',
-  api: ['wallet'],
+  api: [],
   port: 8010,
   bundle: 'ussd',
   dist: path.resolve(__dirname, '../dist'),
   validationPassThrough: true,
   imports: [
-    // http client modules
+    // dfsp modules
     'account.start',
     'directory.start',
     'identity.start',
@@ -18,9 +18,10 @@ module.exports = {
     'rule.start',
     'subscription.start',
     'transfer.start',
-    // script modules
-    'receivers.start',
-    'utils.start'
+    // common modules
+    'payee.start',
+    'samples.start',
+    'wallet.start'
   ],
   routes: {
     rpc: {
