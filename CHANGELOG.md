@@ -1,3 +1,13 @@
+<a name="0.12.5"></a>
+## [0.12.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.4...v0.12.5) (2016-12-09)
+
+
+### Bug Fixes
+
+* pass sourceIdentifier but not sourceName to transfer.push execute ([d3fbef1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d3fbef1))
+
+
+
 <a name="0.12.4"></a>
 ## [0.12.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.3...v0.12.4) (2016-12-09)
 
