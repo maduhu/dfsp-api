@@ -1,3 +1,13 @@
+<a name="0.12.6"></a>
+## [0.12.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.5...v0.12.6) (2016-12-09)
+
+
+### Bug Fixes
+
+* mass refactoring ([929b222](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/929b222))
+
+
+
 <a name="0.12.5"></a>
 ## [0.12.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.4...v0.12.5) (2016-12-09)
 
