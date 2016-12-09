@@ -1,3 +1,13 @@
+<a name="0.12.7"></a>
+## [0.12.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.6...v0.12.7) (2016-12-09)
+
+
+### Bug Fixes
+
+* typo ([9a37ae0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9a37ae0))
+
+
+
 <a name="0.12.6"></a>
 ## [0.12.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.5...v0.12.6) (2016-12-09)
 
