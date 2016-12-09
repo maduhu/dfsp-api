@@ -11,8 +11,8 @@ module.exports = {
       receiver: msg.receiver,
       sourceAccount: msg.sourceAccount,
       destinationAmount: msg.destinationAmount,
-      memo: '',
-      sourceIdentifier: msg.sourceName || ''
+      memo: msg.memo || '',
+      sourceIdentifier: msg.sourceIdentifier
     })
     .then((result) => {
       return this.bus.importMethod('spsp.transfer.transfer.execute')(result)
