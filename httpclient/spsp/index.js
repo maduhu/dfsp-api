@@ -1,8 +1,8 @@
 module.exports = {
   id: 'spsp',
   createPort: require('ut-port-http'),
-  _url: 'http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
-  url: 'http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
+  url: 'http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
+  _url: 'http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
   namespace: ['spsp'],
   raw: {
     json: true,
