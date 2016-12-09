@@ -13,7 +13,7 @@ module.exports = {
       destinationAmount: msg.destinationAmount,
       memo: '',
       sourceIdentifier: msg.sourceName || ''
-    }, $meta)
+    })
     .then((result) => {
       return this.bus.importMethod('spsp.transfer.transfer.execute')(result)
     })
