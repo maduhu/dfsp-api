@@ -1,3 +1,13 @@
+<a name="0.12.8"></a>
+## [0.12.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.7...v0.12.8) (2016-12-16)
+
+
+### Bug Fixes
+
+* update dependencies and rewrite resthooks according to latest changes in ut-port-httpserver ([26f7f9d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/26f7f9d))
+
+
+
 <a name="0.12.7"></a>
 ## [0.12.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.6...v0.12.7) (2016-12-09)
 
