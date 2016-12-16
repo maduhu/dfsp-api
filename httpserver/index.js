@@ -25,9 +25,10 @@ module.exports = {
   ],
   routes: {
     rpc: {
-      method: '*',
+      method: 'post',
       path: '/rpc/{method?}',
       config: {
+        tags: ['rpc'],
         auth: false
       }
     }
