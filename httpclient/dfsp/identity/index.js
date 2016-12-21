@@ -8,6 +8,9 @@ module.exports = require('../dfspClient')({
   'identity.check': function () {
     return {
       payload: {
+        jsonrpc: '2.0',
+        method: 'identity.check',
+        id: '1',
         result: {
           'permission.get': ['*']
         }
