@@ -1,4 +1,5 @@
 var errors = require('./errors')
+var url = require('url')
 module.exports = {
   id: 'ist',
   createPort: require('ut-port-http'),
@@ -33,10 +34,11 @@ module.exports = {
     throw errors.userNotFound({error: err})
   },
   'ist.directory.user.add.request.send': function (msg) {
+    var urlProps = url.parse(this.config.url)
     return {
       uri: '/user-registration/users',
       payload: {
-        url: msg.url
+        url: urlProps.protocol + '//' + urlProps.hostname + ':3043/v1'
       }
     }
   },
