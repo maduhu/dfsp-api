@@ -1,3 +1,14 @@
+<a name="0.12.9"></a>
+## [0.12.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.8...v0.12.9) (2017-01-06)
+
+
+### Bug Fixes
+
+* add required properties into identity.check method for ut-port-jsonrpc ([e337598](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e337598))
+* set dynamically the url of the spsp server when registering a new user through the ussd ([57eef4d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/57eef4d))
+
+
+
 <a name="0.12.8"></a>
 ## [0.12.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.7...v0.12.8) (2016-12-16)
 
