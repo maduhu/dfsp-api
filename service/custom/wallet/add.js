@@ -64,7 +64,7 @@ module.exports = {
     })
     .then((res) => { // create the account in the ledger
       if (msg.accountNumber) {
-        return this.bus.importMethod('ledger.account.edit')({
+        return this.bus.importMethod('ledger.account.add')({
           accountNumber: msg.accountNumber,
           balance: 1000,
           name: msg.accountNumber
