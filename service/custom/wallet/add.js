@@ -66,7 +66,7 @@ module.exports = {
       if (msg.accountNumber) {
         return this.bus.importMethod('ledger.account.add')({
           accountNumber: msg.accountNumber,
-          credit: 1000,
+          balance: 1000,
           name: msg.accountNumber
         })
         .then((res) => {
