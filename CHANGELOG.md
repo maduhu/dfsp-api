@@ -1,3 +1,13 @@
+<a name="0.12.11"></a>
+## [0.12.11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.10...v0.12.11) (2017-01-12)
+
+
+### Bug Fixes
+
+* small bug fix ([70da398](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/70da398))
+
+
+
 <a name="0.12.10"></a>
 ## [0.12.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.9...v0.12.10) (2017-01-12)
 
