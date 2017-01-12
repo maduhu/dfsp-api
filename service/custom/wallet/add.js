@@ -65,7 +65,6 @@ module.exports = {
     .then((res) => { // create the account in the ledger
       if (msg.accountNumber) {
         return this.bus.importMethod('ledger.account.add')({
-          accountNumber: msg.accountNumber,
           balance: 1000,
           name: msg.accountNumber
         })
@@ -95,17 +94,17 @@ module.exports = {
       if (msg.accountNumber) {
         return this.bus.importMethod('account.account.add')({
           actorId: result.actorId,
-          accountNumber: msg.accountNumber,
+          accountNumber: res.accountNumber,
           isDefault: true
         })
-        .then((res) => {
+        .then((r) => {
           reversals.push({
             method: 'account.account.remove',
             msg: {
-              accountNumber: msg.accountNumber
+              accountNumber: res.accountNumber
             }
           })
-          return res
+          return r
         })
       } else {
         return res
