@@ -1,3 +1,13 @@
+<a name="0.12.12"></a>
+## [0.12.12](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.11...v0.12.12) (2017-01-13)
+
+
+### Bug Fixes
+
+* open account flow ([abd70c1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/abd70c1))
+
+
+
 <a name="0.12.11"></a>
 ## [0.12.11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.10...v0.12.11) (2017-01-12)
 
