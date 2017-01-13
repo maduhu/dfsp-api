@@ -45,7 +45,7 @@ module.exports = {
         }).then((ledgerRes) => {
           return {
             type: 'payee',
-            name: directoryRes.name,
+            name: accountRes[0].accountNumber,
             account: ledgerRes.id,
             currencyCode: ledgerRes.currencyCode,
             currencySymbol: ledgerRes.currencySymbol,
