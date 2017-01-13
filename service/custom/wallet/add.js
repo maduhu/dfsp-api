@@ -5,7 +5,7 @@ module.exports = {
         "userNumber": "123456789",
         "name": "Test Testov",
         "phoneNumber": "0122523365225",
-        "accountNumber": "000000044",
+        "accountName": "000000044",
         "password": 123
       }
     */
@@ -63,10 +63,10 @@ module.exports = {
       }
     })
     .then((res) => { // create the account in the ledger
-      if (msg.accountNumber) {
+      if (msg.accountName) {
         return this.bus.importMethod('ledger.account.add')({
           balance: 1000,
-          name: msg.accountNumber
+          name: msg.accountName
         })
         .then((res) => {
           // {
@@ -78,10 +78,11 @@ module.exports = {
           // }
           result.account = res.id
           result.currency = res.currency
+          result.accountNumber = res.accountNumber
           reversals.push({
             method: 'ledger.account.remove',
             msg: {
-              accountNumber: msg.accountNumber
+              accountNumber: res.accountNumber
             }
           })
           return res
@@ -91,17 +92,17 @@ module.exports = {
       }
     })
     .then((res) => { // create the account in the account service
-      if (msg.accountNumber) {
+      if (result.accountNumber) {
         return this.bus.importMethod('account.account.add')({
           actorId: result.actorId,
-          accountNumber: res.accountNumber,
+          accountNumber: result.accountNumber,
           isDefault: true
         })
         .then((r) => {
           reversals.push({
             method: 'account.account.remove',
             msg: {
-              accountNumber: res.accountNumber
+              accountNumber: result.accountNumber
             }
           })
           return r
