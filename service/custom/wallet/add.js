@@ -96,7 +96,8 @@ module.exports = {
         return this.bus.importMethod('account.account.add')({
           actorId: result.actorId,
           accountNumber: result.accountNumber,
-          isDefault: true
+          isDefault: true,
+          isSignatory: true
         })
         .then((r) => {
           reversals.push({
@@ -112,14 +113,18 @@ module.exports = {
       }
     })
     .then((res) => { // add the user and pin, note that in future the user identifier may not be the phone
-      return this.bus.importMethod('identity.add')({
-        hash: {
-          actorId: result.actorId,
-          identifier: msg.phoneNumber,
-          type: 'password',
-          password: msg.password
-        }
-      })
+      if (msg.password) {
+        return this.bus.importMethod('identity.add')({
+          hash: {
+            actorId: result.actorId,
+            identifier: msg.phoneNumber,
+            type: 'password',
+            password: msg.password
+          }
+        })
+      } else {
+        return res
+      }
     })
     .then((res) => { // add the phone as identification
       return this.bus.importMethod('identity.add')({
