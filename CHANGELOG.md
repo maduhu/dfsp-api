@@ -1,3 +1,13 @@
+<a name="0.13.0"></a>
+# [0.13.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.15...v0.13.0) (2017-01-20)
+
+
+### Features
+
+* manage account holders ([393f6e7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/393f6e7))
+
+
+
 <a name="0.12.15"></a>
 ## [0.12.15](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.14...v0.12.15) (2017-01-13)
 
