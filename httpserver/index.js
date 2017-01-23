@@ -20,8 +20,10 @@ module.exports = {
     'transfer.start',
     // common modules
     'payee.start',
+    'client.start',
+    'invoice.start',
     'samples.start',
-    'wallet.start'
+    'wallet.start',
   ],
   routes: {
     rpc: {

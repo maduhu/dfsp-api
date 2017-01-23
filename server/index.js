@@ -18,6 +18,8 @@ module.exports = {
     // modules to be imported in the script port
     wallet: require('../service/custom/wallet'),
     payee: require('../service/custom/payee'),
+    client: require('../service/custom/client'),
+    invoice: require('../service/custom/invoice'),
     samples: require('../service/custom/samples'),
     // modules to be imported in the http ports
     account: require('../service/dfsp/account'),

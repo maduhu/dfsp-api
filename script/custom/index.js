@@ -4,6 +4,8 @@ module.exports = {
   imports: [
     'wallet',
     'payee',
+    'client',
+    'invoice',
     'samples'
   ],
   logLevel: 'trace'
