@@ -21,7 +21,8 @@ module.exports = {
     // common modules
     'payee.start',
     'samples.start',
-    'wallet.start'
+    'wallet.start',
+    'pendingTransactionsApi.start'
   ],
   routes: {
     rpc: {
