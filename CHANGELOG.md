@@ -1,3 +1,23 @@
+<a name="0.14.0"></a>
+# [0.14.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.13.0...v0.14.0) (2017-01-25)
+
+
+### Bug Fixes
+
+* - apply some fixes in index.js regarding file names; ([fa654f7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/fa654f7))
+* - improve pending transactions api file structure ([6c19399](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6c19399))
+* invoice posting and invoice approve ([50e07f9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/50e07f9))
+* postInvoice method ([33a01c3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/33a01c3))
+* refactoring of pending transactions api ([d813784](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d813784))
+* typos ([f94ffa6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f94ffa6))
+
+
+### Features
+
+* pending transactions api draft ([0d1a8f2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0d1a8f2))
+
+
+
 <a name="0.13.0"></a>
 # [0.13.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.12.15...v0.13.0) (2017-01-20)
 
