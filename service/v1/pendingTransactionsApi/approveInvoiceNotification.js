@@ -31,35 +31,38 @@ module.exports = {
     method: 'put'
   },
   'invoice.approve': function (msg, $meta) {
-    var userNumber
     return this.bus.importMethod('transfer.invoiceNotification.get')({
       invoiceNotificationId: msg.invoiceNotificationId
     })
-      .then((result) => {
-        userNumber = result.userNumber
+      .then((invoiceNotificationResult) => {
         return this.bus.importMethod('pendingTransactionsApi.invoice.get')({
-          invoiceUrl: result.invoiceUrl
+          invoiceUrl: invoiceNotificationResult.invoiceUrl
         })
-      })
-      .then((result) => {
-        return this.bus.importMethod('transfer.push.execute')({
-          sourceIdentifier: userNumber,
-          sourceAccount: msg.account,
-          receiver: msg.invoiceUrl,
-          destinationAmount: result.amount,
-          currency: result.currencyCode,
-          memo: JSON.stringify({
-            fee: result.fee,
-            transferCode: INVOICE_TRANSFER_CODE,
-            debitName: '',
-            creditName: result.name
+        .then((invoiceResult) => {
+          return this.bus.importMethod('directory.user.get')({
+            userNumber: invoiceNotificationResult.userNumber
+          })
+          .then((directoryResult) => {
+            return this.bus.importMethod('transfer.push.execute')({
+              sourceIdentifier: invoiceNotificationResult.userNumber,
+              sourceAccount: msg.account,
+              receiver: invoiceNotificationResult.invoiceUrl,
+              destinationAmount: invoiceResult.amount,
+              currency: invoiceResult.currencyCode,
+              memo: JSON.stringify({
+                fee: invoiceResult.fee,
+                transferCode: INVOICE_TRANSFER_CODE,
+                debitName: directoryResult.name,
+                creditName: invoiceResult.name
+              })
+            })
           })
         })
-      })
-      .then((result) => {
-        return this.bus.importMethod('transfer.invoiceNotification.edit')({
-          invoiceNotificationId: msg.invoiceNotificationId,
-          statusCode: STATUS_CODE_EXECUTE
+        .then((result) => {
+          return this.bus.importMethod('transfer.invoiceNotification.edit')({
+            invoiceNotificationId: msg.invoiceNotificationId,
+            statusCode: STATUS_CODE_EXECUTE
+          })
         })
       })
   }

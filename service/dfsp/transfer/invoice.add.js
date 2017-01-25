@@ -65,6 +65,9 @@ module.exports = {
           params.invoiceId = '' + result.invoiceId
         }
         return this.bus.importMethod($meta.method)(params, $meta)
+          .then((spspResponse) => {
+            return result
+          })
       })
   }
 }
