@@ -9,7 +9,7 @@ module.exports = {
       tags: ['api', 'pendingTransactions', 'v1'],
       validate: {
         payload: joi.object({
-          account: joi.string().description('account').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8014/ledger/accounts/merchant').required(),
+          accountNumber: joi.string().description('accountNumber').example('merchant').required(),
           amount: joi.number().description('amount').example(123).required(),
           userNumber: joi.string().description('userNumber').example('78956562').required()
         })
@@ -34,20 +34,35 @@ module.exports = {
     method: 'post'
   },
   'invoice.add': function (msg, $meta) {
-    return this.bus.importMethod('spsp.transfer.payee.get')({
-      identifier: msg.userNumber
+    return this.bus.importMethod('ledger.account.get')({
+      accountNumber: msg.accountNumber
     }, $meta)
-       .then((res) => {
-         return this.bus.importMethod('transfer.invoice.add')({
-           account: msg.account,
-           name: res.name,
-           currencyCode: res.currencyCode,
-           currencySymbol: res.currencySymbol,
-           amount: msg.amount,
-           userNumber: msg.userNumber,
-           spspServer: res.spspServer,
-           invoiceInfo: 'Invoice from ' + res.name + ' for ' + msg.amount + ' ' + res.currencyCode
-         })
-       })
+      .then((ledgerResponse) => {
+        return this.bus.importMethod('ist.directory.user.get')({
+          identifier: msg.userNumber
+        }, $meta)
+          .then((centralDirectoryResponse) => {
+            return this.bus.importMethod('account.account.get')({
+              accountNumber: msg.accountNumber
+            })
+            .then((res) => {
+              return this.bus.importMethod('directory.user.get')({
+                actorId: res.actorId
+              })
+            })
+            .then((directoryResponse) => {
+              return this.bus.importMethod('transfer.invoice.add')({
+                account: ledgerResponse.id,
+                name: directoryResponse.name,
+                currencyCode: ledgerResponse.currencyCode,
+                currencySymbol: ledgerResponse.currencySymbol,
+                amount: msg.amount,
+                userNumber: msg.userNumber,
+                spspServer: centralDirectoryResponse.spspReceiver,
+                invoiceInfo: 'Invoice from ' + directoryResponse.name + ' for ' + msg.amount + ' ' + directoryResponse.currencyCode
+              })
+            })
+          })
+      })
   }
 }

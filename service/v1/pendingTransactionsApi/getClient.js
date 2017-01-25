@@ -28,17 +28,16 @@ module.exports = {
     method: 'get'
   },
   'client.get': function (msg, $meta) {
-    var params = {
-      identifier: msg.userNumber
-    }
-    return this.bus.importMethod('payee.get')(params, $meta)
+    return this.bus.importMethod('payee.get')({
+      payee: '' + msg.userNumber
+    }, $meta)
       .catch((e) => {
-        return this.bus.importMethod('spsp.transfer.payee.get')(params, $meta)
+        return this.bus.importMethod('spsp.transfer.payee.get')({
+          identifier: msg.userNumber
+        }, $meta)
       })
       .then(res => {
-        return {
-          ilpAccount: res.account
-        }
+        return res
       })
   }
 }
