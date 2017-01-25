@@ -1,7 +1,8 @@
 module.exports = require('../../resthooks')([
   require('./getClient'),
   require('./postInvoice'),
-  require('./getPendingInvoiceList'),
+  require('./getInvoiceNotificationList'),
   require('./getInvoiceInfo'),
-  require('./approveRejectInvoice')
+  require('./approveInvoiceNotification'),
+  require('./rejectInvoiceNotification')
 ])

@@ -33,4 +33,5 @@ module.exports = {
       invoiceNotificationId: msg.invoiceNotificationId,
       statusCode: STATUS_CODE_REJECT
     })
+  }
 }

@@ -5,8 +5,8 @@ module.exports = {
     rpc: 'pendingTransactionsApi.invoiceNotification.fetch',
     path: '/invoices/pending/{userNumber}',
     config: {
-      description: 'Get the list with invoices for a given user',
-      notes: 'Get all the pending invoices for a given user',
+      description: 'Get the list with invoice notifications for a given user',
+      notes: 'Get all the pending invoice notifications for a given user',
       tags: ['api'],
       validate: {
         params: joi.object({

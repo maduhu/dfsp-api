@@ -9,7 +9,7 @@ module.exports = {
       tags: ['api'],
       validate: {
         params: joi.object({
-          clientNumber: joi.string().description('Client number')
+          clientNumber: joi.number().description('Client number').example(26547070)
         })
       },
       plugins: {
