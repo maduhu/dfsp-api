@@ -34,24 +34,29 @@ module.exports = {
     method: 'post'
   },
   'invoice.add': function (msg, $meta) {
-    return this.bus.importMethod('ledger.account.get')({
+    $meta.method = 'ledger.account.get'
+    return this.bus.importMethod($meta.method)({
       accountNumber: msg.accountNumber
     }, $meta)
       .then((ledgerResponse) => {
-        return this.bus.importMethod('ist.directory.user.get')({
+        $meta.method = 'ist.directory.user.get'
+        return this.bus.importMethod($meta.method)({
           identifier: msg.userNumber
         }, $meta)
           .then((centralDirectoryResponse) => {
-            return this.bus.importMethod('account.account.get')({
+            $meta.method = 'account.account.get'
+            return this.bus.importMethod($meta.method)({
               accountNumber: msg.accountNumber
-            })
+            }, $meta)
             .then((res) => {
-              return this.bus.importMethod('directory.user.get')({
+              $meta.method = 'directory.user.get'
+              return this.bus.importMethod($meta.method)({
                 actorId: res.actorId
               })
-            })
+            }, $meta)
             .then((directoryResponse) => {
-              return this.bus.importMethod('transfer.invoice.add')({
+              $meta.method = 'transfer.invoice.add'
+              return this.bus.importMethod($meta.method)({
                 account: ledgerResponse.id,
                 name: directoryResponse.name,
                 currencyCode: ledgerResponse.currencyCode,
@@ -60,7 +65,7 @@ module.exports = {
                 userNumber: msg.userNumber,
                 spspServer: centralDirectoryResponse.spspReceiver,
                 invoiceInfo: 'Invoice from ' + directoryResponse.name + ' for ' + msg.amount + ' ' + directoryResponse.currencyCode
-              })
+              }, $meta)
             })
           })
       })

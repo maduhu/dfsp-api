@@ -23,7 +23,7 @@ module.exports = {
                 account: joi.string().description('Account'),
                 currencyCode: joi.string().description('Currency Code'),
                 currencySymbol: joi.string().description('Currency Symbol'),
-                imageUrl: joi.string().description('Imaage URL')
+                imageUrl: joi.string().description('Image URL')
               })
             }
           }

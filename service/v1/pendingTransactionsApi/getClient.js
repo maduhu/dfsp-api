@@ -17,8 +17,13 @@ module.exports = {
           responses: {
             '200': {
               description: 'Client information',
-              schema: joi.object().keys({
-                ilpAccount: joi.string()
+              schema: joi.object({
+                type: joi.string().description('Receiver type'),
+                name: joi.string().description('Receiver name'),
+                account: joi.string().description('Account'),
+                currencyCode: joi.string().description('Currency Code'),
+                currencySymbol: joi.string().description('Currency Symbol'),
+                imageUrl: joi.string().description('Image URL')
               })
             }
           }
