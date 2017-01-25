@@ -1,6 +1,6 @@
 var joi = require('joi')
 module.exports = {
-  rest: {
+  _rest: { // remove underscore to enable rest route
     rpc: 'transfer.invoice.edit',
     path: '/receivers/invoices/{invoiceId}',
     config: {
