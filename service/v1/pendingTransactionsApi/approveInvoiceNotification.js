@@ -4,15 +4,15 @@ const STATUS_CODE_EXECUTE = 'e'
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.invoice.approve',
-    path: '/invoices/approve',
+    path: '/v1/invoices/approve',
     config: {
       description: 'Approve invoiceNotification by given invoiceNotificationId',
       notes: 'Approve the invoiceNotification by given invoiceNotificationId',
-      tags: ['api'],
+      tags: ['pendingTransactions','api', 'v1'],
       validate: {
         payload: joi.object({
-          account: joi.string(),
-          invoiceNotificationId: joi.string().description('Invoice notification Id').example('6')
+          account: joi.string().required(),
+          invoiceNotificationId: joi.string().description('Invoice notification Id').example('6').required()
         })
       },
       plugins: {

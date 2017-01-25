@@ -2,14 +2,14 @@ var joi = require('joi')
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.invoice.get',
-    path: '/invoices/details/{invoiceUrl}',
+    path: '/v1/invoices/details/{invoiceUrl}',
     config: {
       description: 'Get the invoice details by given invoice URL',
       notes: 'Get the invoice details by given invoice URL',
-      tags: ['api'],
+      tags: ['api', 'pendingTransactions', 'v1'],
       validate: {
         params: joi.object({
-          invoiceUrl: joi.string().description('Invoice URL')
+          invoiceUrl: joi.string().description('Invoice URL').required()
         })
       },
       plugins: {

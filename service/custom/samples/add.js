@@ -6,7 +6,7 @@ module.exports = {
     config: {
       description: 'TODO: description',
       notes: 'TODO: note',
-      tags: ['api']
+      tags: ['api', 'samples']
     },
     method: 'post'
   },

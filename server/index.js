@@ -19,7 +19,7 @@ module.exports = {
     wallet: require('../service/custom/wallet'),
     payee: require('../service/custom/payee'),
     samples: require('../service/custom/samples'),
-    pendingTransactionsApi: require('../service/custom/pendingTransactionsApi'),
+    pendingTransactionsApi: require('../service/v1/pendingTransactionsApi'),
     // modules to be imported in the http ports
     account: require('../service/dfsp/account'),
     directory: require('../service/dfsp/directory'),

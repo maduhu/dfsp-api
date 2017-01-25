@@ -1,17 +1,17 @@
 var joi = require('joi')
 module.exports = {
   rest: {
-    rpc: 'invoice.add',
-    path: '/invoice',
+    rpc: 'pendingTransactionsApi.invoice.add',
+    path: '/v1/invoice',
     config: {
       description: 'Add an invoice',
       notes: 'Add an invoice',
-      tags: ['api'],
+      tags: ['api', 'pendingTransactions', 'v1'],
       validate: {
         payload: joi.object({
-          account: joi.string().description('account').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8014/ledger/accounts/merchant'),
-          amount: joi.number().description('amount').example(123),
-          userNumber: joi.string().description('userNumber').example('78956562')
+          account: joi.string().description('account').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8014/ledger/accounts/merchant').required(),
+          amount: joi.number().description('amount').example(123).required(),
+          userNumber: joi.string().description('userNumber').example('78956562').required()
         })
       },
       plugins: {
@@ -33,7 +33,7 @@ module.exports = {
     },
     method: 'post'
   },
-  'add': function (msg, $meta) {
+  'invoice.add': function (msg, $meta) {
     return this.bus.importMethod('spsp.transfer.payee.get')({
       identifier: msg.userNumber
     }, $meta)
