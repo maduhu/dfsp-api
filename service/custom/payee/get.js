@@ -6,7 +6,7 @@ module.exports = {
     config: {
       description: 'Get Payee information',
       notes: 'Obtains information about a payee',
-      tags: ['api'],
+      tags: ['api', 'spsp-server-backend'],
       validate: {
         params: joi.object({
           payee: joi.string().description('Payee')

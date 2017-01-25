@@ -12,14 +12,17 @@ module.exports = {
     require('../httpclient/ist'),
     require('../httpserver'),
     require('../script/dfsp'),
-    require('../script/custom')
+    require('../script/custom'),
+    require('../script/v1')
   ],
   modules: {
-    // modules to be imported in the script port
+    // modules to be imported in the 'v1' script port
+    pendingTransactionsApi: require('../service/v1/pendingTransactionsApi'),
+    // modules to be imported in the 'custom' script port
     wallet: require('../service/custom/wallet'),
     payee: require('../service/custom/payee'),
     samples: require('../service/custom/samples'),
-    // modules to be imported in the http ports
+    // modules to be imported in the 'dfsp' script port
     account: require('../service/dfsp/account'),
     directory: require('../service/dfsp/directory'),
     identity: require('../service/dfsp/identity'),
