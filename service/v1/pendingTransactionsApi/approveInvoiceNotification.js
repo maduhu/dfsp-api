@@ -8,7 +8,7 @@ module.exports = {
     config: {
       description: 'Approve invoiceNotification by given invoiceNotificationId',
       notes: 'Approve the invoiceNotification by given invoiceNotificationId',
-      tags: ['pendingTransactions','api', 'v1'],
+      tags: ['api', 'pendingTransactions', 'v1'],
       validate: {
         payload: joi.object({
           account: joi.string().required(),

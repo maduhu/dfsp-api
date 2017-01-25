@@ -17,7 +17,7 @@ module.exports = {
     config: {
       description: 'Add invoice notification',
       notes: 'Add invoice notification',
-      tags: ['api'],
+      tags: ['api', 'spsp-server-backend'],
       validate: {
         payload: joi.object({
           invoiceUrl: joi.string().description('Invoice URL'),

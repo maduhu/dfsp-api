@@ -2,7 +2,7 @@ var joi = require('joi')
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.invoice.add',
-    path: '/v1/invoice',
+    path: '/v1/invoices',
     config: {
       description: 'Add an invoice',
       notes: 'Add an invoice',

@@ -2,14 +2,14 @@ var joi = require('joi')
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.client.get',
-    path: '/v1/pendingTransactions/client/{clientNumber}',
+    path: '/v1/invoices/client/{userNumber}',
     config: {
       description: 'Lookup default account for a given end user number',
       notes: 'It will check in the central directory to find information about the user',
-      tags: ['pendingTransactions','api', 'v1'],
+      tags: ['api', 'pendingTransactions', 'v1'],
       validate: {
         params: joi.object({
-          clientNumber: joi.number().description('Client number').example(26547070).required()
+          userNumber: joi.number().description('End user number').example(26547070).required()
         })
       },
       plugins: {
@@ -29,7 +29,7 @@ module.exports = {
   },
   'client.get': function (msg, $meta) {
     var params = {
-      identifier: msg.clientNumber
+      identifier: msg.userNumber
     }
     return this.bus.importMethod('payee.get')(params, $meta)
       .catch((e) => {

@@ -6,7 +6,7 @@ module.exports = {
     config: {
       description: 'Get information about an invoice',
       notes: 'Get information about an invoice',
-      tags: ['api'],
+      tags: ['api', 'spsp-server-backend'],
       validate: {
         params: joi.object({
           invoiceId: joi.string().description('Invoice Id')

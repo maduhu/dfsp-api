@@ -34,7 +34,7 @@ module.exports = {
     },
     method: 'get'
   },
-  'invoice.details': function (msg, $meta) {
+  'invoice.get': function (msg, $meta) {
     var invoiceDetails = {}
     return this.bus.importMethod('spsp.transfer.invoice.get')({
       receiver: msg.invoiceUrl

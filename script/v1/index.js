@@ -1,10 +1,8 @@
 module.exports = {
-  id: 'custom',
+  id: 'v1',
   createPort: require('ut-port-script'),
   imports: [
-    'wallet',
-    'payee',
-    'samples'
+    'pendingTransactionsApi'
   ],
   logLevel: 'trace'
 }
