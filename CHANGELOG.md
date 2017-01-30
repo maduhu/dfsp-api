@@ -1,3 +1,13 @@
+<a name="0.14.1"></a>
+## [0.14.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.0...v0.14.1) (2017-01-30)
+
+
+### Bug Fixes
+
+* typos ([9f97f2c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9f97f2c))
+
+
+
 <a name="0.14.0"></a>
 # [0.14.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.13.0...v0.14.0) (2017-01-25)
 
