@@ -47,7 +47,7 @@ module.exports = {
               sourceIdentifier: invoiceNotificationResult.userNumber,
               sourceAccount: msg.account,
               receiver: invoiceNotificationResult.invoiceUrl,
-              destinationAmount: invoiceResult.amount,
+              destinationAmount: '' + invoiceResult.amount,
               currency: invoiceResult.currencyCode,
               memo: JSON.stringify({
                 fee: invoiceResult.fee,

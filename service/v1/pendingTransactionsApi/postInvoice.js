@@ -64,7 +64,7 @@ module.exports = {
                 amount: msg.amount,
                 userNumber: msg.userNumber,
                 spspServer: centralDirectoryResponse.spspReceiver,
-                invoiceInfo: 'Invoice from ' + directoryResponse.name + ' for ' + msg.amount + ' ' + directoryResponse.currencyCode
+                invoiceInfo: 'Invoice from ' + directoryResponse.name + ' for ' + msg.amount + ' ' + ledgerResponse.currencyCode
               }, $meta)
             })
           })
