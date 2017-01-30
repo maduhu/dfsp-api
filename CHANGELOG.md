@@ -1,3 +1,13 @@
+<a name="0.14.2"></a>
+## [0.14.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.1...v0.14.2) (2017-01-30)
+
+
+### Bug Fixes
+
+* circleci settings and npm commands ([1b9d4b2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1b9d4b2))
+
+
+
 <a name="0.14.1"></a>
 ## [0.14.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.0...v0.14.1) (2017-01-30)
 
