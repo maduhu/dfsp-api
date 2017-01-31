@@ -18,11 +18,8 @@ module.exports = {
             '200': {
               description: 'Client information',
               schema: joi.object({
-                type: joi.string().description('Receiver type'),
-                name: joi.string().description('Receiver name'),
-                account: joi.string().description('Account'),
-                currencyCode: joi.string().description('Currency Code'),
-                currencySymbol: joi.string().description('Currency Symbol'),
+                firstName: joi.string().description('Client first name'),
+                lastName: joi.string().description('Client last name'),
                 imageUrl: joi.string().description('Image URL')
               })
             }
@@ -42,7 +39,11 @@ module.exports = {
         }, $meta)
       })
       .then(res => {
-        return res
+        return {
+          firstName: res.name,
+          lastName: 'Smith',
+          imageUrl: res.imageUrl
+        }
       })
   }
 }
