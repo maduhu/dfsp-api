@@ -6,7 +6,7 @@ module.exports = {
     config: {
       description: 'Add an invoice',
       notes: 'Add an invoice',
-      tags: ['api', 'pendingTransactions', 'v1'],
+      tags: ['api', 'pendingTransactions', 'v1', 'invoices'],
       validate: {
         payload: joi.object({
           account: joi.string().description('Merchant account').example('merchant').required(),

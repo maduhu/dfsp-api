@@ -3,11 +3,11 @@ const STATUS_CODE_REJECT = 'r'
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.invoice.reject',
-    path: '/v1/invoices/reject',
+    path: '/v1/invoiceNotifications/reject',
     config: {
       description: 'Reject invoiceNotification by given invoiceNotificationId',
       notes: 'Get the invoiceNotification by given invoiceNotificationId',
-      tags: ['api', 'pendingTransactions', 'v1'],
+      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications'],
       validate: {
         payload: joi.object({
           invoiceNotificationId: joi.string().required()

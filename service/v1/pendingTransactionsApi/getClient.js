@@ -2,7 +2,7 @@ var joi = require('joi')
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.client.get',
-    path: '/v1/invoices/client/{userNumber}',
+    path: '/v1/client/{userNumber}',
     config: {
       description: 'Lookup default account for a given end user number',
       notes: 'It will check in the central directory to find information about the user',

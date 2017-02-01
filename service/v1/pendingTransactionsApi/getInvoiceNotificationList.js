@@ -3,11 +3,11 @@ const PENDING_TRANSACTIONS_STATUS = 'p'
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.invoiceNotification.fetch',
-    path: '/v1/invoices/pending/{userNumber}',
+    path: '/v1/invoiceNotifications/pending/{userNumber}',
     config: {
       description: 'Get the list with invoice notifications for a given user',
       notes: 'Get all the pending invoice notifications for a given user',
-      tags: ['api', 'pendingTransactions', 'v1'],
+      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications'],
       validate: {
         params: joi.object({
           userNumber: joi.string().description('User number').required()

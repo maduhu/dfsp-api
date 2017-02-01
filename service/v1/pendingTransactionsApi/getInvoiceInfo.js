@@ -1,15 +1,15 @@
 var joi = require('joi')
 module.exports = {
   rest: {
-    rpc: 'pendingTransactionsApi.invoice.get',
-    path: '/v1/invoices/details/{invoiceUrl}',
+    rpc: 'pendingTransactionsApi.invoiceNotification.get',
+    path: '/v1/invoiceNotifications/{invoiceNotificationId}',
     config: {
       description: 'Get the invoice details by given invoice URL',
       notes: 'Get the invoice details by given invoice URL',
-      tags: ['api', 'pendingTransactions', 'v1'],
+      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications'],
       validate: {
         params: joi.object({
-          invoiceUrl: joi.string().description('Invoice URL').required()
+          invoiceNotificationId: joi.string().description('Invoice notification id').required()
         })
       },
       plugins: {
@@ -34,41 +34,47 @@ module.exports = {
   },
   'invoice.get': function (msg, $meta) {
     var invoiceDetails = {}
-    return this.bus.importMethod('spsp.transfer.invoice.get')({
-      receiver: msg.invoiceUrl
+    return this.bus.importMethod('transfer.invoiceNotificaiton.get')({
+      invoiceNotificationId: msg.invoiceNotificationId
     })
-      .then((invoice) => {
-        var invoiceAmount = Number(invoice.amount)
-        invoiceDetails.currencyCode = invoice.currencyCode
-        invoiceDetails.currencySymbol = invoice.currencySymbol
-        invoiceDetails.firstName = invoice.name
-        invoiceDetails.lastName = 'Smith'
-        invoiceDetails.type = invoice.type
-        invoiceDetails.amount = invoiceAmount
-        return this.bus.importMethod('rule.decision.fetch')({
-          currency: invoice.currencyCode,
-          amount: invoiceAmount
-        })
-          .then(decisionResult => {
-            invoiceDetails.fee = decisionResult.fee && decisionResult.fee.amount || 0
-            return this.bus.importMethod('spsp.rule.decision.fetch')({
-              currency: invoice.currencyCode,
-              amount: invoiceAmount,
-              identifier: invoice.userNumber
-            })
-              .then(spspDecisionResult => {
-                if (spspDecisionResult.sourceAmount) {
-                  invoiceDetails.connectorFee = Math.round((spspDecisionResult.sourceAmount - invoiceAmount) * 100) / 100
-                } else {
-                  invoiceDetails.connectorFee = 0
-                }
-                return invoiceDetails
-              })
-              .catch(e => {
-                invoiceDetails.connectorFee = 0
-                return invoiceDetails
-              })
-          })
+    .then((res) => {
+      return this.bus.importMethod('spsp.transfer.invoice.get')({
+        receiver: res.invoiceUrl
       })
+    })
+    .then((invoice) => {
+      var invoiceAmount = Number(invoice.amount)
+      invoiceDetails.currencyCode = invoice.currencyCode
+      invoiceDetails.currencySymbol = invoice.currencySymbol
+      invoiceDetails.firstName = invoice.name
+      invoiceDetails.lastName = 'Smith'
+      invoiceDetails.type = invoice.type
+      invoiceDetails.amount = invoiceAmount
+      return this.bus.importMethod('rule.decision.fetch')({
+        currency: invoice.currencyCode,
+        amount: invoiceAmount
+      })
+      .then(decisionResult => {
+        invoiceDetails.fee = decisionResult.fee && decisionResult.fee.amount || 0
+        return invoiceDetails
+        // return this.bus.importMethod('spsp.rule.decision.fetch')({
+        //   currency: invoice.currencyCode,
+        //   amount: invoiceAmount,
+        //   identifier: invoice.userNumber
+        // })
+        // .then(spspDecisionResult => {
+        //   if (spspDecisionResult.sourceAmount) {
+        //     invoiceDetails.connectorFee = Math.round((spspDecisionResult.sourceAmount - invoiceAmount) * 100) / 100
+        //   } else {
+        //     invoiceDetails.connectorFee = 0
+        //   }
+        //   return invoiceDetails
+        // })
+        // .catch(e => {
+        //   invoiceDetails.connectorFee = 0
+        //   return invoiceDetails
+        // })
+      })
+    })
   }
 }

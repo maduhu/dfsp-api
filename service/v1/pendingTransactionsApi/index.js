@@ -4,5 +4,6 @@ module.exports = require('../../resthooks')([
   require('./approveInvoiceNotification'),
   require('./rejectInvoiceNotification'),
   require('./getClient'),
-  require('./postInvoice')
+  require('./postInvoice'),
+  require('./postInvoiceNotification')
 ])
