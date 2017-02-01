@@ -1,3 +1,14 @@
+<a name="0.14.4"></a>
+## [0.14.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.3...v0.14.4) (2017-02-01)
+
+
+### Bug Fixes
+
+* refactor invoice info api call response ([5969894](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/5969894))
+* refactor post invoice api call ([ba9167f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ba9167f))
+
+
+
 <a name="0.14.3"></a>
 ## [0.14.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.2...v0.14.3) (2017-02-01)
 
