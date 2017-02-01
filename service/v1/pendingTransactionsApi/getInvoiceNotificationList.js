@@ -22,10 +22,8 @@ module.exports = {
                 invoices: joi.array().items(
                   {
                     invoiceNotificationId: joi.number().description('Invoice identification number'),
-                    invoiceUrl: joi.string().description('Invoice URL'),
-                    userNumber: joi.string().description('User number of the invoice owner'),
                     status: joi.string().description('Invoice status'),
-                    memo: joi.string().description('Memo/notes')
+                    info: joi.string().description('Memo/notes')
                   }
                 )
               })
@@ -43,7 +41,13 @@ module.exports = {
     })
     .then((resultList) => {
       if (Array.isArray(resultList) && resultList.length) {
-        return {invoices: resultList}
+        return {invoices: resultList.map((invoice) => {
+          return {
+            invoiceNotificationId: invoice.invoiceNotificationId,
+            status: invoice.status,
+            info: invoice.memo
+          }
+        })}
       }
       return {invoices: []}
     })
