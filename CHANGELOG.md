@@ -1,3 +1,13 @@
+<a name="0.14.3"></a>
+## [0.14.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.2...v0.14.3) (2017-02-01)
+
+
+### Bug Fixes
+
+* refactor user details response. ([c4c31e0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/c4c31e0))
+
+
+
 <a name="0.14.2"></a>
 ## [0.14.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.1...v0.14.2) (2017-01-30)
 
