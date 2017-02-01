@@ -1,3 +1,14 @@
+<a name="0.14.5"></a>
+## [0.14.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.4...v0.14.5) (2017-02-01)
+
+
+### Bug Fixes
+
+* refactoring and adding an extra method for invoice notification posting ([f2baa1d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f2baa1d))
+* update ut-tools ([8e5fa81](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8e5fa81))
+
+
+
 <a name="0.14.4"></a>
 ## [0.14.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.3...v0.14.4) (2017-02-01)
 
