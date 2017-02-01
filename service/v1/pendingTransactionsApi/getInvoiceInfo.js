@@ -18,14 +18,12 @@ module.exports = {
             '200': {
               description: 'Invoice details',
               schema: joi.object().keys({
-                address: joi.string().description('Invoice address'),
-                name: joi.string().description('Invoice account holder name'),
+                firstName: joi.string().description('Invoice account holder first name'),
+                lastName: joi.string().description('Invoice account holder last name'),
                 amount: joi.number().description('Invoice amount'),
                 currencyCode: joi.string().description('Invoice currency code'),
                 currencySymbol: joi.string().description('Invoice symbol'),
-                imageUrl: joi.string().description("User's profile image URL"),
-                fee: joi.number().description('Local fee amount'),
-                connectorFee: joi.number().description('Connector fee')
+                fee: joi.number().description('Local fee amount')
               })
             }
           }
@@ -41,11 +39,10 @@ module.exports = {
     })
       .then((invoice) => {
         var invoiceAmount = Number(invoice.amount)
-        invoiceDetails.address = invoice.address
         invoiceDetails.currencyCode = invoice.currencyCode
         invoiceDetails.currencySymbol = invoice.currencySymbol
-        invoiceDetails.imageUrl = invoice.imageUrl
-        invoiceDetails.name = invoice.name
+        invoiceDetails.firstName = invoice.name
+        invoiceDetails.lastName = 'Smith'
         invoiceDetails.type = invoice.type
         invoiceDetails.amount = invoiceAmount
         return this.bus.importMethod('rule.decision.fetch')({
