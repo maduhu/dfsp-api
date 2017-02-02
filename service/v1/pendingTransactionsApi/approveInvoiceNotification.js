@@ -8,10 +8,10 @@ module.exports = {
     config: {
       description: 'Approve invoiceNotification by given invoiceNotificationId',
       notes: 'Approve the invoiceNotification by given invoiceNotificationId',
-      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications'],
+      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications', 'approveInvoiceNotification'],
       validate: {
         payload: joi.object({
-          account: joi.string().required(),
+          account: joi.string().description('Merchant\'s account').example('merchant').required(),
           invoiceNotificationId: joi.string().description('Invoice notification Id').example('6').required()
         })
       },
@@ -21,7 +21,8 @@ module.exports = {
             '200': {
               description: 'Action performed',
               schema: joi.object().keys({
-                response: joi.string().description('Result of the call').example('Invoice has been approved')
+                invoiceNotificationId: joi.string().description('Invoice notification Id').example('6'),
+                status: joi.string().description('The new invoice notification status').example('approved')
               })
             }
           }
@@ -35,35 +36,41 @@ module.exports = {
       invoiceNotificationId: msg.invoiceNotificationId
     })
       .then((invoiceNotificationResult) => {
-        return this.bus.importMethod('pendingTransactionsApi.invoice.get')({
-          invoiceUrl: invoiceNotificationResult.invoiceUrl
+        return this.bus.importMethod('pendingTransactionsApi.invoiceNotification.get')({
+          invoiceNotificationId: msg.invoiceNotificationId
         })
-        .then((invoiceResult) => {
-          return this.bus.importMethod('directory.user.get')({
-            userNumber: invoiceNotificationResult.userNumber
-          })
-          .then((directoryResult) => {
-            return this.bus.importMethod('transfer.push.execute')({
-              sourceIdentifier: invoiceNotificationResult.userNumber,
-              sourceAccount: msg.account,
-              receiver: invoiceNotificationResult.invoiceUrl,
-              destinationAmount: '' + invoiceResult.amount,
-              currency: invoiceResult.currencyCode,
-              memo: JSON.stringify({
-                fee: invoiceResult.fee,
-                transferCode: INVOICE_TRANSFER_CODE,
-                debitName: directoryResult.name,
-                creditName: invoiceResult.name
-              })
+          .then((invoiceResult) => {
+            return this.bus.importMethod('directory.user.get')({
+              userNumber: invoiceNotificationResult.userNumber
             })
+              .then((directoryResult) => {
+                return this.bus.importMethod('transfer.push.execute')({
+                  sourceIdentifier: invoiceNotificationResult.userNumber,
+                  sourceAccount: msg.account,
+                  receiver: invoiceNotificationResult.invoiceUrl,
+                  destinationAmount: '' + invoiceResult.amount,
+                  currency: invoiceResult.currencyCode,
+                  memo: JSON.stringify({
+                    fee: invoiceResult.fee,
+                    transferCode: INVOICE_TRANSFER_CODE,
+                    debitName: directoryResult.name,
+                    creditName: invoiceResult.name
+                  })
+                })
+              })
           })
-        })
-        .then((result) => {
-          return this.bus.importMethod('transfer.invoiceNotification.edit')({
-            invoiceNotificationId: msg.invoiceNotificationId,
-            statusCode: STATUS_CODE_EXECUTE
+          .then((result) => {
+            return this.bus.importMethod('transfer.invoiceNotification.edit')({
+              invoiceNotificationId: msg.invoiceNotificationId,
+              statusCode: STATUS_CODE_EXECUTE
+            })
+              .then((response) => {
+                return {
+                  invoiceNotificationId: response.invoiceNotificationId,
+                  status: response.status
+                }
+              })
           })
-        })
       })
   }
 }

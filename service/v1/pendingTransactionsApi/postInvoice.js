@@ -6,13 +6,13 @@ module.exports = {
     config: {
       description: 'Add an invoice',
       notes: 'Add an invoice',
-      tags: ['api', 'pendingTransactions', 'v1', 'invoices'],
+      tags: ['api', 'pendingTransactions', 'v1', 'invoices', 'postInvoice'],
       validate: {
         payload: joi.object({
           account: joi.string().description('Merchant account').example('merchant').required(),
           amount: joi.number().description('Amount').example(123).required(),
           userNumber: joi.string().description('Client userNumber').example('78956562').required(),
-          info: joi.string().description('Invoice description').example('Invoice from merchant to Alice').required()
+          info: joi.string().description('Invoice description').example('Invoice from merchant to Bob').required()
         })
       },
       plugins: {
@@ -22,9 +22,10 @@ module.exports = {
               description: 'Invoice Added',
               schema: joi.object().keys({
                 type: joi.string().description('type'),
-                invoiceNotificationId: joi.number().description('invoiceNotificationId'),
-                account: joi.string().description('account'),
-                name: joi.string().description('merchant name'),
+                invoiceNotificationId: joi.number().description('Invoice notification Id'),
+                account: joi.string().description('Merchant account'),
+                firstName: joi.string().description('Merchant\'s first name'),
+                lastName: joi.string().description('Merchant\'s last name'),
                 currencyCode: joi.string().description('currency code'),
                 currencySymbol: joi.string().description('currency symbol'),
                 amount: joi.string().description('amount'),
@@ -78,7 +79,8 @@ module.exports = {
                       type: invoiceResponse.type,
                       invoiceNotificationId: invoiceResponse.invoiceId,
                       account: msg.account,
-                      name: directoryResponse.name,
+                      firstName: directoryResponse.name,
+                      lastName: 'Smith',
                       currencyCode: ledgerResponse.currencyCode,
                       currencySymbol: ledgerResponse.currencySymbol,
                       amount: msg.amount,

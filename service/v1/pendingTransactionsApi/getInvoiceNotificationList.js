@@ -7,7 +7,7 @@ module.exports = {
     config: {
       description: 'Get the list with invoice notifications for a given user',
       notes: 'Get all the pending invoice notifications for a given user',
-      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications'],
+      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications', 'getInvoiceNotificationList'],
       validate: {
         params: joi.object({
           userNumber: joi.string().description('User number').required()

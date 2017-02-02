@@ -6,7 +6,7 @@ module.exports = {
     config: {
       description: 'Get the invoice details by given invoice URL',
       notes: 'Get the invoice details by given invoice URL',
-      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications'],
+      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications', 'getInvoiceInfo'],
       validate: {
         params: joi.object({
           invoiceNotificationId: joi.string().description('Invoice notification id').required()
@@ -18,8 +18,8 @@ module.exports = {
             '200': {
               description: 'Invoice details',
               schema: joi.object().keys({
-                firstName: joi.string().description('Invoice account holder first name'),
-                lastName: joi.string().description('Invoice account holder last name'),
+                firstName: joi.string().description('Merchant\'s first name'),
+                lastName: joi.string().description('Merchant\'s last name'),
                 amount: joi.number().description('Invoice amount'),
                 currencyCode: joi.string().description('Invoice currency code'),
                 currencySymbol: joi.string().description('Invoice symbol'),
@@ -34,7 +34,7 @@ module.exports = {
   },
   'invoiceNotification.get': function (msg, $meta) {
     var invoiceDetails = {}
-    return this.bus.importMethod('transfer.invoiceNotificaiton.get')({
+    return this.bus.importMethod('transfer.invoiceNotification.get')({
       invoiceNotificationId: msg.invoiceNotificationId
     })
     .then((res) => {
@@ -48,7 +48,6 @@ module.exports = {
       invoiceDetails.currencySymbol = invoice.currencySymbol
       invoiceDetails.firstName = invoice.name
       invoiceDetails.lastName = 'Smith'
-      invoiceDetails.type = invoice.type
       invoiceDetails.amount = invoiceAmount
       return this.bus.importMethod('rule.decision.fetch')({
         currency: invoice.currencyCode,
