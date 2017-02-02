@@ -1,3 +1,14 @@
+<a name="0.14.7"></a>
+## [0.14.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.6...v0.14.7) (2017-02-02)
+
+
+### Bug Fixes
+
+* add api calls unique tags ([40f0340](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/40f0340))
+* fix response anotation of the approve and reject api calls ([556d2a6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/556d2a6))
+
+
+
 <a name="0.14.6"></a>
 ## [0.14.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.5...v0.14.6) (2017-02-02)
 
