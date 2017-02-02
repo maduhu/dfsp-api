@@ -11,7 +11,7 @@ module.exports = {
       tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications', 'approveInvoiceNotification'],
       validate: {
         payload: joi.object({
-          account: joi.string().description('Merchant\'s account').example('merchant').required(),
+          account: joi.string().description('Client\'s account').example('client').required(),
           invoiceNotificationId: joi.string().description('Invoice notification Id').example('6').required()
         })
       },
@@ -32,45 +32,50 @@ module.exports = {
     method: 'put'
   },
   'invoiceNotification.approve': function (msg) {
-    return this.bus.importMethod('transfer.invoiceNotification.get')({
-      invoiceNotificationId: msg.invoiceNotificationId
+    return this.bus.importMethod('ledger.account.get')({
+      accountNumber: msg.account
     })
-      .then((invoiceNotificationResult) => {
-        return this.bus.importMethod('pendingTransactionsApi.invoiceNotification.get')({
-          invoiceNotificationId: msg.invoiceNotificationId
-        })
-          .then((invoiceResult) => {
-            return this.bus.importMethod('directory.user.get')({
-              userNumber: invoiceNotificationResult.userNumber
-            })
-              .then((directoryResult) => {
-                return this.bus.importMethod('transfer.push.execute')({
-                  sourceIdentifier: invoiceNotificationResult.userNumber,
-                  sourceAccount: msg.account,
-                  receiver: invoiceNotificationResult.invoiceUrl,
-                  destinationAmount: '' + invoiceResult.amount,
-                  currency: invoiceResult.currencyCode,
-                  memo: JSON.stringify({
-                    fee: invoiceResult.fee,
-                    transferCode: INVOICE_TRANSFER_CODE,
-                    debitName: directoryResult.name,
-                    creditName: invoiceResult.name
+    .then((ledgerResult) => {
+      return this.bus.importMethod('transfer.invoiceNotification.get')({
+        invoiceNotificationId: msg.invoiceNotificationId
+      })
+        .then((invoiceNotificationResult) => {
+          return this.bus.importMethod('pendingTransactionsApi.invoiceNotification.get')({
+            invoiceNotificationId: msg.invoiceNotificationId
+          })
+            .then((invoiceResult) => {
+              return this.bus.importMethod('directory.user.get')({
+                userNumber: invoiceNotificationResult.userNumber
+              })
+                .then((directoryResult) => {
+                  return this.bus.importMethod('transfer.push.execute')({
+                    sourceIdentifier: invoiceNotificationResult.userNumber,
+                    sourceAccount: ledgerResult.id,
+                    receiver: invoiceNotificationResult.invoiceUrl,
+                    destinationAmount: '' + invoiceResult.amount,
+                    currency: invoiceResult.currencyCode,
+                    memo: JSON.stringify({
+                      fee: invoiceResult.fee,
+                      transferCode: INVOICE_TRANSFER_CODE,
+                      debitName: directoryResult.name,
+                      creditName: invoiceResult.name
+                    })
                   })
                 })
-              })
-          })
-          .then((result) => {
-            return this.bus.importMethod('transfer.invoiceNotification.edit')({
-              invoiceNotificationId: msg.invoiceNotificationId,
-              statusCode: STATUS_CODE_EXECUTE
             })
-              .then((response) => {
-                return {
-                  invoiceNotificationId: response.invoiceNotificationId,
-                  status: response.status
-                }
+            .then((result) => {
+              return this.bus.importMethod('transfer.invoiceNotification.edit')({
+                invoiceNotificationId: msg.invoiceNotificationId,
+                statusCode: STATUS_CODE_EXECUTE
               })
-          })
-      })
+                .then((response) => {
+                  return {
+                    invoiceNotificationId: response.invoiceNotificationId,
+                    status: response.status
+                  }
+                })
+            })
+        })
+    })
   }
 }
