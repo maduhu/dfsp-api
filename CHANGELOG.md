@@ -1,3 +1,13 @@
+<a name="0.14.6"></a>
+## [0.14.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.5...v0.14.6) (2017-02-02)
+
+
+### Bug Fixes
+
+* pending transactions api fixes ([291ec57](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/291ec57))
+
+
+
 <a name="0.14.5"></a>
 ## [0.14.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.4...v0.14.5) (2017-02-01)
 
