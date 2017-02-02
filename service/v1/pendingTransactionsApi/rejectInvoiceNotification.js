@@ -7,7 +7,7 @@ module.exports = {
     config: {
       description: 'Reject invoiceNotification by given invoiceNotificationId',
       notes: 'Get the invoiceNotification by given invoiceNotificationId',
-      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications'],
+      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications', 'rejectInvoiceNotification'],
       validate: {
         payload: joi.object({
           invoiceNotificationId: joi.string().required()
@@ -33,5 +33,11 @@ module.exports = {
       invoiceNotificationId: msg.invoiceNotificationId,
       statusCode: STATUS_CODE_REJECT
     })
+      .then((response) => {
+        return {
+          invoiceNotificationId: response.invoiceNotificationId,
+          status: response.status
+        }
+      })
   }
 }

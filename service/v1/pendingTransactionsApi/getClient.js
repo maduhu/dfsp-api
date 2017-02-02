@@ -6,7 +6,7 @@ module.exports = {
     config: {
       description: 'Lookup default account for a given end user number',
       notes: 'It will check in the central directory to find information about the user',
-      tags: ['api', 'pendingTransactions', 'v1'],
+      tags: ['api', 'pendingTransactions', 'v1', 'getClient'],
       validate: {
         params: joi.object({
           userNumber: joi.number().description('End user number').example(26547070).required()
