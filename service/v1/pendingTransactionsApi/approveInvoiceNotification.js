@@ -3,7 +3,7 @@ const INVOICE_TRANSFER_CODE = 'invoice'
 const STATUS_CODE_EXECUTE = 'e'
 module.exports = {
   rest: {
-    rpc: 'pendingTransactionsApi.invoice.approve',
+    rpc: 'pendingTransactionsApi.invoiceNotification.approve',
     path: '/v1/invoiceNotifications/approve',
     config: {
       description: 'Approve invoiceNotification by given invoiceNotificationId',
@@ -30,7 +30,7 @@ module.exports = {
     },
     method: 'put'
   },
-  'invoice.approve': function (msg, $meta) {
+  'invoiceNotification.approve': function (msg) {
     return this.bus.importMethod('transfer.invoiceNotification.get')({
       invoiceNotificationId: msg.invoiceNotificationId
     })

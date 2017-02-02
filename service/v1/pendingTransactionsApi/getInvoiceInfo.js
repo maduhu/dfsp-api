@@ -32,7 +32,7 @@ module.exports = {
     },
     method: 'get'
   },
-  'invoice.get': function (msg, $meta) {
+  'invoiceNotification.get': function (msg, $meta) {
     var invoiceDetails = {}
     return this.bus.importMethod('transfer.invoiceNotificaiton.get')({
       invoiceNotificationId: msg.invoiceNotificationId

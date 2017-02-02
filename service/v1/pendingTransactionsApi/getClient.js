@@ -29,21 +29,21 @@ module.exports = {
     },
     method: 'get'
   },
-  'client.get': function (msg, $meta) {
+  'client.get': function (msg) {
     return this.bus.importMethod('payee.get')({
       payee: '' + msg.userNumber
-    }, $meta)
-      .catch((e) => {
-        return this.bus.importMethod('spsp.transfer.payee.get')({
-          identifier: msg.userNumber
-        }, $meta)
+    })
+    .catch((e) => {
+      return this.bus.importMethod('spsp.transfer.payee.get')({
+        identifier: msg.userNumber
       })
-      .then(res => {
-        return {
-          firstName: res.name,
-          lastName: 'Smith',
-          imageUrl: res.imageUrl
-        }
-      })
+    })
+    .then(res => {
+      return {
+        firstName: res.name,
+        lastName: 'Smith',
+        imageUrl: res.imageUrl
+      }
+    })
   }
 }
