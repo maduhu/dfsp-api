@@ -18,8 +18,8 @@ module.exports = {
             '200': {
               description: 'Invoice details',
               schema: joi.object().keys({
-                firstName: joi.string().description('Invoice account holder first name'),
-                lastName: joi.string().description('Invoice account holder last name'),
+                firstName: joi.string().description('Merchant\'s first name'),
+                lastName: joi.string().description('Merchant\'s last name'),
                 amount: joi.number().description('Invoice amount'),
                 currencyCode: joi.string().description('Invoice currency code'),
                 currencySymbol: joi.string().description('Invoice symbol'),

@@ -19,7 +19,8 @@ module.exports = {
             '200': {
               description: 'Action performed',
               schema: joi.object().keys({
-                response: joi.string().description('Result of the call').example('Invoice has been rejected')
+                invoiceNotificationId: joi.string().description('Invoice notification Id').example('6'),
+                status: joi.string().description('The new invoice notification status').example('rejected')
               })
             }
           }

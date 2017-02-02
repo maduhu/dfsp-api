@@ -11,7 +11,7 @@ module.exports = {
       tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications', 'approveInvoiceNotification'],
       validate: {
         payload: joi.object({
-          account: joi.string().required(),
+          account: joi.string().description('Merchant\'s account').example('merchant').required(),
           invoiceNotificationId: joi.string().description('Invoice notification Id').example('6').required()
         })
       },
@@ -21,7 +21,8 @@ module.exports = {
             '200': {
               description: 'Action performed',
               schema: joi.object().keys({
-                response: joi.string().description('Result of the call').example('Invoice has been approved')
+                invoiceNotificationId: joi.string().description('Invoice notification Id').example('6'),
+                status: joi.string().description('The new invoice notification status').example('approved')
               })
             }
           }
@@ -35,8 +36,8 @@ module.exports = {
       invoiceNotificationId: msg.invoiceNotificationId
     })
       .then((invoiceNotificationResult) => {
-        return this.bus.importMethod('pendingTransactionsApi.invoice.get')({
-          invoiceUrl: invoiceNotificationResult.invoiceUrl
+        return this.bus.importMethod('pendingTransactionsApi.invoiceNotification.get')({
+          invoiceNotificationId: msg.invoiceNotificationId
         })
           .then((invoiceResult) => {
             return this.bus.importMethod('directory.user.get')({
