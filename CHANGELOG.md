@@ -1,3 +1,13 @@
+<a name="0.14.8"></a>
+## [0.14.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.7...v0.14.8) (2017-02-02)
+
+
+### Bug Fixes
+
+* pass client's account number instead of full ledger account path ([b2f7112](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b2f7112))
+
+
+
 <a name="0.14.7"></a>
 ## [0.14.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.6...v0.14.7) (2017-02-02)
 
