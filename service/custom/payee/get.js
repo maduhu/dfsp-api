@@ -51,7 +51,7 @@ module.exports = {
             account: ledgerRes.id,
             currencyCode: ledgerRes.currencyCode,
             currencySymbol: ledgerRes.currencySymbol,
-            imageUrl: 'https://red.ilpdemo.org/api/receivers/' + directoryRes.firstName + directoryRes.lastName + '/profile_pic.jpg'
+            imageUrl: 'https://red.ilpdemo.org/api/receivers/' + directoryRes.firstName + '_' + directoryRes.lastName + '/profile_pic.jpg'
           }
         })
       })
