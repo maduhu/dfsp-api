@@ -1,3 +1,13 @@
+<a name="0.14.9"></a>
+## [0.14.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.8...v0.14.9) (2017-02-03)
+
+
+### Bug Fixes
+
+* rename invoiceNotificationId to invoiceId in post invoice ([2cbe4fa](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/2cbe4fa))
+
+
+
 <a name="0.14.8"></a>
 ## [0.14.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.7...v0.14.8) (2017-02-02)
 
