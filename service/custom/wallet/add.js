@@ -3,7 +3,10 @@ module.exports = {
     /* e.g.
       {
         "userNumber": "123456789",
-        "name": "Test Testov",
+        "firstName": "Test",
+        "lastName": "Testov",
+        "dob": "10/12/1999",
+        "nationalId": "123654789",
         "phoneNumber": "0122523365225",
         "accountName": "000000044",
         "password": 123

@@ -45,11 +45,13 @@ module.exports = {
         }).then((ledgerRes) => {
           return {
             type: 'payee',
-            name: directoryRes.name,
+            name: directoryRes.firstName + ' ' + directoryRes.lastName,
+            firstName: directoryRes.firstName,
+            lastName: directoryRes.lastName,
             account: ledgerRes.id,
             currencyCode: ledgerRes.currencyCode,
             currencySymbol: ledgerRes.currencySymbol,
-            imageUrl: 'https://red.ilpdemo.org/api/receivers/' + directoryRes.name + '/profile_pic.jpg'
+            imageUrl: 'https://red.ilpdemo.org/api/receivers/' + directoryRes.firstName + directoryRes.lastName + '/profile_pic.jpg'
           }
         })
       })

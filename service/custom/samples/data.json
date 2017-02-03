@@ -2,28 +2,40 @@
   "dfsp1": [
     {
       "userNumber": "26547070",
-      "name": "bob",
+      "firstName": "bob",
+      "lastName": "dylan",
+      "dob": "1999-12-10",
+      "nationalId": "123456789",
       "accountName": "bob",
       "phoneNumber": "bob",
       "password": "1234"
     },
     {
       "userNumber": "85555384",
-      "name": "alice",
+      "firstName": "alice",
+      "lastName": "cooper",
+      "dob": "1989-03-22",
+      "nationalId": "987654321",
       "accountName": "alice",
       "phoneNumber": "alice",
       "password": "1234"
     },
     {
       "userNumber": "47168965",
-      "name": "merchant",
+      "firstName": "merchant",
+      "lastName": "one",
+      "dob": "1956-05-13",
+      "nationalId": "147852369",
       "accountName": "merchant",
       "phoneNumber": "merchant",
       "password": "1234"
     },
     {
       "userNumber": "34654426",
-      "name": "dfsp1connector",
+      "firstName": "dfsp1",
+      "lastName": "connector",
+      "dob": "1977-09-01",
+      "nationalId": "369852147",
       "accountName": "dfsp1connector",
       "phoneNumber": "dfsp1connector",
       "password": "1234"
@@ -32,28 +44,40 @@
   "dfsp2": [
     {
       "userNumber": "78956562",
-      "name": "bob",
+      "firstName": "bob",
+      "lastName": "dylan",
+      "dob": "1999-12-10",
+      "nationalId": "123456789",
       "accountName": "bob",
       "phoneNumber": "bob",
       "password": "1234"
     },
     {
       "userNumber": "38439659",
-      "name": "alice",
+      "firstName": "alice",
+      "lastName": "cooper",
+      "dob": "1989-03-22",
+      "nationalId": "987654321",
       "accountName": "alice",
       "phoneNumber": "alice",
       "password": "1234"
     },
     {
       "userNumber": "29201743",
-      "name": "merchant",
+      "firstName": "merchant",
+      "lastName": "two",
+      "dob": "1956-05-13",
+      "nationalId": "147852369",
       "accountName": "merchant",
       "phoneNumber": "merchant",
       "password": "1234"
     },
     {
       "userNumber": "63109827",
-      "name": "dfsp2connector",
+      "firstName": "dfsp2",
+      "lastName": "connector",
+      "dob": "1977-09-01",
+      "nationalId": "369852147",
       "accountName": "dfsp2connector",
       "phoneNumber": "dfsp2connector",
       "password": "1234"
@@ -62,28 +86,40 @@
   "dev": [
     {
       "userNumber": "26547070",
-      "name": "bob",
+      "firstName": "bob",
+      "lastName": "dylan",
+      "dob": "1999-12-10",
+      "nationalId": "123456789",
       "accountName": "bob",
       "phoneNumber": "bob",
       "password": "1234"
     },
     {
       "userNumber": "85555384",
-      "name": "alice",
+      "firstName": "alice",
+      "lastName": "cooper",
+      "dob": "1989-03-22",
+      "nationalId": "987654321",
       "accountName": "alice",
       "phoneNumber": "alice",
       "password": "1234"
     },
     {
       "userNumber": "47168965",
-      "name": "merchant",
+      "firstName": "merchant",
+      "lastName": "one",
+      "dob": "1956-05-13",
+      "nationalId": "147852369",
       "accountName": "merchant",
       "phoneNumber": "merchant",
       "password": "1234"
     },
     {
       "userNumber": "34654426",
-      "name": "dfspconnector",
+      "firstName": "dfsp",
+      "lastName": "connector",
+      "dob": "1977-09-01",
+      "nationalId": "369852147",
       "accountName": "dfspconnector",
       "phoneNumber": "dfspconnector",
       "password": "1234"

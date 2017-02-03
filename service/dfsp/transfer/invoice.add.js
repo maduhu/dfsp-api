@@ -57,7 +57,7 @@ module.exports = {
         }
         if (this.bus.config.spsp && this.bus.config.spsp.url && this.bus.config.spsp.url.startsWith('http://localhost')) {
           $meta.method = 'transfer.invoiceNotification.add'
-          params.userNumber = result.userNumber
+          params.senderIdentifier = result.userNumber
           params.invoiceUrl = 'http://localhost:8010/receivers/invoices/' + result.invoiceId
         } else {
           $meta.method = 'spsp.transfer.invoiceNotification.add'

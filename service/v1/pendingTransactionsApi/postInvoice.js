@@ -62,11 +62,11 @@ module.exports = {
                 })
               }, $meta)
               .then((directoryResponse) => {
-                var info = (typeof msg.info !== 'undefined') ? msg.info : 'Invoice from ' + directoryResponse.name + ' for ' + msg.amount + ' ' + ledgerResponse.currencyCode
+                var info = (typeof msg.info !== 'undefined') ? msg.info : 'Invoice from ' + directoryResponse.firstName + ' ' + directoryResponse.lastName + ' for ' + msg.amount + ' ' + ledgerResponse.currencyCode
                 $meta.method = 'transfer.invoice.add'
                 return this.bus.importMethod($meta.method)({
                   account: ledgerResponse.id,
-                  name: directoryResponse.name,
+                  name: directoryResponse.firstName + ' ' + directoryResponse.lastName,
                   currencyCode: ledgerResponse.currencyCode,
                   currencySymbol: ledgerResponse.currencySymbol,
                   amount: msg.amount,
@@ -79,8 +79,8 @@ module.exports = {
                       type: invoiceResponse.type,
                       invoiceNotificationId: invoiceResponse.invoiceId,
                       account: msg.account,
-                      firstName: directoryResponse.name,
-                      lastName: 'Smith',
+                      firstName: directoryResponse.firstName,
+                      lastName: directoryResponse.lastName,
                       currencyCode: ledgerResponse.currencyCode,
                       currencySymbol: ledgerResponse.currencySymbol,
                       amount: msg.amount,
