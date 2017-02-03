@@ -21,8 +21,7 @@ module.exports = {
             '200': {
               description: 'Invoice Added',
               schema: joi.object().keys({
-                type: joi.string().description('type'),
-                invoiceNotificationId: joi.number().description('Invoice notification Id'),
+                invoiceId: joi.number().description('Invoice Id'),
                 account: joi.string().description('Merchant account'),
                 firstName: joi.string().description('Merchant\'s first name'),
                 lastName: joi.string().description('Merchant\'s last name'),
@@ -76,8 +75,7 @@ module.exports = {
                 }, $meta)
                   .then((invoiceResponse) => {
                     return {
-                      type: invoiceResponse.type,
-                      invoiceNotificationId: invoiceResponse.invoiceId,
+                      invoiceId: invoiceResponse.invoiceId,
                       account: msg.account,
                       firstName: directoryResponse.name,
                       lastName: 'Smith',
