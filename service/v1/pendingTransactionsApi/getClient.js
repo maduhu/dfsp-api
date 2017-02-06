@@ -40,8 +40,8 @@ module.exports = {
     })
     .then(res => {
       return {
-        firstName: res.name,
-        lastName: 'Smith',
+        firstName: res.firstName,
+        lastName: res.lastName,
         imageUrl: res.imageUrl
       }
     })

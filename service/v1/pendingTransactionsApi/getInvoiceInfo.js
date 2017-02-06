@@ -46,8 +46,8 @@ module.exports = {
       var invoiceAmount = Number(invoice.amount)
       invoiceDetails.currencyCode = invoice.currencyCode
       invoiceDetails.currencySymbol = invoice.currencySymbol
-      invoiceDetails.firstName = invoice.name
-      invoiceDetails.lastName = 'Smith'
+      invoiceDetails.firstName = invoice.firstName
+      invoiceDetails.lastName = invoice.lastName
       invoiceDetails.amount = invoiceAmount
       return this.bus.importMethod('rule.decision.fetch')({
         currency: invoice.currencyCode,

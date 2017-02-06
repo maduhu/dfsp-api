@@ -3,7 +3,7 @@ module.exports = {
     return this.bus.importMethod('spsp.transfer.transfer.setup')({
       receiver: msg.receiver,
       sourceAccount: msg.sourceAccount,
-      destinationAmount: msg.destinationAmount,
+      destinationAmount: '' + msg.destinationAmount,
       memo: msg.memo || '',
       sourceIdentifier: msg.sourceIdentifier
     })

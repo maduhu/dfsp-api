@@ -7,7 +7,10 @@ module.exports = {
       .then((res) => {
         return this.config.exec({
           userNumber: res.number,
-          name: msg.name
+          firstName: msg.firstName,
+          lastName: msg.lastName,
+          dob: msg.dob,
+          nationalId: msg.nationalId
         }, $meta)
       })
     }
