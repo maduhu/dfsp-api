@@ -1,3 +1,19 @@
+<a name="0.15.0"></a>
+# [0.15.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.9...v0.15.0) (2017-02-06)
+
+
+### Bug Fixes
+
+* add underscore in image name ([8f2b3a4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8f2b3a4))
+* remove code duplication ([cb6d047](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/cb6d047))
+
+
+### Features
+
+* add first name, last name, dob and nationalId to directory users ([81fc280](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/81fc280))
+
+
+
 <a name="0.14.9"></a>
 ## [0.14.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.8...v0.14.9) (2017-02-03)
 
