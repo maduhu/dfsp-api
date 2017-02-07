@@ -1,3 +1,13 @@
+<a name="0.15.1"></a>
+## [0.15.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.15.0...v0.15.1) (2017-02-07)
+
+
+### Bug Fixes
+
+* add samples data for dfsp1-test and dfsp2-test ([ef8b01e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ef8b01e))
+
+
+
 <a name="0.15.0"></a>
 # [0.15.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.14.9...v0.15.0) (2017-02-06)
 
