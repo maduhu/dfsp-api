@@ -10,7 +10,8 @@ module.exports = {
     'notification',
     'subscription',
     'rule',
-    'transfer'
+    'transfer',
+    'bulk'
   ],
   logLevel: 'trace',
   start: function () {
