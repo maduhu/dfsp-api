@@ -1,3 +1,13 @@
+<a name="0.15.2"></a>
+## [0.15.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.15.1...v0.15.2) (2017-02-09)
+
+
+### Bug Fixes
+
+* add 'bulk' namespace ([0f96b7e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0f96b7e))
+
+
+
 <a name="0.15.1"></a>
 ## [0.15.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.15.0...v0.15.1) (2017-02-07)
 
