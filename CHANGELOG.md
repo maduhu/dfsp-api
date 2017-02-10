@@ -1,3 +1,13 @@
+<a name="0.15.3"></a>
+## [0.15.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.15.2...v0.15.3) (2017-02-10)
+
+
+### Bug Fixes
+
+* rename approve pending invoice to pay pending invoice api call ([b4457b0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b4457b0))
+
+
+
 <a name="0.15.2"></a>
 ## [0.15.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.15.1...v0.15.2) (2017-02-09)
 
