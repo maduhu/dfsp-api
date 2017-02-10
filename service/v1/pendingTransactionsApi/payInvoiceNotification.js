@@ -3,12 +3,12 @@ const INVOICE_TRANSFER_CODE = 'invoice'
 const STATUS_CODE_EXECUTE = 'e'
 module.exports = {
   rest: {
-    rpc: 'pendingTransactionsApi.invoiceNotification.approve',
-    path: '/v1/invoiceNotifications/approve',
+    rpc: 'pendingTransactionsApi.invoiceNotification.pay',
+    path: '/v1/invoiceNotifications/pay',
     config: {
-      description: 'Approve invoiceNotification by given invoiceNotificationId',
-      notes: 'Approve the invoiceNotification by given invoiceNotificationId',
-      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications', 'approveInvoiceNotification'],
+      description: 'Pay invoiceNotification by given invoiceNotificationId',
+      notes: 'Pay the invoiceNotification by given invoiceNotificationId',
+      tags: ['api', 'pendingTransactions', 'v1', 'invoiceNotifications', 'payInvoiceNotification'],
       validate: {
         payload: joi.object({
           account: joi.string().description('Client\'s account').example('client').required(),
@@ -22,7 +22,7 @@ module.exports = {
               description: 'Action performed',
               schema: joi.object().keys({
                 invoiceNotificationId: joi.string().description('Invoice notification Id').example('6'),
-                status: joi.string().description('The new invoice notification status').example('approved')
+                status: joi.string().description('The new invoice notification status').example('paid')
               })
             }
           }
@@ -31,7 +31,7 @@ module.exports = {
     },
     method: 'put'
   },
-  'invoiceNotification.approve': function (msg) {
+  'invoiceNotification.pay': function (msg) {
     return this.bus.importMethod('ledger.account.get')({
       accountNumber: msg.account
     })
