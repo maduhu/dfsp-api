@@ -1,3 +1,13 @@
+<a name="0.17.0"></a>
+# [0.17.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.16.0...v0.17.0) (2017-02-15)
+
+
+### Features
+
+* bulk payment check functionality ([cddacfb](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/cddacfb))
+
+
+
 <a name="0.16.0"></a>
 # [0.16.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.15.4...v0.16.0) (2017-02-15)
 
