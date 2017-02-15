@@ -1,3 +1,13 @@
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.15.4...v0.16.0) (2017-02-15)
+
+
+### Features
+
+* add bulk.batch.check method ([cb54186](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/cb54186))
+
+
+
 <a name="0.15.4"></a>
 ## [0.15.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.15.3...v0.15.4) (2017-02-15)
 
