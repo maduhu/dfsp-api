@@ -8,6 +8,7 @@ module.exports = {
     require('../httpclient/dfsp/subscription'),
     require('../httpclient/dfsp/rule'),
     require('../httpclient/dfsp/transfer'),
+    require('../httpclient/dfsp/bulk'),
     require('../httpclient/spsp'),
     require('../httpclient/ist'),
     require('../httpserver'),
@@ -30,7 +31,8 @@ module.exports = {
     notification: require('../service/dfsp/notification'),
     rule: require('../service/dfsp/rule'),
     subscription: require('../service/dfsp/subscription'),
-    transfer: require('../service/dfsp/transfer')
+    transfer: require('../service/dfsp/transfer'),
+    bulk: require('../service/dfsp/bulk')
   },
   validations: {
 
