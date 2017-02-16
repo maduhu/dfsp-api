@@ -116,12 +116,12 @@
     },
     {
       "userNumber": "19541399",
-      "firstName": "dfsp1",
+      "firstName": "dfsp1-test",
       "lastName": "connector",
       "dob": "1977-09-01",
       "nationalId": "369852147",
-      "accountName": "dfsp1connector",
-      "phoneNumber": "dfsp1connector",
+      "accountName": "dfsp1-testconnector",
+      "phoneNumber": "dfsp1-testconnector",
       "password": "1234"
     }
   ],
@@ -158,12 +158,12 @@
     },
     {
       "userNumber": "48489818",
-      "firstName": "dfsp2",
+      "firstName": "dfsp2-test",
       "lastName": "connector",
       "dob": "1977-09-01",
       "nationalId": "369852147",
-      "accountName": "dfsp2connector",
-      "phoneNumber": "dfsp2connector",
+      "accountName": "dfsp2-testconnector",
+      "phoneNumber": "dfsp2-testconnector",
       "password": "1234"
     }
   ],
