@@ -1,3 +1,13 @@
+<a name="0.18.0"></a>
+# [0.18.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.17.1...v0.18.0) (2017-02-16)
+
+
+### Features
+
+* implement data caching in dfsp-api ([b44443b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b44443b))
+
+
+
 <a name="0.17.1"></a>
 ## [0.17.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.17.0...v0.17.1) (2017-02-15)
 
