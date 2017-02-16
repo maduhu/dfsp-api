@@ -1,3 +1,13 @@
+<a name="0.18.1"></a>
+## [0.18.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.18.0...v0.18.1) (2017-02-16)
+
+
+### Bug Fixes
+
+* fix dfsp connector names for test environments ([51816fb](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/51816fb))
+
+
+
 <a name="0.18.0"></a>
 # [0.18.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.17.1...v0.18.0) (2017-02-16)
 
