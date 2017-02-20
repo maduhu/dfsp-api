@@ -1,17 +1,19 @@
 module.exports = {
   'push.execute': function (msg, $meta) {
-    return this.bus.importMethod('spsp.transfer.transfer.setup')({
+    var promise
+    var params = {
       receiver: msg.receiver,
       sourceAccount: msg.sourceAccount,
       destinationAmount: '' + msg.destinationAmount,
       memo: msg.memo || '',
       sourceIdentifier: msg.sourceIdentifier
-    })
-    .then((result) => {
-      return this.bus.importMethod('spsp.transfer.transfer.execute')(result)
-    })
-    .then((result) => {
-      return this.config.exec(result, $meta)
-    })
+    }
+    if ((this.bus.config.cluster || '').endsWith('-test')) {
+      promise = this.bus.importMethod('spsp.transfer.push.execute')(params)
+    } else {
+      promise = this.bus.importMethod('spsp.transfer.transfer.setup')(params)
+      .then(this.bus.importMethod('spsp.transfer.transfer.execute'))
+    }
+    return promise.then((result) => this.config.exec(result, $meta))
   }
 }

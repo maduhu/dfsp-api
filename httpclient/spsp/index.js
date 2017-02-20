@@ -1,3 +1,4 @@
+var uuid = require('uuid/v4')
 module.exports = {
   id: 'spsp',
   createPort: require('ut-port-http'),
@@ -64,7 +65,7 @@ module.exports = {
   },
   'spsp.transfer.transfer.execute.request.send': function (msg, $meta) {
     return {
-      uri: '/payments/' + msg.id,
+      uri: '/payments/' + (msg.id || uuid()), // whether the payment is executed after setup or directly
       httpMethod: 'put',
       payload: msg,
       headers: {
