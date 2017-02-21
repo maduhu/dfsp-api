@@ -24,17 +24,19 @@ function check (msg, $meta) {
           promise = promise.then(function () {
             return importMethod('spsp.transfer.payee.get')({identifier: payment.userNumber})
               .then(function (result) {
-                var params = {paymentStatusId: status.payment.verified} // set verified
+                var mismatch = []
                 fieldsToCheck.forEach(function (field) {
                   if (payment[field] !== result[field]) {
-                    if (params.info) {
-                      params.info += ', ' + field + ' doesn\'t match'
-                    } else {
-                      params = {paymentStatusId: status.payment.mismatch, info: '' + field + ' doesn\'t match'} // failed
-                    }
+                    mismatch.push(field)
                   }
                 })
-                return params
+                if (mismatch.length) {
+                  return {
+                    paymentStatusId: status.payment.mismatch,
+                    info: mismatch.join(', ') + (mismatch.length === 1 ? ' doesn\'t match' : ' don\'t match')
+                  }
+                }
+                return {paymentStatusId: status.payment.verified}
               })
               .catch(() => {
                 return {paymentStatusId: status.payment.mismatch, info: 'User not found'}
@@ -84,7 +86,7 @@ function check (msg, $meta) {
     return checkPayments(params)
   })
   .then(function () {
-    return dispatch('bulk.batch.revertStatus', {})
+    return dispatch('bulk.batch.revertStatus', {partial: !!msg.payments})
   })
   return promise
 }
