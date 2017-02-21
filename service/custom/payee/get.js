@@ -48,6 +48,8 @@ module.exports = {
             name: directoryRes.firstName + ' ' + directoryRes.lastName,
             firstName: directoryRes.firstName,
             lastName: directoryRes.lastName,
+            nationalId: directoryRes.nationalId,
+            dob: directoryRes.dob,
             account: ledgerRes.id,
             currencyCode: ledgerRes.currencyCode,
             currencySymbol: ledgerRes.currencySymbol,
