@@ -1,5 +1,5 @@
 var status = {}
-var fieldsToCheck = ['firstName', 'lastName']
+var fieldsToCheck = ['firstName', 'lastName', 'dob', 'nationalId']
 
 function check (msg, $meta) {
   // set status verifying
