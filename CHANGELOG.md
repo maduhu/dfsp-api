@@ -1,3 +1,13 @@
+<a name="0.18.4"></a>
+## [0.18.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.18.3...v0.18.4) (2017-02-21)
+
+
+### Bug Fixes
+
+* add dob and nationalId fields to check ([5998edc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/5998edc))
+
+
+
 <a name="0.18.3"></a>
 ## [0.18.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.18.2...v0.18.3) (2017-02-21)
 
