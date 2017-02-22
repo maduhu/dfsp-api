@@ -9,7 +9,7 @@ module.exports = {
       sourceIdentifier: msg.sourceIdentifier
     }
     if ((this.bus.config.cluster || '').endsWith('-test')) {
-      promise = this.bus.importMethod('spsp.transfer.push.execute')(params)
+      promise = this.bus.importMethod('spsp.transfer.transfer.execute')(params)
     } else {
       promise = this.bus.importMethod('spsp.transfer.transfer.setup')(params)
       .then(this.bus.importMethod('spsp.transfer.transfer.execute'))
