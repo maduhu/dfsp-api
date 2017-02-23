@@ -1,3 +1,13 @@
+<a name="0.19.0"></a>
+# [0.19.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.18.7...v0.19.0) (2017-02-23)
+
+
+### Features
+
+* add scheduler and payment.process method ([8e62847](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8e62847))
+
+
+
 <a name="0.18.7"></a>
 ## [0.18.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.18.6...v0.18.7) (2017-02-23)
 
