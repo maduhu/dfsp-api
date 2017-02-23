@@ -1,3 +1,13 @@
+<a name="0.18.7"></a>
+## [0.18.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.18.6...v0.18.7) (2017-02-23)
+
+
+### Bug Fixes
+
+* change returned invoice status from pay invoice notification api call ([f9b29a8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f9b29a8))
+
+
+
 <a name="0.18.6"></a>
 ## [0.18.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.18.5...v0.18.6) (2017-02-22)
 
