@@ -71,7 +71,7 @@ module.exports = {
                 .then((response) => {
                   return {
                     invoiceNotificationId: response.invoiceNotificationId,
-                    status: response.status
+                    status: response.status === 'executed' ? 'paid' : response.status
                   }
                 })
             })
