@@ -1,3 +1,13 @@
+<a name="0.19.5"></a>
+## [0.19.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.4...v0.19.5) (2017-02-24)
+
+
+### Bug Fixes
+
+* improve bulk.payment.process and schedule the first batch payment after the configured interval passes ([ab1a433](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ab1a433))
+
+
+
 <a name="0.19.4"></a>
 ## [0.19.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.3...v0.19.4) (2017-02-24)
 
