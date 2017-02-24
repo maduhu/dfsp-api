@@ -1,3 +1,13 @@
+<a name="0.19.2"></a>
+## [0.19.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.1...v0.19.2) (2017-02-24)
+
+
+### Bug Fixes
+
+* ledger.account.fetch to work with actorId ([1ef0f6e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1ef0f6e))
+
+
+
 <a name="0.19.1"></a>
 ## [0.19.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.0...v0.19.1) (2017-02-24)
 
