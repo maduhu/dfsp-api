@@ -2,7 +2,7 @@ module.exports = require('ut-run')
 .run({}, module)
 .then(function (app) {
   function pay () {
-    app.bus.importMethod('bulk.payment.getForProcessing')()
+    app.bus.importMethod('bulk.payment.getForProcessing')({})
       .then(function (payments) {
         var promise = Promise.resolve()
         payments.forEach(function (payment) {
@@ -16,6 +16,7 @@ module.exports = require('ut-run')
         })
         return promise
       })
+      .catch(() => ({}))
       .then(function () {
         setTimeout(pay, app.config.schedulePayments.interval || 10000)
       })
