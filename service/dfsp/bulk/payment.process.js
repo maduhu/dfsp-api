@@ -90,7 +90,6 @@ module.exports = {
           error: ''
         }, {method: 'bulk.payment.process'})
       })
-      .then(() => ({}))
       .catch(() => ({}))
     })
   }
