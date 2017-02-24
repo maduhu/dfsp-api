@@ -1,3 +1,13 @@
+<a name="0.19.3"></a>
+## [0.19.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.2...v0.19.3) (2017-02-24)
+
+
+### Bug Fixes
+
+* add forgotten file ([4037236](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4037236))
+
+
+
 <a name="0.19.2"></a>
 ## [0.19.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.1...v0.19.2) (2017-02-24)
 
