@@ -1,3 +1,13 @@
+<a name="0.19.4"></a>
+## [0.19.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.3...v0.19.4) (2017-02-24)
+
+
+### Bug Fixes
+
+* handle more cases to handle bulk payment failures ([6c102a8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6c102a8))
+
+
+
 <a name="0.19.3"></a>
 ## [0.19.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.2...v0.19.3) (2017-02-24)
 
