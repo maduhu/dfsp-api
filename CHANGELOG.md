@@ -1,3 +1,13 @@
+<a name="0.19.1"></a>
+## [0.19.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.0...v0.19.1) (2017-02-24)
+
+
+### Bug Fixes
+
+* optimize bulk.payment.process method ([aa639ad](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/aa639ad))
+
+
+
 <a name="0.19.0"></a>
 # [0.19.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.18.7...v0.19.0) (2017-02-23)
 
