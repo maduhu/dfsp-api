@@ -1,3 +1,13 @@
+<a name="0.19.6"></a>
+## [0.19.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.5...v0.19.6) (2017-02-27)
+
+
+### Bug Fixes
+
+* optimize code ([6cc435c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6cc435c))
+
+
+
 <a name="0.19.5"></a>
 ## [0.19.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.4...v0.19.5) (2017-02-24)
 
