@@ -1,3 +1,13 @@
+<a name="0.19.7"></a>
+## [0.19.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.6...v0.19.7) (2017-02-28)
+
+
+### Bug Fixes
+
+* use paymentId insread of recordId ([0afea6f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0afea6f))
+
+
+
 <a name="0.19.6"></a>
 ## [0.19.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.5...v0.19.6) (2017-02-27)
 
