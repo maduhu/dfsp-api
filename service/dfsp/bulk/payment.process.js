@@ -15,7 +15,7 @@ module.exports = {
     return promise
     .then(() => {
       return this.bus.importMethod('bulk.payment.preProcess')({
-        paymentId: record.recordId
+        paymentId: record.paymentId
       })
     })
     .then((payment) => {
