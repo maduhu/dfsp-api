@@ -1,6 +1,7 @@
 var paymentStatus
 module.exports = {
   'payment.process': function (record, $meta) {
+    var payment
     var promise = Promise.resolve()
     if (!paymentStatus) {
       promise = promise
@@ -18,12 +19,10 @@ module.exports = {
         paymentId: record.paymentId
       })
     })
-    .then((payment) => {
+    .then((result) => {
+      payment = result
       return this.bus.importMethod('spsp.transfer.payee.get')({
         identifier: payment.userNumber
-      })
-      .then((payee) => {
-        return {payment, payee}
       })
       .catch((err) => {
         return this.config.exec({
@@ -35,25 +34,25 @@ module.exports = {
         .then(() => Promise.reject(err))
       })
     })
-    .then((params) => {
-      if (!params.payee.account) {
+    .then((payee) => {
+      if (!payee.account) {
         return this.config.exec({
-          paymentId: params.payment.paymentId,
+          paymentId: payment.paymentId,
           paymentStatusId: paymentStatus.failed,
-          actorId: params.payment.actorId,
+          actorId: payment.actorId,
           error: 'user has no active mwallet accounts'
         }, {method: 'bulk.payment.process'})
       }
       return this.bus.importMethod('rule.decision.fetch')({
-        currency: params.payee.currencyCode,
-        amount: params.payment.amount,
-        identifier: params.payment.userNumber
+        currency: payee.currencyCode,
+        amount: payment.amount,
+        identifier: payment.userNumber
       })
       .catch((err) => {
         return this.config.exec({
-          paymentId: params.payment.paymentId,
+          paymentId: payment.paymentId,
           paymentStatusId: paymentStatus.failed,
-          actorId: params.payment.actorId,
+          actorId: payment.actorId,
           error: 'fee could not be obtained'
         }, {method: 'bulk.payment.process'})
         .then(() => Promise.reject(err))
@@ -61,22 +60,22 @@ module.exports = {
       .then((fee) => {
         return this.bus.importMethod('transfer.push.execute')({
           sourceIdentifier: this.bus.config.cluster || 'DFSP', // register user to act as debit when sending bulk payments?
-          sourceAccount: params.payment.account,
-          receiver: params.payee.spspServer + '/receivers/' + params.payment.userNumber,
-          destinationAmount: params.payment.amount,
-          currency: params.payee.currencyCode,
+          sourceAccount: payment.account,
+          receiver: payee.spspServer + '/receivers/' + payment.userNumber,
+          destinationAmount: payment.amount,
+          currency: payee.currencyCode,
           memo: JSON.stringify({
             fee: fee.fee && fee.fee.amount || 0,
             transferCode: 'bulkPayment',
-            debitName: params.payee.name,
+            debitName: payee.name,
             creditName: this.bus.config.cluster || 'DFSP' // register user to act as debit when sending bulk payments?
           })
         })
         .catch((err) => {
           return this.config.exec({
-            paymentId: params.payment.paymentId,
+            paymentId: payment.paymentId,
             paymentStatusId: paymentStatus.failed,
-            actorId: params.payment.actorId,
+            actorId: payment.actorId,
             error: 'payment failed'
           }, {method: 'bulk.payment.process'})
           .then(() => Promise.reject(err))
@@ -84,9 +83,9 @@ module.exports = {
       })
       .then(() => {
         return this.config.exec({
-          paymentId: params.payment.paymentId,
+          paymentId: payment.paymentId,
           paymentStatusId: paymentStatus.paid,
-          actorId: params.payment.actorId,
+          actorId: payment.actorId,
           error: ''
         }, {method: 'bulk.payment.process'})
       })
