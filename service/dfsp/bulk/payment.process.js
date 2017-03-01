@@ -64,6 +64,7 @@ module.exports = {
           receiver: payee.spspServer + '/receivers/' + payment.userNumber,
           destinationAmount: payment.amount,
           currency: payee.currencyCode,
+          fee: fee.fee && fee.fee.amount || 0,
           memo: JSON.stringify({
             fee: fee.fee && fee.fee.amount || 0,
             transferCode: 'bulkPayment',

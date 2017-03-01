@@ -54,6 +54,7 @@ module.exports = {
                     receiver: invoiceNotificationResult.invoiceUrl,
                     destinationAmount: '' + invoiceResult.amount,
                     currency: invoiceResult.currencyCode,
+                    fee: invoiceResult.fee,
                     memo: JSON.stringify({
                       fee: invoiceResult.fee,
                       transferCode: INVOICE_TRANSFER_CODE,
