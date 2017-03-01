@@ -1,3 +1,14 @@
+<a name="0.19.9"></a>
+## [0.19.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.8...v0.19.9) (2017-03-01)
+
+
+### Bug Fixes
+
+* ensure proper addition of the fee ([0728b25](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0728b25))
+* pass source amount as string ([9419142](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9419142))
+
+
+
 <a name="0.19.8"></a>
 ## [0.19.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.7...v0.19.8) (2017-03-01)
 
