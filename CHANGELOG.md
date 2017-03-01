@@ -1,3 +1,13 @@
+<a name="0.19.8"></a>
+## [0.19.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.7...v0.19.8) (2017-03-01)
+
+
+### Bug Fixes
+
+* pass sourceAmount to transfer.push.execute method ([4945e77](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4945e77))
+
+
+
 <a name="0.19.7"></a>
 ## [0.19.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.6...v0.19.7) (2017-02-28)
 
