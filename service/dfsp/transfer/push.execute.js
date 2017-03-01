@@ -6,7 +6,8 @@ module.exports = {
       sourceAccount: msg.sourceAccount,
       destinationAmount: '' + msg.destinationAmount,
       memo: msg.memo || '',
-      sourceIdentifier: msg.sourceIdentifier
+      sourceIdentifier: msg.sourceIdentifier,
+      sourceAmount: + msg.destinationAmount + msg.fee
     }
     if ((this.bus.config.cluster || '').endsWith('-test')) {
       promise = this.bus.importMethod('spsp.transfer.transfer.execute')(params)
