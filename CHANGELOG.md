@@ -1,3 +1,13 @@
+<a name="0.20.2"></a>
+## [0.20.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.1...v0.20.2) (2017-03-02)
+
+
+### Bug Fixes
+
+* change transfer type in bulk payment transfer ([ba2f64a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ba2f64a))
+
+
+
 <a name="0.20.1"></a>
 ## [0.20.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.0...v0.20.1) (2017-03-02)
 
