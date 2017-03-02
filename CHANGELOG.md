@@ -1,3 +1,13 @@
+<a name="0.20.1"></a>
+## [0.20.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.0...v0.20.1) (2017-03-02)
+
+
+### Bug Fixes
+
+* set proper source identifier ([b08f36e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b08f36e))
+
+
+
 <a name="0.20.0"></a>
 # [0.20.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.9...v0.20.0) (2017-03-02)
 
