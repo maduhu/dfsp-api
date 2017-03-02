@@ -74,7 +74,7 @@ module.exports = {
           fee: fee.fee && fee.fee.amount || 0,
           memo: JSON.stringify({
             fee: fee.fee && fee.fee.amount || 0,
-            transferCode: 'bulkPayment',
+            transferCode: 'p2p',
             debitName: payee.name,
             creditName: payer.firstName + ' ' + payer.lastName
           })
