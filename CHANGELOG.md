@@ -1,3 +1,13 @@
+<a name="0.20.0"></a>
+# [0.20.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.9...v0.20.0) (2017-03-02)
+
+
+### Features
+
+* add configuration to activate processing of bulk payments ([26d28f7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/26d28f7))
+
+
+
 <a name="0.19.9"></a>
 ## [0.19.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.19.8...v0.19.9) (2017-03-01)
 
