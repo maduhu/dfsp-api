@@ -53,5 +53,8 @@
     "checkFrequency": 1000,
     "defaultTTL": 3600
   },
-  "debug": true
+  "debug": true,
+  "schedulePayments": {
+    "interval": 10000
+  }
 }
