@@ -2,6 +2,7 @@ var paymentStatus
 module.exports = {
   'payment.process': function (record, $meta) {
     var payment
+    var payer
     var promise = Promise.resolve()
     if (!paymentStatus) {
       promise = promise
@@ -21,6 +22,12 @@ module.exports = {
     })
     .then((result) => {
       payment = result
+      return this.bus.importMethod('directory.user.get')({
+        actorId: result.actorId
+      })
+    })
+    .then((user) => {
+      payer = user
       return this.bus.importMethod('spsp.transfer.payee.get')({
         identifier: payment.userNumber
       })
@@ -59,7 +66,7 @@ module.exports = {
       })
       .then((fee) => {
         return this.bus.importMethod('transfer.push.execute')({
-          sourceIdentifier: this.bus.config.cluster || 'DFSP', // register user to act as debit when sending bulk payments?
+          sourceIdentifier: payer.endUserNumber,
           sourceAccount: payment.account,
           receiver: payee.spspServer + '/receivers/' + payment.userNumber,
           destinationAmount: payment.amount,
@@ -69,7 +76,7 @@ module.exports = {
             fee: fee.fee && fee.fee.amount || 0,
             transferCode: 'bulkPayment',
             debitName: payee.name,
-            creditName: this.bus.config.cluster || 'DFSP' // register user to act as debit when sending bulk payments?
+            creditName: payer.firstName + ' ' + payer.lastName
           })
         })
         .catch((err) => {
