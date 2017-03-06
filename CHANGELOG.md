@@ -1,3 +1,13 @@
+<a name="0.20.3"></a>
+## [0.20.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.2...v0.20.3) (2017-03-06)
+
+
+### Bug Fixes
+
+* dibit and credit accounts are swapped in memo ([ffc09d7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ffc09d7))
+
+
+
 <a name="0.20.2"></a>
 ## [0.20.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.1...v0.20.2) (2017-03-02)
 
