@@ -1,3 +1,13 @@
+<a name="0.20.4"></a>
+## [0.20.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.3...v0.20.4) (2017-03-07)
+
+
+### Bug Fixes
+
+* make transfers with type bulkPayment when executing bulk payments ([568fd91](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/568fd91))
+
+
+
 <a name="0.20.3"></a>
 ## [0.20.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.2...v0.20.3) (2017-03-06)
 
