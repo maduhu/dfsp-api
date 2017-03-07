@@ -1,3 +1,13 @@
+<a name="0.20.6"></a>
+## [0.20.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.5...v0.20.6) (2017-03-07)
+
+
+### Bug Fixes
+
+* don't pass paymentStatusId from bulk.payment.process backend method as it gets explicitly set by db function ([113b682](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/113b682))
+
+
+
 <a name="0.20.5"></a>
 ## [0.20.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.4...v0.20.5) (2017-03-07)
 
