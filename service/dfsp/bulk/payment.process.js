@@ -4,6 +4,18 @@ module.exports = {
     var payment
     var payer
     var promise = Promise.resolve()
+    var dispatch = (method, msg, err) => {
+      return this.bus.importMethod(method)(msg)
+        .catch((err) => {
+          return this.config.exec({
+            paymentId: payment.paymentId,
+            paymentStatusId: paymentStatus.failed,
+            actorId: payment.actorId,
+            error: err
+          }, {method: 'bulk.payment.process'})
+          .then(() => Promise.reject(err))
+        })
+    }
     if (!paymentStatus) {
       promise = promise
         .then(() => this.bus.importMethod('bulk.paymentStatus.fetch')({}))
@@ -22,24 +34,15 @@ module.exports = {
     })
     .then((result) => {
       payment = result
-      return this.bus.importMethod('directory.user.get')({
+      return dispatch('directory.user.get', {
         actorId: result.actorId
-      })
+      }, 'payer not found')
     })
     .then((user) => {
       payer = user
-      return this.bus.importMethod('spsp.transfer.payee.get')({
+      return dispatch('spsp.transfer.payee.get', {
         identifier: payment.userNumber
-      })
-      .catch((err) => {
-        return this.config.exec({
-          paymentId: payment.paymentId,
-          paymentStatusId: paymentStatus.failed,
-          actorId: payment.actorId,
-          error: 'payee not found'
-        }, {method: 'bulk.payment.process'})
-        .then(() => Promise.reject(err))
-      })
+      }, 'payee not found')
     })
     .then((payee) => {
       if (!payee.account) {
@@ -50,22 +53,13 @@ module.exports = {
           error: 'user has no active mwallet accounts'
         }, {method: 'bulk.payment.process'})
       }
-      return this.bus.importMethod('rule.decision.fetch')({
+      return dispatch('rule.decision.fetch', {
         currency: payee.currencyCode,
         amount: payment.amount,
         identifier: payment.userNumber
-      })
-      .catch((err) => {
-        return this.config.exec({
-          paymentId: payment.paymentId,
-          paymentStatusId: paymentStatus.failed,
-          actorId: payment.actorId,
-          error: 'fee could not be obtained'
-        }, {method: 'bulk.payment.process'})
-        .then(() => Promise.reject(err))
-      })
+      }, 'fee could not be obtained')
       .then((fee) => {
-        return this.bus.importMethod('transfer.push.execute')({
+        return dispatch('transfer.push.execute', {
           sourceIdentifier: payer.endUserNumber,
           sourceAccount: payment.account,
           receiver: payee.spspServer + '/receivers/' + payment.userNumber,
@@ -78,16 +72,7 @@ module.exports = {
             creditName: payee.name,
             debitName: payer.firstName + ' ' + payer.lastName
           })
-        })
-        .catch((err) => {
-          return this.config.exec({
-            paymentId: payment.paymentId,
-            paymentStatusId: paymentStatus.failed,
-            actorId: payment.actorId,
-            error: 'payment failed'
-          }, {method: 'bulk.payment.process'})
-          .then(() => Promise.reject(err))
-        })
+        }, 'payment failed')
       })
       .then(() => {
         return this.config.exec({
