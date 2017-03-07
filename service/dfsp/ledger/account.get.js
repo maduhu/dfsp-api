@@ -63,10 +63,10 @@ module.exports = {
         })
       })
     } else {
-      throw errors.wrongParams({
+      return Promise.reject(errors.wrongParams({
         params: msg,
         method: $meta.method
-      })
+      }))
     }
   }
 }
