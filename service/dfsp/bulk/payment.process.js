@@ -1,36 +1,20 @@
-var paymentStatus
 module.exports = {
   'payment.process': function (record, $meta) {
     var payment
     var payer
-    var promise = Promise.resolve()
     var dispatch = (method, msg, err) => {
       return this.bus.importMethod(method)(msg)
         .catch((err) => {
           return this.config.exec({
             paymentId: payment.paymentId,
-            paymentStatusId: paymentStatus.failed,
             actorId: payment.actorId,
             error: err
           }, {method: 'bulk.payment.process'})
           .then(() => Promise.reject(err))
         })
     }
-    if (!paymentStatus) {
-      promise = promise
-        .then(() => this.bus.importMethod('bulk.paymentStatus.fetch')({}))
-        .then(status => {
-          paymentStatus = status.reduce((all, record) => {
-            all[record.name] = record.key
-            return all
-          }, {})
-        })
-    }
-    return promise
-    .then(() => {
-      return this.bus.importMethod('bulk.payment.preProcess')({
-        paymentId: record.paymentId
-      })
+    return this.bus.importMethod('bulk.payment.preProcess')({
+      paymentId: record.paymentId
     })
     .then((result) => {
       payment = result
@@ -48,7 +32,6 @@ module.exports = {
       if (!payee.account) {
         return this.config.exec({
           paymentId: payment.paymentId,
-          paymentStatusId: paymentStatus.failed,
           actorId: payment.actorId,
           error: 'user has no active mwallet accounts'
         }, {method: 'bulk.payment.process'})
@@ -77,7 +60,6 @@ module.exports = {
       .then(() => {
         return this.config.exec({
           paymentId: payment.paymentId,
-          paymentStatusId: paymentStatus.paid,
           actorId: payment.actorId,
           error: ''
         }, {method: 'bulk.payment.process'})
