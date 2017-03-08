@@ -6,10 +6,10 @@ module.exports = {
       sourceAccount: msg.sourceAccount,
       destinationAmount: '' + msg.destinationAmount,
       memo: msg.memo || '',
-      sourceIdentifier: msg.sourceIdentifier,
-      sourceAmount: '' + (parseFloat(msg.destinationAmount) + parseFloat(msg.fee || 0))
+      sourceIdentifier: msg.sourceIdentifier
     }
     if ((this.bus.config.cluster || '').endsWith('-test')) {
+      params.sourceAmount = '' + (parseFloat(msg.destinationAmount) + parseFloat(msg.fee || 0))
       promise = this.bus.importMethod('spsp.transfer.transfer.execute')(params)
     } else {
       promise = this.bus.importMethod('spsp.transfer.transfer.setup')(params)
