@@ -3,15 +3,15 @@ module.exports = {
   'payment.process': function (record, $meta) {
     var payment
     var payee
-    var dispatch = (method, msg, err) => {
+    var dispatch = (method, msg, error) => {
       return this.bus.importMethod(method)(msg)
-        .catch((err) => {
+        .catch((e) => {
           return this.config.exec({
             paymentId: payment.paymentId,
             actorId: payment.actorId,
-            error: err
+            error: error
           }, {method: 'bulk.payment.process'})
-          .then(() => Promise.reject(err))
+          .then(() => Promise.reject(e))
         })
     }
     return this.bus.importMethod('bulk.payment.preProcess')({
