@@ -1,3 +1,13 @@
+<a name="0.20.7"></a>
+## [0.20.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.6...v0.20.7) (2017-03-08)
+
+
+### Bug Fixes
+
+* check payment upon bulk payment processing ([b672013](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b672013))
+
+
+
 <a name="0.20.6"></a>
 ## [0.20.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.5...v0.20.6) (2017-03-07)
 
