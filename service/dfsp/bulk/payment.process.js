@@ -1,7 +1,8 @@
+var helpers = require('./helpers')
 module.exports = {
   'payment.process': function (record, $meta) {
     var payment
-    var payer
+    var payee
     var dispatch = (method, msg, err) => {
       return this.bus.importMethod(method)(msg)
         .catch((err) => {
@@ -18,17 +19,26 @@ module.exports = {
     })
     .then((result) => {
       payment = result
-      return dispatch('directory.user.get', {
-        actorId: result.actorId
-      }, 'payer not found')
-    })
-    .then((user) => {
-      payer = user
       return dispatch('spsp.transfer.payee.get', {
         identifier: payment.userNumber
       }, 'payee not found')
     })
-    .then((payee) => {
+    .then((result) => {
+      payee = result
+      var error = helpers.checkPaymentDetails(payment, payee)
+      if (error) {
+        return this.config.exec({
+          paymentId: payment.paymentId,
+          actorId: payment.actorId,
+          error: error
+        }, {method: 'bulk.payment.process'})
+        .then(() => Promise.reject(error))
+      }
+      return dispatch('directory.user.get', {
+        actorId: result.actorId
+      }, 'payer not found')
+    })
+    .then((payer) => {
       if (!payee.account) {
         return this.config.exec({
           paymentId: payment.paymentId,
