@@ -1,5 +1,5 @@
 var status = {}
-var fieldsToCheck = ['firstName', 'lastName', 'dob', 'nationalId']
+var helpers = require('./helpers')
 
 function check (msg, $meta) {
   // set status verifying
@@ -24,16 +24,11 @@ function check (msg, $meta) {
           promise = promise.then(function () {
             return importMethod('spsp.transfer.payee.get')({identifier: payment.userNumber})
               .then(function (result) {
-                var mismatch = []
-                fieldsToCheck.forEach(function (field) {
-                  if (payment[field] !== result[field]) {
-                    mismatch.push(field)
-                  }
-                })
-                if (mismatch.length) {
+                var info = helpers.checkPaymentDetails(payment, result)
+                if (info) {
                   return {
                     paymentStatusId: status.payment.mismatch,
-                    info: mismatch.join(', ') + (mismatch.length === 1 ? ' doesn\'t match' : ' don\'t match')
+                    info: info
                   }
                 }
                 return {paymentStatusId: status.payment.verified}
