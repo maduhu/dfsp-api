@@ -35,7 +35,7 @@ module.exports = {
         .then(() => Promise.reject(error))
       }
       return dispatch('directory.user.get', {
-        actorId: result.actorId
+        actorId: payment.actorId
       }, 'payer not found')
     })
     .then((payer) => {
