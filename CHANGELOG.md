@@ -1,3 +1,23 @@
+<a name="0.20.10"></a>
+## [0.20.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.9...v0.20.10) (2017-03-08)
+
+
+### Bug Fixes
+
+* separate logic for sourceAmount by dfsp instance ([699ff94](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/699ff94))
+
+
+
+<a name="0.20.9"></a>
+## [0.20.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.8...v0.20.9) (2017-03-08)
+
+
+### Bug Fixes
+
+* typo ([bdc5b48](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/bdc5b48))
+
+
+
 <a name="0.20.8"></a>
 ## [0.20.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.7...v0.20.8) (2017-03-08)
 
