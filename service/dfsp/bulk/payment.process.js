@@ -31,7 +31,7 @@ module.exports = {
           actorId: payment.actorId,
           error: 'user has no active mwallet accounts'
         }, {method: 'bulk.payment.process'})
-        .then(() => Promise.reject())
+        .then(() => Promise.reject(new Error()))
       }
       var error = helpers.checkPaymentDetails(payment, payee)
       if (error) {
@@ -59,9 +59,9 @@ module.exports = {
           receiver: payee.spspServer + '/receivers/' + payment.userNumber,
           destinationAmount: payment.amount,
           currency: payee.currencyCode,
-          fee: fee.fee && fee.fee.amount || 0,
+          fee: (fee.fee && fee.fee.amount) || 0,
           memo: JSON.stringify({
-            fee: fee.fee && fee.fee.amount || 0,
+            fee: (fee.fee && fee.fee.amount) || 0,
             transferCode: 'bulkPayment',
             creditName: payee.name,
             debitName: payer.firstName + ' ' + payer.lastName
