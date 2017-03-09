@@ -1,3 +1,13 @@
+<a name="0.20.11"></a>
+## [0.20.11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.10...v0.20.11) (2017-03-09)
+
+
+### Bug Fixes
+
+* proper handling of the case when the payee has no active accounts ([f86f40a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f86f40a))
+
+
+
 <a name="0.20.10"></a>
 ## [0.20.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.9...v0.20.10) (2017-03-08)
 
