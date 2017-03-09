@@ -1,3 +1,13 @@
+<a name="0.20.13"></a>
+## [0.20.13](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.12...v0.20.13) (2017-03-09)
+
+
+### Bug Fixes
+
+* add precision to sourceAmount and destinationAmount ([0013885](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0013885))
+
+
+
 <a name="0.20.12"></a>
 ## [0.20.12](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.11...v0.20.12) (2017-03-09)
 
