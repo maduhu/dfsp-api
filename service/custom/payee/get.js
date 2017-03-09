@@ -48,6 +48,9 @@ module.exports = {
             lastName: directoryRes.lastName,
             nationalId: directoryRes.nationalId,
             dob: directoryRes.dob,
+            account: '',
+            currencyCode: '',
+            currencySymbol: '',
             imageUrl: 'https://red.ilpdemo.org/api/receivers/' + directoryRes.firstName + '_' + directoryRes.lastName + '/profile_pic.jpg'
           }
         }
