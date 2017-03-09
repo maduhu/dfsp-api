@@ -4,12 +4,12 @@ module.exports = {
     var params = {
       receiver: msg.receiver,
       sourceAccount: msg.sourceAccount,
-      destinationAmount: '' + msg.destinationAmount,
+      destinationAmount: Number(msg.destinationAmount).toFixed(2),
       memo: msg.memo || '',
       sourceIdentifier: msg.sourceIdentifier
     }
     if ((this.bus.config.cluster || '').endsWith('-test')) {
-      params.sourceAmount = '' + (parseFloat(msg.destinationAmount) + parseFloat(msg.fee || 0))
+      params.sourceAmount = (Number(msg.destinationAmount) + Number(msg.fee || 0)).toFixed(2)
       promise = this.bus.importMethod('spsp.transfer.transfer.execute')(params)
     } else {
       promise = this.bus.importMethod('spsp.transfer.transfer.setup')(params)
