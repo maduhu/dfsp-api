@@ -13,7 +13,11 @@ module.exports = {
       promise = this.bus.importMethod('spsp.transfer.transfer.execute')(params)
     } else {
       promise = this.bus.importMethod('spsp.transfer.transfer.setup')(params)
-      .then(this.bus.importMethod('spsp.transfer.transfer.execute'))
+      .then((result) => {
+        result.destinationAmount = Number(result.destinationAmount).toFixed(2)
+        result.sourceAmount = Number(result.sourceAmount).toFixed(2)
+        return this.bus.importMethod('spsp.transfer.transfer.execute')(result)
+      })
     }
     return promise.then((result) => this.config.exec(result, $meta))
   }
