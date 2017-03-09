@@ -1,3 +1,14 @@
+<a name="0.20.14"></a>
+## [0.20.14](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.13...v0.20.14) (2017-03-09)
+
+
+### Bug Fixes
+
+* linting ([94a237d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/94a237d))
+* make sourceAmount and destinationAmount have the same precision when calling transfer.push.execute ([1b7133b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1b7133b))
+
+
+
 <a name="0.20.13"></a>
 ## [0.20.13](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.12...v0.20.13) (2017-03-09)
 
