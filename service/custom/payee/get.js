@@ -40,6 +40,17 @@ module.exports = {
         actorId: '' + directoryRes.actorId,
         isDefault: true
       }).then((accountRes) => {
+        if (!accountRes[0]) {
+          return {
+            type: 'payee',
+            name: directoryRes.firstName + ' ' + directoryRes.lastName,
+            firstName: directoryRes.firstName,
+            lastName: directoryRes.lastName,
+            nationalId: directoryRes.nationalId,
+            dob: directoryRes.dob,
+            imageUrl: 'https://red.ilpdemo.org/api/receivers/' + directoryRes.firstName + '_' + directoryRes.lastName + '/profile_pic.jpg'
+          }
+        }
         return this.bus.importMethod('dfsp/ledger.account.get')({
           accountNumber: accountRes[0].accountNumber
         }).then((ledgerRes) => {
