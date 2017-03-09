@@ -1,3 +1,13 @@
+<a name="0.20.15"></a>
+## [0.20.15](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.14...v0.20.15) (2017-03-09)
+
+
+### Bug Fixes
+
+* add account/currency and currencySymbol ([33fe3dd](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/33fe3dd))
+
+
+
 <a name="0.20.14"></a>
 ## [0.20.14](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.13...v0.20.14) (2017-03-09)
 
