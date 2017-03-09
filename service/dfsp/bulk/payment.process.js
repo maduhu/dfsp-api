@@ -25,6 +25,14 @@ module.exports = {
     })
     .then((result) => {
       payee = result
+      if (!payee.account) {
+        return this.config.exec({
+          paymentId: payment.paymentId,
+          actorId: payment.actorId,
+          error: 'user has no active mwallet accounts'
+        }, {method: 'bulk.payment.process'})
+        .then(() => Promise.reject())
+      }
       var error = helpers.checkPaymentDetails(payment, payee)
       if (error) {
         return this.config.exec({
@@ -39,13 +47,6 @@ module.exports = {
       }, 'payer not found')
     })
     .then((payer) => {
-      if (!payee.account) {
-        return this.config.exec({
-          paymentId: payment.paymentId,
-          actorId: payment.actorId,
-          error: 'user has no active mwallet accounts'
-        }, {method: 'bulk.payment.process'})
-      }
       return dispatch('rule.decision.fetch', {
         currency: payee.currencyCode,
         amount: payment.amount,
