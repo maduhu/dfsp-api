@@ -1,6 +1,6 @@
 {
   "name": "@leveloneproject/dfsp-api",
-  "version": "0.20.15",
+  "version": "0.20.16",
   "description": "DFSP ussd demo",
   "main": "index.js",
   "scripts": {

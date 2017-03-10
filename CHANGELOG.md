@@ -1,3 +1,13 @@
+<a name="0.20.16"></a>
+## [0.20.16](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.15...v0.20.16) (2017-03-10)
+
+
+### Bug Fixes
+
+* add samples for admin users ([43f5643](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/43f5643))
+
+
+
 <a name="0.20.15"></a>
 ## [0.20.15](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.14...v0.20.15) (2017-03-09)
 
