@@ -39,6 +39,16 @@
       "accountName": "dfsp1connector",
       "phoneNumber": "dfsp1connector",
       "password": "1234"
+    },
+    {
+      "userNumber": "91970182",
+      "firstName": "admin",
+      "lastName": "admin",
+      "dob": "1984-01-01",
+      "nationalId": "111111111",
+      "accountName": "admin",
+      "phoneNumber": "admin",
+      "password": "1234"
     }
   ],
   "dfsp2": [
@@ -80,6 +90,16 @@
       "nationalId": "369852147",
       "accountName": "dfsp2connector",
       "phoneNumber": "dfsp2connector",
+      "password": "1234"
+    },
+    {
+      "userNumber": "90724017",
+      "firstName": "admin",
+      "lastName": "admin",
+      "dob": "1984-01-01",
+      "nationalId": "222222222",
+      "accountName": "admin",
+      "phoneNumber": "admin",
       "password": "1234"
     }
   ],
@@ -123,6 +143,16 @@
       "accountName": "dfsp1-testconnector",
       "phoneNumber": "dfsp1-testconnector",
       "password": "1234"
+    },
+    {
+      "userNumber": "80357855",
+      "firstName": "admin",
+      "lastName": "admin",
+      "dob": "1984-01-01",
+      "nationalId": "333333333",
+      "accountName": "admin",
+      "phoneNumber": "admin",
+      "password": "1234"
     }
   ],
   "dfsp2-test": [
@@ -164,6 +194,16 @@
       "nationalId": "369852147",
       "accountName": "dfsp2-testconnector",
       "phoneNumber": "dfsp2-testconnector",
+      "password": "1234"
+    },
+    {
+      "userNumber": "52689512",
+      "firstName": "admin",
+      "lastName": "admin",
+      "dob": "1984-01-01",
+      "nationalId": "444444444",
+      "accountName": "admin",
+      "phoneNumber": "admin",
       "password": "1234"
     }
   ]
