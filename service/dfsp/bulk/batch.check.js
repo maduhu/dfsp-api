@@ -79,15 +79,17 @@ module.exports = {
       } else {
         params.batchId = msg.batchId
       }
-      var innerPromise = checkPayments(params)
-        .then(function () {
-          return dispatch('bulk.batch.revertStatus', {partial: !!msg.payments})
-        })
+      function proceed () {
+        return checkPayments(params)
+          .then(function () {
+            return dispatch('bulk.batch.revertStatus', {partial: !!msg.payments})
+          })
+      }
       if (msg.async) {
-        process.nextTick(() => innerPromise)
+        process.nextTick(proceed)
         return result
       }
-      return innerPromise
+      return proceed()
     })
     return promise
   }
