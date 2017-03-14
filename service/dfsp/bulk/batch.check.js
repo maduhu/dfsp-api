@@ -23,7 +23,7 @@ module.exports = {
           var promise = Promise.resolve()
           payments.forEach((payment) => {
             promise = promise.then(function () {
-              return importMethod('spsp.transfer.payee.get')({identifier: payment.userNumber})
+              return importMethod('spsp.transfer.payee.get')({identifier: payment.identifier})
                 .then(function (result) {
                   var info = helpers.checkPaymentDetails(payment, result)
                   if (info) {

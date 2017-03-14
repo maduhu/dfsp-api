@@ -14,7 +14,7 @@ module.exports = {
     return Promise.all(
       (samples[this.bus.config.cluster] || samples['dfsp2']).map((sample) => {
         return this.bus.importMethod('payee.get')({
-          payee: sample.userNumber
+          payee: sample.identifier
         }).then((res) => {
           return Object.assign(res, sample)
         })

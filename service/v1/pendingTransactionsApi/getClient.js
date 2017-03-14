@@ -2,14 +2,14 @@ var joi = require('joi')
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.client.get',
-    path: '/v1/client/{userNumber}',
+    path: '/v1/client/{identifier}',
     config: {
-      description: 'Lookup default account for a given end user number',
+      description: 'Lookup default account for a given identifier',
       notes: 'It will check in the central directory to find information about the user',
       tags: ['api', 'pendingTransactions', 'v1', 'getClient'],
       validate: {
         params: joi.object({
-          userNumber: joi.number().description('End user number').example(26547070).required()
+          identifier: joi.number().description('Identifier').example(26547070).required()
         })
       },
       plugins: {
@@ -31,11 +31,11 @@ module.exports = {
   },
   'client.get': function (msg) {
     return this.bus.importMethod('payee.get')({
-      payee: '' + msg.userNumber
+      payee: '' + msg.identifier
     })
     .catch((e) => {
       return this.bus.importMethod('spsp.transfer.payee.get')({
-        identifier: msg.userNumber
+        identifier: msg.identifier
       })
     })
     .then(res => {
