@@ -45,7 +45,7 @@ module.exports = {
           })
             .then((invoiceResult) => {
               return this.bus.importMethod('directory.user.get')({
-                userNumber: invoiceNotificationResult.userNumber
+                identifier: invoiceNotificationResult.userNumber
               })
                 .then((directoryResult) => {
                   return this.bus.importMethod('transfer.push.execute')({

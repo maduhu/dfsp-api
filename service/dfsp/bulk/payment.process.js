@@ -54,7 +54,7 @@ module.exports = {
       }, 'fee could not be obtained')
       .then((fee) => {
         return dispatch('transfer.push.execute', {
-          sourceIdentifier: payer.endUserNumber,
+          sourceIdentifier: payer.identifiers[0].identifier,
           sourceAccount: payment.account,
           receiver: payee.spspServer + '/receivers/' + payment.userNumber,
           destinationAmount: payment.amount,

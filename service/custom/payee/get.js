@@ -34,7 +34,7 @@ module.exports = {
   },
   'get': function (msg, $meta) {
     return this.bus.importMethod('dfsp/directory.user.get')({
-      userNumber: msg.payee
+      identifier: msg.payee
     }).then((directoryRes) => {
       return this.bus.importMethod('dfsp/account.account.fetch')({
         actorId: '' + directoryRes.actorId,
