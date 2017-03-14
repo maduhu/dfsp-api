@@ -1,3 +1,14 @@
+<a name="0.20.17"></a>
+## [0.20.17](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.16...v0.20.17) (2017-03-14)
+
+
+### Bug Fixes
+
+* return result for asynchronous bach checking after the batch has been set as verifying ([1908520](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1908520))
+* wrap payment checking logic into a separate function ([44f6a0f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/44f6a0f))
+
+
+
 <a name="0.20.16"></a>
 ## [0.20.16](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.15...v0.20.16) (2017-03-10)
 
