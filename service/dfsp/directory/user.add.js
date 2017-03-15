@@ -1,12 +1,13 @@
 module.exports = {
   'user.add': function (msg, $meta) {
-    if (!msg.userNumber) {
+    if (!msg.identifier) {
       return this.bus.importMethod('ist.directory.user.add')({
 
       })
       .then((res) => {
         return this.config.exec({
-          userNumber: res.number,
+          identifier: res.number,
+          identifierTypeCode: msg.identifierTypeCode || 'phn',
           firstName: msg.firstName,
           lastName: msg.lastName,
           dob: msg.dob,
