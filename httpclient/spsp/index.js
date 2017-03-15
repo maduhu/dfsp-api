@@ -21,6 +21,9 @@ module.exports = {
     .then((res) => {
       var params = {
         httpMethod: 'get',
+        headers: {
+          TraceID: uuid()
+        },
         qs: {
           receiver: res.spspReceiver + '/receivers/' + msg.identifier
         }
@@ -50,6 +53,7 @@ module.exports = {
       httpMethod: 'post',
       payload: msg,
       headers: {
+        TraceID: uuid(),
         'content-type': 'application/json'
       }
     }
@@ -64,11 +68,13 @@ module.exports = {
     // /setup
   },
   'spsp.transfer.transfer.execute.request.send': function (msg, $meta) {
+    var traceId = uuid()
     return {
-      uri: '/payments/' + (msg.id || uuid()), // whether the payment is executed after setup or directly
+      uri: '/payments/' + (msg.id || traceId), // whether the payment is executed after setup or directly
       httpMethod: 'put',
       payload: msg,
       headers: {
+        TraceID: traceId,
         'content-type': 'application/json'
       }
     }
@@ -85,6 +91,7 @@ module.exports = {
       httpMethod: 'post',
       payload: msg,
       headers: {
+        TraceID: uuid(),
         'content-type': 'application/json'
       }
     }
@@ -100,6 +107,9 @@ module.exports = {
     return {
       uri: '/query',
       httpMethod: 'get',
+      headers: {
+        TraceID: uuid()
+      },
       qs: {
         receiver: msg.receiver
       }
@@ -120,6 +130,9 @@ module.exports = {
       return {
         uri: '/query',
         httpMethod: 'get',
+        headers: {
+          TraceID: uuid()
+        },
         qs: {
           receiver: res.spspReceiver + '/receivers/' + msg.identifier
         }

@@ -1,3 +1,13 @@
+<a name="0.21.0"></a>
+# [0.21.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.18...v0.21.0) (2017-03-15)
+
+
+### Features
+
+* add trace id for all requests to spsp-client-proxy and central directory procy ([bd81bb3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/bd81bb3))
+
+
+
 <a name="0.20.18"></a>
 ## [0.20.18](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.17...v0.20.18) (2017-03-15)
 

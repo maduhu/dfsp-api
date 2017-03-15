@@ -1,5 +1,6 @@
 var errors = require('./errors')
 var url = require('url')
+var uuid = require('uuid/v4')
 module.exports = {
   id: 'ist',
   createPort: require('ut-port-http'),
@@ -21,6 +22,9 @@ module.exports = {
     return {
       uri: '/resources',
       httpMethod: 'get',
+      headers: {
+        TraceID: uuid()
+      },
       qs: {
         identifier: msg.identifier,
         identifierType: 'eur'
@@ -37,6 +41,9 @@ module.exports = {
     var urlProps = url.parse(this.config.url)
     return {
       uri: '/user-registration/users',
+      headers: {
+        TraceID: uuid()
+      },
       payload: {
         url: urlProps.protocol + '//' + urlProps.hostname + ':3043/v1'
       }
