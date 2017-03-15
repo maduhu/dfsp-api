@@ -20,7 +20,7 @@ module.exports = {
     .then((result) => {
       payment = result
       return dispatch('spsp.transfer.payee.get', {
-        identifier: payment.userNumber
+        identifier: payment.identifier
       }, 'payee not found')
     })
     .then((result) => {
@@ -31,7 +31,7 @@ module.exports = {
           actorId: payment.actorId,
           error: 'user has no active mwallet accounts'
         }, {method: 'bulk.payment.process'})
-        .then(() => Promise.reject())
+        .then(() => Promise.reject(new Error()))
       }
       var error = helpers.checkPaymentDetails(payment, payee)
       if (error) {
@@ -50,18 +50,18 @@ module.exports = {
       return dispatch('rule.decision.fetch', {
         currency: payee.currencyCode,
         amount: payment.amount,
-        identifier: payment.userNumber
+        identifier: payment.identifier
       }, 'fee could not be obtained')
       .then((fee) => {
         return dispatch('transfer.push.execute', {
-          sourceIdentifier: payer.endUserNumber,
+          sourceIdentifier: payer.identifiers[0].identifier,
           sourceAccount: payment.account,
-          receiver: payee.spspServer + '/receivers/' + payment.userNumber,
+          receiver: payee.spspServer + '/receivers/' + payment.identifier,
           destinationAmount: payment.amount,
           currency: payee.currencyCode,
-          fee: fee.fee && fee.fee.amount || 0,
+          fee: (fee.fee && fee.fee.amount) || 0,
           memo: JSON.stringify({
-            fee: fee.fee && fee.fee.amount || 0,
+            fee: (fee.fee && fee.fee.amount) || 0,
             transferCode: 'bulkPayment',
             creditName: payee.name,
             debitName: payer.firstName + ' ' + payer.lastName

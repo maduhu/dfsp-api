@@ -35,7 +35,7 @@ module.exports = {
     }, $meta)
       .then((result) => {
         return {
-          senderIdentifier: result.userNumber,
+          senderIdentifier: result.identifier,
           status: result.status
         }
       })

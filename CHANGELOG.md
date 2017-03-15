@@ -1,3 +1,85 @@
+<a name="0.20.18"></a>
+## [0.20.18](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.17...v0.20.18) (2017-03-15)
+
+
+### Bug Fixes
+
+* add identifiers ([922a3c2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/922a3c2))
+
+
+
+<a name="0.20.17"></a>
+## [0.20.17](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.16...v0.20.17) (2017-03-14)
+
+
+### Bug Fixes
+
+* return result for asynchronous bach checking after the batch has been set as verifying ([1908520](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1908520))
+* wrap payment checking logic into a separate function ([44f6a0f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/44f6a0f))
+
+
+
+<a name="0.20.16"></a>
+## [0.20.16](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.15...v0.20.16) (2017-03-10)
+
+
+### Bug Fixes
+
+* add samples for admin users ([43f5643](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/43f5643))
+
+
+
+<a name="0.20.15"></a>
+## [0.20.15](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.14...v0.20.15) (2017-03-09)
+
+
+### Bug Fixes
+
+* add account/currency and currencySymbol ([33fe3dd](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/33fe3dd))
+
+
+
+<a name="0.20.14"></a>
+## [0.20.14](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.13...v0.20.14) (2017-03-09)
+
+
+### Bug Fixes
+
+* linting ([94a237d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/94a237d))
+* make sourceAmount and destinationAmount have the same precision when calling transfer.push.execute ([1b7133b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1b7133b))
+
+
+
+<a name="0.20.13"></a>
+## [0.20.13](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.12...v0.20.13) (2017-03-09)
+
+
+### Bug Fixes
+
+* add precision to sourceAmount and destinationAmount ([0013885](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0013885))
+
+
+
+<a name="0.20.12"></a>
+## [0.20.12](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.11...v0.20.12) (2017-03-09)
+
+
+### Bug Fixes
+
+* update samples ([442098a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/442098a))
+
+
+
+<a name="0.20.11"></a>
+## [0.20.11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.10...v0.20.11) (2017-03-09)
+
+
+### Bug Fixes
+
+* proper handling of the case when the payee has no active accounts ([f86f40a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f86f40a))
+
+
+
 <a name="0.20.10"></a>
 ## [0.20.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.9...v0.20.10) (2017-03-08)
 

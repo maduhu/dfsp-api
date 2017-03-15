@@ -45,11 +45,11 @@ module.exports = {
           })
             .then((invoiceResult) => {
               return this.bus.importMethod('directory.user.get')({
-                userNumber: invoiceNotificationResult.userNumber
+                identifier: invoiceNotificationResult.identifier
               })
                 .then((directoryResult) => {
                   return this.bus.importMethod('transfer.push.execute')({
-                    sourceIdentifier: invoiceNotificationResult.userNumber,
+                    sourceIdentifier: invoiceNotificationResult.identifier,
                     sourceAccount: ledgerResult.id,
                     receiver: invoiceNotificationResult.invoiceUrl,
                     destinationAmount: '' + invoiceResult.amount,

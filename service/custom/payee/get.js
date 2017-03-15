@@ -34,7 +34,7 @@ module.exports = {
   },
   'get': function (msg, $meta) {
     return this.bus.importMethod('dfsp/directory.user.get')({
-      userNumber: msg.payee
+      identifier: msg.payee
     }).then((directoryRes) => {
       return this.bus.importMethod('dfsp/account.account.fetch')({
         actorId: '' + directoryRes.actorId,
@@ -48,6 +48,9 @@ module.exports = {
             lastName: directoryRes.lastName,
             nationalId: directoryRes.nationalId,
             dob: directoryRes.dob,
+            account: '',
+            currencyCode: '',
+            currencySymbol: '',
             imageUrl: 'https://red.ilpdemo.org/api/receivers/' + directoryRes.firstName + '_' + directoryRes.lastName + '/profile_pic.jpg'
           }
         }

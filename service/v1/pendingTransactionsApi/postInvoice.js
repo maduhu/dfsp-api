@@ -11,7 +11,7 @@ module.exports = {
         payload: joi.object({
           account: joi.string().description('Merchant account').example('merchant').required(),
           amount: joi.number().description('Amount').example(123).required(),
-          userNumber: joi.string().description('Client userNumber').example('78956562').required(),
+          identifier: joi.string().description('Client identifier').example('78956562').required(),
           info: joi.string().description('Invoice description').example('Invoice from merchant to Bob').required()
         })
       },
@@ -29,7 +29,7 @@ module.exports = {
                 currencySymbol: joi.string().description('currency symbol'),
                 amount: joi.string().description('amount'),
                 status: joi.string().description('status'),
-                userNumber: joi.string().description('userNumber'),
+                identifier: joi.string().description('identifier'),
                 info: joi.string().description('info')
               })
             }
@@ -47,7 +47,7 @@ module.exports = {
       .then((ledgerResponse) => {
         $meta.method = 'ist.directory.user.get'
         return this.bus.importMethod($meta.method)({
-          identifier: msg.userNumber
+          identifier: msg.identifier
         }, $meta)
           .then((centralDirectoryResponse) => {
             $meta.method = 'account.account.get'
@@ -69,7 +69,7 @@ module.exports = {
                   currencyCode: ledgerResponse.currencyCode,
                   currencySymbol: ledgerResponse.currencySymbol,
                   amount: msg.amount,
-                  userNumber: msg.userNumber,
+                  identifier: msg.identifier,
                   spspServer: centralDirectoryResponse.spspReceiver,
                   invoiceInfo: info
                 }, $meta)
@@ -83,7 +83,7 @@ module.exports = {
                       currencySymbol: ledgerResponse.currencySymbol,
                       amount: msg.amount,
                       status: invoiceResponse.status,
-                      userNumber: msg.userNumber,
+                      identifier: msg.identifier,
                       info: info
                     }
                   })

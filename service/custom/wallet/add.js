@@ -2,7 +2,7 @@ module.exports = {
   add: function (msg, $meta) {
     /* e.g.
       {
-        "userNumber": "123456789",
+        "identifier": "123456789",
         "firstName": "Test",
         "lastName": "Testov",
         "dob": "10/12/1999",
@@ -15,13 +15,13 @@ module.exports = {
     var reversals = []
     var result = Object.assign({}, msg)
     return new Promise((resolve, reject) => {
-      if (msg.userNumber) {
+      if (msg.identifier) {
         return this.bus.importMethod('ist.directory.user.get')({
-          identifier: msg.userNumber
+          identifier: msg.identifier
         })
         .then((res) => {
           return resolve({
-            userNumber: msg.userNumber
+            identifier: msg.identifier
           })
         })
         .catch((err) => {
@@ -32,7 +32,7 @@ module.exports = {
       }
     })
     .then((res) => {
-      msg.userNumber = res.userNumber
+      msg.identifier = res.identifier
       return this.bus.importMethod('directory.user.add')(msg)
       .then((res) => {
         result.actorId = '' + res.actorId
@@ -46,7 +46,7 @@ module.exports = {
       })
     })
     .then((res) => {
-      result.userNumber = res.endUserNumber
+      result.identifier = res.identifier
       if (msg.phoneNumber) { // add subscription for the phone number
         return this.bus.importMethod('subscription.subscription.add')({
           actorId: result.actorId,

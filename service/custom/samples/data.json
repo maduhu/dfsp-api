@@ -1,7 +1,8 @@
 {
   "dfsp1": [
     {
-      "userNumber": "88925537",
+      "identifier": "88925537",
+      "identifierTypeCode": "phn",
       "firstName": "bob",
       "lastName": "dylan",
       "dob": "1999-12-10",
@@ -11,7 +12,8 @@
       "password": "1234"
     },
     {
-      "userNumber": "54200545",
+      "identifier": "54200545",
+      "identifierTypeCode": "phn",
       "firstName": "alice",
       "lastName": "cooper",
       "dob": "1989-03-22",
@@ -21,7 +23,8 @@
       "password": "1234"
     },
     {
-      "userNumber": "31909641",
+      "identifier": "31909641",
+      "identifierTypeCode": "phn",
       "firstName": "merchant",
       "lastName": "one",
       "dob": "1956-05-13",
@@ -31,7 +34,8 @@
       "password": "1234"
     },
     {
-      "userNumber": "91959846",
+      "identifier": "91959846",
+      "identifierTypeCode": "phn",
       "firstName": "dfsp1",
       "lastName": "connector",
       "dob": "1977-09-01",
@@ -39,11 +43,23 @@
       "accountName": "dfsp1connector",
       "phoneNumber": "dfsp1connector",
       "password": "1234"
+    },
+    {
+      "identifier": "91970182",
+      "identifierTypeCode": "phn",
+      "firstName": "admin",
+      "lastName": "admin",
+      "dob": "1984-01-01",
+      "nationalId": "111111111",
+      "accountName": "admin",
+      "phoneNumber": "admin",
+      "password": "1234"
     }
   ],
   "dfsp2": [
     {
-      "userNumber": "97181061",
+      "identifier": "97181061",
+      "identifierTypeCode": "phn",
       "firstName": "bob",
       "lastName": "dylan",
       "dob": "1999-12-10",
@@ -53,7 +69,8 @@
       "password": "1234"
     },
     {
-      "userNumber": "52602716",
+      "identifier": "52602716",
+      "identifierTypeCode": "phn",
       "firstName": "alice",
       "lastName": "cooper",
       "dob": "1989-03-22",
@@ -63,7 +80,8 @@
       "password": "1234"
     },
     {
-      "userNumber": "63858707",
+      "identifier": "63858707",
+      "identifierTypeCode": "phn",
       "firstName": "merchant",
       "lastName": "two",
       "dob": "1956-05-13",
@@ -73,7 +91,8 @@
       "password": "1234"
     },
     {
-      "userNumber": "76838531",
+      "identifier": "76838531",
+      "identifierTypeCode": "phn",
       "firstName": "dfsp2",
       "lastName": "connector",
       "dob": "1977-09-01",
@@ -81,11 +100,23 @@
       "accountName": "dfsp2connector",
       "phoneNumber": "dfsp2connector",
       "password": "1234"
+    },
+    {
+      "identifier": "90724017",
+      "identifierTypeCode": "phn",
+      "firstName": "admin",
+      "lastName": "admin",
+      "dob": "1984-01-01",
+      "nationalId": "222222222",
+      "accountName": "admin",
+      "phoneNumber": "admin",
+      "password": "1234"
     }
   ],
   "dfsp1-test": [
     {
-      "userNumber": "17500419",
+      "identifier": "17500419",
+      "identifierTypeCode": "phn",
       "firstName": "bob",
       "lastName": "dylan",
       "dob": "1999-12-10",
@@ -95,7 +126,8 @@
       "password": "1234"
     },
     {
-      "userNumber": "48607986",
+      "identifier": "48607986",
+      "identifierTypeCode": "phn",
       "firstName": "alice",
       "lastName": "cooper",
       "dob": "1989-03-22",
@@ -105,7 +137,8 @@
       "password": "1234"
     },
     {
-      "userNumber": "11597861",
+      "identifier": "11597861",
+      "identifierTypeCode": "phn",
       "firstName": "merchant",
       "lastName": "one",
       "dob": "1956-05-13",
@@ -115,7 +148,8 @@
       "password": "1234"
     },
     {
-      "userNumber": "29290645",
+      "identifier": "29290645",
+      "identifierTypeCode": "phn",
       "firstName": "dfsp1-test",
       "lastName": "connector",
       "dob": "1977-09-01",
@@ -123,11 +157,23 @@
       "accountName": "dfsp1-testconnector",
       "phoneNumber": "dfsp1-testconnector",
       "password": "1234"
+    },
+    {
+      "identifier": "80357855",
+      "identifierTypeCode": "phn",
+      "firstName": "admin",
+      "lastName": "admin",
+      "dob": "1984-01-01",
+      "nationalId": "333333333",
+      "accountName": "admin",
+      "phoneNumber": "admin",
+      "password": "1234"
     }
   ],
   "dfsp2-test": [
     {
-      "userNumber": "33859321",
+      "identifier": "33859321",
+      "identifierTypeCode": "phn",
       "firstName": "bob",
       "lastName": "dylan",
       "dob": "1999-12-10",
@@ -137,7 +183,8 @@
       "password": "1234"
     },
     {
-      "userNumber": "66422611",
+      "identifier": "66422611",
+      "identifierTypeCode": "phn",
       "firstName": "alice",
       "lastName": "cooper",
       "dob": "1989-03-22",
@@ -147,7 +194,8 @@
       "password": "1234"
     },
     {
-      "userNumber": "99826154",
+      "identifier": "99826154",
+      "identifierTypeCode": "phn",
       "firstName": "merchant",
       "lastName": "two",
       "dob": "1956-05-13",
@@ -157,13 +205,25 @@
       "password": "1234"
     },
     {
-      "userNumber": "81455568",
+      "identifier": "81455568",
+      "identifierTypeCode": "phn",
       "firstName": "dfsp2-test",
       "lastName": "connector",
       "dob": "1977-09-01",
       "nationalId": "369852147",
       "accountName": "dfsp2-testconnector",
       "phoneNumber": "dfsp2-testconnector",
+      "password": "1234"
+    },
+    {
+      "identifier": "52689512",
+      "identifierTypeCode": "phn",
+      "firstName": "admin",
+      "lastName": "admin",
+      "dob": "1984-01-01",
+      "nationalId": "444444444",
+      "accountName": "admin",
+      "phoneNumber": "admin",
       "password": "1234"
     }
   ]

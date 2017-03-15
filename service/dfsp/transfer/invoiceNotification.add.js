@@ -21,7 +21,7 @@ module.exports = {
       validate: {
         payload: joi.object({
           invoiceUrl: joi.string().description('Invoice URL'),
-          senderIdentifier: joi.string().description('Client userNumber'),
+          senderIdentifier: joi.string().description('Client identifier'),
           memo: joi.string().description('memo')
         }).unknown()
       },
@@ -41,7 +41,7 @@ module.exports = {
   'invoiceNotification.add': function (msg, $meta) {
     return this.config.exec({
       invoiceUrl: msg.invoiceUrl,
-      userNumber: msg.senderIdentifier,
+      identifier: msg.senderIdentifier,
       memo: msg.memo
     }, $meta)
   }

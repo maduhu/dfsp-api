@@ -14,7 +14,7 @@ module.exports = {
           currencyCode: joi.string().description('currencyCode').example('USD'),
           currencySymbol: joi.string().description('currencySymbol').example('$'),
           amount: joi.number().description('amount').example(123),
-          userNumber: joi.string().description('userNumber').example('78956562'),
+          identifier: joi.string().description('identifier').example('78956562'),
           spspServer: joi.string().description('spspServer').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1')
         })
       },
@@ -26,7 +26,7 @@ module.exports = {
               schema: joi.object().keys({
                 invoiceNotificationId: joi.number().description('invoiceNotificationId'),
                 invoiceUrl: joi.string().description('invoiceUrl'),
-                userNumber: joi.string().description('userNumber'),
+                identifier: joi.string().description('identifier'),
                 status: joi.string().description('status'),
                 memo: joi.string().description('memo')
               })
@@ -49,12 +49,12 @@ module.exports = {
         // invoiceInfo:"Invoice from kkk for 32 USD"
         // name:"kkk"
         // status:"pending"
-        // userNumber:"80989354"
+        // identifier:"80989354"
         // }
         var params = {
           memo: 'Invoice from ' + result.name + ' for ' + result.amount + ' ' + result.currencyCode,
           submissionUrl: msg.spspServer + '/invoices',
-          senderIdentifier: result.userNumber
+          senderIdentifier: result.identifier
         }
         if (this.bus.config.spsp && this.bus.config.spsp.url && this.bus.config.spsp.url.startsWith('http://localhost')) {
           $meta.method = 'transfer.invoiceNotification.add'
