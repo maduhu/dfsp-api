@@ -88,7 +88,7 @@ module.exports = function (methods) {
             path: route.path,
             handler: (request, reply) => rest.call(this, request, reply, route.rpc, route.reply),
             config: Object.assign({
-              auth: false
+              auth: 'basic'
             }, route.config)
           }
         })

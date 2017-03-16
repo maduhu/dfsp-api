@@ -26,10 +26,10 @@ module.exports = {
     } else if (msg.accountNumber) {
       return this.config.exec(msg, $meta)
     } else {
-      throw errors.wrongParams({
+      return Promise.reject(errors.wrongParams({
         params: msg,
         method: $meta.method
-      })
+      }))
     }
   }
 }

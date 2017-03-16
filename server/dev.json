@@ -1,5 +1,6 @@
 {
   "implementation": "dfsp-api",
+  "cluster": "dfsp2",
   "console": {
     "port": 30010,
     "server": {
