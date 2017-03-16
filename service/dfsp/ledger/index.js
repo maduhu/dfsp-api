@@ -1,4 +1,5 @@
 module.exports = require('../../resthooks')([
   require('./account.get'),
-  require('./account.fetch')
+  require('./account.fetch'),
+  require('./transfer.notify')
 ])
