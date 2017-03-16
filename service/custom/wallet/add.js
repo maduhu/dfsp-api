@@ -32,21 +32,23 @@ module.exports = {
       }
     })
     .then((res) => {
-      msg.identifier = res.identifier
-      return this.bus.importMethod('directory.user.add')(msg)
-      .then((res) => {
-        result.actorId = '' + res.actorId
-        reversals.push({
-          method: 'directory.user.remove',
-          msg: {
-            actorId: result.actorId
-          }
+      if (res.identifier) {
+        return this.bus.importMethod('directory.user.add')(msg)
+        .then((res) => {
+          result.actorId = '' + res.actorId
+          result.identifier = msg.identifier
+          reversals.push({
+            method: 'directory.user.remove',
+            msg: {
+              actorId: result.actorId
+            }
+          })
+          return res
         })
-        return res
-      })
+      }
+      return res
     })
     .then((res) => {
-      result.identifier = res.identifier
       if (msg.phoneNumber) { // add subscription for the phone number
         return this.bus.importMethod('subscription.subscription.add')({
           actorId: result.actorId,
