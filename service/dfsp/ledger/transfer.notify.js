@@ -1,7 +1,7 @@
 var joi = require('joi')
 module.exports = {
   rest: {
-    rpc: 'transfer.payment.notify',
+    rpc: 'ledger.transfer.notify',
     path: '/receivers/{payee}/payments/{uuid}',
     config: {
       description: 'Submit payment notification',
@@ -33,7 +33,7 @@ module.exports = {
     },
     method: 'put'
   },
-  'payment.notify': function (msg, $meta) {
+  'transfer.notify': function (msg, $meta) {
     return {}
   }
 }
