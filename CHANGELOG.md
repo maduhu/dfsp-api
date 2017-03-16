@@ -1,3 +1,23 @@
+<a name="0.23.0"></a>
+# [0.23.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.22.0...v0.23.0) (2017-03-16)
+
+
+### Bug Fixes
+
+* add default cluster and set correct status code for basic authentication failure ([79fd8a6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/79fd8a6))
+* typo ([15e940f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/15e940f))
+* typo ([624f9cc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/624f9cc))
+* update dependency to ut-port-httpserver ([0b677a9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0b677a9))
+* update samples ([857fdda](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/857fdda))
+* update version to ut-port-httpserver ([292969d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/292969d))
+
+
+### Features
+
+* add basic authentication to ussd rest endpoints ([95cf051](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/95cf051))
+
+
+
 <a name="0.22.0"></a>
 # [0.22.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.21.0...v0.22.0) (2017-03-16)
 
