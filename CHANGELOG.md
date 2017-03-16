@@ -1,3 +1,18 @@
+<a name="0.22.0"></a>
+# [0.22.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.21.0...v0.22.0) (2017-03-16)
+
+
+### Bug Fixes
+
+* move transfer.notify method to ledger folder ([7f35bff](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/7f35bff))
+
+
+### Features
+
+* add payment.notify endpoint ([573c7af](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/573c7af))
+
+
+
 <a name="0.21.0"></a>
 # [0.21.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.20.18...v0.21.0) (2017-03-15)
 
