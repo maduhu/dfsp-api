@@ -49,7 +49,10 @@ module.exports = {
     }
   },
   'ist.directory.user.list.response.receive': function (msg) {
-    return msg.payload
+    return {
+      currentDFSP: this.bus.config.cluster,
+      list: msg.payload
+    }
   },
   'ist.directory.user.list.error.receive': function (err) {
     throw errors.userNotFound({error: err})
