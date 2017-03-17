@@ -1,3 +1,13 @@
+<a name="0.23.1"></a>
+## [0.23.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.23.0...v0.23.1) (2017-03-17)
+
+
+### Bug Fixes
+
+* set big account balances for sample users ([8040fd8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8040fd8))
+
+
+
 <a name="0.23.0"></a>
 # [0.23.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.22.0...v0.23.0) (2017-03-16)
 
