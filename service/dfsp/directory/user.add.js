@@ -8,7 +8,7 @@ module.exports = {
       .then((res) => {
         return this.config.exec({
           identifier: msg.identifier,
-          identifierTypeCode: msg.identifierTypeCode || 'phn',
+          identifierTypeCode: msg.identifierTypeCode,
           firstName: msg.firstName,
           lastName: msg.lastName,
           dob: msg.dob,
