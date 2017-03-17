@@ -16,7 +16,8 @@ module.exports = {
   method: 'post',
   'spsp.rule.decision.fetch.request.send': function (msg, $meta) {
     return this.bus.importMethod('ist.directory.user.get')({
-      identifier: msg.identifier
+      identifier: msg.identifier,
+      identifierType: msg.identifierType
     })
     .then((res) => {
       var params = {
@@ -123,7 +124,8 @@ module.exports = {
   },
   'spsp.transfer.payee.get.request.send': function (msg, $meta) {
     return this.bus.importMethod('ist.directory.user.get')({
-      identifier: msg.identifier
+      identifier: msg.identifier,
+      identifierType: msg.identifierType
     })
     .then((res) => {
       $meta.spspServer = res.spspReceiver

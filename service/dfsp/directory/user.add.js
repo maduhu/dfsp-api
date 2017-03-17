@@ -3,12 +3,12 @@ module.exports = {
     if (!msg.identifier) {
       return this.bus.importMethod('ist.directory.user.add')({
         identifier: msg.identifier,
-        identifierType: msg.identifierTypeCode
+        identifierType: msg.identifierType
       })
       .then((res) => {
         return this.config.exec({
           identifier: msg.identifier,
-          identifierTypeCode: msg.identifierTypeCode,
+          identifierTypeCode: msg.identifierType,
           firstName: msg.firstName,
           lastName: msg.lastName,
           dob: msg.dob,

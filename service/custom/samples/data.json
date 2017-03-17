@@ -2,7 +2,7 @@
   "dfsp1": [
     {
       "identifier": "88925537",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "bob",
       "lastName": "dylan",
       "dob": "1999-12-10",
@@ -13,7 +13,7 @@
     },
     {
       "identifier": "54200545",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "alice",
       "lastName": "cooper",
       "dob": "1989-03-22",
@@ -24,7 +24,7 @@
     },
     {
       "identifier": "31909641",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "merchant",
       "lastName": "one",
       "dob": "1956-05-13",
@@ -35,7 +35,7 @@
     },
     {
       "identifier": "91959846",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "dfsp1",
       "lastName": "connector",
       "dob": "1977-09-01",
@@ -46,7 +46,7 @@
     },
     {
       "identifier": "91970182",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "admin",
       "lastName": "admin",
       "dob": "1984-01-01",
@@ -59,7 +59,7 @@
   "dfsp2": [
     {
       "identifier": "97181061",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "bob",
       "lastName": "dylan",
       "dob": "1999-12-10",
@@ -70,7 +70,7 @@
     },
     {
       "identifier": "52602716",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "alice",
       "lastName": "cooper",
       "dob": "1989-03-22",
@@ -81,7 +81,7 @@
     },
     {
       "identifier": "63858707",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "merchant",
       "lastName": "two",
       "dob": "1956-05-13",
@@ -92,7 +92,7 @@
     },
     {
       "identifier": "76838531",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "dfsp2",
       "lastName": "connector",
       "dob": "1977-09-01",
@@ -103,7 +103,7 @@
     },
     {
       "identifier": "90724017",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "admin",
       "lastName": "admin",
       "dob": "1984-01-01",
@@ -116,7 +116,7 @@
   "dfsp1-test": [
     {
       "identifier": "17500419",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "bob",
       "lastName": "dylan",
       "dob": "1999-12-10",
@@ -127,7 +127,7 @@
     },
     {
       "identifier": "48607986",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "alice",
       "lastName": "cooper",
       "dob": "1989-03-22",
@@ -138,7 +138,7 @@
     },
     {
       "identifier": "11597861",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "merchant",
       "lastName": "one",
       "dob": "1956-05-13",
@@ -149,7 +149,7 @@
     },
     {
       "identifier": "29290645",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "dfsp1-test",
       "lastName": "connector",
       "dob": "1977-09-01",
@@ -160,7 +160,7 @@
     },
     {
       "identifier": "80357855",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "admin",
       "lastName": "admin",
       "dob": "1984-01-01",
@@ -173,7 +173,7 @@
   "dfsp2-test": [
     {
       "identifier": "33859321",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "bob",
       "lastName": "dylan",
       "dob": "1999-12-10",
@@ -184,7 +184,7 @@
     },
     {
       "identifier": "66422611",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "alice",
       "lastName": "cooper",
       "dob": "1989-03-22",
@@ -195,7 +195,7 @@
     },
     {
       "identifier": "99826154",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "merchant",
       "lastName": "two",
       "dob": "1956-05-13",
@@ -206,7 +206,7 @@
     },
     {
       "identifier": "81455568",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "dfsp2-test",
       "lastName": "connector",
       "dob": "1977-09-01",
@@ -217,7 +217,7 @@
     },
     {
       "identifier": "52689512",
-      "identifierTypeCode": "phn",
+      "identifierType": "phn",
       "firstName": "admin",
       "lastName": "admin",
       "dob": "1984-01-01",

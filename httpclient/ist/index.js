@@ -24,7 +24,7 @@ module.exports = {
       },
       qs: {
         identifier: msg.identifier,
-        identifierType: msg.identifierType || 'eur'
+        identifierType: msg.identifierType || 'phn'
       }
     }
   },
@@ -44,7 +44,7 @@ module.exports = {
       },
       qs: {
         identifier: msg.identifier,
-        identifierType: msg.identifierType || 'eur'
+        identifierType: msg.identifierType || 'phn'
       }
     }
   },
@@ -66,7 +66,7 @@ module.exports = {
       },
       payload: {
         identifier: msg.identifier,
-        identifierType: msg.identifierType
+        identifierType: msg.identifierType || 'phn'
       }
     }
   },
@@ -86,7 +86,7 @@ module.exports = {
       },
       payload: {
         identifier: msg.identifier,
-        identifierType: msg.identifierType || 'eur',
+        identifierType: msg.identifierType || 'phn',
         default: true,
         dfsp: msg.dfsp
       }

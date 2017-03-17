@@ -17,7 +17,8 @@ module.exports = {
     return new Promise((resolve, reject) => {
       if (msg.identifier) {
         return this.bus.importMethod('ist.directory.user.get')({
-          identifier: msg.identifier
+          identifier: msg.identifier,
+          identifierType: msg.identifierType
         })
         .then((res) => {
           return resolve({

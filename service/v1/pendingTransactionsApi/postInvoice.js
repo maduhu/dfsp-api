@@ -47,7 +47,8 @@ module.exports = {
       .then((ledgerResponse) => {
         $meta.method = 'ist.directory.user.get'
         return this.bus.importMethod($meta.method)({
-          identifier: msg.identifier
+          identifier: msg.identifier,
+          identifierType: msg.identifierType
         }, $meta)
           .then((centralDirectoryResponse) => {
             $meta.method = 'account.account.get'
