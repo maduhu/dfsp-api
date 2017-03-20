@@ -1,3 +1,13 @@
+<a name="0.24.1"></a>
+## [0.24.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.0...v0.24.1) (2017-03-20)
+
+
+### Bug Fixes
+
+* change default urls to proxies ([2f1d128](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/2f1d128))
+
+
+
 <a name="0.24.0"></a>
 # [0.24.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.23.2...v0.24.0) (2017-03-20)
 
