@@ -1,7 +1,7 @@
 var joi = require('joi')
 module.exports = {
   rest: {
-    rpc: 'transfer.invoice.notify',
+    rpc: 'ledger.invoice.notify',
     path: '/receivers/invoices/{invoiceId}/payments/{paymentid}',
     config: {
       description: 'Submit invoice notification',
