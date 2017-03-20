@@ -1,3 +1,18 @@
+<a name="0.24.0"></a>
+# [0.24.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.23.2...v0.24.0) (2017-03-20)
+
+
+### Bug Fixes
+
+* move invoice.notify to ledger module ([9ceac65](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9ceac65))
+
+
+### Features
+
+* add invoice.notify api method ([6f0bdee](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6f0bdee))
+
+
+
 <a name="0.23.2"></a>
 ## [0.23.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.23.1...v0.23.2) (2017-03-17)
 
