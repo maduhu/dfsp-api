@@ -1,4 +1,37 @@
+var joi = require('joi')
 module.exports = {
+  rest: { // remove underscore to enable rest route
+    rpc: 'wallet.add',
+    path: '/wallet',
+    config: {
+      description: 'Add wallet',
+      notes: 'Add wallet',
+      tags: ['api'],
+      validate: {
+        payload: joi.object({
+          identifier: joi.string().description('identifier').example('123456789'),
+          firstName: joi.string().description('firstName').example('Test'),
+          lastName: joi.string().description('lastName').example('Testov'),
+          dob: joi.string().description('dob').example('10/12/1999'),
+          nationalId: joi.string().description('nationalId').example('123654789'),
+          phoneNumber: joi.string().description('phoneNumber').example('0122523365225'),
+          accountName: joi.string().description('accountName').example('000000044'),
+          password: joi.string().description('password').example('123')
+        })
+      },
+      plugins: {
+        'hapi-swagger': {
+          responses: {
+            '200': {
+              description: 'Wallet added',
+              schema: joi.object()
+            }
+          }
+        }
+      }
+    },
+    method: 'post'
+  },
   add: function (msg, $meta) {
     /* e.g.
       {
