@@ -1,3 +1,13 @@
+<a name="0.24.2"></a>
+## [0.24.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.1...v0.24.2) (2017-03-23)
+
+
+### Bug Fixes
+
+* bulk payment case when user has no active mwallet accounts ([55cef28](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/55cef28))
+
+
+
 <a name="0.24.1"></a>
 ## [0.24.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.0...v0.24.1) (2017-03-20)
 
