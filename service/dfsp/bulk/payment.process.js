@@ -9,7 +9,7 @@ module.exports = {
           return this.config.exec({
             paymentId: payment.paymentId,
             actorId: payment.actorId,
-            error: error
+            error: (e.type && e.type.startsWith('dfsp.')) ? e.message : 'User not found'
           }, {method: 'bulk.payment.process'})
           .then(() => Promise.reject(e))
         })
@@ -25,14 +25,6 @@ module.exports = {
     })
     .then((result) => {
       payee = result
-      if (!payee.account) {
-        return this.config.exec({
-          paymentId: payment.paymentId,
-          actorId: payment.actorId,
-          error: 'user has no active mwallet accounts'
-        }, {method: 'bulk.payment.process'})
-        .then(() => Promise.reject(new Error()))
-      }
       var error = helpers.checkPaymentDetails(payment, payee)
       if (error) {
         return this.config.exec({

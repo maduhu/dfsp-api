@@ -1,5 +1,5 @@
 var create = require('ut-error').define
-var DFSP = require('../../dfspError')
+var DFSP = require('../../../dfspError')
 var Identity = create('identity', DFSP)
 var InvalidCredentials = create('invalidCredentials', Identity)
 module.exports = {

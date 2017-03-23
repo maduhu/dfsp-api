@@ -34,8 +34,10 @@ module.exports = {
                   }
                   return {paymentStatusId: status.payment.verified}
                 })
-                .catch(() => {
-                  return {paymentStatusId: status.payment.mismatch, info: 'User not found'}
+                .catch((e) => {
+                  return {
+                    paymentStatusId: status.payment.mismatch,
+                    info: (e.type && e.type.startsWith('dfsp.')) ? e.message : 'User not found'}
                 })
                 .then((params) => {
                   params.paymentId = payment.paymentId

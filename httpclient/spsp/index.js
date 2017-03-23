@@ -1,4 +1,5 @@
 var uuid = require('uuid/v4')
+var errors = require('./errors')
 module.exports = {
   id: 'spsp',
   createPort: require('ut-port-http'),
@@ -142,6 +143,9 @@ module.exports = {
   'spsp.transfer.payee.get.response.receive': function (msg, $meta) {
     msg.payload.spspServer = $meta.spspServer
     delete $meta.spspServer
+    if (msg.payload.account.endsWith('/noaccount')) {
+      throw errors.noAccount(msg)
+    }
     return msg.payload
   }
 }
