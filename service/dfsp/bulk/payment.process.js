@@ -9,7 +9,7 @@ module.exports = {
           return this.config.exec({
             paymentId: payment.paymentId,
             actorId: payment.actorId,
-            error: (e.type && e.type.startsWith('dfsp.')) ? e.message : 'User not found'
+            error: (e.type && e.type.startsWith('dfsp.')) ? e.message : error
           }, {method: 'bulk.payment.process'})
           .then(() => Promise.reject(e))
         })
