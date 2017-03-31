@@ -2,15 +2,30 @@ var errors = require('./errors')
 module.exports = {
   'check': function (msg, $meta) {
     var userPass = this.bus.config.cluster
-    var checkCredentials = userPass && typeof msg.username === 'string' && typeof msg.password === 'string'
-    if (checkCredentials && (msg.username !== userPass || msg.password !== userPass)) {
-      var error = errors.invalidCredentials({
-        params: {},
-        method: $meta.method
-      })
-      error.statusCode = 401
-      return Promise.reject(error)
+    if (
+      // api basic auth
+      userPass &&
+      typeof userPass === 'string' &&
+      msg.username === userPass &&
+      msg.password === userPass
+    ) {
+      return {
+        'permission.get': ['*']
+      }
     }
     return this.config.exec(msg, $meta)
+      .then((result) => {
+        if (!result['identity.check']) {
+          return result
+        }
+        return this.bus.importMethod('directory.user.get')({
+          actorId: result['identity.check'].actorId
+        })
+          .then((person) => {
+            result.person = person
+            result.emails = []
+            return result
+          })
+      })
   }
 }
