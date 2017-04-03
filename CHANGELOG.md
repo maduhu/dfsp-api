@@ -1,3 +1,14 @@
+<a name="0.24.6"></a>
+## [0.24.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.5...v0.24.6) (2017-04-03)
+
+
+### Bug Fixes
+
+* move identity.check behind dfsp-api ([805305a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/805305a))
+* update dependencies' versions ([ad4248a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ad4248a))
+
+
+
 <a name="0.24.5"></a>
 ## [0.24.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.4...v0.24.5) (2017-04-03)
 
