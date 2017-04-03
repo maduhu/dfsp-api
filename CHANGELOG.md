@@ -1,3 +1,13 @@
+<a name="0.24.5"></a>
+## [0.24.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.4...v0.24.5) (2017-04-03)
+
+
+### Bug Fixes
+
+* update ut-port-httpserver ([f32793d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f32793d))
+
+
+
 <a name="0.24.4"></a>
 ## [0.24.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.3...v0.24.4) (2017-03-27)
 
