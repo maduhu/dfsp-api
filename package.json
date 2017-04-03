@@ -38,7 +38,7 @@
     "ut-error": "^5.3.16",
     "ut-port-console": "^6.1.12",
     "ut-port-http": "^6.4.1",
-    "ut-port-httpserver": "^8.7.0",
+    "ut-port-httpserver": "^8.7.1",
     "ut-port-jsonrpc": "^5.6.0",
     "ut-port-performance": "^5.4.7",
     "ut-port-script": "^5.4.7",

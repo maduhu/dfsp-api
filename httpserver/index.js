@@ -29,6 +29,9 @@ module.exports = {
       method: 'post',
       path: '/rpc/{method?}',
       config: {
+        app: {
+          skipIdentityCheck: true
+        },
         tags: ['rpc'],
         auth: false
       }
