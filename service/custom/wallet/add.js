@@ -17,7 +17,7 @@ module.exports = {
           phoneNumber: joi.string().description('phoneNumber').example('0122523365225'),
           accountName: joi.string().description('accountName').example('000000044'),
           password: joi.string().description('password').example('123'),
-          roles: joi.array().description('roles').example(['agent'])
+          roles: joi.array().description('roles').example(['customer'])
         })
       },
       plugins: {
