@@ -1,3 +1,14 @@
+<a name="0.24.7"></a>
+## [0.24.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.6...v0.24.7) (2017-04-04)
+
+
+### Bug Fixes
+
+* add roles to wallet.add ([9e1f9b7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9e1f9b7))
+* set default role to be customer ([4f94619](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4f94619))
+
+
+
 <a name="0.24.6"></a>
 ## [0.24.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.5...v0.24.6) (2017-04-03)
 
