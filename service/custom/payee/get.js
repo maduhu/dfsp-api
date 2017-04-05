@@ -33,17 +33,17 @@ module.exports = {
     method: 'get'
   },
   'get': function (msg, $meta) {
-    return this.bus.importMethod('dfsp/directory.user.get')({
+    return this.bus.importMethod('directory.user.get')({
       identifier: msg.payee
     }).then((directoryRes) => {
-      return this.bus.importMethod('dfsp/account.account.fetch')({
+      return this.bus.importMethod('account.account.fetch')({
         actorId: '' + directoryRes.actorId,
         isDefault: true
       }).then((accountRes) => {
         if (!accountRes[0]) {
           accountRes[0] = {accountNumber: 'noaccount'}
         }
-        return this.bus.importMethod('dfsp/ledger.account.get')({
+        return this.bus.importMethod('ledger.account.get')({
           accountNumber: accountRes[0].accountNumber
         }).then((ledgerRes) => {
           return {

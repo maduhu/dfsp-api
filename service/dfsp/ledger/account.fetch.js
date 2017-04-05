@@ -12,19 +12,19 @@ module.exports = {
       }
     */
     if (msg.actorId) {
-      return this.bus.importMethod('dfsp/account.account.fetch')({
+      return this.bus.importMethod('account.account.fetch')({
         actorId: msg.actorId
       })
       .then((accounts) => {
         if (!accounts.length) {
           return accounts
         }
-        return this.config.exec({
+        return this.config.exec.call(this, {
           accountNumber: accounts.map(account => account.accountNumber)
         }, $meta)
       })
     } else if (msg.accountNumber) {
-      return this.config.exec(msg, $meta)
+      return this.config.exec.call(this, msg, $meta)
     } else {
       return Promise.reject(errors.wrongParams({
         params: msg,

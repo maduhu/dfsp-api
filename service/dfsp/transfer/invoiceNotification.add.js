@@ -39,7 +39,7 @@ module.exports = {
     method: 'post'
   },
   'invoiceNotification.add': function (msg, $meta) {
-    return this.config.exec({
+    return this.config.exec.call(this, {
       invoiceUrl: msg.invoiceUrl,
       identifier: msg.senderIdentifier,
       memo: msg.memo

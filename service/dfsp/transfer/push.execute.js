@@ -19,6 +19,6 @@ module.exports = {
         return this.bus.importMethod('spsp.transfer.transfer.execute')(result)
       })
     }
-    return promise.then((result) => this.config.exec(result, $meta))
+    return promise.then((result) => this.config.exec.call(this, result, $meta))
   }
 }

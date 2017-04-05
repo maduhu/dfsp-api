@@ -1,4 +1,5 @@
 var bus
+var cacheCollection
 module.exports = {
   id: 'dfsp',
   createPort: require('ut-port-script'),
@@ -13,12 +14,34 @@ module.exports = {
     'transfer',
     'bulk'
   ],
+  cacheableMethods: [
+    "identity.role.fetch",
+    "ledger.transferType.fetch",
+    "bulk.batchStatus.fetch",
+    "bulk.paymentStatus.fetch"
+  ],
   logLevel: 'trace',
   start: function () {
     bus = this.bus
+    cacheCollection = this.bus.importMethod('cache.collection')('dfsp')
   },
   exec: function (msg, $meta) {
+    var method = $meta.method
     $meta.method = 'dfsp/' + $meta.method
+    if (~this.config.cacheableMethods.indexOf(method)) {
+      return cacheCollection.then((cache) => {
+        return cache.get(method)
+        .then((res) => {
+          if (!res) {
+            return bus.importMethod($meta.method)(msg, $meta)
+              .then((r) => {
+                return cache.set(method, r)
+              })
+          }
+          return res
+        })
+      })
+    }
     return bus.importMethod($meta.method)(msg, $meta)
   }
 }

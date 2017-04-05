@@ -8,7 +8,7 @@ module.exports = {
       $meta.method = method
       params.actorId = msg.actorId
       params.batchId = msg.batchId
-      return this.config.exec(params, $meta)
+      return this.config.exec.call(this, params, $meta)
     }
     var importMethod = (method) => {
       return this.bus.importMethod(method)

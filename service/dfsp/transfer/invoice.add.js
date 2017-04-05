@@ -38,7 +38,7 @@ module.exports = {
     method: 'post'
   },
   'invoice.add': function (msg, $meta) {
-    return this.config.exec(msg, $meta)
+    return this.config.exec.call(this, msg, $meta)
       .then((result) => {
         // {
         // account:"http://localhost:8014/ledger/accounts/kkk"
