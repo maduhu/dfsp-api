@@ -1,3 +1,13 @@
+<a name="0.24.8"></a>
+## [0.24.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.7...v0.24.8) (2017-04-05)
+
+
+### Bug Fixes
+
+* cache some queries ([6e55102](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6e55102))
+
+
+
 <a name="0.24.7"></a>
 ## [0.24.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.6...v0.24.7) (2017-04-04)
 
