@@ -38,16 +38,6 @@
       "requireSession": true
     }
   },
-  "ussd": {
-     "shortCodes": {
-       "*123#": "menu/home"
-     },
-     "wrongInputState": "menu/error/wrongInput",
-     "timeOut": 60,
-     "expireRule": "refresh",
-     "defaultPhone": "0122523365225",
-     "defaultShortCode": "*123#"
-  },
   "cache": {
     "storage": "memory",
     "encoding": "json",

@@ -32,7 +32,8 @@ module.exports = {
     rule: require('../service/dfsp/rule'),
     subscription: require('../service/dfsp/subscription'),
     transfer: require('../service/dfsp/transfer'),
-    bulk: require('../service/dfsp/bulk')
+    bulk: require('../service/dfsp/bulk'),
+    cache: require('ut-cache')
   },
   validations: {
 

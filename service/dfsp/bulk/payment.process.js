@@ -6,7 +6,7 @@ module.exports = {
     var dispatch = (method, msg, error) => {
       return this.bus.importMethod(method)(msg)
         .catch((e) => {
-          return this.config.exec({
+          return this.config.exec.call(this, {
             paymentId: payment.paymentId,
             actorId: payment.actorId,
             error: (e.type && e.type.startsWith('dfsp.')) ? e.message : error
@@ -27,7 +27,7 @@ module.exports = {
       payee = result
       var error = helpers.checkPaymentDetails(payment, payee)
       if (error) {
-        return this.config.exec({
+        return this.config.exec.call(this, {
           paymentId: payment.paymentId,
           actorId: payment.actorId,
           error: error
@@ -61,7 +61,7 @@ module.exports = {
         }, 'payment failed')
       })
       .then(() => {
-        return this.config.exec({
+        return this.config.exec.call(this, {
           paymentId: payment.paymentId,
           actorId: payment.actorId,
           error: ''

@@ -35,6 +35,7 @@
     "joi": "9.1.1",
     "pm2": "2.0.18",
     "ut-bus": "^5.7.0",
+    "ut-cache": "^5.6.1",
     "ut-error": "^5.3.16",
     "ut-port-console": "^6.1.12",
     "ut-port-http": "^6.4.1",

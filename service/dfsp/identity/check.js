@@ -13,7 +13,7 @@ module.exports = {
         'permission.get': ['*']
       }
     }
-    return this.config.exec(msg, $meta)
+    return this.config.exec.call(this, msg, $meta)
       .then((result) => {
         if (!result['identity.check']) {
           return result

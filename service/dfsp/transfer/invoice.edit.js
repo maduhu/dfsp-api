@@ -29,7 +29,7 @@ module.exports = {
     method: 'put'
   },
   'invoice.edit': function (msg, $meta) {
-    return this.config.exec({
+    return this.config.exec.call(this, {
       invoiceId: msg.invoiceId,
       statusCode: 'e'
     }, $meta)
