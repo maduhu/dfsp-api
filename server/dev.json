@@ -45,7 +45,15 @@
     "defaultTTL": 3600
   },
   "debug": true,
-  "schedulePayments": {
-    "interval": 10000
+  "tasks" : {
+    "scheduleBulkPayments": {
+      "interval": 10
+    },
+    "_postUsers": {
+      "interval": 10
+    },
+    "_postRules": {
+      "interval": 10
+    }
   }
 }
