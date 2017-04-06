@@ -130,11 +130,12 @@ module.exports = {
     })
     .then((res) => { // create the account in the account service
       if (result.accountNumber) {
-        return this.bus.importMethod('account.account.add')({
+        return this.bus.importMethod('account.actorAccount.add')({
           actorId: result.actorId,
           accountNumber: result.accountNumber,
           isDefault: true,
-          isSignatory: true
+          isSignatory: true,
+          roleName: msg.roleName
         })
         .then((r) => {
           reversals.push({
@@ -157,8 +158,7 @@ module.exports = {
             identifier: msg.phoneNumber,
             type: 'password',
             password: msg.password,
-          },
-          roles: msg.roles
+          }
         })
       } else {
         return res
