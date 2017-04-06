@@ -1,3 +1,14 @@
+<a name="0.24.9"></a>
+## [0.24.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.8...v0.24.9) (2017-04-06)
+
+
+### Bug Fixes
+
+* create task to act as seeders when starting the application ([42b610e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/42b610e))
+* linting ([e799d9d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e799d9d))
+
+
+
 <a name="0.24.8"></a>
 ## [0.24.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.7...v0.24.8) (2017-04-05)
 

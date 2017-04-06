@@ -157,7 +157,7 @@ module.exports = {
             actorId: result.actorId,
             identifier: msg.phoneNumber,
             type: 'password',
-            password: msg.password,
+            password: msg.password
           }
         })
       } else {
