@@ -1,4 +1,3 @@
-var errors = require('./errors')
 module.exports = {
   'check': function (msg, $meta) {
     var userPass = this.bus.config.cluster

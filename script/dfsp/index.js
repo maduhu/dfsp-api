@@ -15,10 +15,10 @@ module.exports = {
     'bulk'
   ],
   cacheableMethods: [
-    "identity.role.fetch",
-    "ledger.transferType.fetch",
-    "bulk.batchStatus.fetch",
-    "bulk.paymentStatus.fetch"
+    'identity.role.fetch',
+    'ledger.transferType.fetch',
+    'bulk.batchStatus.fetch',
+    'bulk.paymentStatus.fetch'
   ],
   logLevel: 'trace',
   start: function () {
