@@ -19,7 +19,9 @@ module.exports = {
     'ledger.transferType.fetch',
     'bulk.batchStatus.fetch',
     'bulk.paymentStatus.fetch',
-    'ledger.accountType.fetch'
+    'ledger.accountType.fetch',
+    'transfer.invoiceType.fetch',
+    'transfer.infoiceStatus.fetch'
   ],
   logLevel: 'trace',
   start: function () {
