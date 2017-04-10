@@ -1,7 +1,7 @@
 var joi = require('joi')
 module.exports = {
   rest: {
-    rpc: 'transfer.invoice.edit',
+    rpc: 'transfer.invoice.execute',
     path: '/receivers/invoices/{invoiceId}',
     config: {
       description: 'Approve an invoice transfer',
@@ -28,10 +28,9 @@ module.exports = {
     },
     method: 'put'
   },
-  'invoice.edit': function (msg, $meta) {
+  'invoice.execute': function (msg, $meta) {
     return this.config.exec.call(this, {
-      invoiceId: msg.invoiceId,
-      statusCode: 'e'
+      invoiceId: msg.invoiceId
     }, $meta)
       .then((result) => {
         return {

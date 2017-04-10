@@ -1,6 +1,5 @@
 var joi = require('joi')
 const INVOICE_TRANSFER_CODE = 'invoice'
-const STATUS_CODE_EXECUTE = 'e'
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.invoiceNotification.pay',
@@ -65,16 +64,15 @@ module.exports = {
                 })
             })
             .then((result) => {
-              return this.bus.importMethod('transfer.invoiceNotification.edit')({
-                invoiceNotificationId: msg.invoiceNotificationId,
-                statusCode: STATUS_CODE_EXECUTE
+              return this.bus.importMethod('transfer.invoiceNotification.execute')({
+                invoiceNotificationId: msg.invoiceNotificationId
               })
-                .then((response) => {
-                  return {
-                    invoiceNotificationId: response.invoiceNotificationId,
-                    status: response.status === 'executed' ? 'paid' : response.status
-                  }
-                })
+            })
+            .then((response) => {
+              return {
+                invoiceNotificationId: response.invoiceNotificationId,
+                status: 'paid'
+              }
             })
         })
     })
