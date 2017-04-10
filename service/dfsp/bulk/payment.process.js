@@ -56,12 +56,12 @@ module.exports = {
           destinationAmount: payment.amount,
           currency: payee.currencyCode,
           fee: (fee.fee && fee.fee.amount) || 0,
-          memo: JSON.stringify({
+          memo: {
             fee: (fee.fee && fee.fee.amount) || 0,
             transferCode: 'bulkPayment',
             creditName: payee.name,
             debitName: payer.firstName + ' ' + payer.lastName
-          })
+          }
         }, 'payment failed')
       })
       .then(() => {

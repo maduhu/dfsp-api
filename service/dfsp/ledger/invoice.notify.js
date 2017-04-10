@@ -28,6 +28,9 @@ module.exports = {
     method: 'put'
   },
   'invoice.notify': function (msg, $meta) {
-    return {}
+    return this.bus.importMethod('transfer.invoice.edit')({
+      invoiceId: msg.invoiceId,
+      statusCode: 'e'
+    }).then(result => {})
   }
 }

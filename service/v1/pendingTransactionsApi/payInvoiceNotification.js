@@ -55,12 +55,12 @@ module.exports = {
                     destinationAmount: '' + invoiceResult.amount,
                     currency: invoiceResult.currencyCode,
                     fee: invoiceResult.fee,
-                    memo: JSON.stringify({
+                    memo: {
                       fee: invoiceResult.fee,
                       transferCode: INVOICE_TRANSFER_CODE,
                       debitName: directoryResult.name,
                       creditName: invoiceResult.name
-                    })
+                    }
                   })
                 })
             })
