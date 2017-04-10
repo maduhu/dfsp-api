@@ -1,11 +1,16 @@
 module.exports = {
   'push.execute': function (msg, $meta) {
     var promise
+    var memo = {}
+    if (msg.memo) {
+      memo = msg.memo
+      memo.debitIdentifier = msg.sourceIdentifier
+    }
     var params = {
       receiver: msg.receiver,
       sourceAccount: msg.sourceAccount,
       destinationAmount: Number(msg.destinationAmount).toFixed(2),
-      memo: msg.memo || '',
+      memo: JSON.stringify(memo),
       sourceIdentifier: msg.sourceIdentifier
     }
     if ((this.bus.config.cluster || '').endsWith('-test')) {

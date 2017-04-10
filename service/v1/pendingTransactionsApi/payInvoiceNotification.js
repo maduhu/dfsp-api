@@ -1,6 +1,5 @@
 var joi = require('joi')
 const INVOICE_TRANSFER_CODE = 'invoice'
-const STATUS_CODE_EXECUTE = 'e'
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.invoiceNotification.pay',
@@ -55,26 +54,25 @@ module.exports = {
                     destinationAmount: '' + invoiceResult.amount,
                     currency: invoiceResult.currencyCode,
                     fee: invoiceResult.fee,
-                    memo: JSON.stringify({
+                    memo: {
                       fee: invoiceResult.fee,
                       transferCode: INVOICE_TRANSFER_CODE,
                       debitName: directoryResult.name,
                       creditName: invoiceResult.name
-                    })
+                    }
                   })
                 })
             })
             .then((result) => {
-              return this.bus.importMethod('transfer.invoiceNotification.edit')({
-                invoiceNotificationId: msg.invoiceNotificationId,
-                statusCode: STATUS_CODE_EXECUTE
+              return this.bus.importMethod('transfer.invoiceNotification.execute')({
+                invoiceNotificationId: msg.invoiceNotificationId
               })
-                .then((response) => {
-                  return {
-                    invoiceNotificationId: response.invoiceNotificationId,
-                    status: response.status === 'executed' ? 'paid' : response.status
-                  }
-                })
+            })
+            .then((response) => {
+              return {
+                invoiceNotificationId: response.invoiceNotificationId,
+                status: 'paid'
+              }
             })
         })
     })

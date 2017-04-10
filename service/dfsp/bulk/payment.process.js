@@ -42,7 +42,11 @@ module.exports = {
       return dispatch('rule.decision.fetch', {
         currency: payee.currencyCode,
         amount: payment.amount,
-        identifier: payment.identifier
+        destinationIdentifier: payment.identifier,
+        destinationAccount: payee.spspServer + '/receivers/' + payment.identifier,
+        sourceAccount: payment.account,
+        sourceIdentifier: payer.identifiers[0].identifier,
+        transferType: 'bulkPayment'
       }, 'fee could not be obtained')
       .then((fee) => {
         return dispatch('transfer.push.execute', {
@@ -52,12 +56,12 @@ module.exports = {
           destinationAmount: payment.amount,
           currency: payee.currencyCode,
           fee: (fee.fee && fee.fee.amount) || 0,
-          memo: JSON.stringify({
+          memo: {
             fee: (fee.fee && fee.fee.amount) || 0,
             transferCode: 'bulkPayment',
             creditName: payee.name,
             debitName: payer.firstName + ' ' + payer.lastName
-          })
+          }
         }, 'payment failed')
       })
       .then(() => {

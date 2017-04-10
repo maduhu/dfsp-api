@@ -12,7 +12,7 @@ module.exports = {
       }
     */
     if (msg.actorId) {
-      return this.bus.importMethod('account.account.fetch')({
+      return this.bus.importMethod('account.actorAccount.fetch')({
         actorId: msg.actorId
       })
       .then((accounts) => {
