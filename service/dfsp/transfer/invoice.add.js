@@ -14,7 +14,8 @@ module.exports = {
           currencyCode: joi.string().description('currencyCode').example('USD'),
           currencySymbol: joi.string().description('currencySymbol').example('$'),
           amount: joi.number().description('amount').example(123),
-          identifier: joi.string().description('identifier').example('78956562'),
+          merchantIdentifier: joi.string().description('merchantIdentifier').example('99826154'),
+          identifier: joi.string().description('identifier').example('33859321'),
           spspServer: joi.string().description('spspServer').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1')
         })
       },
@@ -38,6 +39,7 @@ module.exports = {
     method: 'post'
   },
   'invoice.add': function (msg, $meta) {
+    msg.invoiceType = 'type1'
     return this.config.exec.call(this, msg, $meta)
       .then((result) => {
         // {
@@ -49,7 +51,8 @@ module.exports = {
         // invoiceInfo:"Invoice from kkk for 32 USD"
         // name:"kkk"
         // status:"pending"
-        // identifier:"80989354"
+        // identifier:"33859321",
+        // merchantIdentifier: "99826154"
         // }
         var params = {
           memo: 'Invoice from ' + result.name + ' for ' + result.amount + ' ' + result.currencyCode,
