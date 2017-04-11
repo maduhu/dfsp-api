@@ -2,14 +2,14 @@ var joi = require('joi')
 module.exports = {
   rest: {
     rpc: 'invoiceApi.invoiceInfo.get',
-    path: '/v1/invoice/{invoiceId}',
+    path: '/v1/invoice/{invoiceUrl}',
     config: {
-      description: 'Get the payment details by given paymentId',
-      notes: 'Get the payment details by given paymentId',
-      tags: ['api', 'pendingPaymentss', 'v1', 'getPaymentInfo', 'invoiceApi'],
+      description: 'Get the payment details by given invoice Url',
+      notes: 'Get the payment details by given invoice Url',
+      tags: ['api', 'invoiceInfo', 'v1', 'invoiceApi'],
       validate: {
         params: joi.object({
-          invoiceId: joi.string().description('Invoice id').required()
+          invoiceUrl: joi.string().description('Invoice URL').required()
         })
       },
       plugins: {
@@ -38,6 +38,8 @@ module.exports = {
     method: 'get'
   },
   'invoiceInfo.get': function (msg, $meta) {
-    return this.bus.importMethod('dfsp/transfer.invoice.get')(msg)
+    return this.bus.importMethod('spsp.transfer.invoice.get')({
+      receiver: msg.invoiceUrl
+    })
   }
 }

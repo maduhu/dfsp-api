@@ -6,10 +6,10 @@ module.exports = {
     config: {
       description: 'Add a pending invoice',
       notes: 'Add a pending invoice',
-      tags: ['api', 'PendingInvoice', 'v1', 'pendingInvoiceAdd', 'invoiceApi'],
+      tags: ['api', 'pendingInvoice', 'v1', 'pendingInvoiceAdd', 'invoiceApi'],
       validate: {
         payload: joi.object({
-          account: joi.string().description('Merchant account').example('merchant').required(),
+          account: joi.string().description('Merchant account number').example('merchant').required(),
           amount: joi.number().description('Amount').example(25.00).required(),
           merchantIdentifier: joi.string().description('Merchant identifier').example('78956562').required(),
           info: joi.string().description('Pending invoice description').example('Invoice in the amount of $25 for prepaid TV').required()

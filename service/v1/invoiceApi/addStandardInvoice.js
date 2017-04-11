@@ -6,10 +6,10 @@ module.exports = {
     config: {
       description: 'Add a standard invoice',
       notes: 'Add a standard invoice',
-      tags: ['api', 'pendingTransactions', 'v1', 'invoices', 'postInvoice', 'invoiceApi'],
+      tags: ['api', 'standardInvoice', 'v1', 'standardInvoiceAdd', 'invoiceApi'],
       validate: {
         payload: joi.object({
-          account: joi.string().description('Merchant account').example('merchant').required(),
+          account: joi.string().description('Merchant account number').example('merchant').required(),
           amount: joi.number().description('Amount').example(123).required(),
           identifier: joi.string().description('Client identifier').example('78956562').required(),
           invoiceType: joi.string().description('Invoice type').example('standard'),

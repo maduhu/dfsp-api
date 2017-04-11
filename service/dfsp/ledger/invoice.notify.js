@@ -28,8 +28,19 @@ module.exports = {
     method: 'put'
   },
   'invoice.notify': function (msg, $meta) {
-    return this.bus.importMethod('transfer.invoice.execute')({
-      invoiceId: msg.invoiceId
-    }).then(result => {})
+    return this.bus.importMethod('ledger.transfer.get')({
+      id: msg.paymentid
+    })
+    .catch(() => false)
+    .then((transfer) => {
+      if (!transfer) {
+        return {}
+      }
+      return this.bus.importMethod('transfer.invoice.execute')({
+        invoiceId: msg.invoiceId,
+        identifier: transfer.credits[0] && transfer.credits[0].memo && transfer.credits[0].memo.debitIdentifier
+      })
+    })
+    .then(() => ({}))
   }
 }

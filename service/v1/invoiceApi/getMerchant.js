@@ -6,7 +6,7 @@ module.exports = {
     config: {
       description: 'Lookup default account for a given identifier',
       notes: 'It will check in the central directory to find information about the user',
-      tags: ['api', 'productInvoice', 'v1', 'getMerchant', 'invoiceApi'],
+      tags: ['api', 'v1', 'getMerchant', 'invoiceApi'],
       validate: {
         params: joi.object({
           identifier: joi.number().description('Identifier').example(26547070).required()

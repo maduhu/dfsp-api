@@ -27,6 +27,7 @@ module.exports = {
                 amount: joi.string().description('Amount'),
                 status: joi.string().description('Status'),
                 identifier: joi.string().description('Identifier'),
+                merchantIdentifier: joi.string().description('merchantIdentifier'),
                 invoiceType: joi.string().description('Invoice Type'),
                 invoiceInfo: joi.string().description('Invoice Info')
               })
