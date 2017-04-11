@@ -1,7 +1,7 @@
 var joi = require('joi')
 module.exports = {
   rest: {
-    rpc: 'productInvoiceApi.productInvoice.pay',
+    rpc: 'invoiceApi.productInvoice.pay',
     path: '/v1/productInvoice/pay',
     config: {
       description: 'Pay product invoice',

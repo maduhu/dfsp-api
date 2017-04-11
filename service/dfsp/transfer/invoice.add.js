@@ -60,10 +60,11 @@ module.exports = {
         var params = {
           memo: 'Invoice from ' + result.name + ' for ' + result.amount + ' ' + result.currencyCode,
           submissionUrl: msg.spspServer + '/invoices',
-          senderIdentifier: result.identifier
+          senderIdentifier: msg.identifier
         }
         if (this.bus.config.spsp && this.bus.config.spsp.url && this.bus.config.spsp.url.startsWith('http://localhost')) {
           $meta.method = 'transfer.invoiceNotification.add'
+          params.identifier = msg.identifier
           params.invoiceUrl = 'http://localhost:8010/receivers/invoices/' + result.invoiceId
         } else {
           $meta.method = 'spsp.transfer.invoiceNotification.add'

@@ -1,7 +1,7 @@
 var joi = require('joi')
 module.exports = {
   rest: {
-    rpc: 'productInvoiceApi.transactionFees.get',
+    rpc: 'invoiceApi.transactionFees.get',
     path: '/v1/transactionFees/{productInvoiceId}',
     config: {
       description: 'Get the fees related to particular product invoice',

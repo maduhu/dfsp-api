@@ -3,7 +3,7 @@ module.exports = {
   createPort: require('ut-port-script'),
   imports: [
     'pendingTransactionsApi',
-    'productInvoiceApi'
+    'invoiceApi'
   ],
   logLevel: 'trace'
 }

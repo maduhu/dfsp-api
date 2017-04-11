@@ -19,7 +19,7 @@ module.exports = {
   modules: {
     // modules to be imported in the 'v1' script port
     pendingTransactionsApi: require('../service/v1/pendingTransactionsApi'),
-    productInvoiceApi: require('../service/v1/productInvoiceApi'),
+    invoiceApi: require('../service/v1/invoiceApi'),
     // modules to be imported in the 'custom' script port
     wallet: require('../service/custom/wallet'),
     payee: require('../service/custom/payee'),
