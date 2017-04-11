@@ -1,3 +1,14 @@
+<a name="0.24.10"></a>
+## [0.24.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.4...v0.24.10) (2017-04-11)
+
+
+### Bug Fixes
+
+* add circleci overrides ([4a07275](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4a07275))
+* unify transfer.push.execute approach for both environments ([e6af48d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e6af48d))
+
+
+
 <a name="0.24.4"></a>
 ## [0.24.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.3...v0.24.4) (2017-03-27)
 
