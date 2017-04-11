@@ -16,6 +16,7 @@ module.exports = {
           amount: joi.number().description('amount').example(123),
           merchantIdentifier: joi.string().description('merchantIdentifier').example('99826154'),
           identifier: joi.string().description('identifier').example('33859321'),
+          invoiceType: joi.string().description('invoiceType').example('standard'),
           spspServer: joi.string().description('spspServer').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1')
         })
       },
@@ -39,7 +40,9 @@ module.exports = {
     method: 'post'
   },
   'invoice.add': function (msg, $meta) {
-    msg.invoiceType = 'type1'
+    if (!msg.invoiceType) {
+      msg.invoiceType = 'standard'
+    }
     return this.config.exec.call(this, msg, $meta)
       .then((result) => {
         // {
