@@ -12,7 +12,7 @@ module.exports = {
           account: joi.string().description('Merchant account number').example('merchant').required(),
           amount: joi.number().description('Amount').example(25.00).required(),
           merchantIdentifier: joi.string().description('Merchant identifier').example('78956562').required(),
-          info: joi.string().description('Pending invoice description').example('Invoice in the amount of $25 for prepaid TV').required()
+          info: joi.string().description('Pending invoice description').example('Invoice in the amount of $25 for prepaid TV')
         })
       },
       plugins: {

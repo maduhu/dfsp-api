@@ -12,9 +12,8 @@ module.exports = {
           account: joi.string().description('Merchant account number').example('merchant').required(),
           amount: joi.number().description('Amount').example(123).required(),
           identifier: joi.string().description('Client identifier').example('78956562').required(),
-          invoiceType: joi.string().description('Invoice type').example('standard'),
           merchantIdentifier: joi.string().description('merchantIdentifier').example('99826154'),
-          info: joi.string().description('Invoice description').example('Invoice from merchant to Bob').required()
+          info: joi.string().description('Invoice description').example('Invoice from merchant to Bob')
         })
       },
       plugins: {

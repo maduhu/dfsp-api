@@ -23,7 +23,8 @@ module.exports = {
                 firstName: joi.string().description('Merchant first name'),
                 lastName: joi.string().description('Merchant last name'),
                 currencyCode: joi.string().description('Merchant\'s currency'),
-                currencySymbol: joi.string().description('Merchant\'s currency representation with symbol')
+                currencySymbol: joi.string().description('Merchant\'s currency representation with symbol'),
+                spspServer: joi.string().description('Merchant\'s spsp server')
               })
             }
           }
@@ -48,7 +49,8 @@ module.exports = {
         firstName: res.firstName,
         lastName: res.lastName,
         currencyCode: res.currencyCode,
-        currencySymbol: res.currencySymbol
+        currencySymbol: res.currencySymbol,
+        spspServer: res.spspServer
       }
     })
   }
