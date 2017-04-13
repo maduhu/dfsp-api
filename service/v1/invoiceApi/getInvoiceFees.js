@@ -6,7 +6,7 @@ module.exports = {
     config: {
       description: 'Get the fees related to particular invoice',
       notes: 'Get the fees related to particular invoice',
-      tags: ['api', 'v1', 'getinvoiceFees', 'invoiceApi'],
+      tags: ['api', 'v1', 'getInvoiceFees', 'invoiceApi'],
       validate: {
         params: joi.object({
           invoiceUrl: joi.string().description('Invoice URL').example('http://localhost:8010/receivers/invoices/1').required(),

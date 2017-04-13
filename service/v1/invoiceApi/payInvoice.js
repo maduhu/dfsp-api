@@ -20,8 +20,8 @@ module.exports = {
             '200': {
               description: 'Invoice payment executed',
               schema: joi.object().keys({
-                productInvoiceId: joi.string().description('Product invoice Id').example('6'),
-                status: joi.string().description('The new product invoice status').example('paid')
+                invoiceId: joi.string().description('Invoice Id').example('6'),
+                status: joi.string().description('The new invoice status').example('paid')
               }).unknown()
             }
           }

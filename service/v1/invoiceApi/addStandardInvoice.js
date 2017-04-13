@@ -47,49 +47,49 @@ module.exports = {
     return this.bus.importMethod($meta.method)({
       accountNumber: msg.account
     }, $meta)
-    .then((ledgerResponse) => {
-      $meta.method = 'ist.directory.user.get'
-      return this.bus.importMethod($meta.method)({
-        identifier: msg.identifier
-      }, $meta)
-      .then((centralDirectoryResponse) => {
-        $meta.method = 'directory.user.get'
+      .then((ledgerResponse) => {
+        $meta.method = 'ist.directory.user.get'
         return this.bus.importMethod($meta.method)({
-          identifier: msg.merchantIdentifier
+          identifier: msg.identifier
         }, $meta)
-        .then((directoryResponse) => {
-          var info = (typeof msg.info !== 'undefined') ? msg.info : 'Invoice from ' + directoryResponse.firstName + ' ' + directoryResponse.lastName + ' for ' + msg.amount + ' ' + ledgerResponse.currencyCode
-          $meta.method = 'transfer.invoice.add'
-          return this.bus.importMethod($meta.method)({
-            account: ledgerResponse.id,
-            name: directoryResponse.firstName + ' ' + directoryResponse.lastName,
-            currencyCode: ledgerResponse.currencyCode,
-            currencySymbol: ledgerResponse.currencySymbol,
-            amount: msg.amount,
-            identifier: msg.identifier,
-            merchantIdentifier: msg.merchantIdentifier,
-            invoiceType: msg.invoiceType,
-            spspServer: centralDirectoryResponse.spspReceiver,
-            invoiceInfo: info
-          }, $meta)
-          .then((invoiceResponse) => {
-            return {
-              invoiceId: invoiceResponse.invoiceId,
-              account: msg.account,
-              firstName: directoryResponse.firstName,
-              lastName: directoryResponse.lastName,
-              currencyCode: ledgerResponse.currencyCode,
-              currencySymbol: ledgerResponse.currencySymbol,
-              amount: msg.amount,
-              status: invoiceResponse.status,
-              identifier: msg.identifier,
-              merchantIdentifier: msg.merchantIdentifier,
-              invoiceType: invoiceResponse.invoiceType,
-              info: info
-            }
+          .then((centralDirectoryResponse) => {
+            $meta.method = 'directory.user.get'
+            return this.bus.importMethod($meta.method)({
+              identifier: msg.merchantIdentifier
+            }, $meta)
+              .then((directoryResponse) => {
+                var info = (typeof msg.info !== 'undefined') ? msg.info : 'Invoice from ' + directoryResponse.firstName + ' ' + directoryResponse.lastName + ' for ' + msg.amount + ' ' + ledgerResponse.currencyCode
+                $meta.method = 'transfer.invoice.add'
+                return this.bus.importMethod($meta.method)({
+                  account: ledgerResponse.id,
+                  name: directoryResponse.firstName + ' ' + directoryResponse.lastName,
+                  currencyCode: ledgerResponse.currencyCode,
+                  currencySymbol: ledgerResponse.currencySymbol,
+                  amount: msg.amount,
+                  identifier: msg.identifier,
+                  merchantIdentifier: msg.merchantIdentifier,
+                  invoiceType: msg.invoiceType,
+                  spspServer: centralDirectoryResponse.spspReceiver,
+                  invoiceInfo: info
+                }, $meta)
+                  .then((invoiceResponse) => {
+                    return {
+                      invoiceId: invoiceResponse.invoiceId,
+                      account: msg.account,
+                      firstName: directoryResponse.firstName,
+                      lastName: directoryResponse.lastName,
+                      currencyCode: ledgerResponse.currencyCode,
+                      currencySymbol: ledgerResponse.currencySymbol,
+                      amount: msg.amount,
+                      status: invoiceResponse.status,
+                      identifier: msg.identifier,
+                      merchantIdentifier: msg.merchantIdentifier,
+                      invoiceType: invoiceResponse.invoiceType,
+                      info: info
+                    }
+                  })
+              })
           })
-        })
       })
-    })
   }
 }
