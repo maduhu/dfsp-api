@@ -1,3 +1,13 @@
+<a name="0.25.0"></a>
+# [0.25.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.9...v0.25.0) (2017-04-11)
+
+
+### Features
+
+* update pm2 ([998cee4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/998cee4))
+
+
+
 <a name="0.24.9"></a>
 ## [0.24.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.8...v0.24.9) (2017-04-06)
 
