@@ -1,6 +1,8 @@
 var create = require('ut-error').define
 var DFSP = require('../../../dfspError')
 var Rule = create('rule', DFSP)
+var MinAmount = create('minAmount', Rule)
+var MaxAmount = create('maxAmount', Rule)
 var MaxAmountDaily = create('maxAmountDaily', Rule)
 var MaxCountDaily = create('maxCountDaily', Rule)
 var MaxAmountWeekly = create('maxAmountWeekly', Rule)
@@ -10,6 +12,12 @@ var MaxCountMonthly = create('maxCountMonthly', Rule)
 module.exports = {
   rule: function (cause) {
     return new Rule(cause)
+  },
+  minAmount: function (params) {
+    return new MinAmount({message: 'Minimum amount of transaction is {limit}', params: params})
+  },
+  maxAmount: function (params) {
+    return new MaxAmount({message: 'Transfer amount limit of {limit} reached', params: params})
   },
   maxAmountDaily: function (params) {
     return new MaxAmountDaily({message: 'Daily transfer amount limit of {limit} reached', params: params})

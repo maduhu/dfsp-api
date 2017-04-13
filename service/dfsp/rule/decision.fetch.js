@@ -23,6 +23,12 @@ module.exports = {
             })
               .then((transfers) => {
                 // decisions, decisions...
+                if (rule.limit.minAmount && msg.amount < rule.limit.minAmount) {
+                  throw error.minAmount({ limit: rule.limit.minAmount })
+                }
+                if (rule.limit.maxAmount && msg.amount > rule.limit.maxAmount) {
+                  throw error.maxAmount({limit: rule.limit.maxAmount})
+                }
                 if (rule.limit.maxAmountDaily && transfers.amountDaily > rule.limit.maxAmountDaily) {
                   throw error.maxAmountDaily({ limit: rule.limit.maxAmountDaily })
                 }
