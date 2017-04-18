@@ -1,3 +1,33 @@
+<a name="0.26.0"></a>
+# [0.26.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.25.0...v0.26.0) (2017-04-18)
+
+
+### Bug Fixes
+
+* add ledger.accountType.fetch in cacheable methods and create commission account upon adding a wallet if the role is 'agent' ([16d2b06](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/16d2b06))
+* add transfer.invoiceType.fetch and transfer.invoiceStatus.fetch in the list of cacheable methods ([736313d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/736313d))
+* add validation of min and max transaction amount ([7f0784e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/7f0784e))
+* change invoice api ([d1236f6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d1236f6))
+* fix typo for commission ([498741e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/498741e))
+* fix typos and format file ([d05a922](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d05a922))
+* invoiceApi ([fe3b442](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/fe3b442))
+* over the top api for invoices ([538cd45](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/538cd45))
+* pass memo as an object to transfer.push execute and stringify just before dispatching to proxy. add debitIdentifier in memo ([50b91e0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/50b91e0))
+* refactor accout to actorAccount ([dc81adf](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/dc81adf))
+* refactor product invoice functions ([628ac7b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/628ac7b))
+* remove required field for invoices info ([fbf9f96](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/fbf9f96))
+* rename role to roleName ([2242aa0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/2242aa0))
+* standard invoice api ([d9798ea](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d9798ea))
+* throw limit exceeding errors ([99033ba](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/99033ba))
+* use invoice.approve and invoice.reject methods ([113d598](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/113d598))
+
+
+### Features
+
+* implement product invoice api ([f782236](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f782236))
+
+
+
 <a name="0.25.0"></a>
 # [0.25.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.9...v0.25.0) (2017-04-11)
 
