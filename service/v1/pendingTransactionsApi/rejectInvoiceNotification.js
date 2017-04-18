@@ -1,5 +1,4 @@
 var joi = require('joi')
-const STATUS_CODE_REJECT = 'r'
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.invoice.reject',
@@ -30,15 +29,14 @@ module.exports = {
     method: 'put'
   },
   'invoice.reject': function (msg, $meta) {
-    return this.bus.importMethod('transfer.invoiceNotification.edit')({
-      invoiceNotificationId: msg.invoiceNotificationId,
-      statusCode: STATUS_CODE_REJECT
+    return this.bus.importMethod('transfer.invoiceNotification.reject')({
+      invoiceNotificationId: msg.invoiceNotificationId
     })
-      .then((response) => {
-        return {
-          invoiceNotificationId: response.invoiceNotificationId,
-          status: response.status
-        }
-      })
+    .then((response) => {
+      return {
+        invoiceNotificationId: response.invoiceNotificationId,
+        status: response.status
+      }
+    })
   }
 }

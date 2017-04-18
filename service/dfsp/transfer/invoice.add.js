@@ -14,7 +14,9 @@ module.exports = {
           currencyCode: joi.string().description('currencyCode').example('USD'),
           currencySymbol: joi.string().description('currencySymbol').example('$'),
           amount: joi.number().description('amount').example(123),
-          identifier: joi.string().description('identifier').example('78956562'),
+          merchantIdentifier: joi.string().description('merchantIdentifier').example('99826154'),
+          identifier: joi.string().description('identifier').example('33859321'),
+          invoiceType: joi.string().description('invoiceType').example('standard'),
           spspServer: joi.string().description('spspServer').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1')
         })
       },
@@ -38,6 +40,9 @@ module.exports = {
     method: 'post'
   },
   'invoice.add': function (msg, $meta) {
+    if (!msg.invoiceType) {
+      msg.invoiceType = 'standard'
+    }
     return this.config.exec.call(this, msg, $meta)
       .then((result) => {
         // {
@@ -49,15 +54,17 @@ module.exports = {
         // invoiceInfo:"Invoice from kkk for 32 USD"
         // name:"kkk"
         // status:"pending"
-        // identifier:"80989354"
+        // identifier:"33859321",
+        // merchantIdentifier: "99826154"
         // }
         var params = {
           memo: 'Invoice from ' + result.name + ' for ' + result.amount + ' ' + result.currencyCode,
           submissionUrl: msg.spspServer + '/invoices',
-          senderIdentifier: result.identifier
+          senderIdentifier: msg.identifier
         }
         if (this.bus.config.spsp && this.bus.config.spsp.url && this.bus.config.spsp.url.startsWith('http://localhost')) {
           $meta.method = 'transfer.invoiceNotification.add'
+          params.identifier = msg.identifier
           params.invoiceUrl = 'http://localhost:8010/receivers/invoices/' + result.invoiceId
         } else {
           $meta.method = 'spsp.transfer.invoiceNotification.add'

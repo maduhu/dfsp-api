@@ -23,7 +23,7 @@ module.exports = {
         accountNumber: msg.accountNumber
       }, $meta)
     } else if (msg.actorId) {
-      return this.bus.importMethod('account.account.fetch')({
+      return this.bus.importMethod('account.actorAccount.fetch')({
         actorId: msg.actorId
       })
       .then((res) => {
@@ -47,7 +47,7 @@ module.exports = {
             phoneNumber: msg.phoneNumber
           })
         }
-        return this.bus.importMethod('account.account.fetch')({
+        return this.bus.importMethod('account.actorAccount.fetch')({
           actorId: res.actorId
         })
         .then((res) => {

@@ -36,7 +36,7 @@ module.exports = {
     return this.bus.importMethod('directory.user.get')({
       identifier: msg.payee
     }).then((directoryRes) => {
-      return this.bus.importMethod('account.account.fetch')({
+      return this.bus.importMethod('account.actorAccount.fetch')({
         actorId: '' + directoryRes.actorId,
         isDefault: true
       }).then((accountRes) => {

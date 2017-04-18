@@ -1,5 +1,5 @@
 var joi = require('joi')
-const PENDING_TRANSACTIONS_STATUS = 'p'
+const PENDING_IVOICE_STATUS = 'pending'
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.invoiceNotification.fetch',
@@ -37,7 +37,7 @@ module.exports = {
   'invoiceNotification.fetch': function (msg, $meta) {
     return this.bus.importMethod('transfer.invoiceNotification.fetch')({
       identifier: msg.identifier,
-      statusCode: PENDING_TRANSACTIONS_STATUS
+      status: PENDING_IVOICE_STATUS
     })
     .then((resultList) => {
       if (Array.isArray(resultList) && resultList.length) {

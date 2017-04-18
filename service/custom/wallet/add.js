@@ -17,7 +17,7 @@ module.exports = {
           phoneNumber: joi.string().description('phoneNumber').example('0122523365225'),
           accountName: joi.string().description('accountName').example('000000044'),
           password: joi.string().description('password').example('123'),
-          roles: joi.array().description('roles').example(['customer'])
+          roleName: joi.string().description('roleName').example('customer')
         })
       },
       plugins: {
@@ -47,7 +47,7 @@ module.exports = {
       }
     */
     var reversals = []
-    var result = Object.assign({}, msg)
+    var response = Object.assign({}, msg)
     return new Promise((resolve, reject) => {
       if (msg.identifier) {
         return this.bus.importMethod('ist.directory.user.get')({
@@ -66,24 +66,28 @@ module.exports = {
       }
     })
     .then((res) => {
-      msg.identifier = res.identifier
+      if (this.bus.config.spsp && this.bus.config.spsp.url && this.bus.config.spsp.url.startsWith('http://localhost')) {
+        msg.identifier = msg.firstName
+      } else {
+        msg.identifier = res.identifier
+      }
       return this.bus.importMethod('directory.user.add')(msg)
       .then((res) => {
-        result.actorId = '' + res.actorId
+        response.actorId = '' + res.actorId
         reversals.push({
           method: 'directory.user.remove',
           msg: {
-            actorId: result.actorId
+            actorId: response.actorId
           }
         })
         return res
       })
     })
     .then((res) => {
-      result.identifier = res.identifier
+      response.identifier = res.identifier
       if (msg.phoneNumber) { // add subscription for the phone number
         return this.bus.importMethod('subscription.subscription.add')({
-          actorId: result.actorId,
+          actorId: response.actorId,
           phoneNumber: msg.phoneNumber
         })
         .then((res) => {
@@ -113,9 +117,9 @@ module.exports = {
           //   currency: 'TZS',
           //   is_disabled: false
           // }
-          result.account = res.id
-          result.currency = res.currency
-          result.accountNumber = res.accountNumber
+          response.account = res.id
+          response.currency = res.currency
+          response.accountNumber = res.accountNumber
           reversals.push({
             method: 'ledger.account.remove',
             msg: {
@@ -124,41 +128,76 @@ module.exports = {
           })
           return res
         })
-      } else {
-        return res
+        .then((res) => {
+          return this.bus.importMethod('account.actorAccount.add')({
+            actorId: response.actorId,
+            accountNumber: res.accountNumber,
+            isDefault: true,
+            isSignatory: true,
+            roleName: msg.roleName
+          })
+          .then((res) => {
+            reversals.push({
+              method: 'account.actorAccount.remove',
+              msg: {
+                actorAccountId: res.actorAccountId
+              }
+            })
+            return res
+          })
+        })
       }
+      return res
     })
     .then((res) => { // create the account in the account service
-      if (result.accountNumber) {
-        return this.bus.importMethod('account.account.add')({
-          actorId: result.actorId,
-          accountNumber: result.accountNumber,
-          isDefault: true,
-          isSignatory: true
-        })
-        .then((r) => {
-          reversals.push({
-            method: 'account.account.remove',
-            msg: {
-              accountNumber: result.accountNumber
-            }
+      if (res.accountNumber && msg.roleName === 'agent') {
+        return this.bus.importMethod('ledger.accountType.fetch')({})
+          .then((accountTypes) => {
+            return this.bus.importMethod('ledger.account.add')({
+              balance: 0,
+              name: 'commission',
+              accountNumber: response.actorId + '_' + res.accountNumber + '_commission',
+              accountTypeId: accountTypes.find((accountType) => (accountType.name === 'commission')).accountTypeId
+            })
           })
-          return r
-        })
-      } else {
-        return res
+          .then((res) => {
+            reversals.push({
+              method: 'ledger.account.remove',
+              msg: {
+                accountNumber: res.accountNumber
+              }
+            })
+            return res
+          })
+          .then((res) => {
+            return this.bus.importMethod('account.actorAccount.add')({
+              actorId: response.actorId,
+              accountNumber: res.accountNumber,
+              isDefault: false,
+              isSignatory: false
+            })
+            .then((res) => {
+              reversals.push({
+                method: 'account.actorAccount.remove',
+                msg: {
+                  actorAccountId: res.actorAccountId
+                }
+              })
+              return res
+            })
+          })
       }
+      return res
     })
     .then((res) => { // add the user and pin, note that in future the user identifier may not be the phone
       if (msg.password) {
         return this.bus.importMethod('identity.add')({
           hash: {
-            actorId: result.actorId,
+            actorId: response.actorId,
             identifier: msg.phoneNumber,
             type: 'password',
             password: msg.password
-          },
-          roles: msg.roles
+          }
         })
       } else {
         return res
@@ -167,13 +206,13 @@ module.exports = {
     .then((res) => { // add the phone as identification
       return this.bus.importMethod('identity.add')({
         hash: {
-          actorId: result.actorId,
+          actorId: response.actorId,
           identifier: msg.phoneNumber,
           type: 'ussd'
         }
       })
     })
-    .then((res) => (result))
+    .then((res) => (response))
     .catch((err) => {
       if (reversals.length) {
         return Promise.all(reversals.map((reversal) => {

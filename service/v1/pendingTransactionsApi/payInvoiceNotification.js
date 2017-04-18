@@ -1,6 +1,5 @@
 var joi = require('joi')
 const INVOICE_TRANSFER_CODE = 'invoice'
-const STATUS_CODE_EXECUTE = 'e'
 module.exports = {
   rest: {
     rpc: 'pendingTransactionsApi.invoiceNotification.pay',
@@ -39,44 +38,43 @@ module.exports = {
       return this.bus.importMethod('transfer.invoiceNotification.get')({
         invoiceNotificationId: msg.invoiceNotificationId
       })
-        .then((invoiceNotificationResult) => {
-          return this.bus.importMethod('pendingTransactionsApi.invoiceNotification.get')({
+      .then((invoiceNotificationResult) => {
+        return this.bus.importMethod('pendingTransactionsApi.invoiceNotification.get')({
+          invoiceNotificationId: msg.invoiceNotificationId
+        })
+        .then((invoiceResult) => {
+          return this.bus.importMethod('directory.user.get')({
+            identifier: invoiceNotificationResult.identifier
+          })
+          .then((directoryResult) => {
+            return this.bus.importMethod('transfer.push.execute')({
+              sourceIdentifier: invoiceNotificationResult.identifier,
+              sourceAccount: ledgerResult.id,
+              receiver: invoiceNotificationResult.invoiceUrl,
+              destinationAmount: '' + invoiceResult.amount,
+              currency: invoiceResult.currencyCode,
+              fee: invoiceResult.fee,
+              memo: {
+                fee: invoiceResult.fee,
+                transferCode: INVOICE_TRANSFER_CODE,
+                debitName: directoryResult.name,
+                creditName: invoiceResult.name
+              }
+            })
+          })
+        })
+        .then((result) => {
+          return this.bus.importMethod('transfer.invoiceNotification.execute')({
             invoiceNotificationId: msg.invoiceNotificationId
           })
-            .then((invoiceResult) => {
-              return this.bus.importMethod('directory.user.get')({
-                identifier: invoiceNotificationResult.identifier
-              })
-                .then((directoryResult) => {
-                  return this.bus.importMethod('transfer.push.execute')({
-                    sourceIdentifier: invoiceNotificationResult.identifier,
-                    sourceAccount: ledgerResult.id,
-                    receiver: invoiceNotificationResult.invoiceUrl,
-                    destinationAmount: '' + invoiceResult.amount,
-                    currency: invoiceResult.currencyCode,
-                    fee: invoiceResult.fee,
-                    memo: JSON.stringify({
-                      fee: invoiceResult.fee,
-                      transferCode: INVOICE_TRANSFER_CODE,
-                      debitName: directoryResult.name,
-                      creditName: invoiceResult.name
-                    })
-                  })
-                })
-            })
-            .then((result) => {
-              return this.bus.importMethod('transfer.invoiceNotification.edit')({
-                invoiceNotificationId: msg.invoiceNotificationId,
-                statusCode: STATUS_CODE_EXECUTE
-              })
-                .then((response) => {
-                  return {
-                    invoiceNotificationId: response.invoiceNotificationId,
-                    status: response.status === 'executed' ? 'paid' : response.status
-                  }
-                })
-            })
         })
+        .then((response) => {
+          return {
+            invoiceNotificationId: response.invoiceNotificationId,
+            status: 'paid'
+          }
+        })
+      })
     })
   }
 }

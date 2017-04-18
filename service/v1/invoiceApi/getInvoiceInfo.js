@@ -1,15 +1,15 @@
 var joi = require('joi')
 module.exports = {
   rest: {
-    rpc: 'transfer.invoice.get',
-    path: '/receivers/invoices/{invoiceId}',
+    rpc: 'invoiceApi.invoiceInfo.get',
+    path: '/v1/invoice/{invoiceUrl}',
     config: {
-      description: 'Get information about an invoice',
-      notes: 'Get information about an invoice',
-      tags: ['api', 'spsp-server-backend'],
+      description: 'Get the payment details by given invoice Url',
+      notes: 'Get the payment details by given invoice Url',
+      tags: ['api', 'invoiceInfo', 'v1', 'invoiceApi'],
       validate: {
         params: joi.object({
-          invoiceId: joi.string().description('Invoice Id')
+          invoiceUrl: joi.string().description('Invoice URL').required()
         })
       },
       plugins: {
@@ -26,9 +26,8 @@ module.exports = {
                 currencySymbol: joi.string().description('Currency Symbol'),
                 amount: joi.string().description('Amount'),
                 status: joi.string().description('Status'),
-                identifier: joi.string().description('Identifier'),
-                merchantIdentifier: joi.string().description('merchantIdentifier'),
                 invoiceType: joi.string().description('Invoice Type'),
+                merchantIdentifier: joi.string().description('Identifier'),
                 invoiceInfo: joi.string().description('Invoice Info')
               })
             }
@@ -37,5 +36,10 @@ module.exports = {
       }
     },
     method: 'get'
+  },
+  'invoiceInfo.get': function (msg, $meta) {
+    return this.bus.importMethod('spsp.transfer.invoice.get')({
+      receiver: msg.invoiceUrl
+    })
   }
 }

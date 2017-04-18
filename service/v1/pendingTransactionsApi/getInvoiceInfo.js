@@ -56,23 +56,6 @@ module.exports = {
       .then(decisionResult => {
         invoiceDetails.fee = (decisionResult.fee && decisionResult.fee.amount) || 0
         return invoiceDetails
-        // return this.bus.importMethod('spsp.rule.decision.fetch')({
-        //   currency: invoice.currencyCode,
-        //   amount: invoiceAmount,
-        //   identifier: invoice.identifier
-        // })
-        // .then(spspDecisionResult => {
-        //   if (spspDecisionResult.sourceAmount) {
-        //     invoiceDetails.connectorFee = Math.round((spspDecisionResult.sourceAmount - invoiceAmount) * 100) / 100
-        //   } else {
-        //     invoiceDetails.connectorFee = 0
-        //   }
-        //   return invoiceDetails
-        // })
-        // .catch(e => {
-        //   invoiceDetails.connectorFee = 0
-        //   return invoiceDetails
-        // })
       })
     })
   }

@@ -17,7 +17,7 @@ module.exports = {
   method: 'post',
   'spsp.rule.decision.fetch.request.send': function (msg, $meta) {
     return this.bus.importMethod('ist.directory.user.get')({
-      identifier: msg.identifier
+      identifier: msg.destinationIdentifier
     })
     .then((res) => {
       var params = {
@@ -26,7 +26,7 @@ module.exports = {
           TraceID: uuid()
         },
         qs: {
-          receiver: res.spspReceiver + '/receivers/' + msg.identifier
+          receiver: res.spspReceiver + '/receivers/' + msg.destinationIdentifier
         }
       }
       if (msg.amount) {
