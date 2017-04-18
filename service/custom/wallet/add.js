@@ -155,8 +155,8 @@ module.exports = {
           .then((accountTypes) => {
             return this.bus.importMethod('ledger.account.add')({
               balance: 0,
-              name: 'commisison',
-              accountNumber: response.actorId + '_' + res.accountNumber + '_commisison',
+              name: 'commission',
+              accountNumber: response.actorId + '_' + res.accountNumber + '_commission',
               accountTypeId: accountTypes.find((accountType) => (accountType.name === 'commission')).accountTypeId
             })
           })
