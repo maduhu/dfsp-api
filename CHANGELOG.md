@@ -1,3 +1,13 @@
+<a name="0.26.1"></a>
+## [0.26.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.0...v0.26.1) (2017-04-18)
+
+
+### Bug Fixes
+
+* rules conditions - account current transaction ([04d2865](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/04d2865))
+
+
+
 <a name="0.26.0"></a>
 # [0.26.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.25.0...v0.26.0) (2017-04-18)
 
