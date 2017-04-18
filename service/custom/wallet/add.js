@@ -17,7 +17,7 @@ module.exports = {
           phoneNumber: joi.string().description('phoneNumber').example('0122523365225'),
           accountName: joi.string().description('accountName').example('000000044'),
           password: joi.string().description('password').example('123'),
-          role: joi.string().description('role').example('customer')
+          roleName: joi.string().description('roleName').example('customer')
         })
       },
       plugins: {
@@ -134,7 +134,7 @@ module.exports = {
             accountNumber: res.accountNumber,
             isDefault: true,
             isSignatory: true,
-            roleName: msg.role
+            roleName: msg.roleName
           })
           .then((res) => {
             reversals.push({
@@ -150,7 +150,7 @@ module.exports = {
       return res
     })
     .then((res) => { // create the account in the account service
-      if (res.accountNumber && msg.role === 'agent') {
+      if (res.accountNumber && msg.roleName === 'agent') {
         return this.bus.importMethod('ledger.accountType.fetch')({})
           .then((accountTypes) => {
             return this.bus.importMethod('ledger.account.add')({
