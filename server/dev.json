@@ -55,5 +55,8 @@
     "_postRules": {
       "interval": 10
     }
+  },
+  "_forensic": {
+    "port": 5678
   }
 }
