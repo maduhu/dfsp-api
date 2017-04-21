@@ -157,7 +157,8 @@ module.exports = {
               balance: 0,
               name: 'commission',
               accountNumber: response.actorId + '_' + res.accountNumber + '_commission',
-              accountTypeId: accountTypes.find((accountType) => (accountType.name === 'commission')).accountTypeId
+              parentAccountNumber: res.accountNumber,
+              accountTypeId: accountTypes.find((accountType) => (accountType.name === 'agentCommission')).accountTypeId
             })
           })
           .then((res) => {

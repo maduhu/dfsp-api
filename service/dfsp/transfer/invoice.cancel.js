@@ -18,11 +18,18 @@ module.exports = {
             '200': {
               description: 'Invoice Cancelled',
               schema: joi.object().keys({
-                invoiceNotificationId: joi.number().description('invoiceNotificationId'),
-                invoiceUrl: joi.string().description('invoiceUrl'),
-                identifier: joi.string().description('identifier'),
-                status: joi.string().description('status'),
-                memo: joi.string().description('memo')
+                type: joi.string().description('Type'),
+                invoiceId: joi.number().description('Invoice Id'),
+                account: joi.string().description('Account'),
+                name: joi.string().description('Name'),
+                currencyCode: joi.string().description('Currency Code'),
+                currencySymbol: joi.string().description('Currency Symbol'),
+                amount: joi.string().description('Amount'),
+                status: joi.string().description('Status'),
+                identifier: joi.string().description('Identifier'),
+                merchantIdentifier: joi.string().description('merchantIdentifier'),
+                invoiceType: joi.string().description('Invoice Type'),
+                invoiceInfo: joi.string().description('Invoice Info')
               })
             }
           }
@@ -33,27 +40,29 @@ module.exports = {
   },
   'invoice.cancel': function (msg, $meta) {
     // {
-    //   invoiceId: 1,
-    //   identifier: 'fdsaasfd'
+    //   invoiceId: 1
     // }
     return this.config.exec.call(this, msg, $meta)
-      .then(() => {
-        return this.bus.importMethod('ist.directory.user.get')({
-          identifier: msg.identifier
+      .then((invoice) => {
+        return this.bus.importMethod('transfer.invoicePayer.fetch')({
+          invoiceId: msg.invoiceId,
+          paid: false
         })
-      })
-      .then((result) => {
-        // result.spspReceiver
-        if (this.bus.config.spsp && this.bus.config.spsp.url && this.bus.config.spsp.url.startsWith('http://localhost')) {
-          return this.bus.importMethod('transfer.invoiceNotification.cancel')({
-            invoiceUrl: 'http://localhost:8010/receivers/invoices/' + msg.invoiceId
-          })
-        } else {
-          return this.bus.importMethod('spsp.transfer.invoiceNotification.cancel')({
-            invoiceId: '' + msg.invoiceId,
-            submissionUrl: result.spspReceiver + '/invoices'
-          })
-        }
+        .then((payers) => {
+          return Promise.all(payers.map((payer) => {
+            if (this.bus.config.spsp && this.bus.config.spsp.url && this.bus.config.spsp.url.startsWith('http://localhost')) {
+              return this.bus.importMethod('transfer.invoiceNotification.cancel')({
+                invoiceUrl: 'http://localhost:8010/receivers/invoices/' + msg.invoiceId
+              })
+            } else {
+              return this.bus.importMethod('spsp.transfer.invoiceNotification.cancel')({
+                invoiceId: '' + msg.invoiceId,
+                submissionUrl: payer.spspServer + '/invoices'
+              })
+            }
+          }))
+        })
+        .then(() => invoice)
       })
   }
 }
