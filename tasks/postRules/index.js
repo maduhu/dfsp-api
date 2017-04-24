@@ -13,9 +13,9 @@ module.exports = function (bus) {
         return false
       }
       return bus.importMethod('rule.item.fetch')({})
-        .then(function (items) {
+        .then(function (res) {
           return Promise.all(rules.map(function (rule) {
-            rule.condition.operationId = items.find(function (item) {
+            rule.condition.operationId = res.items.find(function (item) {
               return item.code === rule.condition.operationTag
             }).value
             rule.condition = [rule.condition]
