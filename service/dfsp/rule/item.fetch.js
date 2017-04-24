@@ -92,7 +92,7 @@ module.exports = {
             display: el.name
           })
         })
-        return data
+        return {items: data}
       })
     })
   }
