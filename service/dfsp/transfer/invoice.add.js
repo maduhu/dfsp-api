@@ -58,7 +58,7 @@ module.exports = {
         // merchantIdentifier: "99826154"
         // }
         var params = {
-          memo: 'Invoice from ' + result.name + ' for ' + result.amount + ' ' + result.currencyCode,
+          memo: msg.invoiceInfo || ('Invoice from ' + result.name + ' for ' + result.amount + ' ' + result.currencyCode),
           submissionUrl: msg.spspServer + '/invoices',
           senderIdentifier: msg.identifier
         }
