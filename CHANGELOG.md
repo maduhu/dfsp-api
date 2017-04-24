@@ -1,3 +1,13 @@
+<a name="0.26.4"></a>
+## [0.26.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.3...v0.26.4) (2017-04-24)
+
+
+### Bug Fixes
+
+* return format of rule.item.fetch ([71170ae](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/71170ae))
+
+
+
 <a name="0.26.3"></a>
 ## [0.26.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.2...v0.26.3) (2017-04-21)
 
