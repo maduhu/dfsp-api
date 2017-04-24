@@ -1,3 +1,14 @@
+<a name="0.26.3"></a>
+## [0.26.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.2...v0.26.3) (2017-04-21)
+
+
+### Bug Fixes
+
+* add shrinkwrap ([72527e0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/72527e0))
+* shrinkwrap private nexus links ([800ad5c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/800ad5c))
+
+
+
 <a name="0.26.2"></a>
 ## [0.26.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.1...v0.26.2) (2017-04-19)
 
