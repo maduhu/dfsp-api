@@ -26,7 +26,8 @@ module.exports = {
           TraceID: uuid()
         },
         qs: {
-          receiver: res.spspReceiver + '/receivers/' + msg.destinationIdentifier
+          receiver: res.spspReceiver + '/receivers/' + msg.destinationIdentifier,
+          identifierType: 'eur'
         }
       }
       if (msg.amount) {
@@ -76,7 +77,8 @@ module.exports = {
       payload: msg,
       headers: {
         TraceID: traceId,
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
       }
     }
   },
@@ -109,10 +111,12 @@ module.exports = {
       uri: '/query',
       httpMethod: 'get',
       headers: {
-        TraceID: uuid()
+        TraceID: uuid(),
+        Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
       },
       qs: {
-        receiver: msg.receiver
+        receiver: msg.receiver,
+        identifierType: 'eur'
       }
     }
   },
@@ -132,10 +136,12 @@ module.exports = {
         uri: '/query',
         httpMethod: 'get',
         headers: {
-          TraceID: uuid()
+          TraceID: uuid(),
+          Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
         },
         qs: {
-          receiver: res.spspReceiver + '/receivers/' + msg.identifier
+          receiver: res.spspReceiver + '/receivers/' + msg.identifier,
+          identifierType: 'eur'
         }
       }
     })
