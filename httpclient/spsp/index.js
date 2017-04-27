@@ -166,7 +166,7 @@ module.exports = {
   'spsp.transfer.payee.get.response.receive': function (msg, $meta) {
     msg.payload.spspServer = $meta.spspServer
     delete $meta.spspServer
-    if (msg.payload.account.endsWith('/noaccount')) {
+    if (!msg.payload.account || msg.payload.account.endsWith('/noaccount')) {
       throw errors.noAccount(msg)
     }
     return msg.payload
