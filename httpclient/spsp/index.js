@@ -19,7 +19,8 @@ module.exports = {
     var params = {
       httpMethod: 'get',
       headers: {
-        TraceID: uuid()
+        TraceID: uuid(),
+        Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
       },
       qs: {
         identifier: msg.destinationIdentifier,
