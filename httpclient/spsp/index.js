@@ -16,32 +16,27 @@ module.exports = {
   logLevel: 'debug',
   method: 'post',
   'spsp.rule.decision.fetch.request.send': function (msg, $meta) {
-    return this.bus.importMethod('ist.directory.user.get')({
-      identifier: msg.destinationIdentifier
-    })
-    .then((res) => {
-      var params = {
-        httpMethod: 'get',
-        headers: {
-          TraceID: uuid()
-        },
-        qs: {
-          receiver: res.spspReceiver + '/receivers/' + msg.destinationIdentifier,
-          identifierType: 'eur'
-        }
+    var params = {
+      httpMethod: 'get',
+      headers: {
+        TraceID: uuid()
+      },
+      qs: {
+        identifier: msg.destinationIdentifier,
+        identifierType: 'eur'
       }
-      if (msg.amount) {
-        msg.destinationAmount = msg.amount
-      }
-      if (msg.sourceAmount) {
-        params.uri = '/quoteSourceAmount'
-        params.qs.sourceAmount = msg.sourceAmount
-      } else if (msg.destinationAmount) {
-        params.uri = '/quoteDestinationAmount'
-        params.qs.destinationAmount = msg.destinationAmount
-      }
-      return params
-    })
+    }
+    if (msg.amount) {
+      msg.destinationAmount = msg.amount
+    }
+    if (msg.sourceAmount) {
+      params.uri = '/quoteSourceAmount'
+      params.qs.sourceAmount = msg.sourceAmount
+    } else if (msg.destinationAmount) {
+      params.uri = '/quoteDestinationAmount'
+      params.qs.destinationAmount = msg.destinationAmount
+    }
+    return params
   },
   'spsp.rule.decision.fetch.response.receive': function (msg, $meta) {
     return msg.payload || {}
@@ -111,12 +106,10 @@ module.exports = {
       uri: '/query',
       httpMethod: 'get',
       headers: {
-        TraceID: uuid(),
-        Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
+        TraceID: uuid()
       },
       qs: {
-        receiver: msg.receiver,
-        identifierType: 'eur'
+        receiver: msg.receiver
       }
     }
   },
@@ -127,24 +120,16 @@ module.exports = {
     throw err
   },
   'spsp.transfer.payee.get.request.send': function (msg, $meta) {
-    return this.bus.importMethod('ist.directory.user.get')({
-      identifier: msg.identifier
-    })
-    .then((res) => {
-      $meta.spspServer = res.spspReceiver
-      return {
-        uri: '/query',
-        httpMethod: 'get',
-        headers: {
-          TraceID: uuid(),
-          Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
-        },
-        qs: {
-          receiver: res.spspReceiver + '/receivers/' + msg.identifier,
-          identifierType: 'eur'
-        }
+    return {
+      uri: '/query',
+      httpMethod: 'get',
+      headers: {
+        TraceID: uuid()
+      },
+      qs: {
+        identifier: msg.identifier
       }
-    })
+    }
   },
   'spsp.transfer.payee.get.response.receive': function (msg, $meta) {
     msg.payload.spspServer = $meta.spspServer
