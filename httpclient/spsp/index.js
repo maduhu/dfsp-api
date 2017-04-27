@@ -72,8 +72,7 @@ module.exports = {
       payload: msg,
       headers: {
         TraceID: traceId,
-        'content-type': 'application/json',
-        Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
+        'content-type': 'application/json'
       }
     }
   },
