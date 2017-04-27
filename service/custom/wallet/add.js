@@ -195,7 +195,7 @@ module.exports = {
         return this.bus.importMethod('identity.add')({
           hash: {
             actorId: response.actorId,
-            identifier: msg.identifier,
+            identifier: response.identifier,
             type: 'password',
             password: msg.password
           }
@@ -208,7 +208,7 @@ module.exports = {
       return this.bus.importMethod('identity.add')({
         hash: {
           actorId: response.actorId,
-          identifier: msg.identifier,
+          identifier: response.identifier,
           type: 'ussd'
         }
       })
