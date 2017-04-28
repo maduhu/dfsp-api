@@ -1,3 +1,26 @@
+<a name="0.27.0"></a>
+# [0.27.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.5...v0.27.0) (2017-04-28)
+
+
+### Bug Fixes
+
+* add higher default balances ([fae5b65](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/fae5b65))
+* add identifierTypeCode in payload ([3a4ac29](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3a4ac29))
+* add possibility to pass invocieInfo externally ([d2d46a8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d2d46a8))
+* bulk payments auto-payment configuration fix ([1f64bc1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1f64bc1))
+* invoices, tranfsers and wallet ([5c40512](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/5c40512))
+* replace msg.identifier with response.identifier for identity.add method ([8a09cb1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8a09cb1))
+* some bug fixes when checking batch records and dispatching messages from script port to http clients ([2808a0a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/2808a0a))
+* unify transfer.push.execute on all envs ([75102f5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/75102f5))
+
+
+### Features
+
+* add forensic module ([bf00fcf](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/bf00fcf))
+* add possibility to cancel invoices and invoice notifications ([ff96cd6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ff96cd6))
+
+
+
 <a name="0.26.5"></a>
 ## [0.26.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.4...v0.26.5) (2017-04-26)
 
