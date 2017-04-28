@@ -158,7 +158,21 @@
       "accountName": "merchant",
       "balance": 100000,
       "phoneNumber": "merchant",
-      "password": "1234"
+      "password": "1234",
+      "roleName": "merchant"
+    },
+    {
+      "identifier": "00582606",
+      "identifierTypeCode": "phn",
+      "firstName": "agent",
+      "lastName": "agent",
+      "dob": "1956-05-13",
+      "nationalId": "1323333",
+      "phoneNumber": "agent",
+      "accountName": "agent",
+      "balance": 100000,
+      "password": "1234",
+      "roleName": "agent"
     },
     {
       "identifier": "75802570",
@@ -220,7 +234,21 @@
       "accountName": "merchant",
       "balance": 100000,
       "phoneNumber": "merchant",
-      "password": "1234"
+      "password": "1234",
+      "roleName": "merchant"
+    },
+    {
+      "identifier": "37930978",
+      "identifierTypeCode": "phn",
+      "firstName": "agent",
+      "lastName": "agent",
+      "dob": "1956-05-13",
+      "nationalId": "1323333",
+      "phoneNumber": "agent",
+      "accountName": "agent",
+      "balance": 100000,
+      "password": "1234",
+      "roleName": "agent"
     },
     {
       "identifier": "64314104",
