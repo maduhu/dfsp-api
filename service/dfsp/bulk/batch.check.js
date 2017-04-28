@@ -5,10 +5,9 @@ module.exports = {
   'batch.check': function (msg, $meta) {
     // set status verifying
     var dispatch = (method, params) => {
-      $meta.method = method
       params.actorId = msg.actorId
       params.batchId = msg.batchId
-      return this.config.exec.call(this, params, $meta)
+      return this.config.exec.call(this, params, {method: method})
     }
     var importMethod = (method) => {
       return this.bus.importMethod(method)

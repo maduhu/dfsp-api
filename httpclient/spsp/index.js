@@ -104,6 +104,29 @@ module.exports = {
   'spsp.transfer.invoiceNotification.add.error.receive': function (err, $meta) {
     throw err
   },
+  'spsp.transfer.invoiceNotification.cancel.request.send': function (msg, $meta) {
+    // {
+    //   invoiceId: 1,
+    //   submissionUrl: 'http://localhost:8010/receivers/invoices/1'
+    // }
+    msg.status = 'cancelled'
+    var params = {
+      uri: '/invoices',
+      httpMethod: 'post',
+      payload: msg,
+      headers: {
+        TraceID: uuid(),
+        'content-type': 'application/json'
+      }
+    }
+    return params
+  },
+  'spsp.transfer.invoiceNotification.cancel.response.receive': function (msg, $meta) {
+    return msg.payload || {}
+  },
+  'spsp.transfer.invoiceNotification.cancel.error.receive': function (err, $meta) {
+    throw err
+  },
   'spsp.transfer.invoice.get.request.send': function (msg, $meta) {
     return {
       uri: '/query',
@@ -143,7 +166,7 @@ module.exports = {
   'spsp.transfer.payee.get.response.receive': function (msg, $meta) {
     msg.payload.spspServer = $meta.spspServer
     delete $meta.spspServer
-    if (msg.payload.account.endsWith('/noaccount')) {
+    if (!msg.payload.account || msg.payload.account.endsWith('/noaccount')) {
       throw errors.noAccount(msg)
     }
     return msg.payload

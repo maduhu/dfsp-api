@@ -37,6 +37,7 @@
     "ut-bus": "^5.9.0",
     "ut-cache": "^5.6.1",
     "ut-error": "^5.4.2",
+    "ut-log": "^5.8.1",
     "ut-port-console": "^6.1.12",
     "ut-port-http": "^6.4.1",
     "ut-port-httpserver": "^8.7.1",

@@ -34,13 +34,8 @@ module.exports = {
     method: 'get'
   },
   'merchant.get': function (msg) {
-    return this.bus.importMethod('payee.get')({
-      payee: '' + msg.identifier
-    })
-    .catch((e) => {
-      return this.bus.importMethod('spsp.transfer.payee.get')({
-        identifier: msg.identifier
-      })
+    return this.bus.importMethod('spsp.transfer.payee.get')({
+      identifier: msg.identifier
     })
     .then(res => {
       return {
