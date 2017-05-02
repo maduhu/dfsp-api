@@ -1,3 +1,13 @@
+<a name="0.27.2"></a>
+## [0.27.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.1...v0.27.2) (2017-05-02)
+
+
+### Bug Fixes
+
+* change default cluster from dfsp2 to dfsp1-test ([08ee424](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/08ee424))
+
+
+
 <a name="0.27.1"></a>
 ## [0.27.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.0...v0.27.1) (2017-04-28)
 
