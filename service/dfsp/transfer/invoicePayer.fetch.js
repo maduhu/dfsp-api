@@ -46,7 +46,7 @@ module.exports = {
       .then((result) => {
         return Promise.all(result.map((payer) => {
           return this.bus.importMethod('spsp.transfer.payee.get')({
-            payee: payer.identifier
+            identifier: payer.identifier
           })
           .then((payee) => {
             return Object.assign({}, payer, payee)
