@@ -1,6 +1,7 @@
 {
   "implementation": "dfsp-api",
-  "cluster": "dfsp2",
+  "cluster": "dfsp1-test",
+  "checkLimits": true,
   "console": {
     "port": 30010,
     "server": {
