@@ -58,10 +58,9 @@
     }
   },
   "forensic": {
-    "client": {
-      "port": 5678,
-      "host": "127.0.0.1",
-      "protocol": "ws"
-    }
+    "port": 5678,
+    "host": "127.0.0.1",
+    "protocol": "ws",
+    "reconnectInterval": 5000
   }
 }
