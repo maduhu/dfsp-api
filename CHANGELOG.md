@@ -1,3 +1,14 @@
+<a name="0.27.4"></a>
+## [0.27.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.3...v0.27.4) (2017-05-03)
+
+
+### Bug Fixes
+
+* update dependencies ([8dd391a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8dd391a))
+* use memo to transport invoice notification cancel status ([1507a68](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1507a68))
+
+
+
 <a name="0.27.3"></a>
 ## [0.27.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.2...v0.27.3) (2017-05-02)
 
