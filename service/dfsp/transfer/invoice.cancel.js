@@ -50,16 +50,10 @@ module.exports = {
         })
         .then((payers) => {
           return Promise.all(payers.map((payer) => {
-            if (this.bus.config.spsp && this.bus.config.spsp.url && this.bus.config.spsp.url.startsWith('http://localhost')) {
-              return this.bus.importMethod('transfer.invoiceNotification.cancel')({
-                invoiceUrl: 'http://localhost:8010/receivers/invoices/' + msg.invoiceId
-              })
-            } else {
-              return this.bus.importMethod('spsp.transfer.invoiceNotification.cancel')({
-                invoiceId: '' + msg.invoiceId,
-                submissionUrl: payer.spspServer + '/invoices'
-              })
-            }
+            return this.bus.importMethod('spsp.transfer.invoiceNotification.cancel')({
+              invoiceId: '' + msg.invoiceId,
+              submissionUrl: payer.spspServer + '/invoices'
+            })
           }))
         })
         .then(() => invoice)

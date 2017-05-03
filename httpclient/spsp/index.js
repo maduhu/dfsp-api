@@ -109,7 +109,7 @@ module.exports = {
     //   invoiceId: 1,
     //   submissionUrl: 'http://localhost:8010/receivers/invoices/1'
     // }
-    msg.status = 'cancelled'
+    msg.memo = JSON.stringify({status: 'cancelled'})
     var params = {
       uri: '/invoices',
       httpMethod: 'post',
