@@ -57,7 +57,11 @@
       "interval": 10
     }
   },
-  "_forensic": {
-    "port": 5678
+  "forensic": {
+    "client": {
+      "port": 5678,
+      "host": "127.0.0.1",
+      "protocol": "ws"
+    }
   }
 }

@@ -87,6 +87,12 @@ module.exports = {
     throw err
   },
   'spsp.transfer.invoiceNotification.add.request.send': function (msg, $meta) {
+    // {
+    //   invoiceId: 1,
+    //   submissionUrl: 'http://localhost:8010/invoices',
+    //   memo: 'sadffdsasafd',
+    //   senderIdentifier: '1323233212'
+    // }
     var params = {
       uri: '/invoices',
       httpMethod: 'post',
@@ -107,7 +113,7 @@ module.exports = {
   'spsp.transfer.invoiceNotification.cancel.request.send': function (msg, $meta) {
     // {
     //   invoiceId: 1,
-    //   submissionUrl: 'http://localhost:8010/receivers/invoices/1'
+    //   submissionUrl: 'http://localhost:8010/invoices',
     // }
     msg.status = 'cancelled'
     var params = {
