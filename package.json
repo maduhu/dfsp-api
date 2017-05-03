@@ -1,6 +1,6 @@
 {
   "name": "@leveloneproject/dfsp-api",
-  "version": "0.27.2",
+  "version": "0.27.5",
   "description": "DFSP ussd demo",
   "main": "index.js",
   "scripts": {
@@ -34,7 +34,7 @@
   "dependencies": {
     "ws": "~1.1.1",
     "joi": "9.1.1",
-    "pm2": "2.4.4",
+    "pm2": "2.4.6",
     "ut-bus": "^5.9.0",
     "ut-cache": "^5.6.1",
     "ut-error": "^5.4.2",

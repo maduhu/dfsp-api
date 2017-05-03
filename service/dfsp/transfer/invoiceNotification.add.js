@@ -39,9 +39,13 @@ module.exports = {
     method: 'post'
   },
   'invoiceNotification.add': function (msg, $meta) {
-    if (msg.status === 'cancelled') {
-      $meta.method = 'transfer.invoiceNotification.cancel'
-    }
+    try {
+      var memo = JSON.parse(msg.memo)
+      if (memo.status === 'cancelled') {
+        $meta.method = 'transfer.invoiceNotification.cancel'
+      }
+    } catch (e) {}
+
     return this.config.exec.call(this, {
       invoiceUrl: msg.invoiceUrl,
       identifier: msg.senderIdentifier,
