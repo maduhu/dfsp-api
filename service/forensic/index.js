@@ -1,12 +1,13 @@
 var Ws = require('ws')
-var logMessage
+var log
 
 module.exports = {
   init: function (bus) {
     if (bus.config.forensic) {
       var config = Object.assign({
         host: '127.0.0.1',
-        protocol: 'ws'
+        protocol: 'ws',
+        maxQueueLength: 100
       }, bus.config.forensic)
       var connectionUrl = config.protocol + '://' + config.host
       if (config.port) {
@@ -15,30 +16,48 @@ module.exports = {
       if (config.path) {
         connectionUrl += config.path
       }
+      var queue = []
       var client
+      var logMode = {
+        idle: function (msg) {
+          return msg
+        },
+        aggregate: function (msg) {
+          while (queue.length >= config.maxQueueLength) {
+            queue.shift()
+          }
+          queue.push(msg)
+          return msg
+        },
+        publish: function (msg) {
+          queue.push(msg)
+          while (queue.length) {
+            client.send(JSON.stringify(queue.shift()))
+          }
+          return msg
+        }
+      }
+      log = logMode.idle
       var connect = function () {
         client = new Ws(connectionUrl)
         client.on('open', function open () {
           // console.log('socket connection opened')
-          logMessage = function (msg) {
-            client.send(msg)
-          }
+          log = logMode.publish
         })
-        client.on('close', function open () {
+        client.on('close', function close () {
           // console.log('socket connection closed')
-          logMessage = null
+          log = logMode.aggregate
           config.reconnectInterval && setTimeout(connect, config.reconnectInterval)
         })
         client.on('error', function open (e) {
           // console.log('socket error', e)
-          logMessage = null
+          log = logMode.idle
         })
       }
       connect()
     }
   },
   log: function (msg) {
-    logMessage && logMessage(JSON.stringify(msg))
-    return msg
+    return log(msg)
   }
 }
