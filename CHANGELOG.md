@@ -1,3 +1,13 @@
+<a name="0.27.6"></a>
+## [0.27.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.5...v0.27.6) (2017-05-04)
+
+
+### Bug Fixes
+
+* remove local testing workaround ([d6e48be](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d6e48be))
+
+
+
 <a name="0.27.5"></a>
 ## [0.27.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.4...v0.27.5) (2017-05-03)
 
