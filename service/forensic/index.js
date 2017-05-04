@@ -1,4 +1,4 @@
-var Ws = require('ws')
+var net = require('net')
 var log
 
 module.exports = {
@@ -6,16 +6,10 @@ module.exports = {
     if (bus.config.forensic) {
       var config = Object.assign({
         host: '127.0.0.1',
-        protocol: 'ws',
+        protocol: 'http',
         maxQueueLength: 100
+        // key: 'MTMtMTQ5MzkwMjMyMDE5OA=='
       }, bus.config.forensic)
-      var connectionUrl = config.protocol + '://' + config.host
-      if (config.port) {
-        connectionUrl += ':' + config.port
-      }
-      if (config.path) {
-        connectionUrl += config.path
-      }
       var queue = []
       var client
       var logMode = {
@@ -32,15 +26,19 @@ module.exports = {
         publish: function (msg) {
           queue.push(msg)
           while (queue.length) {
-            client.send(JSON.stringify(queue.shift()))
+            client.write(JSON.stringify(queue.shift()))
           }
           return msg
         }
       }
       log = logMode.idle
       var connect = function () {
-        client = new Ws(connectionUrl)
-        client.on('open', function open () {
+        client = new net.Socket()
+        client.connect({
+          host: config.host,
+          port: config.port
+        })
+        client.on('connect', function connect () {
           // console.log('socket connection opened')
           log = logMode.publish
         })
@@ -49,7 +47,7 @@ module.exports = {
           log = logMode.aggregate
           config.reconnectInterval && setTimeout(connect, config.reconnectInterval)
         })
-        client.on('error', function open (e) {
+        client.on('error', function error (e) {
           // console.log('socket error', e)
           log = logMode.idle
         })
