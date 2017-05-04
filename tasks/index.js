@@ -1,6 +1,6 @@
 var started = false
 var tasks = {
-  scheduleBulkPayments: require('./schedulePayments'),
+  scheduleBulkPayments: require('./scheduleBulkPayments'),
   postUsers: require('./postUsers'),
   postRules: require('./postRules')
 }
@@ -9,7 +9,7 @@ module.exports = function (app) {
   if (!started) {
     started = true
     Object.keys(app.config.tasks).forEach(function (task) {
-      if (tasks[task]) {
+      if (app.config.tasks[task] && tasks[task]) {
         var config = app.config.tasks[task]
         var interval = (config.interval || 10) * 1000
         var end = config.duration ? (new Date(Date.now() + config.duration * 1000)).getTime() : false

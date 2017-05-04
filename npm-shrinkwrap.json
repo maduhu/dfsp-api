@@ -1,6 +1,6 @@
 {
   "name": "@leveloneproject/dfsp-api",
-  "version": "0.26.4",
+  "version": "0.27.6",
   "dependencies": {
     "abstract-leveldown": {
       "version": "2.6.1",

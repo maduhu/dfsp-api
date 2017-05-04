@@ -35,7 +35,7 @@ module.exports = {
         return cache.get(method)
         .then((res) => {
           if (!res) {
-            return bus.importMethod($meta.method)(msg, $meta)
+            return bus.importMethod($meta.method)(msg)
               .then((r) => {
                 return cache.set(method, r)
               })
@@ -44,6 +44,6 @@ module.exports = {
         })
       })
     }
-    return bus.importMethod($meta.method)(msg, $meta)
+    return bus.importMethod($meta.method)(msg)
   }
 }

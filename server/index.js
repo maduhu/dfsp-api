@@ -17,6 +17,8 @@ module.exports = {
     require('../script/v1')
   ],
   modules: {
+    // forensic
+    forensic: require('../service/forensic'),
     // modules to be imported in the 'v1' script port
     pendingTransactionsApi: require('../service/v1/pendingTransactionsApi'),
     invoiceApi: require('../service/v1/invoiceApi'),

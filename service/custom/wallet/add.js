@@ -10,6 +10,7 @@ module.exports = {
       validate: {
         payload: joi.object({
           identifier: joi.string().description('identifier').example('123456789'),
+          identifierTypeCode: joi.string().description('identifier type code').example('phn'),
           firstName: joi.string().description('firstName').example('Test'),
           lastName: joi.string().description('lastName').example('Testov'),
           dob: joi.string().description('dob').example('10/12/1999'),
@@ -157,7 +158,8 @@ module.exports = {
               balance: 0,
               name: 'commission',
               accountNumber: response.actorId + '_' + res.accountNumber + '_commission',
-              accountTypeId: accountTypes.find((accountType) => (accountType.name === 'commission')).accountTypeId
+              parentAccountNumber: res.accountNumber,
+              accountTypeId: accountTypes.find((accountType) => (accountType.name === 'agentCommission')).accountTypeId
             })
           })
           .then((res) => {
@@ -194,7 +196,7 @@ module.exports = {
         return this.bus.importMethod('identity.add')({
           hash: {
             actorId: response.actorId,
-            identifier: msg.phoneNumber,
+            identifier: response.identifier,
             type: 'password',
             password: msg.password
           }
@@ -207,7 +209,7 @@ module.exports = {
       return this.bus.importMethod('identity.add')({
         hash: {
           actorId: response.actorId,
-          identifier: msg.phoneNumber,
+          identifier: response.identifier,
           type: 'ussd'
         }
       })
