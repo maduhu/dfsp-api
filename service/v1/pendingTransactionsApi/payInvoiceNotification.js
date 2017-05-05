@@ -50,6 +50,7 @@ module.exports = {
             return this.bus.importMethod('transfer.push.execute')({
               sourceIdentifier: invoiceNotificationResult.identifier,
               sourceAccount: ledgerResult.id,
+              accountNumber: ledgerResult.accountNumber,
               receiver: invoiceNotificationResult.invoiceUrl,
               destinationAmount: '' + invoiceResult.amount,
               currency: invoiceResult.currencyCode,
