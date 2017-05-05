@@ -7,7 +7,7 @@ module.exports = {
     }
     return this.bus.importMethod('spsp.transfer.transfer.execute')({
       receiver: msg.receiver,
-      accountNumber: msg.accountNumber,
+      sourceAccount: msg.sourceAccount,
       destinationAmount: Number(msg.destinationAmount).toFixed(2),
       memo: JSON.stringify(memo),
       sourceIdentifier: msg.sourceIdentifier,
