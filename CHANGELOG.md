@@ -1,3 +1,25 @@
+<a name="0.28.0"></a>
+# [0.28.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.6...v0.28.0) (2017-05-09)
+
+
+### Bug Fixes
+
+* add basic authentication for spsp.rule.decision.fetch.request.send ([b674fb5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b674fb5))
+* add possibility to pass identifierType externally to spsp.rule.decision.fetch ([0a0f7e2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0a0f7e2))
+* apply architecture changes for: /query, /quoteDestinationAmount, /quoteSourceAmount, /payments ([141315b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/141315b))
+* change yaml settings to build from alternative branches too ([b8ee57d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b8ee57d))
+* circle.yml set upstream configuration override ([9f2da4f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9f2da4f))
+* fix alignment ([0c15e5a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0c15e5a))
+* pass accountNumber as a param in transfer.push.execute ([8f842da](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8f842da))
+* rename TraceID to L1p-Trace-Id ([b5d456d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b5d456d))
+* rever some changes and update spsp.rule.decision.fetch to pass identifier and identifierType ([025a9ee](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/025a9ee))
+* revert changes in spsp.transfer.transfer.execute.request.send ([3de2dce](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3de2dce))
+* revert spsp.transfer.payee.get.request.send changes ([3e5bc6f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3e5bc6f))
+* reverting accountNumber fix ([c5ad25a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/c5ad25a))
+* update tap-xunit version ([d9c2f1e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d9c2f1e))
+
+
+
 <a name="0.27.6"></a>
 ## [0.27.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.5...v0.27.6) (2017-05-04)
 
