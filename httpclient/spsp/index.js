@@ -24,7 +24,7 @@ module.exports = {
       },
       qs: {
         identifier: msg.destinationIdentifier,
-        identifierType: 'eur'
+        identifierType: msg.destinationIdentifierType || 'eur'
       }
     }
     if (msg.amount) {
