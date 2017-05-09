@@ -23,7 +23,7 @@ module.exports = {
       uri: '/resources',
       httpMethod: 'get',
       headers: {
-        TraceID: uuid()
+        'L1p-Trace-Id': uuid()
       },
       qs: {
         identifier: msg.identifier,
@@ -42,7 +42,7 @@ module.exports = {
     return {
       uri: '/user-registration/users',
       headers: {
-        TraceID: uuid()
+        'L1p-Trace-Id': uuid()
       },
       payload: {
         url: urlProps.protocol + '//' + urlProps.hostname + ':3043/v1'
