@@ -19,7 +19,7 @@ module.exports = {
     var params = {
       httpMethod: 'get',
       headers: {
-        TraceID: uuid(),
+        'L1p-Trace-Id': uuid(),
         Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
       },
       qs: {
@@ -51,7 +51,7 @@ module.exports = {
       httpMethod: 'post',
       payload: msg,
       headers: {
-        TraceID: uuid(),
+        'L1p-Trace-Id': uuid(),
         'content-type': 'application/json'
       }
     }
@@ -72,7 +72,7 @@ module.exports = {
       httpMethod: 'put',
       payload: msg,
       headers: {
-        TraceID: traceId,
+        'L1p-Trace-Id': traceId,
         'content-type': 'application/json'
       }
     }
@@ -95,7 +95,7 @@ module.exports = {
       httpMethod: 'post',
       payload: msg,
       headers: {
-        TraceID: uuid(),
+        'L1p-Trace-Id': uuid(),
         'content-type': 'application/json'
       }
     }
@@ -119,7 +119,7 @@ module.exports = {
       httpMethod: 'post',
       payload: msg,
       headers: {
-        TraceID: uuid(),
+        'L1p-Trace-Id': uuid(),
         'content-type': 'application/json'
       }
     }
@@ -136,7 +136,7 @@ module.exports = {
       uri: '/query',
       httpMethod: 'get',
       headers: {
-        TraceID: uuid()
+        'L1p-Trace-Id': uuid()
       },
       qs: {
         receiver: msg.receiver
@@ -159,7 +159,7 @@ module.exports = {
         uri: '/query',
         httpMethod: 'get',
         headers: {
-          TraceID: uuid()
+          'L1p-Trace-Id': uuid()
         },
         qs: {
           receiver: res.spspReceiver + '/receivers/' + msg.identifier
