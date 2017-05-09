@@ -59,8 +59,6 @@
   },
   "forensic": {
     "port": 5678,
-    "host": "127.0.0.1",
-    "protocol": "http",
-    "reconnectInterval": 5000
+    "host": "127.0.0.1"
   }
 }
