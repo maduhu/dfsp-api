@@ -63,7 +63,6 @@ module.exports = function (_config) { // sidecar log factory
       function log (msg) {
         return connect()
           .then(function () {
-            console.log(msg)
             return client.write(JSON.stringify(msg))
           })
           .catch(function (e) {
