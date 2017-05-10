@@ -11,18 +11,20 @@
   },
   "stdOut": {
     "useColor": false,
-    "mode": "dev"
+    "mode": "long"
   },
   "log": {
-    "streams": [{
-      "level": "trace",
-      "stream": "../logRotateStream",
-      "streamConfig": {
-        "path": "ut5_%Y-%m-%d.log",
-        "symlink": "ut5.log",
-        "compress": true
+    "streams": [
+      {
+        "level": "trace",
+        "stream": "../logRotateStream",
+        "streamConfig": {
+          "path": "ut5_%Y-%m-%d.log",
+          "symlink": "ut5.log",
+          "compress": true
+        }
       }
-    }]
+    ]
   },
   "masterBus": {
     "logLevel": "debug",
@@ -47,7 +49,7 @@
     "defaultTTL": 3600
   },
   "debug": true,
-  "tasks" : {
+  "tasks": {
     "scheduleBulkPayments": {
       "interval": 10
     },
