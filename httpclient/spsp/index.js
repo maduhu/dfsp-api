@@ -6,6 +6,9 @@ module.exports = {
   url: 'http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
   _url: 'http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
   namespace: ['spsp'],
+  headers: {
+    Authorization: 'Basic ' + new Buffer('dfsp1' + ':' + 'dfsp1').toString('base64')
+  },
   raw: {
     json: true,
     jar: true,
@@ -16,31 +19,27 @@ module.exports = {
   logLevel: 'debug',
   method: 'post',
   'spsp.rule.decision.fetch.request.send': function (msg, $meta) {
-    return this.bus.importMethod('ist.directory.user.get')({
-      identifier: msg.destinationIdentifier
-    })
-    .then((res) => {
-      var params = {
-        httpMethod: 'get',
-        headers: {
-          TraceID: uuid()
-        },
-        qs: {
-          receiver: res.spspReceiver + '/receivers/' + msg.destinationIdentifier
-        }
+    var params = {
+      httpMethod: 'get',
+      headers: {
+        'L1p-Trace-Id': uuid()
+      },
+      qs: {
+        identifier: msg.destinationIdentifier,
+        identifierType: msg.destinationIdentifierType || 'eur'
       }
-      if (msg.amount) {
-        msg.destinationAmount = msg.amount
-      }
-      if (msg.sourceAmount) {
-        params.uri = '/quoteSourceAmount'
-        params.qs.sourceAmount = msg.sourceAmount
-      } else if (msg.destinationAmount) {
-        params.uri = '/quoteDestinationAmount'
-        params.qs.destinationAmount = msg.destinationAmount
-      }
-      return params
-    })
+    }
+    if (msg.amount) {
+      msg.destinationAmount = msg.amount
+    }
+    if (msg.sourceAmount) {
+      params.uri = '/quoteSourceAmount'
+      params.qs.sourceAmount = msg.sourceAmount
+    } else if (msg.destinationAmount) {
+      params.uri = '/quoteDestinationAmount'
+      params.qs.destinationAmount = msg.destinationAmount
+    }
+    return params
   },
   'spsp.rule.decision.fetch.response.receive': function (msg, $meta) {
     return msg.payload || {}
@@ -54,7 +53,7 @@ module.exports = {
       httpMethod: 'post',
       payload: msg,
       headers: {
-        TraceID: uuid(),
+        'L1p-Trace-Id': uuid(),
         'content-type': 'application/json'
       }
     }
@@ -75,7 +74,7 @@ module.exports = {
       httpMethod: 'put',
       payload: msg,
       headers: {
-        TraceID: traceId,
+        'L1p-Trace-Id': traceId,
         'content-type': 'application/json'
       }
     }
@@ -98,7 +97,7 @@ module.exports = {
       httpMethod: 'post',
       payload: msg,
       headers: {
-        TraceID: uuid(),
+        'L1p-Trace-Id': uuid(),
         'content-type': 'application/json'
       }
     }
@@ -122,7 +121,7 @@ module.exports = {
       httpMethod: 'post',
       payload: msg,
       headers: {
-        TraceID: uuid(),
+        'L1p-Trace-Id': uuid(),
         'content-type': 'application/json'
       }
     }
@@ -139,7 +138,7 @@ module.exports = {
       uri: '/query',
       httpMethod: 'get',
       headers: {
-        TraceID: uuid()
+        'L1p-Trace-Id': uuid()
       },
       qs: {
         receiver: msg.receiver
@@ -162,7 +161,7 @@ module.exports = {
         uri: '/query',
         httpMethod: 'get',
         headers: {
-          TraceID: uuid()
+          'L1p-Trace-Id': uuid()
         },
         qs: {
           receiver: res.spspReceiver + '/receivers/' + msg.identifier

@@ -1,6 +1,6 @@
 {
   "name": "@leveloneproject/dfsp-api",
-  "version": "0.27.6",
+  "version": "0.28.0",
   "description": "DFSP ussd demo",
   "main": "index.js",
   "scripts": {
@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "blue-tape": "1.0.0",
-    "tap-xunit": "1.4.0",
+    "tap-xunit": "1.7.0",
     "ut-tools": "^5.13.5"
   },
   "repository": {
