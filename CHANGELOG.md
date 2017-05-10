@@ -1,3 +1,13 @@
+<a name="0.28.2"></a>
+## [0.28.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.1...v0.28.2) (2017-05-10)
+
+
+### Bug Fixes
+
+* remove colors from stdout by default ([6f26ade](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6f26ade))
+
+
+
 <a name="0.28.1"></a>
 ## [0.28.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.0...v0.28.1) (2017-05-10)
 
