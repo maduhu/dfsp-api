@@ -1,3 +1,13 @@
+<a name="0.28.3"></a>
+## [0.28.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.2...v0.28.3) (2017-05-10)
+
+
+### Bug Fixes
+
+* change logmode to long ([df403af](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/df403af))
+
+
+
 <a name="0.28.2"></a>
 ## [0.28.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.1...v0.28.2) (2017-05-10)
 
