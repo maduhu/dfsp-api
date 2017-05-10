@@ -1,3 +1,13 @@
+<a name="0.28.1"></a>
+## [0.28.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.0...v0.28.1) (2017-05-10)
+
+
+### Bug Fixes
+
+* basic auth ([72a7347](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/72a7347))
+
+
+
 <a name="0.28.0"></a>
 # [0.28.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.6...v0.28.0) (2017-05-09)
 
