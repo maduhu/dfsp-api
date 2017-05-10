@@ -6,6 +6,9 @@ module.exports = {
   url: 'http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
   _url: 'http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
   namespace: ['spsp'],
+  headers: {
+    Authorization: 'Basic ' + new Buffer('dfsp1' + ':' + 'dfsp1').toString('base64')
+  },
   raw: {
     json: true,
     jar: true,
@@ -19,8 +22,7 @@ module.exports = {
     var params = {
       httpMethod: 'get',
       headers: {
-        'L1p-Trace-Id': uuid(),
-        Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
+        'L1p-Trace-Id': uuid()
       },
       qs: {
         identifier: msg.destinationIdentifier,
