@@ -177,13 +177,13 @@
     {
       "identifier": "75802570",
       "identifierTypeCode": "phn",
-      "firstName": "dfsp1-test",
+      "firstName": "dfsp1",
       "lastName": "connector",
       "dob": "1977-09-01",
       "nationalId": "369852147",
-      "accountName": "dfsp1-testconnector",
+      "accountName": "dfsp1connector",
       "balance": 1000000000,
-      "phoneNumber": "dfsp1-testconnector",
+      "phoneNumber": "dfsp1connector",
       "password": "1234"
     },
     {
@@ -253,13 +253,13 @@
     {
       "identifier": "64314104",
       "identifierTypeCode": "phn",
-      "firstName": "dfsp2-test",
+      "firstName": "dfsp2",
       "lastName": "connector",
       "dob": "1977-09-01",
       "nationalId": "369852147",
-      "accountName": "dfsp2-testconnector",
+      "accountName": "dfsp2connector",
       "balance": 1000000000,
-      "phoneNumber": "dfsp2-testconnector",
+      "phoneNumber": "dfsp2connector",
       "password": "1234"
     },
     {
