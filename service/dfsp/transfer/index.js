@@ -4,6 +4,6 @@ module.exports = require('../../resthooks')([
   require('./invoice.add'),
   require('./invoicePayer.fetch'),
   require('./invoice.cancel'),
-  require('./invoice.edit'),
+  require('./invoice.execute'),
   require('./invoice.get')
 ])
