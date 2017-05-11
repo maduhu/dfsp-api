@@ -76,12 +76,12 @@ module.exports = {
         }
         return this.bus.importMethod('directory.user.add')(msg)
         .then((res) => {
-          result.actorId = '' + res.actorId
-          result.identifier = msg.identifier
+          response.actorId = '' + res.actorId
+          response.identifier = msg.identifier
           reversals.push({
             method: 'directory.user.remove',
             msg: {
-              actorId: result.actorId
+              actorId: response.actorId
             }
           })
           return res
