@@ -19,11 +19,11 @@ module.exports = {
     // }
 
     if (msg.accountNumber) {
-      return this.config.exec({
+      return this.config.exec.call(this, {
         accountNumber: msg.accountNumber
       }, $meta)
     } else if (msg.actorId) {
-      return this.bus.importMethod('dfsp/account.account.fetch')({
+      return this.bus.importMethod('account.actorAccount.fetch')({
         actorId: msg.actorId
       })
       .then((res) => {
@@ -33,12 +33,12 @@ module.exports = {
             phoneNumber: msg.phoneNumber
           })
         }
-        return this.config.exec({
+        return this.config.exec.call(this, {
           accountNumber: account.accountNumber
         }, $meta)
       })
     } else if (msg.phoneNumber) {
-      return this.bus.importMethod('dfsp/subscription.subscription.get')({
+      return this.bus.importMethod('subscription.subscription.get')({
         phoneNumber: msg.phoneNumber
       })
       .then((res) => {
@@ -47,7 +47,7 @@ module.exports = {
             phoneNumber: msg.phoneNumber
           })
         }
-        return this.bus.importMethod('dfsp/account.account.fetch')({
+        return this.bus.importMethod('account.actorAccount.fetch')({
           actorId: res.actorId
         })
         .then((res) => {
@@ -57,7 +57,7 @@ module.exports = {
               phoneNumber: msg.phoneNumber
             })
           }
-          return this.config.exec({
+          return this.config.exec.call(this, {
             accountNumber: account.accountNumber
           }, $meta)
         })

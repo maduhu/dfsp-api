@@ -4,17 +4,5 @@ module.exports = require('../dfspClient')({
   url: 'http://localhost:8012',
   namespace: ['dfsp/identity'],
   logLevel: 'debug',
-  method: 'post',
-  'identity.check': function () {
-    return {
-      payload: {
-        jsonrpc: '2.0',
-        method: 'identity.check',
-        id: '1',
-        result: {
-          'permission.get': ['*']
-        }
-      }
-    }
-  }
+  method: 'post'
 })

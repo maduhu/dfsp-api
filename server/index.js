@@ -17,8 +17,11 @@ module.exports = {
     require('../script/v1')
   ],
   modules: {
+    // forensic
+    forensic: require('../service/forensic'),
     // modules to be imported in the 'v1' script port
     pendingTransactionsApi: require('../service/v1/pendingTransactionsApi'),
+    invoiceApi: require('../service/v1/invoiceApi'),
     // modules to be imported in the 'custom' script port
     wallet: require('../service/custom/wallet'),
     payee: require('../service/custom/payee'),
@@ -32,7 +35,8 @@ module.exports = {
     rule: require('../service/dfsp/rule'),
     subscription: require('../service/dfsp/subscription'),
     transfer: require('../service/dfsp/transfer'),
-    bulk: require('../service/dfsp/bulk')
+    bulk: require('../service/dfsp/bulk'),
+    cache: require('ut-cache')
   },
   validations: {
 

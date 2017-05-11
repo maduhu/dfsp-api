@@ -1,5 +1,6 @@
 var create = require('ut-error').define
-var Ist = create('ist')
+var DFSP = require('../../dfspError')
+var Ist = create('ist', DFSP)
 var UserNotFound = create('UserNotFound', Ist)
 var UserCouldNotBeAdded = create('UserCouldNotBeAdded', Ist)
 var UserDfspCouldNotBeChanged = create('UserDfspCouldNotBeChanged', Ist)

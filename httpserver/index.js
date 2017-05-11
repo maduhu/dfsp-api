@@ -22,13 +22,17 @@ module.exports = {
     'payee.start',
     'samples.start',
     'wallet.start',
-    'pendingTransactionsApi.start'
+    'pendingTransactionsApi.start',
+    'invoiceApi.start'
   ],
   routes: {
     rpc: {
       method: 'post',
       path: '/rpc/{method?}',
       config: {
+        app: {
+          skipIdentityCheck: true
+        },
         tags: ['rpc'],
         auth: false
       }

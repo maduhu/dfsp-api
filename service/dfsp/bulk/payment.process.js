@@ -6,10 +6,10 @@ module.exports = {
     var dispatch = (method, msg, error) => {
       return this.bus.importMethod(method)(msg)
         .catch((e) => {
-          return this.config.exec({
+          return this.config.exec.call(this, {
             paymentId: payment.paymentId,
             actorId: payment.actorId,
-            error: error
+            error: (e.type && e.type.startsWith('dfsp.')) ? e.message : error
           }, {method: 'bulk.payment.process'})
           .then(() => Promise.reject(e))
         })
@@ -25,17 +25,9 @@ module.exports = {
     })
     .then((result) => {
       payee = result
-      if (!payee.account) {
-        return this.config.exec({
-          paymentId: payment.paymentId,
-          actorId: payment.actorId,
-          error: 'user has no active mwallet accounts'
-        }, {method: 'bulk.payment.process'})
-        .then(() => Promise.reject(new Error()))
-      }
       var error = helpers.checkPaymentDetails(payment, payee)
       if (error) {
-        return this.config.exec({
+        return this.config.exec.call(this, {
           paymentId: payment.paymentId,
           actorId: payment.actorId,
           error: error
@@ -50,7 +42,11 @@ module.exports = {
       return dispatch('rule.decision.fetch', {
         currency: payee.currencyCode,
         amount: payment.amount,
-        identifier: payment.identifier
+        destinationIdentifier: payment.identifier,
+        destinationAccount: payee.spspServer + '/receivers/' + payment.identifier,
+        sourceAccount: payment.account,
+        sourceIdentifier: payer.identifiers[0].identifier,
+        transferType: 'bulkPayment'
       }, 'fee could not be obtained')
       .then((fee) => {
         return dispatch('transfer.push.execute', {
@@ -60,16 +56,16 @@ module.exports = {
           destinationAmount: payment.amount,
           currency: payee.currencyCode,
           fee: (fee.fee && fee.fee.amount) || 0,
-          memo: JSON.stringify({
+          memo: {
             fee: (fee.fee && fee.fee.amount) || 0,
             transferCode: 'bulkPayment',
             creditName: payee.name,
             debitName: payer.firstName + ' ' + payer.lastName
-          })
+          }
         }, 'payment failed')
       })
       .then(() => {
-        return this.config.exec({
+        return this.config.exec.call(this, {
           paymentId: payment.paymentId,
           actorId: payment.actorId,
           error: ''

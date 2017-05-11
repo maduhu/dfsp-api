@@ -1,5 +1,5 @@
 var create = require('ut-error').define
-var DFSP = require('../../dfspError')
+var DFSP = require('../../../dfspError')
 var Ledger = create('ledger', DFSP)
 var WrongParams = create('WrongParams', Ledger)
 var UnknownPhone = create('UnknownPhone', Ledger)

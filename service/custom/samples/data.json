@@ -8,6 +8,7 @@
       "dob": "1999-12-10",
       "nationalId": "123456789",
       "accountName": "bob",
+      "balance": 100000,
       "phoneNumber": "bob",
       "password": "1234"
     },
@@ -19,6 +20,7 @@
       "dob": "1989-03-22",
       "nationalId": "987654321",
       "accountName": "alice",
+      "balance": 100000,
       "phoneNumber": "alice",
       "password": "1234"
     },
@@ -30,6 +32,7 @@
       "dob": "1956-05-13",
       "nationalId": "147852369",
       "accountName": "merchant",
+      "balance": 100000,
       "phoneNumber": "merchant",
       "password": "1234"
     },
@@ -41,6 +44,7 @@
       "dob": "1977-09-01",
       "nationalId": "369852147",
       "accountName": "dfsp1connector",
+      "balance": 1000000000,
       "phoneNumber": "dfsp1connector",
       "password": "1234"
     },
@@ -52,6 +56,7 @@
       "dob": "1984-01-01",
       "nationalId": "111111111",
       "accountName": "admin",
+      "balance": 100000,
       "phoneNumber": "admin",
       "password": "1234"
     }
@@ -65,6 +70,7 @@
       "dob": "1999-12-10",
       "nationalId": "123456789",
       "accountName": "bob",
+      "balance": 100000,
       "phoneNumber": "bob",
       "password": "1234"
     },
@@ -76,6 +82,7 @@
       "dob": "1989-03-22",
       "nationalId": "987654321",
       "accountName": "alice",
+      "balance": 100000,
       "phoneNumber": "alice",
       "password": "1234"
     },
@@ -87,6 +94,7 @@
       "dob": "1956-05-13",
       "nationalId": "147852369",
       "accountName": "merchant",
+      "balance": 100000,
       "phoneNumber": "merchant",
       "password": "1234"
     },
@@ -98,6 +106,7 @@
       "dob": "1977-09-01",
       "nationalId": "369852147",
       "accountName": "dfsp2connector",
+      "balance": 1000000000,
       "phoneNumber": "dfsp2connector",
       "password": "1234"
     },
@@ -109,120 +118,159 @@
       "dob": "1984-01-01",
       "nationalId": "222222222",
       "accountName": "admin",
+      "balance": 100000,
       "phoneNumber": "admin",
       "password": "1234"
     }
   ],
   "dfsp1-test": [
     {
-      "identifier": "17500419",
-      "identifierType": "phn",
+      "identifier": "65144444",
+      "identifierTypeCode": "phn",
       "firstName": "bob",
       "lastName": "dylan",
       "dob": "1999-12-10",
       "nationalId": "123456789",
       "accountName": "bob",
+      "balance": 100000,
       "phoneNumber": "bob",
       "password": "1234"
     },
     {
-      "identifier": "48607986",
-      "identifierType": "phn",
+      "identifier": "16023825",
+      "identifierTypeCode": "phn",
       "firstName": "alice",
       "lastName": "cooper",
       "dob": "1989-03-22",
       "nationalId": "987654321",
       "accountName": "alice",
+      "balance": 100000,
       "phoneNumber": "alice",
       "password": "1234"
     },
     {
-      "identifier": "11597861",
-      "identifierType": "phn",
+      "identifier": "59642820",
+      "identifierTypeCode": "phn",
       "firstName": "merchant",
       "lastName": "one",
       "dob": "1956-05-13",
       "nationalId": "147852369",
       "accountName": "merchant",
+      "balance": 100000,
       "phoneNumber": "merchant",
-      "password": "1234"
+      "password": "1234",
+      "roleName": "merchant"
     },
     {
-      "identifier": "29290645",
-      "identifierType": "phn",
+      "identifier": "00582606",
+      "identifierTypeCode": "phn",
+      "firstName": "agent",
+      "lastName": "agent",
+      "dob": "1956-05-13",
+      "nationalId": "1323333",
+      "phoneNumber": "agent",
+      "accountName": "agent",
+      "balance": 100000,
+      "password": "1234",
+      "roleName": "agent"
+    },
+    {
+      "identifier": "75802570",
+      "identifierTypeCode": "phn",
       "firstName": "dfsp1-test",
       "lastName": "connector",
       "dob": "1977-09-01",
       "nationalId": "369852147",
       "accountName": "dfsp1-testconnector",
+      "balance": 1000000000,
       "phoneNumber": "dfsp1-testconnector",
       "password": "1234"
     },
     {
-      "identifier": "80357855",
-      "identifierType": "phn",
+      "identifier": "16578935",
+      "identifierTypeCode": "phn",
       "firstName": "admin",
       "lastName": "admin",
       "dob": "1984-01-01",
       "nationalId": "333333333",
       "accountName": "admin",
+      "balance": 100000,
       "phoneNumber": "admin",
       "password": "1234"
     }
   ],
   "dfsp2-test": [
     {
-      "identifier": "33859321",
-      "identifierType": "phn",
+      "identifier": "30754016",
+      "identifierTypeCode": "phn",
       "firstName": "bob",
       "lastName": "dylan",
       "dob": "1999-12-10",
       "nationalId": "123456789",
       "accountName": "bob",
+      "balance": 100000,
       "phoneNumber": "bob",
       "password": "1234"
     },
     {
-      "identifier": "66422611",
-      "identifierType": "phn",
+      "identifier": "92806391",
+      "identifierTypeCode": "phn",
       "firstName": "alice",
       "lastName": "cooper",
       "dob": "1989-03-22",
       "nationalId": "987654321",
       "accountName": "alice",
+      "balance": 100000,
       "phoneNumber": "alice",
       "password": "1234"
     },
     {
-      "identifier": "99826154",
-      "identifierType": "phn",
+      "identifier": "24430743",
+      "identifierTypeCode": "phn",
       "firstName": "merchant",
       "lastName": "two",
       "dob": "1956-05-13",
       "nationalId": "147852369",
       "accountName": "merchant",
+      "balance": 100000,
       "phoneNumber": "merchant",
-      "password": "1234"
+      "password": "1234",
+      "roleName": "merchant"
     },
     {
-      "identifier": "81455568",
-      "identifierType": "phn",
+      "identifier": "37930978",
+      "identifierTypeCode": "phn",
+      "firstName": "agent",
+      "lastName": "agent",
+      "dob": "1956-05-13",
+      "nationalId": "1323333",
+      "phoneNumber": "agent",
+      "accountName": "agent",
+      "balance": 100000,
+      "password": "1234",
+      "roleName": "agent"
+    },
+    {
+      "identifier": "64314104",
+      "identifierTypeCode": "phn",
       "firstName": "dfsp2-test",
       "lastName": "connector",
       "dob": "1977-09-01",
       "nationalId": "369852147",
       "accountName": "dfsp2-testconnector",
+      "balance": 1000000000,
       "phoneNumber": "dfsp2-testconnector",
       "password": "1234"
     },
     {
-      "identifier": "52689512",
-      "identifierType": "phn",
+      "identifier": "57317924",
+      "identifierTypeCode": "phn",
       "firstName": "admin",
       "lastName": "admin",
       "dob": "1984-01-01",
       "nationalId": "444444444",
       "accountName": "admin",
+      "balance": 100000,
       "phoneNumber": "admin",
       "password": "1234"
     }

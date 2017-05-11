@@ -1,6 +1,7 @@
 {
   "implementation": "dfsp-api",
-  "cluster": "dfsp2",
+  "cluster": "dfsp1-test",
+  "checkLimits": true,
   "console": {
     "port": 30010,
     "server": {
@@ -9,18 +10,21 @@
     }
   },
   "stdOut": {
-    "mode": "dev"
+    "useColor": false,
+    "mode": "long"
   },
   "log": {
-    "streams": [{
-      "level": "trace",
-      "stream": "../logRotateStream",
-      "streamConfig": {
-        "path": "ut5_%Y-%m-%d.log",
-        "symlink": "ut5.log",
-        "compress": true
+    "streams": [
+      {
+        "level": "trace",
+        "stream": "../logRotateStream",
+        "streamConfig": {
+          "path": "ut5_%Y-%m-%d.log",
+          "symlink": "ut5.log",
+          "compress": true
+        }
       }
-    }]
+    ]
   },
   "masterBus": {
     "logLevel": "debug",
@@ -38,16 +42,6 @@
       "requireSession": true
     }
   },
-  "ussd": {
-     "shortCodes": {
-       "*123#": "menu/home"
-     },
-     "wrongInputState": "menu/error/wrongInput",
-     "timeOut": 60,
-     "expireRule": "refresh",
-     "defaultPhone": "0122523365225",
-     "defaultShortCode": "*123#"
-  },
   "cache": {
     "storage": "memory",
     "encoding": "json",
@@ -55,7 +49,18 @@
     "defaultTTL": 3600
   },
   "debug": true,
-  "schedulePayments": {
-    "interval": 10000
+  "tasks": {
+    "scheduleBulkPayments": {
+      "interval": 10
+    },
+    "_postUsers": {
+      "interval": 10
+    },
+    "_postRules": {
+      "interval": 10
+    }
+  },
+  "_forensic": {
+    "port": 5678
   }
 }

@@ -1,10 +1,14 @@
 var uuid = require('uuid/v4')
+var errors = require('./errors')
 module.exports = {
   id: 'spsp',
   createPort: require('ut-port-http'),
-  url: 'http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
+  url: 'http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
   _url: 'http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/client/v1',
   namespace: ['spsp'],
+  headers: {
+    Authorization: 'Basic ' + new Buffer('dfsp1' + ':' + 'dfsp1').toString('base64')
+  },
   raw: {
     json: true,
     jar: true,
@@ -15,32 +19,27 @@ module.exports = {
   logLevel: 'debug',
   method: 'post',
   'spsp.rule.decision.fetch.request.send': function (msg, $meta) {
-    return this.bus.importMethod('ist.directory.user.get')({
-      identifier: msg.identifier,
-      identifierType: msg.identifierType
-    })
-    .then((res) => {
-      var params = {
-        httpMethod: 'get',
-        headers: {
-          TraceID: uuid()
-        },
-        qs: {
-          receiver: res.spspReceiver + '/receivers/' + msg.identifier
-        }
+    var params = {
+      httpMethod: 'get',
+      headers: {
+        'L1p-Trace-Id': uuid()
+      },
+      qs: {
+        identifier: msg.destinationIdentifier,
+        identifierType: msg.destinationIdentifierType || 'eur'
       }
-      if (msg.amount) {
-        msg.destinationAmount = msg.amount
-      }
-      if (msg.sourceAmount) {
-        params.uri = '/quoteSourceAmount'
-        params.qs.sourceAmount = msg.sourceAmount
-      } else if (msg.destinationAmount) {
-        params.uri = '/quoteDestinationAmount'
-        params.qs.destinationAmount = msg.destinationAmount
-      }
-      return params
-    })
+    }
+    if (msg.amount) {
+      msg.destinationAmount = msg.amount
+    }
+    if (msg.sourceAmount) {
+      params.uri = '/quoteSourceAmount'
+      params.qs.sourceAmount = msg.sourceAmount
+    } else if (msg.destinationAmount) {
+      params.uri = '/quoteDestinationAmount'
+      params.qs.destinationAmount = msg.destinationAmount
+    }
+    return params
   },
   'spsp.rule.decision.fetch.response.receive': function (msg, $meta) {
     return msg.payload || {}
@@ -54,7 +53,7 @@ module.exports = {
       httpMethod: 'post',
       payload: msg,
       headers: {
-        TraceID: uuid(),
+        'L1p-Trace-Id': uuid(),
         'content-type': 'application/json'
       }
     }
@@ -75,7 +74,7 @@ module.exports = {
       httpMethod: 'put',
       payload: msg,
       headers: {
-        TraceID: traceId,
+        'L1p-Trace-Id': traceId,
         'content-type': 'application/json'
       }
     }
@@ -87,12 +86,18 @@ module.exports = {
     throw err
   },
   'spsp.transfer.invoiceNotification.add.request.send': function (msg, $meta) {
+    // {
+    //   invoiceId: '1',
+    //   submissionUrl: 'http://localhost:8010/invoices',
+    //   senderIdentifier: '132321132',
+    //   memo: 'fasdfdsafa'
+    // }
     var params = {
       uri: '/invoices',
       httpMethod: 'post',
       payload: msg,
       headers: {
-        TraceID: uuid(),
+        'L1p-Trace-Id': uuid(),
         'content-type': 'application/json'
       }
     }
@@ -104,12 +109,36 @@ module.exports = {
   'spsp.transfer.invoiceNotification.add.error.receive': function (err, $meta) {
     throw err
   },
+  'spsp.transfer.invoiceNotification.cancel.request.send': function (msg, $meta) {
+    // {
+    //   invoiceId: '1',
+    //   submissionUrl: 'http://localhost:8010/invoices',
+    //   senderIdentifier: '132321132'
+    // }
+    msg.memo = JSON.stringify({status: 'cancelled'})
+    var params = {
+      uri: '/invoices',
+      httpMethod: 'post',
+      payload: msg,
+      headers: {
+        'L1p-Trace-Id': uuid(),
+        'content-type': 'application/json'
+      }
+    }
+    return params
+  },
+  'spsp.transfer.invoiceNotification.cancel.response.receive': function (msg, $meta) {
+    return msg.payload || {}
+  },
+  'spsp.transfer.invoiceNotification.cancel.error.receive': function (err, $meta) {
+    throw err
+  },
   'spsp.transfer.invoice.get.request.send': function (msg, $meta) {
     return {
       uri: '/query',
       httpMethod: 'get',
       headers: {
-        TraceID: uuid()
+        'L1p-Trace-Id': uuid()
       },
       qs: {
         receiver: msg.receiver
@@ -133,7 +162,7 @@ module.exports = {
         uri: '/query',
         httpMethod: 'get',
         headers: {
-          TraceID: uuid()
+          'L1p-Trace-Id': uuid()
         },
         qs: {
           receiver: res.spspReceiver + '/receivers/' + msg.identifier
@@ -144,6 +173,9 @@ module.exports = {
   'spsp.transfer.payee.get.response.receive': function (msg, $meta) {
     msg.payload.spspServer = $meta.spspServer
     delete $meta.spspServer
+    if (!msg.payload.account || msg.payload.account.endsWith('/noaccount')) {
+      throw errors.noAccount(msg)
+    }
     return msg.payload
   }
 }

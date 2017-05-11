@@ -3,7 +3,7 @@ var uuid = require('uuid/v4')
 module.exports = {
   id: 'ist',
   createPort: require('ut-port-http'),
-  url: 'http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/directory/v1',
+  url: 'http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/directory/v1',
   namespace: ['ist'],
   raw: {
     json: true,
@@ -19,7 +19,7 @@ module.exports = {
       uri: '/resources',
       httpMethod: 'get',
       headers: {
-        TraceID: uuid(),
+        'L1p-Trace-Id': uuid(),
         Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
       },
       qs: {
@@ -61,7 +61,7 @@ module.exports = {
     return {
       uri: '/resources',
       headers: {
-        TraceID: uuid(),
+        'L1p-Trace-Id': uuid(),
         Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
       },
       payload: {

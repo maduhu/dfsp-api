@@ -1,3 +1,358 @@
+<a name="0.28.3"></a>
+## [0.28.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.2...v0.28.3) (2017-05-10)
+
+
+### Bug Fixes
+
+* change logmode to long ([df403af](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/df403af))
+
+
+
+<a name="0.28.2"></a>
+## [0.28.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.1...v0.28.2) (2017-05-10)
+
+
+### Bug Fixes
+
+* remove colors from stdout by default ([6f26ade](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6f26ade))
+
+
+
+<a name="0.28.1"></a>
+## [0.28.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.0...v0.28.1) (2017-05-10)
+
+
+### Bug Fixes
+
+* basic auth ([72a7347](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/72a7347))
+
+
+
+<a name="0.28.0"></a>
+# [0.28.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.6...v0.28.0) (2017-05-09)
+
+
+### Bug Fixes
+
+* add basic authentication for spsp.rule.decision.fetch.request.send ([b674fb5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b674fb5))
+* add possibility to pass identifierType externally to spsp.rule.decision.fetch ([0a0f7e2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0a0f7e2))
+* apply architecture changes for: /query, /quoteDestinationAmount, /quoteSourceAmount, /payments ([141315b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/141315b))
+* change yaml settings to build from alternative branches too ([b8ee57d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b8ee57d))
+* circle.yml set upstream configuration override ([9f2da4f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9f2da4f))
+* fix alignment ([0c15e5a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0c15e5a))
+* pass accountNumber as a param in transfer.push.execute ([8f842da](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8f842da))
+* rename TraceID to L1p-Trace-Id ([b5d456d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b5d456d))
+* rever some changes and update spsp.rule.decision.fetch to pass identifier and identifierType ([025a9ee](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/025a9ee))
+* revert changes in spsp.transfer.transfer.execute.request.send ([3de2dce](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3de2dce))
+* revert spsp.transfer.payee.get.request.send changes ([3e5bc6f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3e5bc6f))
+* reverting accountNumber fix ([c5ad25a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/c5ad25a))
+* update tap-xunit version ([d9c2f1e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d9c2f1e))
+
+
+
+<a name="0.27.6"></a>
+## [0.27.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.5...v0.27.6) (2017-05-04)
+
+
+### Bug Fixes
+
+* remove local testing workaround ([d6e48be](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d6e48be))
+
+
+
+<a name="0.27.5"></a>
+## [0.27.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.4...v0.27.5) (2017-05-03)
+
+
+### Bug Fixes
+
+* pass senderIdentifier to transfer.invoice.cancel ([0031b82](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/0031b82))
+
+
+
+<a name="0.27.4"></a>
+## [0.27.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.3...v0.27.4) (2017-05-03)
+
+
+### Bug Fixes
+
+* update dependencies ([8dd391a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8dd391a))
+* use memo to transport invoice notification cancel status ([1507a68](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1507a68))
+
+
+
+<a name="0.27.3"></a>
+## [0.27.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.2...v0.27.3) (2017-05-02)
+
+
+### Bug Fixes
+
+* invoice cancellation ([4452488](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4452488))
+
+
+
+<a name="0.27.2"></a>
+## [0.27.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.1...v0.27.2) (2017-05-02)
+
+
+### Bug Fixes
+
+* change default cluster from dfsp2 to dfsp1-test ([08ee424](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/08ee424))
+
+
+
+<a name="0.27.1"></a>
+## [0.27.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.27.0...v0.27.1) (2017-04-28)
+
+
+### Bug Fixes
+
+* samples ([e89b941](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e89b941))
+
+
+
+<a name="0.27.0"></a>
+# [0.27.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.5...v0.27.0) (2017-04-28)
+
+
+### Bug Fixes
+
+* add higher default balances ([fae5b65](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/fae5b65))
+* add identifierTypeCode in payload ([3a4ac29](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3a4ac29))
+* add possibility to pass invocieInfo externally ([d2d46a8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d2d46a8))
+* bulk payments auto-payment configuration fix ([1f64bc1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1f64bc1))
+* invoices, tranfsers and wallet ([5c40512](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/5c40512))
+* replace msg.identifier with response.identifier for identity.add method ([8a09cb1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8a09cb1))
+* some bug fixes when checking batch records and dispatching messages from script port to http clients ([2808a0a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/2808a0a))
+* unify transfer.push.execute on all envs ([75102f5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/75102f5))
+
+
+### Features
+
+* add forensic module ([bf00fcf](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/bf00fcf))
+* add possibility to cancel invoices and invoice notifications ([ff96cd6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ff96cd6))
+
+
+
+<a name="0.26.5"></a>
+## [0.26.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.4...v0.26.5) (2017-04-26)
+
+
+### Bug Fixes
+
+* update identifiers in post samples data ([69cba3c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/69cba3c))
+
+
+
+<a name="0.26.4"></a>
+## [0.26.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.3...v0.26.4) (2017-04-24)
+
+
+### Bug Fixes
+
+* return format of rule.item.fetch ([71170ae](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/71170ae))
+
+
+
+<a name="0.26.3"></a>
+## [0.26.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.2...v0.26.3) (2017-04-21)
+
+
+### Bug Fixes
+
+* add shrinkwrap ([72527e0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/72527e0))
+* shrinkwrap private nexus links ([800ad5c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/800ad5c))
+
+
+
+<a name="0.26.2"></a>
+## [0.26.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.1...v0.26.2) (2017-04-19)
+
+
+### Bug Fixes
+
+* update user samples with new identiifiers ([715cd72](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/715cd72))
+
+
+
+<a name="0.26.1"></a>
+## [0.26.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.26.0...v0.26.1) (2017-04-18)
+
+
+### Bug Fixes
+
+* rules conditions - account current transaction ([04d2865](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/04d2865))
+
+
+
+<a name="0.26.0"></a>
+# [0.26.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.25.0...v0.26.0) (2017-04-18)
+
+
+### Bug Fixes
+
+* add ledger.accountType.fetch in cacheable methods and create commission account upon adding a wallet if the role is 'agent' ([16d2b06](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/16d2b06))
+* add transfer.invoiceType.fetch and transfer.invoiceStatus.fetch in the list of cacheable methods ([736313d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/736313d))
+* add validation of min and max transaction amount ([7f0784e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/7f0784e))
+* change invoice api ([d1236f6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d1236f6))
+* fix typo for commission ([498741e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/498741e))
+* fix typos and format file ([d05a922](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d05a922))
+* invoiceApi ([fe3b442](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/fe3b442))
+* over the top api for invoices ([538cd45](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/538cd45))
+* pass memo as an object to transfer.push execute and stringify just before dispatching to proxy. add debitIdentifier in memo ([50b91e0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/50b91e0))
+* refactor accout to actorAccount ([dc81adf](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/dc81adf))
+* refactor product invoice functions ([628ac7b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/628ac7b))
+* remove required field for invoices info ([fbf9f96](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/fbf9f96))
+* rename role to roleName ([2242aa0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/2242aa0))
+* standard invoice api ([d9798ea](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d9798ea))
+* throw limit exceeding errors ([99033ba](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/99033ba))
+* use invoice.approve and invoice.reject methods ([113d598](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/113d598))
+
+
+### Features
+
+* implement product invoice api ([f782236](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f782236))
+
+
+
+<a name="0.25.0"></a>
+# [0.25.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.9...v0.25.0) (2017-04-11)
+
+
+### Features
+
+* update pm2 ([998cee4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/998cee4))
+
+
+
+<a name="0.24.9"></a>
+## [0.24.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.8...v0.24.9) (2017-04-06)
+
+
+### Bug Fixes
+
+* create task to act as seeders when starting the application ([42b610e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/42b610e))
+* linting ([e799d9d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e799d9d))
+
+
+
+<a name="0.24.8"></a>
+## [0.24.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.7...v0.24.8) (2017-04-05)
+
+
+### Bug Fixes
+
+* cache some queries ([6e55102](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6e55102))
+
+
+
+<a name="0.24.7"></a>
+## [0.24.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.6...v0.24.7) (2017-04-04)
+
+
+### Bug Fixes
+
+* add roles to wallet.add ([9e1f9b7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9e1f9b7))
+* set default role to be customer ([4f94619](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4f94619))
+
+
+
+<a name="0.24.6"></a>
+## [0.24.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.5...v0.24.6) (2017-04-03)
+
+
+### Bug Fixes
+
+* move identity.check behind dfsp-api ([805305a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/805305a))
+* update dependencies' versions ([ad4248a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/ad4248a))
+
+
+
+<a name="0.24.5"></a>
+## [0.24.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.4...v0.24.5) (2017-04-03)
+
+
+### Bug Fixes
+
+* update ut-port-httpserver ([f32793d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f32793d))
+
+
+
+<a name="0.24.4"></a>
+## [0.24.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.3...v0.24.4) (2017-03-27)
+
+
+### Bug Fixes
+
+* handle errors correctly when processing bulk payments ([de0dbec](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/de0dbec))
+
+
+
+<a name="0.24.3"></a>
+## [0.24.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.2...v0.24.3) (2017-03-23)
+
+
+### Bug Fixes
+
+* add wallet.add rest route ([fe1fa37](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/fe1fa37))
+
+
+
+<a name="0.24.2"></a>
+## [0.24.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.1...v0.24.2) (2017-03-23)
+
+
+### Bug Fixes
+
+* bulk payment case when user has no active mwallet accounts ([55cef28](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/55cef28))
+
+
+
+<a name="0.24.1"></a>
+## [0.24.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.24.0...v0.24.1) (2017-03-20)
+
+
+### Bug Fixes
+
+* change default urls to proxies ([2f1d128](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/2f1d128))
+
+
+
+<a name="0.24.0"></a>
+# [0.24.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.23.2...v0.24.0) (2017-03-20)
+
+
+### Bug Fixes
+
+* move invoice.notify to ledger module ([9ceac65](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9ceac65))
+
+
+### Features
+
+* add invoice.notify api method ([6f0bdee](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6f0bdee))
+
+
+
+<a name="0.23.2"></a>
+## [0.23.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.23.1...v0.23.2) (2017-03-17)
+
+
+### Bug Fixes
+
+* leave big balances only for the connector accounts ([b09c21d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b09c21d))
+
+
+
+<a name="0.23.1"></a>
+## [0.23.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.23.0...v0.23.1) (2017-03-17)
+
+
+### Bug Fixes
+
+* set big account balances for sample users ([8040fd8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8040fd8))
+
+
+
 <a name="0.23.0"></a>
 # [0.23.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.22.0...v0.23.0) (2017-03-16)
 

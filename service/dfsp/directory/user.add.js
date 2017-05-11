@@ -6,8 +6,8 @@ module.exports = {
         identifierType: msg.identifierType
       })
       .then((res) => {
-        return this.config.exec({
-          identifier: msg.identifier,
+        return this.config.exec.call(this, {
+          identifier: res.number,
           identifierTypeCode: msg.identifierType,
           firstName: msg.firstName,
           lastName: msg.lastName,
@@ -16,6 +16,6 @@ module.exports = {
         }, $meta)
       })
     }
-    return this.config.exec(msg, $meta)
+    return this.config.exec.call(this, msg, $meta)
   }
 }
