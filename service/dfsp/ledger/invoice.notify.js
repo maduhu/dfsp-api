@@ -38,7 +38,7 @@ module.exports = {
       }
       return this.bus.importMethod('transfer.invoice.execute')({
         invoiceId: msg.invoiceId,
-        identifier: transfer.credits[0] && transfer.credits[0].memo && transfer.credits[0].memo.debitIdentifier
+        identifier: transfer.credits[0] && transfer.credits[0].memo && transfer.credits[0].memo.ilp_decrypted && transfer.credits[0].memo.ilp_decrypted.debitIdentifier
       })
     })
     .then(() => ({}))
