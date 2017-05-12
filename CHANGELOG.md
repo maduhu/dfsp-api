@@ -1,3 +1,13 @@
+<a name="0.28.4"></a>
+## [0.28.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.3...v0.28.4) (2017-05-12)
+
+
+### Bug Fixes
+
+* pass identifier to invoice.execute ([a6d3944](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/a6d3944))
+
+
+
 <a name="0.28.3"></a>
 ## [0.28.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.2...v0.28.3) (2017-05-10)
 
