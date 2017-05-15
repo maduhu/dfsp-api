@@ -9,12 +9,14 @@
       "port": 30010
     }
   },
-  "stdOut": {
-    "useColor": false,
-    "mode": "long"
-  },
+  "stdOut": false,
   "log": {
     "streams": [
+      {
+        "level": "debug",
+        "stream": "ut-log-dfsp",
+        "streamConfig": {}
+      },
       {
         "level": "trace",
         "stream": "../logRotateStream",
