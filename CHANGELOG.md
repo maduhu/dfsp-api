@@ -1,3 +1,22 @@
+<a name="0.28.5"></a>
+## [0.28.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.4...v0.28.5) (2017-05-15)
+
+
+### Bug Fixes
+
+* add sidecar client factory into separate file so that it can be isolated as separate module in the future ([167f4a1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/167f4a1))
+* add sidecar integration module ([d672aaa](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d672aaa))
+* dont use ws but use net.Socket ([de6eb8e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/de6eb8e))
+* forensic logging websocket reconnect ([a92155f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/a92155f))
+* linting ([e8fb236](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e8fb236))
+* linting ([cdae32f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/cdae32f))
+* log transfers to forensic log ([84888d1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/84888d1))
+* remove unused file ([f1d2fdf](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f1d2fdf))
+* remove ut-log ([138c9b9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/138c9b9))
+* sidecar client ([45f32d5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/45f32d5))
+
+
+
 <a name="0.28.4"></a>
 ## [0.28.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.3...v0.28.4) (2017-05-12)
 
