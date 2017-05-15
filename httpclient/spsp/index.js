@@ -101,7 +101,7 @@ module.exports = {
     return this.bus.importMethod('forensic.log')({
       message: 'transfer failed',
       paymentId: $meta.paymentId,
-      payload: msg
+      payload: err
     })
     .then(() => {
       throw err
