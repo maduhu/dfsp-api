@@ -60,7 +60,7 @@
       "interval": 10
     }
   },
-  "forensic": {
+  "_forensic": {
     "port": 5678,
     "host": "127.0.0.1"
   }
