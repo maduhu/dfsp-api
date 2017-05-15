@@ -1,3 +1,15 @@
+<a name="0.28.6"></a>
+## [0.28.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.5...v0.28.6) (2017-05-15)
+
+
+### Bug Fixes
+
+* elk ([e4a1562](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e4a1562))
+* elk ([b4b42d7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b4b42d7))
+* typo ([b1b99c0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b1b99c0))
+
+
+
 <a name="0.28.5"></a>
 ## [0.28.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.4...v0.28.5) (2017-05-15)
 
