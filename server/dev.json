@@ -53,7 +53,8 @@
   "debug": true,
   "tasks": {
     "scheduleBulkPayments": {
-      "interval": 10
+      "interval": 10,
+      "timeout": 0
     },
     "_postUsers": {
       "interval": 10
