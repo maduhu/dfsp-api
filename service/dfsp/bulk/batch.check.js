@@ -26,8 +26,7 @@ module.exports = {
                 .then(function (result) {
                   var res = {
                     paymentStatusId: status.payment.verified,
-                    account: result.account,
-                    spspServer: result.spspServer
+                    payee: result
                   }
                   var info = helpers.checkPaymentDetails(payment, result)
                   if (info) {
