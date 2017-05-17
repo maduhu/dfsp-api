@@ -24,8 +24,31 @@ module.exports = {
           .then((person) => {
             result.person = person
             result.emails = []
-            return result
+            if (!msg.actorId) {
+              return this.bus.importMethod('forensic.log')({
+                message: 'Successfull user login',
+                username: msg.username
+              })
+                .then(() => {
+                  return result
+                })
+            } else {
+              return result
+            }
           })
+      })
+      .catch((e) => {
+        if (e.message === 'identity.invalidCredentials' && typeof msg.password !== 'undefined') {
+          return this.bus.importMethod('forensic.log')({
+            message: 'Unsuccessfull user login',
+            username: msg.username
+          })
+            .then(() => {
+              throw (e)
+            })
+        } else {
+          throw (e)
+        }
       })
   }
 }
