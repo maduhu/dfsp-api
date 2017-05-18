@@ -15,7 +15,13 @@
       {
         "level": "debug",
         "stream": "ut-log-dfsp",
-        "streamConfig": {}
+        "streamConfig": {
+          "skip": [
+            "bulk.payment.getForProcessing",
+            "dfsp/bulk.payment.getForProcessing"
+          ],
+          "metrics": {}
+        }
       },
       {
         "level": "trace",
