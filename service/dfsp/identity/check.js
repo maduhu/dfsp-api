@@ -2,6 +2,7 @@ require('./errors')
 module.exports = {
   'check': function (msg, $meta) {
     var userPass = this.bus.config.cluster
+    var startTime = new Date().getTime()
     if (
       // api basic auth
       userPass &&
@@ -25,9 +26,11 @@ module.exports = {
             result.person = person
             result.emails = []
             if (!msg.actorId) {
+              let duration = Date.now() - startTime
               return this.bus.importMethod('forensic.log')({
                 message: 'Successfull user login',
-                username: msg.username
+                username: msg.username,
+                duration: duration
               })
                 .then(() => {
                   return result
