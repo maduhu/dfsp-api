@@ -1,3 +1,13 @@
+<a name="0.28.7"></a>
+## [0.28.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.6...v0.28.7) (2017-05-18)
+
+
+### Bug Fixes
+
+* add log configuration in accordance to new log stream spec ([3ffbdc5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3ffbdc5))
+
+
+
 <a name="0.28.6"></a>
 ## [0.28.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.5...v0.28.6) (2017-05-15)
 
