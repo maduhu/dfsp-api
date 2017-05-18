@@ -2,7 +2,7 @@ require('./errors')
 module.exports = {
   'check': function (msg, $meta) {
     var userPass = this.bus.config.cluster
-    var startTime = new Date().getTime()
+    var startTime = Date.now()
     if (
       // api basic auth
       userPass &&
