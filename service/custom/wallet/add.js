@@ -72,30 +72,17 @@ module.exports = {
       } else {
         msg.identifier = res.identifier
       }
-      return this.bus.importMethod('forensic.log')({
-        message: 'User create initiated',
-        payload: msg
-      })
-        .then(() => {
-          return this.bus.importMethod('directory.user.add')(msg)
-            .then((res) => {
-              response.actorId = '' + res.actorId
-              reversals.push({
-                method: 'directory.user.remove',
-                msg: {
-                  actorId: response.actorId
-                }
-              })
-              return this.bus.importMethod('forensic.log')({
-                message: 'User created',
-                payload: msg,
-                actorId: res.actorId
-              })
-              .then(() => {
-                return res
-              })
-            })
+      return this.bus.importMethod('directory.user.add')(msg)
+      .then((res) => {
+        response.actorId = '' + res.actorId
+        reversals.push({
+          method: 'directory.user.remove',
+          msg: {
+            actorId: response.actorId
+          }
         })
+        return res
+      })
     })
     .then((res) => {
       response.identifier = res.identifier
