@@ -51,7 +51,15 @@
   "devDependencies": {
     "blue-tape": "1.0.0",
     "tap-xunit": "1.7.0",
-    "ut-tools": "^5.17.4"
+    "ut-tools": "^5.17.4",
+    "@leveloneproject/dfsp-directory": "0.x",
+    "@leveloneproject/dfsp-rule": "0.x",
+    "@leveloneproject/dfsp-transfer": "0.x",
+    "@leveloneproject/dfsp-ledger": "1.x",
+    "@leveloneproject/dfsp-identity": "0.x",
+    "@leveloneproject/dfsp-account": "0.x",
+    "@leveloneproject/dfsp-subscription": "0.x",
+    "@leveloneproject/dfsp-mock": "0.x"
   },
   "repository": {
     "type": "git",

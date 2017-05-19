@@ -8,3 +8,10 @@ module.exports = require('ut-run')
 //     config: app.config
 //   })
 // })
+
+// require('@leveloneproject/dfsp-directory/index_test')
+// .then(() => {
+//     debugger;
+// }).catch(() => {
+//     debugger;
+// })
