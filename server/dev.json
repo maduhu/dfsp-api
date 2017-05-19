@@ -73,5 +73,11 @@
   "_forensic": {
     "port": 5678,
     "host": "127.0.0.1"
+  },
+  "ist": {
+    "url": "http://localhost:8021"
+  },
+  "spsp": {
+    "url": "http://localhost:8021/spspclient"
   }
 }
