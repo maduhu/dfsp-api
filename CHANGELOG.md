@@ -1,3 +1,15 @@
+<a name="0.28.9"></a>
+## [0.28.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.8...v0.28.9) (2017-05-19)
+
+
+### Bug Fixes
+
+* lint ([84403ef](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/84403ef))
+* persist spspServer and account to bulk payments ([cd15c23](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/cd15c23))
+* persist whole payee.get response in payment table ([6de380b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6de380b))
+
+
+
 <a name="0.28.8"></a>
 ## [0.28.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.7...v0.28.8) (2017-05-19)
 
