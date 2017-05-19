@@ -1,3 +1,13 @@
+<a name="0.28.10"></a>
+## [0.28.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.9...v0.28.10) (2017-05-19)
+
+
+### Bug Fixes
+
+* add throttling to the bulk payments process ([4bc9880](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4bc9880))
+
+
+
 <a name="0.28.9"></a>
 ## [0.28.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.8...v0.28.9) (2017-05-19)
 
