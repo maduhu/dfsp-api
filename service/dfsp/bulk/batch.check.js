@@ -24,14 +24,16 @@ module.exports = {
             promise = promise.then(function () {
               return importMethod('spsp.transfer.payee.get')({identifier: payment.identifier})
                 .then(function (result) {
+                  var res = {
+                    paymentStatusId: status.payment.verified,
+                    payee: result
+                  }
                   var info = helpers.checkPaymentDetails(payment, result)
                   if (info) {
-                    return {
-                      paymentStatusId: status.payment.mismatch,
-                      info: info
-                    }
+                    res.paymentStatusId = status.payment.mismatch
+                    res.info = info
                   }
-                  return {paymentStatusId: status.payment.verified}
+                  return res
                 })
                 .catch((e) => {
                   return {

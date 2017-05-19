@@ -15,7 +15,13 @@
       {
         "level": "debug",
         "stream": "ut-log-dfsp",
-        "streamConfig": {}
+        "streamConfig": {
+          "skip": [
+            "bulk.payment.getForProcessing",
+            "dfsp/bulk.payment.getForProcessing"
+          ],
+          "metrics": {}
+        }
       },
       {
         "level": "trace",
@@ -54,7 +60,8 @@
   "tasks": {
     "scheduleBulkPayments": {
       "interval": 10,
-      "timeout": 0
+      "timeout": 0,
+      "skipPayeeGet": false
     },
     "_postUsers": {
       "interval": 10
