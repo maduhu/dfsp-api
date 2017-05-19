@@ -1,3 +1,13 @@
+<a name="0.28.11"></a>
+## [0.28.11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.10...v0.28.11) (2017-05-19)
+
+
+### Bug Fixes
+
+* change payment.fetch return object ([6adc6a0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6adc6a0))
+
+
+
 <a name="0.28.10"></a>
 ## [0.28.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.9...v0.28.10) (2017-05-19)
 
