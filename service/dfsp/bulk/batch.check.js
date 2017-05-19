@@ -16,11 +16,11 @@ module.exports = {
     function checkPayments (params) {
       return dispatch('bulk.payment.fetch', params)
         .then(function (payments) {
-          if (!payments.length) {
+          if (!payments.data.length) {
             return true
           }
           var promise = Promise.resolve()
-          payments.forEach((payment) => {
+          payments.data.forEach((payment) => {
             promise = promise.then(function () {
               return importMethod('spsp.transfer.payee.get')({identifier: payment.identifier})
                 .then(function (result) {
