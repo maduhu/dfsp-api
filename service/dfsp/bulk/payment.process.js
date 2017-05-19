@@ -19,9 +19,13 @@ module.exports = {
     })
     .then((result) => {
       payment = result
-      return dispatch('spsp.transfer.payee.get', {
-        identifier: payment.identifier
-      }, 'payee not found')
+      if (this.bus.config.tasks.scheduleBulkPayments.skipPayeeGet && payment.payee) {
+        return payment.payee
+      } else {
+        return dispatch('spsp.transfer.payee.get', {
+          identifier: payment.identifier
+        }, 'payee not found')
+      }
     })
     .then((result) => {
       payee = result

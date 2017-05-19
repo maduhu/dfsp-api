@@ -59,7 +59,8 @@
   "debug": true,
   "tasks": {
     "scheduleBulkPayments": {
-      "interval": 10
+      "interval": 10,
+      "skipPayeeGet": false
     },
     "_postUsers": {
       "interval": 10
