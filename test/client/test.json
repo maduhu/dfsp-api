@@ -1,5 +1,5 @@
 {
-    "implementation": "ussd",
+    "implementation": "dfsp-api",
     "repl": false,
     "console": false,
     "log": false,
