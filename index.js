@@ -7,7 +7,14 @@ module.exports = require('ut-run')
     message: 'DFSP up and running',
     config: app.config
   })
-  .catch((e) => {
+  .catch(() => {
     return app
   })
 })
+
+// require('@leveloneproject/dfsp-directory/index_test')
+// .then(() => {
+//     debugger;
+// }).catch(() => {
+//     debugger;
+// })

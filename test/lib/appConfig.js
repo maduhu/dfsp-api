@@ -1,11 +1,10 @@
-/* eslint no-process-exit: 0 */
-module.exports = require('ut-run').run({
-  app: 'server',
-  method: 'debug',
-  env: 'test'
-}, module)
-.then((app) => {
-  return Promise.all([
+/* eslint no-process-env: 0, ut-lint/exists: 0 */
+module.exports = {
+  server: require('../../server'),
+  serverConfig: require('../../server/' + (process.env.UT_ENV || 'test')),
+  client: require('../client'),
+  clientConfig: require('../client/test'),
+  peerImplementations: [
     require('@leveloneproject/dfsp-directory/index_test'),
     require('@leveloneproject/dfsp-rule/index_test'),
     require('@leveloneproject/dfsp-transfer/index_test'),
@@ -14,15 +13,5 @@ module.exports = require('ut-run').run({
     require('@leveloneproject/dfsp-account/index_test'),
     require('@leveloneproject/dfsp-subscription/index_test'),
     require('@leveloneproject/dfsp-mock')
-  ])
-  .catch(() => {
-    process.exit(1)
-  })
-  .then((apps) => {
-    return {
-      stop: () => {
-        apps.concat(app).forEach((x) => x.stop())
-      }
-    }
-  })
-})
+  ]
+}

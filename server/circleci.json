@@ -25,5 +25,12 @@
     "permission": {
       "requireSession": true
     }
-  }
+  },
+  "ist": {
+    "url": "http://localhost:8021"
+  },
+  "spsp": {
+    "url": "http://localhost:8021/spspclient"
+  },
+  "tasks": {}
 }

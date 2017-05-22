@@ -1,3 +1,59 @@
+<a name="0.28.11"></a>
+## [0.28.11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.10...v0.28.11) (2017-05-19)
+
+
+### Bug Fixes
+
+* change payment.fetch return object ([6adc6a0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6adc6a0))
+
+
+
+<a name="0.28.10"></a>
+## [0.28.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.9...v0.28.10) (2017-05-19)
+
+
+### Bug Fixes
+
+* add throttling to the bulk payments process ([4bc9880](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4bc9880))
+
+
+
+<a name="0.28.9"></a>
+## [0.28.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.8...v0.28.9) (2017-05-19)
+
+
+### Bug Fixes
+
+* lint ([84403ef](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/84403ef))
+* persist spspServer and account to bulk payments ([cd15c23](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/cd15c23))
+* persist whole payee.get response in payment table ([6de380b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6de380b))
+
+
+
+<a name="0.28.8"></a>
+## [0.28.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.7...v0.28.8) (2017-05-19)
+
+
+### Bug Fixes
+
+* add configuration to the forensic log on service start ([80c86f9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/80c86f9))
+* add log on user create action ([2669dd4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/2669dd4))
+* add login duration ([7beb04c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/7beb04c))
+* add user create action in forensic log ([6ab5736](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6ab5736))
+* add user unsuccessfull/succsessfull login events ([6cdedd5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6cdedd5))
+
+
+
+<a name="0.28.7"></a>
+## [0.28.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.6...v0.28.7) (2017-05-18)
+
+
+### Bug Fixes
+
+* add log configuration in accordance to new log stream spec ([3ffbdc5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3ffbdc5))
+
+
+
 <a name="0.28.6"></a>
 ## [0.28.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.5...v0.28.6) (2017-05-15)
 
