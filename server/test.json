@@ -12,14 +12,14 @@
   "workerBus": {
     "logLevel": "error"
   },
-  "performance": {
+  "#performance": {
     "id": "dfsp-api",
     "influx": {
       "host": "influxdb",
       "port": 4444
     }
   },
-  "db": {
+  "#db": {
     "logLevel": "trace",
     "db": {
       "host": "postgres"
