@@ -1,3 +1,28 @@
+<a name="0.28.12"></a>
+## [0.28.12](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.11...v0.28.12) (2017-05-26)
+
+
+### Bug Fixes
+
+* build ([a1b98d2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/a1b98d2))
+* comment config ([839b3d9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/839b3d9))
+* config ([3b7358d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3b7358d))
+* configuration ([f15625e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f15625e))
+* disable tasks for tests ([80ede7b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/80ede7b))
+* distributed tests ([f78b1cc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f78b1cc))
+* fire up peer implementaions from index_test ([989c77a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/989c77a))
+* no-process console ([88610eb](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/88610eb))
+* no-process-exit ([e3c6f35](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e3c6f35))
+* remove env dump ([4b8c8b0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4b8c8b0))
+* remove shrinkwrap ([d317649](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d317649))
+* shrinkwrap ([1b463be](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1b463be))
+* test ([c9f511a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/c9f511a))
+* test config ([1e4d618](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1e4d618))
+* update dependencies ([9ef9a1b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9ef9a1b))
+* update test ([d93ac2a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d93ac2a))
+
+
+
 <a name="0.28.11"></a>
 ## [0.28.11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.10...v0.28.11) (2017-05-19)
 
