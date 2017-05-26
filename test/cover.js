@@ -1,3 +1,3 @@
 require('./integration/start')
-require('./integration/test.payee.get')
+require('./integration/test.wallet.add')
 require('./integration/stop')
