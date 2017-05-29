@@ -1,3 +1,13 @@
+<a name="0.28.13"></a>
+## [0.28.13](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.12...v0.28.13) (2017-05-29)
+
+
+### Bug Fixes
+
+* force build ([7f54c73](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/7f54c73))
+
+
+
 <a name="0.28.12"></a>
 ## [0.28.12](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.11...v0.28.12) (2017-05-26)
 
