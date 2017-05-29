@@ -1,3 +1,13 @@
+<a name="0.28.16"></a>
+## [0.28.16](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.15...v0.28.16) (2017-05-29)
+
+
+### Bug Fixes
+
+* remove start of peer implementations in the test index ([a39a3d0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/a39a3d0))
+
+
+
 <a name="0.28.15"></a>
 ## [0.28.15](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.14...v0.28.15) (2017-05-29)
 
