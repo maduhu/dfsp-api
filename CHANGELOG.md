@@ -1,3 +1,13 @@
+<a name="0.28.17"></a>
+## [0.28.17](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.16...v0.28.17) (2017-05-29)
+
+
+### Bug Fixes
+
+* set cluster variable in test.json ([e031034](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e031034))
+
+
+
 <a name="0.28.16"></a>
 ## [0.28.16](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.15...v0.28.16) (2017-05-29)
 
