@@ -1,3 +1,13 @@
+<a name="0.28.18"></a>
+## [0.28.18](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.17...v0.28.18) (2017-05-29)
+
+
+### Bug Fixes
+
+* add cluster in circleci.json ([388008e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/388008e))
+
+
+
 <a name="0.28.17"></a>
 ## [0.28.17](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.16...v0.28.17) (2017-05-29)
 
