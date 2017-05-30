@@ -46,13 +46,13 @@
     "ut-port-script": "^5.5.1",
     "ut-run": "^8.1.7",
     "uuid": "3.0.1",
-    "ut-log-dfsp": "^5.0.1"
+    "ut-log-dfsp": "^5.0.10"
   },
   "devDependencies": {
     "lodash": "^4.17.4",
     "blue-tape": "1.0.0",
     "tap-xunit": "1.7.0",
-    "ut-tools": "^5.17.19",
+    "ut-tools": "^5.17.24",
     "babel-istanbul-instrumenter-loader": "^1.0.1",
     "@leveloneproject/dfsp-directory": "0.x",
     "@leveloneproject/dfsp-rule": "0.x",
