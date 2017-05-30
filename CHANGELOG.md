@@ -1,3 +1,13 @@
+<a name="0.28.20"></a>
+## [0.28.20](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.19...v0.28.20) (2017-05-30)
+
+
+### Bug Fixes
+
+* update dependencies ([dbbc074](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/dbbc074))
+
+
+
 <a name="0.28.19"></a>
 ## [0.28.19](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.18...v0.28.19) (2017-05-29)
 
