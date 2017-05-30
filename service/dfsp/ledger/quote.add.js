@@ -45,6 +45,36 @@ module.exports = {
     method: 'post'
   },
   'quote.add': function (msg, $meta) {
-    //
+    return this.bus.importMethod('ledger.transferType.fetch')({})
+      .then((transferTypes) => {
+        return this.bus.importMethod('rule.decision.fetch')({
+          currency: msg.amount.currency,
+          amount: msg.amount.amount,
+          operationId: transferTypes.find((el) => el.transferCode === msg.transferType).transferTypeId
+        }, $meta)
+      })
+      .then((rule) => {
+        let fee = 0
+        let commission = msg.transferType === 'cashOut' ? (rule.commisssion.amount || 0) : 0
+        return this.config.exec.call(this, {
+          transferId: msg.transferId,
+          fee: fee,
+          commission: commission,
+          isDebit: false
+        })
+        .then(() => {
+          return {
+            transferId: msg.transferId,
+            payeeFee: {
+              amount: fee,
+              currency: msg.amount.currency
+            },
+            payeeCommission: {
+              amount: commission,
+              currency: msg.amount.currency
+            }
+          }
+        })
+      })
   }
 }
