@@ -4,7 +4,7 @@ module.exports = require('ut-run')
 .then(runTasks)
 .then((app) => {
   app.bus.importMethod('forensic.log')({
-    message: 'DFSP up and running',
+    message: 'DFSP Api up and running',
     config: app.config
   })
   .catch(() => {
