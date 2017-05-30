@@ -1,3 +1,14 @@
+<a name="0.28.21"></a>
+## [0.28.21](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.20...v0.28.21) (2017-05-30)
+
+
+### Bug Fixes
+
+* add exception in case the forensic servise is down when the api is starting ([07acd9e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/07acd9e))
+* typo ([1ea3dbc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1ea3dbc))
+
+
+
 <a name="0.28.20"></a>
 ## [0.28.20](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.19...v0.28.20) (2017-05-30)
 
