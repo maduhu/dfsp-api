@@ -3,18 +3,10 @@ module.exports = require('ut-run')
 .run({}, module)
 .then(runTasks)
 .then((app) => {
-  app.bus.importMethod('forensic.log')({
+  return app.bus.importMethod('forensic.log')({
     message: 'DFSP Api up and running',
     config: app.config
   })
-  .catch(() => {
-    return app
-  })
+  .then(() => app)
+  .catch(() => app)
 })
-
-// require('@leveloneproject/dfsp-directory/index_test')
-// .then(() => {
-//     debugger;
-// }).catch(() => {
-//     debugger;
-// })
