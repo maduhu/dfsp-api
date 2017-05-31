@@ -1,3 +1,14 @@
+<a name="0.28.23"></a>
+## [0.28.23](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.22...v0.28.23) (2017-05-31)
+
+
+### Bug Fixes
+
+* make index return promise for app ([4fb48a4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4fb48a4))
+* update ut-log-dfsp ([6b06656](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6b06656))
+
+
+
 <a name="0.28.22"></a>
 ## [0.28.22](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.21...v0.28.22) (2017-05-31)
 
