@@ -1,3 +1,13 @@
+<a name="0.28.22"></a>
+## [0.28.22](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.21...v0.28.22) (2017-05-31)
+
+
+### Bug Fixes
+
+* update dependency to ut-log-dfsp ([8558513](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8558513))
+
+
+
 <a name="0.28.21"></a>
 ## [0.28.21](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.20...v0.28.21) (2017-05-30)
 
