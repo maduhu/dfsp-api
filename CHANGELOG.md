@@ -1,3 +1,13 @@
+<a name="0.28.24"></a>
+## [0.28.24](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.23...v0.28.24) (2017-05-31)
+
+
+### Bug Fixes
+
+* refactor config log - remove streams ([8298d47](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8298d47))
+
+
+
 <a name="0.28.23"></a>
 ## [0.28.23](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.22...v0.28.23) (2017-05-31)
 
