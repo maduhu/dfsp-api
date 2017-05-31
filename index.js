@@ -1,17 +1,17 @@
 var runTasks = require('./tasks')
 module.exports = require('ut-run')
-.run({}, module)
-.then(runTasks)
-// .then((app) => {
-//   app.bus.importMethod('forensic.log')({
-//     message: 'DFSP up and running',
-//     config: app.config
-//   })
-// })
-
-// require('@leveloneproject/dfsp-directory/index_test')
-// .then(() => {
-//     debugger;
-// }).catch(() => {
-//     debugger;
-// })
+  .run({}, module)
+  .then(runTasks)
+  .then((app) => {
+    return app.bus.importMethod('forensic.log')({
+      message: 'DFSP Api up and running',
+      config: JSON.parse(JSON.stringify(app.config, function (key, value) {
+        if (key === 'stream') {
+          return value.constructor.name
+        }
+        return value
+      }))
+    })
+      .then(() => app)
+      .catch(() => app)
+  })

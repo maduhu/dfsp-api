@@ -1,3 +1,75 @@
+<a name="0.28.23"></a>
+## [0.28.23](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.22...v0.28.23) (2017-05-31)
+
+
+### Bug Fixes
+
+* make index return promise for app ([4fb48a4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4fb48a4))
+* update ut-log-dfsp ([6b06656](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6b06656))
+
+
+
+<a name="0.28.22"></a>
+## [0.28.22](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.21...v0.28.22) (2017-05-31)
+
+
+### Bug Fixes
+
+* update dependency to ut-log-dfsp ([8558513](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8558513))
+
+
+
+<a name="0.28.21"></a>
+## [0.28.21](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.20...v0.28.21) (2017-05-30)
+
+
+### Bug Fixes
+
+* add exception in case the forensic servise is down when the api is starting ([07acd9e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/07acd9e))
+* typo ([1ea3dbc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1ea3dbc))
+
+
+
+<a name="0.28.20"></a>
+## [0.28.20](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.19...v0.28.20) (2017-05-30)
+
+
+### Bug Fixes
+
+* update dependencies ([dbbc074](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/dbbc074))
+
+
+
+<a name="0.28.19"></a>
+## [0.28.19](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.18...v0.28.19) (2017-05-29)
+
+
+### Bug Fixes
+
+* fix this context ([44768af](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/44768af))
+
+
+
+<a name="0.28.18"></a>
+## [0.28.18](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.17...v0.28.18) (2017-05-29)
+
+
+### Bug Fixes
+
+* add cluster in circleci.json ([388008e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/388008e))
+
+
+
+<a name="0.28.17"></a>
+## [0.28.17](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.16...v0.28.17) (2017-05-29)
+
+
+### Bug Fixes
+
+* set cluster variable in test.json ([e031034](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e031034))
+
+
+
 <a name="0.28.16"></a>
 ## [0.28.16](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.15...v0.28.16) (2017-05-29)
 
