@@ -16,22 +16,24 @@ module.exports = {
     function checkPayments (params) {
       return dispatch('bulk.payment.fetch', params)
         .then(function (payments) {
-          if (!payments.length) {
+          if (!payments.data.length) {
             return true
           }
           var promise = Promise.resolve()
-          payments.forEach((payment) => {
+          payments.data.forEach((payment) => {
             promise = promise.then(function () {
               return importMethod('spsp.transfer.payee.get')({identifier: payment.identifier})
                 .then(function (result) {
+                  var res = {
+                    paymentStatusId: status.payment.verified,
+                    payee: result
+                  }
                   var info = helpers.checkPaymentDetails(payment, result)
                   if (info) {
-                    return {
-                      paymentStatusId: status.payment.mismatch,
-                      info: info
-                    }
+                    res.paymentStatusId = status.payment.mismatch
+                    res.info = info
                   }
-                  return {paymentStatusId: status.payment.verified}
+                  return res
                 })
                 .catch((e) => {
                   return {

@@ -30,7 +30,8 @@ module.exports = {
   },
   'invoice.execute': function (msg, $meta) {
     return this.config.exec.call(this, {
-      invoiceId: msg.invoiceId
+      invoiceId: msg.invoiceId,
+      identifier: msg.identifier
     }, $meta)
       .then((result) => {
         return {

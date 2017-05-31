@@ -9,12 +9,20 @@
       "port": 30010
     }
   },
-  "stdOut": {
-    "useColor": false,
-    "mode": "long"
-  },
+  "stdOut": false,
   "log": {
     "streams": [
+      {
+        "level": "debug",
+        "stream": "ut-log-dfsp",
+        "streamConfig": {
+          "skip": [
+            "bulk.payment.getForProcessing",
+            "dfsp/bulk.payment.getForProcessing"
+          ],
+          "metrics": {}
+        }
+      },
       {
         "level": "trace",
         "stream": "../logRotateStream",
@@ -51,7 +59,9 @@
   "debug": true,
   "tasks": {
     "scheduleBulkPayments": {
-      "interval": 10
+      "interval": 10,
+      "timeout": 0,
+      "skipPayeeGet": false
     },
     "_postUsers": {
       "interval": 10
@@ -61,6 +71,13 @@
     }
   },
   "_forensic": {
-    "port": 5678
+    "port": 5678,
+    "host": "127.0.0.1"
+  },
+  "ist": {
+    "url": "http://localhost:8021"
+  },
+  "spsp": {
+    "url": "http://localhost:8021/spspclient"
   }
 }

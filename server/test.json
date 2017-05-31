@@ -1,5 +1,6 @@
 {
   "implementation": "dfsp-api",
+  "cluster": "dfsp1-test",
   "repl": false,
   "console": false,
   "log": false,
@@ -12,14 +13,14 @@
   "workerBus": {
     "logLevel": "error"
   },
-  "performance": {
+  "#performance": {
     "id": "dfsp-api",
     "influx": {
       "host": "influxdb",
       "port": 4444
     }
   },
-  "db": {
+  "#db": {
     "logLevel": "trace",
     "db": {
       "host": "postgres"
@@ -27,5 +28,12 @@
     "permission": {
       "requireSession": true
     }
-  }
+  },
+  "ist": {
+    "url": "http://localhost:8021"
+  },
+  "spsp": {
+    "url": "http://localhost:8021/spspclient"
+  },
+  "tasks": {}
 }

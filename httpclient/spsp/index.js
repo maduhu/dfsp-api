@@ -69,21 +69,43 @@ module.exports = {
   },
   'spsp.transfer.transfer.execute.request.send': function (msg, $meta) {
     var traceId = uuid()
-    return {
-      uri: '/payments/' + (msg.id || traceId), // whether the payment is executed after setup or directly
-      httpMethod: 'put',
-      payload: msg,
-      headers: {
-        'L1p-Trace-Id': traceId,
-        'content-type': 'application/json'
+    $meta.paymentId = msg.id || traceId
+    return this.bus.importMethod('forensic.log')({
+      message: 'transfer initiated',
+      paymentId: $meta.paymentId,
+      payload: msg
+    })
+    .then(() => {
+      return {
+        uri: '/payments/' + $meta.paymentId, // whether the payment is executed after setup or directly
+        httpMethod: 'put',
+        payload: msg,
+        headers: {
+          'L1p-Trace-Id': traceId,
+          'content-type': 'application/json'
+        }
       }
-    }
+    })
   },
   'spsp.transfer.transfer.execute.response.receive': function (msg, $meta) {
-    return msg.payload || {}
+    return this.bus.importMethod('forensic.log')({
+      message: 'transfer successful',
+      paymentId: $meta.paymentId,
+      payload: msg.payload
+    })
+    .then(() => {
+      return msg.payload || {}
+    })
   },
   'spsp.transfer.transfer.execute.error.receive': function (err, $meta) {
-    throw err
+    return this.bus.importMethod('forensic.log')({
+      message: 'transfer failed',
+      paymentId: $meta.paymentId,
+      payload: err
+    })
+    .then(() => {
+      throw err
+    })
   },
   'spsp.transfer.invoiceNotification.add.request.send': function (msg, $meta) {
     // {

@@ -1,5 +1,6 @@
 {
   "implementation": "dfsp-api",
+  "cluster": "dfsp1-test",
   "repl": false,
   "console": false,
   "log": false,
@@ -25,5 +26,12 @@
     "permission": {
       "requireSession": true
     }
-  }
+  },
+  "ist": {
+    "url": "http://localhost:8021"
+  },
+  "spsp": {
+    "url": "http://localhost:8021/spspclient"
+  },
+  "tasks": {}
 }

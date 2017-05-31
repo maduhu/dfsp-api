@@ -1,3 +1,247 @@
+<a name="0.28.24"></a>
+## [0.28.24](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.23...v0.28.24) (2017-05-31)
+
+
+### Bug Fixes
+
+* refactor config log - remove streams ([8298d47](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8298d47))
+
+
+
+<a name="0.28.23"></a>
+## [0.28.23](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.22...v0.28.23) (2017-05-31)
+
+
+### Bug Fixes
+
+* make index return promise for app ([4fb48a4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4fb48a4))
+* update ut-log-dfsp ([6b06656](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6b06656))
+
+
+
+<a name="0.28.22"></a>
+## [0.28.22](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.21...v0.28.22) (2017-05-31)
+
+
+### Bug Fixes
+
+* update dependency to ut-log-dfsp ([8558513](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8558513))
+
+
+
+<a name="0.28.21"></a>
+## [0.28.21](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.20...v0.28.21) (2017-05-30)
+
+
+### Bug Fixes
+
+* add exception in case the forensic servise is down when the api is starting ([07acd9e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/07acd9e))
+* typo ([1ea3dbc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1ea3dbc))
+
+
+
+<a name="0.28.20"></a>
+## [0.28.20](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.19...v0.28.20) (2017-05-30)
+
+
+### Bug Fixes
+
+* update dependencies ([dbbc074](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/dbbc074))
+
+
+
+<a name="0.28.19"></a>
+## [0.28.19](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.18...v0.28.19) (2017-05-29)
+
+
+### Bug Fixes
+
+* fix this context ([44768af](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/44768af))
+
+
+
+<a name="0.28.18"></a>
+## [0.28.18](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.17...v0.28.18) (2017-05-29)
+
+
+### Bug Fixes
+
+* add cluster in circleci.json ([388008e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/388008e))
+
+
+
+<a name="0.28.17"></a>
+## [0.28.17](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.16...v0.28.17) (2017-05-29)
+
+
+### Bug Fixes
+
+* set cluster variable in test.json ([e031034](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e031034))
+
+
+
+<a name="0.28.16"></a>
+## [0.28.16](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.15...v0.28.16) (2017-05-29)
+
+
+### Bug Fixes
+
+* remove start of peer implementations in the test index ([a39a3d0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/a39a3d0))
+
+
+
+<a name="0.28.15"></a>
+## [0.28.15](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.14...v0.28.15) (2017-05-29)
+
+
+### Bug Fixes
+
+* force build ([d02f79f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d02f79f))
+
+
+
+<a name="0.28.14"></a>
+## [0.28.14](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.13...v0.28.14) (2017-05-29)
+
+
+### Bug Fixes
+
+* add readme ([c9fa2c5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/c9fa2c5))
+
+
+
+<a name="0.28.13"></a>
+## [0.28.13](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.12...v0.28.13) (2017-05-29)
+
+
+### Bug Fixes
+
+* force build ([7f54c73](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/7f54c73))
+
+
+
+<a name="0.28.12"></a>
+## [0.28.12](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.11...v0.28.12) (2017-05-26)
+
+
+### Bug Fixes
+
+* build ([a1b98d2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/a1b98d2))
+* comment config ([839b3d9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/839b3d9))
+* config ([3b7358d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3b7358d))
+* configuration ([f15625e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f15625e))
+* disable tasks for tests ([80ede7b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/80ede7b))
+* distributed tests ([f78b1cc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f78b1cc))
+* fire up peer implementaions from index_test ([989c77a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/989c77a))
+* no-process console ([88610eb](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/88610eb))
+* no-process-exit ([e3c6f35](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e3c6f35))
+* remove env dump ([4b8c8b0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4b8c8b0))
+* remove shrinkwrap ([d317649](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d317649))
+* shrinkwrap ([1b463be](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1b463be))
+* test ([c9f511a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/c9f511a))
+* test config ([1e4d618](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/1e4d618))
+* update dependencies ([9ef9a1b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9ef9a1b))
+* update test ([d93ac2a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d93ac2a))
+
+
+
+<a name="0.28.11"></a>
+## [0.28.11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.10...v0.28.11) (2017-05-19)
+
+
+### Bug Fixes
+
+* change payment.fetch return object ([6adc6a0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6adc6a0))
+
+
+
+<a name="0.28.10"></a>
+## [0.28.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.9...v0.28.10) (2017-05-19)
+
+
+### Bug Fixes
+
+* add throttling to the bulk payments process ([4bc9880](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/4bc9880))
+
+
+
+<a name="0.28.9"></a>
+## [0.28.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.8...v0.28.9) (2017-05-19)
+
+
+### Bug Fixes
+
+* lint ([84403ef](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/84403ef))
+* persist spspServer and account to bulk payments ([cd15c23](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/cd15c23))
+* persist whole payee.get response in payment table ([6de380b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6de380b))
+
+
+
+<a name="0.28.8"></a>
+## [0.28.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.7...v0.28.8) (2017-05-19)
+
+
+### Bug Fixes
+
+* add configuration to the forensic log on service start ([80c86f9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/80c86f9))
+* add log on user create action ([2669dd4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/2669dd4))
+* add login duration ([7beb04c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/7beb04c))
+* add user create action in forensic log ([6ab5736](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6ab5736))
+* add user unsuccessfull/succsessfull login events ([6cdedd5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/6cdedd5))
+
+
+
+<a name="0.28.7"></a>
+## [0.28.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.6...v0.28.7) (2017-05-18)
+
+
+### Bug Fixes
+
+* add log configuration in accordance to new log stream spec ([3ffbdc5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/3ffbdc5))
+
+
+
+<a name="0.28.6"></a>
+## [0.28.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.5...v0.28.6) (2017-05-15)
+
+
+### Bug Fixes
+
+* elk ([e4a1562](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e4a1562))
+* elk ([b4b42d7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b4b42d7))
+* typo ([b1b99c0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/b1b99c0))
+
+
+
+<a name="0.28.5"></a>
+## [0.28.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.4...v0.28.5) (2017-05-15)
+
+
+### Bug Fixes
+
+* add sidecar client factory into separate file so that it can be isolated as separate module in the future ([167f4a1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/167f4a1))
+* add sidecar integration module ([d672aaa](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/d672aaa))
+* dont use ws but use net.Socket ([de6eb8e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/de6eb8e))
+* forensic logging websocket reconnect ([a92155f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/a92155f))
+* linting ([e8fb236](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/e8fb236))
+* linting ([cdae32f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/cdae32f))
+* log transfers to forensic log ([84888d1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/84888d1))
+* remove unused file ([f1d2fdf](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/f1d2fdf))
+* remove ut-log ([138c9b9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/138c9b9))
+* sidecar client ([45f32d5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/45f32d5))
+
+
+
+<a name="0.28.4"></a>
+## [0.28.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.3...v0.28.4) (2017-05-12)
+
+
+### Bug Fixes
+
+* pass identifier to invoice.execute ([a6d3944](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/a6d3944))
+
+
+
 <a name="0.28.3"></a>
 ## [0.28.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.2...v0.28.3) (2017-05-10)
 
