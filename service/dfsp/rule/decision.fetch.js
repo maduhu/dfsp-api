@@ -133,8 +133,15 @@ module.exports = {
           .then((localQuote) => {
             return this.bus.importMethod('spsp.transfer.quote.add')(msg)
               .then((remoteQuote) => {
-                return {
-                  fee: 1 // hardcode for now
+                return { // hardcode for now
+                  fee: {
+                    amount: 1,
+                    currency: 'USD'
+                  },
+                  commission: {
+                    amount: 0,
+                    currency: 'USD'
+                  }
                 }
               })
           })
@@ -169,8 +176,15 @@ module.exports = {
             })
           })
           .then((localQuote) => {
-            return {
-              fee: 1 // hardcode for now
+            return { // hardcode for now
+              fee: {
+                amount: 1,
+                currency: 'USD'
+              },
+              commission: {
+                amount: 0,
+                currency: 'USD'
+              }
             }
           })
         })
