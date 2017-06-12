@@ -16,7 +16,7 @@ module.exports = {
     function checkPayments (params) {
       return dispatch('bulk.payment.fetch', params)
         .then(function (payments) {
-          if (!payments.data.length) {
+          if (!payments.data || !payments.data.length) {
             return true
           }
           var promise = Promise.resolve()

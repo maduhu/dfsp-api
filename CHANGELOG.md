@@ -1,3 +1,33 @@
+<a name="0.28.26"></a>
+## [0.28.26](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.25...v0.28.26) (2017-06-12)
+
+
+### Bug Fixes
+
+* update dependencies ([bcffa69](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/bcffa69))
+
+
+
+<a name="0.28.25"></a>
+## [0.28.25](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.24...v0.28.25) (2017-06-01)
+
+
+### Bug Fixes
+
+* fix batch check ([7808576](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/7808576))
+
+
+
+<a name="0.28.24"></a>
+## [0.28.24](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.23...v0.28.24) (2017-05-31)
+
+
+### Bug Fixes
+
+* refactor config log - remove streams ([8298d47](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/8298d47))
+
+
+
 <a name="0.28.23"></a>
 ## [0.28.23](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.22...v0.28.23) (2017-05-31)
 
