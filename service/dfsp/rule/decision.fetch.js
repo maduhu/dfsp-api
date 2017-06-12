@@ -69,7 +69,37 @@ function ruleDecisionFetch (msg, $meta) {
 }
 
 module.exports = {
-  'decision.fetch': function (msg, $meta) {
+  'decision.fetch': function (params, $meta) {
+    // from ussd
+    // ---------------------
+    // currency: params.transfer.destinationCurrency,
+    // amount: params.transfer.destinationAmount,
+    // destinationIdentifier: params.transfer.identifier,
+    // destinationAccount: params.transfer.destinationAccount,
+    // sourceAccount: params.user.sourceAccountName,
+    // sourceIdentifier: params.user.identifier,
+    // spspServer: params.transfer.spspServer,
+    // transferType: 'p2p'
+    // -------------------------------------------------
+    // format message
+    var msg = {
+      transferId: uuid(),
+      payer: {
+        identifier: params.sourceIdentifier,
+        identifierType: params.sourceIdentifierType || 'eur'
+      },
+      payee: {
+        url: params.spspServer + '/quotes',
+        identifier: params.destinationIdentifier,
+        identifierType: params.destinationIdentifierType || 'eur'
+      },
+      transferType: params.transferType,
+      amountType: params.amountType || 'RECEIVE',
+      amount: {
+        amount: params.amount,
+        currency: params.currency || 'USD'
+      }
+    }
     // joi.object().keys({
     //     payer: joi.object().keys({
     //       identifier: joi.string().required().example('92806391'),
@@ -90,7 +120,6 @@ module.exports = {
     if (msg.amountType === 'SEND') {
       return ruleDecisionFetch.apply(this, arguments)
         .then((rule) => {
-          msg.transferId = uuid()
           msg.fees = {
             amount: rule.fee.amount,
             currency: msg.amount.currency
@@ -101,14 +130,18 @@ module.exports = {
             commission: rule.commission.amount,
             isDebit: true
           })
-        })
-        .then(() => {
-          return this.bus.importMethod('spsp.transfer.quote.add')(msg)
+          .then((localQuote) => {
+            return this.bus.importMethod('spsp.transfer.quote.add')(msg)
+              .then((remoteQuote) => {
+                return {
+                  fee: 1 // hardcode for now
+                }
+              })
+          })
         })
     } else if (msg.amountType === 'RECEIVE') {
-      msg.transferId = uuid()
       return this.bus.importMethod('spsp.transfer.quote.add')(msg)
-        .then(() => {
+        .then((remoteQuote) => {
           // result
           //  {
           //     "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
@@ -127,13 +160,18 @@ module.exports = {
           //     "ipr": "c29tZSBpcHIgaGVyZQ=="
           // }
           return ruleDecisionFetch.apply(this, arguments)
-        })
-        .then((rule) => {
-          return this.bus.importMethod('dfsp/ledger.quote.add')({
-            transferId: msg.transferId,
-            fee: rule.fee.amount,
-            commission: rule.commission.amount,
-            isDebit: true
+          .then((rule) => {
+            return this.bus.importMethod('dfsp/ledger.quote.add')({
+              transferId: msg.transferId,
+              fee: rule.fee.amount,
+              commission: rule.commission.amount,
+              isDebit: true
+            })
+          })
+          .then((localQuote) => {
+            return {
+              fee: 1 // hardcode for now
+            }
           })
         })
     } else {
