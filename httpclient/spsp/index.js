@@ -198,5 +198,22 @@ module.exports = {
       throw errors.noAccount(msg)
     }
     return msg.payload
+  },
+  'spsp.transfer.quote.add.request.send': function (msg, $meta) {
+    return {
+      uri: '/quotes',
+      httpMethod: 'put',
+      payload: msg,
+      headers: {
+        'L1p-Trace-Id': uuid(),
+        'content-type': 'application/json'
+      }
+    }
+  },
+  'spsp.transfer.quote.add.response.receive': function (msg, $meta) {
+    return msg.payload || {}
+  },
+  'spsp.transfer.quote.add.error.receive': function (err, $meta) {
+    throw err
   }
 }

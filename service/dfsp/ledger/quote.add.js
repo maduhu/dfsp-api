@@ -26,9 +26,9 @@ module.exports = {
             currency: joi.string().required().example('USD')
           }).required(),
           fees: joi.object().keys({
-            amount: joi.string().required().example('0.25'),
-            currency: joi.string().required().example('USD')
-          }).required()
+            amount: joi.string().example('0.25'),
+            currency: joi.string().example('USD')
+          }).optional()
         }).unknown().required()
       },
       plugins: {
@@ -42,26 +42,30 @@ module.exports = {
         }
       }
     },
-    method: 'post'
+    method: 'put'
   },
   'quote.add': function (msg, $meta) {
     return this.bus.importMethod('ledger.transferType.fetch')({})
       .then((transferTypes) => {
-        return this.bus.importMethod('rule.decision.fetch')({
+        return this.bus.importMethod('dfsp/rule.decision.fetch')({
           currency: msg.amount.currency,
           amount: msg.amount.amount,
           operationId: transferTypes.find((el) => el.transferCode === msg.transferType).transferTypeId
-        }, $meta)
+        })
       })
       .then((rule) => {
         let fee = 0
         let commission = msg.transferType === 'cashOut' ? (rule.commisssion.amount || 0) : 0
         return this.config.exec.call(this, {
-          transferId: msg.transferId,
+          uuid: msg.transferId,
+          identifier: msg.payee.identifier,
+          identifierType: msg.payee.identifierType,
+          currency: msg.amount.currency,
           fee: fee,
           commission: commission,
+          transferType: msg.transferType,
           isDebit: false
-        })
+        }, $meta)
         .then(() => {
           return {
             transferId: msg.transferId,

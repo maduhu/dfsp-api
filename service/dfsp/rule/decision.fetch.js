@@ -118,16 +118,20 @@ module.exports = {
     //   }).unknown()
     // }
     if (msg.amountType === 'SEND') {
-      return ruleDecisionFetch.apply(this, arguments)
+      return ruleDecisionFetch.call(this, msg, $meta)
         .then((rule) => {
           msg.fees = {
             amount: rule.fee.amount,
             currency: msg.amount.currency
           }
           return this.bus.importMethod('dfsp/ledger.quote.add')({
-            transferId: msg.transferId,
+            uuid: msg.transferId,
+            identifier: msg.payer.identifier,
+            identifierType: msg.payer.identifierType,
+            currency: msg.amount.currency,
             fee: rule.fee.amount,
             commission: rule.commission.amount,
+            transferType: msg.transferType,
             isDebit: true
           })
           .then((localQuote) => {
@@ -166,12 +170,16 @@ module.exports = {
           //     },
           //     "ipr": "c29tZSBpcHIgaGVyZQ=="
           // }
-          return ruleDecisionFetch.apply(this, arguments)
+          return ruleDecisionFetch.call(this, msg, $meta)
           .then((rule) => {
             return this.bus.importMethod('dfsp/ledger.quote.add')({
-              transferId: msg.transferId,
+              uuid: msg.transferId,
+              identifier: msg.payer.identifier,
+              identifierType: msg.payer.identifierType,
+              currency: msg.amount.currency,
               fee: rule.fee.amount,
               commission: rule.commission.amount,
+              transferType: msg.transferType,
               isDebit: true
             })
           })
