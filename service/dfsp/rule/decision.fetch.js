@@ -63,6 +63,18 @@ function ruleDecisionFetch (msg, $meta) {
         if (rule.limit.maxCountMonthly && transfers.countMonthly >= rule.limit.maxCountMonthly) {
           throw error.maxCountMonthly({ limit: rule.limit.maxCountMonthly })
         }
+        if (!rule.fee) {
+          rule.fee = {
+            amount: 0,
+            currency: msg.amount.amount
+          }
+        }
+        if (!rule.commission) {
+          rule.commission = {
+            amount: 0,
+            currency: msg.amount.amount
+          }
+        }
         return rule
       })
     })
@@ -138,6 +150,7 @@ module.exports = {
             return this.bus.importMethod('spsp.transfer.quote.add')(msg)
               .then((remoteQuote) => {
                 return { // hardcode for now
+                  transferId: msg.transferId,
                   fee: {
                     amount: 1,
                     currency: 'USD'
@@ -185,6 +198,7 @@ module.exports = {
           })
           .then((localQuote) => {
             return { // hardcode for now
+              transferId: msg.transferId,
               fee: {
                 amount: 1,
                 currency: 'USD'

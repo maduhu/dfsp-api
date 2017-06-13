@@ -6,6 +6,7 @@ module.exports = {
       memo.debitIdentifier = msg.sourceIdentifier
     }
     return this.bus.importMethod('spsp.transfer.transfer.execute')({
+      transferId: msg.transferId,
       receiver: msg.receiver,
       sourceAccount: msg.sourceAccount,
       destinationAmount: Number(msg.destinationAmount).toFixed(2),
