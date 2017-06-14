@@ -100,6 +100,7 @@ module.exports = {
         currency: params.currency || 'USD'
       }
     }
+    var isDebit = (msg.transferType !== 'cashOut')
     // joi.object().keys({
     //     payer: joi.object().keys({
     //       identifier: joi.string().required().example('92806391'),
@@ -132,7 +133,7 @@ module.exports = {
             fee: rule.fee.amount,
             commission: rule.commission.amount,
             transferType: msg.transferType,
-            isDebit: true
+            isDebit: isDebit
           })
           .then((localQuote) => {
             return this.bus.importMethod('spsp.transfer.quote.add')(msg)
@@ -181,21 +182,21 @@ module.exports = {
               fee: rule.fee.amount,
               commission: rule.commission.amount,
               transferType: msg.transferType,
-              isDebit: true
+              isDebit: isDebit
             })
-          })
-          .then((localQuote) => {
-            return { // hardcode for now
-              transferId: msg.transferId,
-              fee: {
-                amount: 1,
-                currency: 'USD'
-              },
-              commission: {
-                amount: 0,
-                currency: 'USD'
+            .then((localQuote) => {
+              return { // hardcode for now
+                transferId: msg.transferId,
+                fee: {
+                  amount: 1,
+                  currency: 'USD'
+                },
+                commission: {
+                  amount: 0,
+                  currency: 'USD'
+                }
               }
-            }
+            })
           })
         })
     } else {

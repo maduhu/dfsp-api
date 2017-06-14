@@ -54,8 +54,9 @@ module.exports = {
         })
       })
       .then((rule) => {
-        let fee = 0
-        let commission = msg.transferType === 'cashOut' ? (rule.commission.amount || 0) : 0
+        let isDebit = (msg.transferType === 'cashOut')
+        let fee = 0 // rule.fee.amount
+        let commission = isDebit ? rule.commission.amount : 0 // debit receives commission only in case of cashOut
         return this.config.exec.call(this, {
           uuid: msg.transferId,
           identifier: msg.payee.identifier,
@@ -64,7 +65,7 @@ module.exports = {
           fee: fee,
           commission: commission,
           transferType: msg.transferType,
-          isDebit: false
+          isDebit: isDebit
         }, $meta)
         .then(() => {
           return {
