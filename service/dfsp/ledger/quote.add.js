@@ -42,7 +42,7 @@ module.exports = {
         }
       }
     },
-    method: 'put'
+    method: 'post'
   },
   'quote.add': function (msg, $meta) {
     return this.bus.importMethod('ledger.transferType.fetch')({})
@@ -55,7 +55,7 @@ module.exports = {
       })
       .then((rule) => {
         let fee = 0
-        let commission = msg.transferType === 'cashOut' ? (rule.commisssion.amount || 0) : 0
+        let commission = msg.transferType === 'cashOut' ? (rule.commission.amount || 0) : 0
         return this.config.exec.call(this, {
           uuid: msg.transferId,
           identifier: msg.payee.identifier,

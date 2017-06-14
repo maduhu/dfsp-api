@@ -202,7 +202,7 @@ module.exports = {
   'spsp.transfer.quote.add.request.send': function (msg, $meta) {
     return {
       uri: '/quotes',
-      httpMethod: 'put',
+      httpMethod: 'post',
       payload: msg,
       headers: {
         'L1p-Trace-Id': msg.transferId || uuid(),

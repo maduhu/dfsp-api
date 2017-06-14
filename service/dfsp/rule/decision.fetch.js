@@ -63,18 +63,6 @@ function ruleDecisionFetch (msg, $meta) {
         if (rule.limit.maxCountMonthly && transfers.countMonthly >= rule.limit.maxCountMonthly) {
           throw error.maxCountMonthly({ limit: rule.limit.maxCountMonthly })
         }
-        if (!rule.fee) {
-          rule.fee = {
-            amount: 0,
-            currency: msg.amount.amount
-          }
-        }
-        if (!rule.commission) {
-          rule.commission = {
-            amount: 0,
-            currency: msg.amount.amount
-          }
-        }
         return rule
       })
     })
