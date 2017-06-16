@@ -42,9 +42,9 @@ module.exports = {
       .then((ledgerAccount) => {
         return this.bus.importMethod('rule.decision.fetch')({
           currency: invoice.currencyCode,
-          amount: Number(invoice.amount),
+          amount: invoice.amount,
           destinationIdentifier: invoice.merchantIdentifier,
-          destinationAccount: msg.invoiceUrl,
+          destinationAccount: invoice.account,
           sourceAccount: ledgerAccount.id,
           sourceIdentifier: msg.identifier,
           transferType: 'invoice'

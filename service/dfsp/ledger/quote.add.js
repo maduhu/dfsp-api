@@ -17,7 +17,8 @@ module.exports = {
           }).required(),
           payee: joi.object().keys({
             identifier: joi.string().required().example('30754016'),
-            identifierType: joi.string().required().example('eur')
+            identifierType: joi.string().required().example('eur'),
+            account: joi.string().required().example('http://host/ledger/accounts/alice')
           }).required(),
           transferType: joi.string().required().example('p2p'),
           amountType: joi.string().required().valid(['SEND', 'RECEIVE']).example('SEND'),
@@ -54,22 +55,23 @@ module.exports = {
         })
       })
       .then((rule) => {
-        let isDebit = (msg.transferType === 'cashOut')
         let fee = 0 // rule.fee.amount
-        let commission = isDebit ? rule.commission.amount : 0 // debit receives commission only in case of cashOut
+        let commission = (msg.transferType === 'cashOut') ? rule.commission.amount : 0 // debit receives commission only in case of cashOut
         return this.config.exec.call(this, {
           uuid: msg.transferId,
           identifier: msg.payee.identifier,
           identifierType: msg.payee.identifierType,
+          destinationAccount: msg.payee.account,
           currency: msg.amount.currency,
           fee: fee,
           commission: commission,
           transferType: msg.transferType,
-          isDebit: isDebit
+          isDebit: false
         }, $meta)
-        .then(() => {
+        .then((quote) => {
           return {
             transferId: msg.transferId,
+            expiresAt: quote.expiresAt,
             payeeFee: {
               amount: fee,
               currency: msg.amount.currency

@@ -89,6 +89,7 @@ module.exports = {
         identifierType: params.sourceIdentifierType || 'eur'
       },
       payee: {
+        account: params.destinationAccount,
         url: params.spspServer + '/quotes',
         identifier: params.destinationIdentifier,
         identifierType: params.destinationIdentifierType || 'eur'
@@ -100,7 +101,6 @@ module.exports = {
         currency: params.currency || 'USD'
       }
     }
-    var isDebit = (msg.transferType !== 'cashOut')
     // joi.object().keys({
     //     payer: joi.object().keys({
     //       identifier: joi.string().required().example('92806391'),
@@ -129,17 +129,19 @@ module.exports = {
             uuid: msg.transferId,
             identifier: msg.payer.identifier,
             identifierType: msg.payer.identifierType,
+            destinationAccount: msg.destinationAccount,
             currency: msg.amount.currency,
             fee: rule.fee.amount,
             commission: rule.commission.amount,
             transferType: msg.transferType,
-            isDebit: isDebit
+            isDebit: true
           })
           .then((localQuote) => {
             return this.bus.importMethod('spsp.transfer.quote.add')(msg)
               .then((remoteQuote) => {
                 return { // hardcode for now
                   transferId: msg.transferId,
+                  destinationAccount: remoteQuote.destinationAccount,
                   fee: {
                     amount: 1,
                     currency: 'USD'
@@ -178,17 +180,18 @@ module.exports = {
               uuid: msg.transferId,
               identifier: msg.payer.identifier,
               identifierType: msg.payer.identifierType,
+              destinationAccount: msg.payee.account,
               currency: msg.amount.currency,
               fee: rule.fee.amount,
               commission: rule.commission.amount,
               transferType: msg.transferType,
-              isDebit: isDebit
+              isDebit: true
             })
             .then((localQuote) => {
               return { // hardcode for now
                 transferId: msg.transferId,
                 fee: {
-                  amount: 1,
+                  amount: localQuote.fee,
                   currency: 'USD'
                 },
                 commission: {
