@@ -125,6 +125,7 @@ module.exports = {
             amount: rule.fee.amount,
             currency: msg.amount.currency
           }
+          msg.amount.amount = Number(msg.amount.amount) - Number(rule.fee.amount)
           return this.bus.importMethod('dfsp/ledger.quote.add')({
             uuid: msg.transferId,
             identifier: msg.payer.identifier,
@@ -132,6 +133,7 @@ module.exports = {
             destinationAccount: msg.destinationAccount,
             currency: msg.amount.currency,
             fee: rule.fee.amount,
+            amount: msg.amount.amount,
             commission: (msg.transferType === 'cashIn') ? rule.commission.amount : 0,
             transferType: msg.transferType,
             isDebit: true
@@ -183,6 +185,7 @@ module.exports = {
               destinationAccount: msg.payee.account,
               currency: msg.amount.currency,
               fee: rule.fee.amount,
+              amount: Number(remoteQuote.receiveAmount.amount) + Number(remoteQuote.payeeFee.amount),
               commission: (msg.transferType === 'cashIn') ? rule.commission.amount : 0,
               transferType: msg.transferType,
               isDebit: true
