@@ -132,7 +132,7 @@ module.exports = {
             destinationAccount: msg.destinationAccount,
             currency: msg.amount.currency,
             fee: rule.fee.amount,
-            commission: rule.commission.amount,
+            commission: (msg.transferType === 'cashIn') ? rule.commission.amount : 0,
             transferType: msg.transferType,
             isDebit: true
           })
@@ -183,7 +183,7 @@ module.exports = {
               destinationAccount: msg.payee.account,
               currency: msg.amount.currency,
               fee: rule.fee.amount,
-              commission: rule.commission.amount,
+              commission: (msg.transferType === 'cashIn') ? rule.commission.amount : 0,
               transferType: msg.transferType,
               isDebit: true
             })
