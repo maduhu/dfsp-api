@@ -23,8 +23,7 @@ module.exports = {
         Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
       },
       qs: {
-        identifier: msg.identifier,
-        identifierType: msg.identifierType || 'phn'
+        identifier: (msg.identifierType || 'phn') + ':' + msg.identifier
       }
     }
   },
@@ -43,8 +42,7 @@ module.exports = {
         Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
       },
       qs: {
-        identifier: msg.identifier,
-        identifierType: msg.identifierType || 'phn'
+        identifier: (msg.identifierType || 'phn') + ':' + msg.identifier
       }
     }
   },
@@ -65,8 +63,7 @@ module.exports = {
         Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
       },
       payload: {
-        identifier: msg.identifier,
-        identifierType: msg.identifierType || 'phn'
+        identifier: (msg.identifierType || 'phn') + ':' + msg.identifier
       }
     }
   },
@@ -85,8 +82,7 @@ module.exports = {
         Authorization: 'Basic ' + new Buffer(this.bus.config.cluster + ':' + this.bus.config.cluster).toString('base64')
       },
       payload: {
-        identifier: msg.identifier,
-        identifierType: msg.identifierType || 'phn',
+        identifier: (msg.identifierType || 'phn') + ':' + msg.identifier,
         default: true,
         dfsp: msg.dfsp
       }
