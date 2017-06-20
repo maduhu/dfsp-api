@@ -1,3 +1,13 @@
+<a name="0.28.27"></a>
+## [0.28.27](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.26...v0.28.27) (2017-06-20)
+
+
+### Bug Fixes
+
+* update ut-bus and ut-port-httpserver ([9d4ec3d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/9d4ec3d))
+
+
+
 <a name="0.28.26"></a>
 ## [0.28.26](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.25...v0.28.26) (2017-06-12)
 
