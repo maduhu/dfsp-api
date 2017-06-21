@@ -10,7 +10,7 @@ module.exports = {
       validate: {
         params: joi.object({
           invoiceId: joi.string().description('Invoice id'),
-          paymentid: joi.string().description('Payment id')
+          paymentId: joi.string().description('Payment id')
         }),
         payload: joi.any()
       },
@@ -28,17 +28,27 @@ module.exports = {
     method: 'put'
   },
   'invoice.notify': function (msg, $meta) {
-    return this.bus.importMethod('ledger.transfer.get')({
-      id: msg.paymentid
+    return this.bus.importMethod('ledger.quote.get')({
+      uuid: msg.paymentId,
+      isDebit: false
     })
     .catch(() => false)
-    .then((transfer) => {
-      if (!transfer) {
+    .then((quote) => {
+      if (!quote) {
         return {}
       }
       return this.bus.importMethod('transfer.invoice.execute')({
         invoiceId: msg.invoiceId,
-        identifier: transfer.credits[0] && transfer.credits[0].memo && transfer.credits[0].memo.ilp_decrypted && transfer.credits[0].memo.ilp_decrypted.debitIdentifier
+        identifier: quote.identifier
+      })
+      .then(() => {
+        return this.bus.importMethod('notification.notification.add')({
+          channel: 'sms',
+          operation: quote.transferType,
+          target: 'destination',
+          identifier: quote.identifier,
+          params: quote
+        })
       })
     })
     .then(() => ({}))

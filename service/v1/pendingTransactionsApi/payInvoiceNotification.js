@@ -55,6 +55,7 @@ module.exports = {
               destinationAmount: '' + invoiceResult.amount,
               currency: invoiceResult.currencyCode,
               fee: invoiceResult.fee,
+              transferType: INVOICE_TRANSFER_CODE,
               memo: {
                 fee: invoiceResult.fee,
                 transferCode: INVOICE_TRANSFER_CODE,

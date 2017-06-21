@@ -16,6 +16,18 @@ module.exports = {
     })
     .then((result) => {
       return this.config.exec.call(this, result, $meta)
+      .then((res) => {
+        return this.bus.importMethod('notification.notification.add')({
+          channel: 'sms',
+          operation: msg.transferType,
+          target: 'source',
+          identifier: msg.sourceIdentifier,
+          params: msg
+        })
+        .then(() => {
+          return res
+        })
+      })
     })
   }
 }

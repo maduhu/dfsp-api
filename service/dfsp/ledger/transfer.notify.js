@@ -34,6 +34,21 @@ module.exports = {
     method: 'put'
   },
   'transfer.notify': function (msg, $meta) {
-    return {}
+    return this.bus.importMethod('ledger.quote.get')({
+      uuid: msg.transferId,
+      isDebit: false
+    })
+    .then((res) => {
+      return this.bus.importMethod('notification.notification.add')({
+        channel: 'sms',
+        operation: res.transferType,
+        target: 'destination',
+        identifier: res.identifier,
+        params: res
+      })
+      .then(() => {
+        return {}
+      })
+    })
   }
 }
