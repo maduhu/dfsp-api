@@ -52,16 +52,17 @@ module.exports = {
         sourceIdentifier: payer.identifiers[0].identifier,
         transferType: 'bulkPayment'
       }, 'fee could not be obtained')
-      .then((fee) => {
+      .then((rule) => {
         return dispatch('transfer.push.execute', {
+          transferId: rule.transferId,
           sourceIdentifier: payer.identifiers[0].identifier,
           sourceAccount: payment.account,
           receiver: payee.spspServer + '/receivers/' + payment.identifier,
           destinationAmount: payment.amount,
           currency: payee.currencyCode,
-          fee: (fee.fee && fee.fee.amount) || 0,
+          fee: (rule.fee && rule.fee.amount) || 0,
           memo: {
-            fee: (fee.fee && fee.fee.amount) || 0,
+            fee: (rule.fee && rule.fee.amount) || 0,
             transferCode: 'bulkPayment',
             creditName: payee.name,
             debitName: payer.firstName + ' ' + payer.lastName

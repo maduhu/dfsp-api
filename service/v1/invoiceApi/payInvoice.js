@@ -42,9 +42,9 @@ module.exports = {
       .then((ledgerAccount) => {
         return this.bus.importMethod('rule.decision.fetch')({
           currency: invoice.currencyCode,
-          amount: Number(invoice.amount),
+          amount: invoice.amount,
           destinationIdentifier: invoice.merchantIdentifier,
-          destinationAccount: msg.invoiceUrl,
+          destinationAccount: invoice.account,
           sourceAccount: ledgerAccount.id,
           sourceIdentifier: msg.identifier,
           transferType: 'invoice'
@@ -56,6 +56,7 @@ module.exports = {
           .then((payer) => {
             let fee = (rule.fee && rule.fee.amount) || 0
             return this.bus.importMethod('transfer.push.execute')({
+              transferId: rule.transferId,
               sourceIdentifier: msg.identifier,
               sourceAccount: ledgerAccount.id,
               receiver: msg.invoiceUrl,
