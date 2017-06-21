@@ -1,7 +1,7 @@
 {
   "name": "@leveloneproject/dfsp-api",
   "version": "1.0.0-quotes.0",
-  "description": "DFSP ussd demo",
+  "description": "DFSP Api",
   "main": "index.js",
   "scripts": {
     "changelog": "ut-changelog",
@@ -57,7 +57,7 @@
     "@leveloneproject/dfsp-directory": "0.x",
     "@leveloneproject/dfsp-rule": "0.x",
     "@leveloneproject/dfsp-transfer": "0.x",
-    "@leveloneproject/dfsp-ledger": "1.x",
+    "@leveloneproject/dfsp-ledger": ">=2.0.0-quotes.0 <2.0.0",
     "@leveloneproject/dfsp-identity": "0.x",
     "@leveloneproject/dfsp-account": "0.x",
     "@leveloneproject/dfsp-subscription": "0.x",
