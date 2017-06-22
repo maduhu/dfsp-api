@@ -29,16 +29,14 @@ module.exports = {
       })
     }
     return promise.then(() => {
+      if (msg.actorId) {
+        return msg
+      }
       return this.bus.importMethod('directory.user.get')({
         identifier: msg.identifier
       })
-      .then((user) => {
-        return this.bus.importMethod('subscription.subscription.fetch')({
-          actorId: user.actoryId
-        })
-      })
     })
-    .then((subscriptions) => {
+    .then((res) => {
       if (!nomenclatures.channel[msg.channel] || !nomenclatures.operation[msg.operation] || !nomenclatures.target[msg.target]) {
         throw errors.invalidParameters(msg)
       }
@@ -46,7 +44,7 @@ module.exports = {
         notificationChannelId: nomenclatures.channel[msg.channel],
         notificationOperationId: nomenclatures.operation[msg.operation],
         notificationTargetId: nomenclatures.target[msg.target],
-        destination: subscriptions.map((el) => el.phoneNumber),
+        actorId: res.actorId,
         params: msg.params
       })
     })

@@ -51,5 +51,15 @@ module.exports = {
       identifier: msg.senderIdentifier,
       memo: msg.memo
     }, $meta)
+    .then((res) => {
+      return this.bus.importMethod('notification.notification.add')({
+        channel: 'sms',
+        operation: $meta.method === 'transfer.invoiceNotification.cancel' === 'cancelled' ? 'invoiceCancel' : 'invoice',
+        target: 'destination',
+        identifier: msg.identifier,
+        params: res
+      })
+      .then(() => res)
+    })
   }
 }
