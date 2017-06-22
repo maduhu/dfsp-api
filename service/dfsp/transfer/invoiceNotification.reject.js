@@ -1,4 +1,3 @@
-var joi = require('joi')
 module.exports = {
   'invoiceNotification.reject': function (msg, $meta) {
     return this.config.exec.call(this, msg, $meta)
