@@ -1,3 +1,13 @@
+<a name="0.28.29"></a>
+## [0.28.29](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.28...v0.28.29) (2017-06-22)
+
+
+### Bug Fixes
+
+* samples ([92f0d8e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/commit/92f0d8e))
+
+
+
 <a name="0.28.28"></a>
 ## [0.28.28](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-api/compare/v0.28.27...v0.28.28) (2017-06-20)
 
