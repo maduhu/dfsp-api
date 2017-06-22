@@ -67,11 +67,7 @@ module.exports = {
       }
     })
     .then((res) => {
-      if (this.bus.config.spsp && this.bus.config.spsp.url && this.bus.config.spsp.url.startsWith('http://localhost')) {
-        msg.identifier = msg.firstName
-      } else {
-        msg.identifier = res.identifier
-      }
+      msg.identifier = res.identifier
       return this.bus.importMethod('directory.user.add')(msg)
       .then((res) => {
         response.actorId = '' + res.actorId

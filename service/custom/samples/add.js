@@ -1,4 +1,3 @@
-var samples = require('./data.json')
 module.exports = {
   rest: {
     rpc: 'samples.add',
@@ -13,11 +12,17 @@ module.exports = {
   'add': function (msg, $meta) {
     var getSamples = this.bus.importMethod('samples.get')
     return getSamples({})
+      .then((res) => {
+        return res
+      })
       .catch(() => {
-        return Promise.all(
-          (samples[this.bus.config.cluster] || samples['dfsp2']).map((data) => this.bus.importMethod('wallet.add')(data))
-        )
-        .then(getSamples)
+        return this.bus.importMethod('samples.getData')({})
+          .then((samples) => {
+            return Promise.all(samples.map((data) => {
+              return this.bus.importMethod('wallet.add')(data)
+            }))
+          })
+          .then(getSamples)
       })
   }
 }
