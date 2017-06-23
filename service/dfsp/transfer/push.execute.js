@@ -22,7 +22,10 @@ module.exports = {
           operation: msg.transferType,
           target: 'source',
           identifier: msg.sourceIdentifier,
-          params: msg
+          params: {
+            amount: msg.destinationAmount,
+            currency: msg.currency
+          }
         })
         .then(() => {
           return res

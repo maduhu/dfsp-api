@@ -52,14 +52,22 @@ module.exports = {
       memo: msg.memo
     }, $meta)
     .then((res) => {
-      return this.bus.importMethod('notification.notification.add')({
-        channel: 'sms',
-        operation: $meta.method === 'transfer.invoiceNotification.cancel' === 'cancelled' ? 'invoiceCancel' : 'invoice',
-        target: 'destination',
-        identifier: msg.identifier,
-        params: res
+      return this.bus.importMethod('spsp.transfer.invoice.get')({
+        receiver: msg.invoiceUrl
       })
-      .then(() => res)
+      .then((result) => {
+        return this.bus.importMethod('notification.notification.add')({
+          channel: 'sms',
+          operation: $meta.method === 'transfer.invoiceNotification.cancel' === 'cancelled' ? 'invoiceCancel' : result.invoiceType,
+          target: 'destination',
+          identifier: $meta.method === 'transfer.invoiceNotification.cancel' === 'cancelled' ? msg.senderIdentifier : res.identifier,
+          params: {
+            amount: result.amount,
+            currency: result.currencyCode
+          }
+        })
+        .then(() => res)
+      })
     })
   }
 }

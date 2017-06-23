@@ -44,7 +44,10 @@ module.exports = {
         operation: res.transferType,
         target: 'destination',
         identifier: res.identifier,
-        params: res
+        params: {
+          amount: res.amount,
+          currency: res.currencyId
+        }
       })
       .then(() => {
         return {}

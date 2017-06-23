@@ -44,7 +44,7 @@ module.exports = {
         notificationChannelId: nomenclatures.channel[msg.channel],
         notificationOperationId: nomenclatures.operation[msg.operation],
         notificationTargetId: nomenclatures.target[msg.target],
-        actorId: res.actorId,
+        actorId: '' + res.actorId,
         params: msg.params
       })
     })
