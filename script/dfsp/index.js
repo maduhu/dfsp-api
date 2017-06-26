@@ -21,9 +21,9 @@ module.exports = {
     'bulk.paymentStatus.fetch',
     'ledger.accountType.fetch',
     'transfer.invoiceType.fetch',
-    'notification.notificationChannel.get',
-    'notification.notificationOperation.get',
-    'notification.notificationTarget.get'
+    'notification.channel.get',
+    'notification.operation.get',
+    'notification.target.get'
   ],
   logLevel: 'trace',
   start: function () {
