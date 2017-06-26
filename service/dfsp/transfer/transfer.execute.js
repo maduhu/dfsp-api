@@ -42,7 +42,8 @@ module.exports = {
           receiver: res.destinationAccount,
           destinationAmount: res.amount,
           currency: res.currencyId,
-          fee: res.fee
+          fee: res.fee,
+          transferType: 'p2p'
         })
         .then((result) => {
           return {
