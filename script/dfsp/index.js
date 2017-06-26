@@ -20,7 +20,10 @@ module.exports = {
     'bulk.batchStatus.fetch',
     'bulk.paymentStatus.fetch',
     'ledger.accountType.fetch',
-    'transfer.invoiceType.fetch'
+    'transfer.invoiceType.fetch',
+    'notification.channel.get',
+    'notification.operation.get',
+    'notification.target.get'
   ],
   logLevel: 'trace',
   start: function () {

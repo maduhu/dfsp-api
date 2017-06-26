@@ -61,6 +61,7 @@ module.exports = {
           destinationAmount: payment.amount,
           currency: payee.currencyCode,
           fee: (rule.fee && rule.fee.amount) || 0,
+          transferType: 'bulkPayment',
           memo: {
             fee: (rule.fee && rule.fee.amount) || 0,
             transferCode: 'bulkPayment',

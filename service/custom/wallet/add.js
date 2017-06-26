@@ -210,7 +210,16 @@ module.exports = {
         }
       })
     })
-    .then((res) => (response))
+    .then((res) => {
+      return this.bus.importMethod('notification.notification.add')({
+        channel: 'sms',
+        operation: 'walletAdd',
+        target: 'source',
+        actorId: response.actorId,
+        params: response
+      })
+      .then(() => response)
+    })
     .catch((err) => {
       if (reversals.length) {
         return Promise.all(reversals.map((reversal) => {

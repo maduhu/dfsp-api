@@ -14,7 +14,6 @@ module.exports = {
     'directory.start',
     'identity.start',
     'ledger.start',
-    'notification.start',
     'rule.start',
     'subscription.start',
     'transfer.start',
