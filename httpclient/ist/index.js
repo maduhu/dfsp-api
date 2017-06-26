@@ -45,7 +45,7 @@ module.exports = {
         'L1p-Trace-Id': uuid()
       },
       payload: {
-        url: urlProps.protocol + '//' + urlProps.hostname + ':8088/scheme/adapter/v1'
+        url: urlProps.hostname + ':8088/scheme/adapter/v1'
       }
     }
   },
