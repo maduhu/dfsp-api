@@ -4,7 +4,7 @@ var nomenclatures = {}
 module.exports = {
   'notification.add': function (msg, $meta) {
     var promise = Promise.resolve()
-    if (!Object.keys(nomenclatures).length) {
+    if (!nomenclatures.channel) {
       promise = promise
       .then(() => this.bus.importMethod('notification.channel.fetch')({}))
       .then(function (channel) {
@@ -13,6 +13,9 @@ module.exports = {
           return all
         }, {})
       })
+    }
+    if (!nomenclatures.operation) {
+      promise = promise
       .then(() => this.bus.importMethod('notification.operation.fetch')({}))
       .then(function (operation) {
         nomenclatures.operation = operation.reduce(function (all, record) {
@@ -20,6 +23,9 @@ module.exports = {
           return all
         }, {})
       })
+    }
+    if (!nomenclatures.target) {
+      promise = promise
       .then(() => this.bus.importMethod('notification.target.fetch')({}))
       .then(function (target) {
         nomenclatures.target = target.reduce(function (all, record) {
