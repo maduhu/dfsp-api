@@ -58,7 +58,7 @@ module.exports = {
       .then((result) => {
         return this.bus.importMethod('notification.notification.add')({
           channel: 'sms',
-          operation: $meta.method === 'transfer.invoiceNotification.cancel' === 'cancelled' ? 'invoiceCancel' : result.invoiceType,
+          operation: $meta.method === 'transfer.invoiceNotification.cancel' === 'cancelled' ? 'invoiceCancel' : result.type,
           target: 'destination',
           identifier: $meta.method === 'transfer.invoiceNotification.cancel' === 'cancelled' ? msg.senderIdentifier : res.identifier,
           params: {
