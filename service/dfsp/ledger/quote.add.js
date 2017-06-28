@@ -10,7 +10,7 @@ module.exports = {
       validate: {
         params: joi.any(),
         payload: joi.object().keys({
-          transferId: joi.string().required().regex(/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/).example('3a2a1d9e-8640-4d2d-b06c-84f2cd613300').description('The UUID for the local transfer'),
+          paymentId: joi.string().required().regex(/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/).example('3a2a1d9e-8640-4d2d-b06c-84f2cd613300').description('The UUID for the local transfer'),
           payer: joi.object().keys({
             identifier: joi.string().required().example('92806391'),
             identifierType: joi.string().required().example('eur')
@@ -61,7 +61,7 @@ module.exports = {
           msg.amount.amount = Number(msg.amount.amount) - fee
         }
         return this.config.exec.call(this, {
-          uuid: msg.transferId,
+          paymentId: msg.paymentId,
           identifier: msg.payee.identifier,
           identifierType: msg.payee.identifierType,
           destinationAccount: msg.payee.account,
@@ -74,7 +74,7 @@ module.exports = {
         }, $meta)
         .then((quote) => {
           return {
-            transferId: msg.transferId,
+            paymentId: msg.paymentId,
             expiresAt: quote.expiresAt,
             payeeFee: {
               amount: fee,

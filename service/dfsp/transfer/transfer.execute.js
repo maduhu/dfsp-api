@@ -9,7 +9,7 @@ module.exports = {
       tags: ['api', 'spsp-server-backend'],
       validate: {
         payload: joi.object({
-          transferId: joi.string().example('8cfc0989-8401-46fe-96e3-aeed1070e1c6').required()
+          paymentId: joi.string().example('8cfc0989-8401-46fe-96e3-aeed1070e1c6').required()
         })
       },
       plugins: {
@@ -27,7 +27,7 @@ module.exports = {
   },
   'transfer.execute': function (msg, $meta) {
     return this.bus.importMethod('ledger.quote.get')({
-      uuid: msg.transferId,
+      paymentId: msg.paymentId,
       isDebit: true
     })
     .then((res) => {
@@ -36,7 +36,7 @@ module.exports = {
       })
       .then((result) => {
         return this.bus.importMethod('transfer.push.execute')({
-          transferId: msg.transferId,
+          paymentId: msg.paymentId,
           sourceIdentifier: res.identifier,
           sourceAccount: result.account,
           receiver: res.destinationAccount,

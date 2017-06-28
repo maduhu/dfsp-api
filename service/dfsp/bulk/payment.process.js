@@ -54,7 +54,7 @@ module.exports = {
       }, 'fee could not be obtained')
       .then((rule) => {
         return dispatch('transfer.push.execute', {
-          transferId: rule.transferId,
+          paymentId: rule.paymentId,
           sourceIdentifier: payer.identifiers[0].identifier,
           sourceAccount: payment.account,
           receiver: payee.spspServer + '/receivers/' + payment.identifier,

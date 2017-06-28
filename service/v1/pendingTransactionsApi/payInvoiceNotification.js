@@ -48,7 +48,7 @@ module.exports = {
           })
           .then((directoryResult) => {
             return this.bus.importMethod('transfer.push.execute')({
-              transferId: invoiceResult.transferId,
+              paymentId: invoiceResult.paymentId,
               sourceIdentifier: invoiceNotificationResult.identifier,
               sourceAccount: ledgerResult.id,
               receiver: invoiceNotificationResult.invoiceUrl,

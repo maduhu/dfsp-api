@@ -2,7 +2,7 @@ function validationFailHandler (request, reply, source, error) {
   var response = {}
   if (source === 'params') {
     response.id = 'InvalidUriParameterError'
-    response.message = 'id is not a valid Uuid'
+    response.message = 'id is not a valid paymentId'
   } else {
     response.id = 'InvalidBodyError'
     response.message = 'Body did not match schema'

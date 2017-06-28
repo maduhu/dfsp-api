@@ -56,7 +56,7 @@ module.exports = {
           .then((payer) => {
             let fee = (rule.fee && rule.fee.amount) || 0
             return this.bus.importMethod('transfer.push.execute')({
-              transferId: rule.transferId,
+              paymentId: rule.paymentId,
               sourceIdentifier: msg.identifier,
               sourceAccount: ledgerAccount.id,
               receiver: msg.invoiceUrl,
