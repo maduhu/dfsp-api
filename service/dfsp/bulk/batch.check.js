@@ -53,47 +53,50 @@ module.exports = {
         })
     }
     var promise = Promise.resolve()
-    if (!Object.keys(status).length) {
+    if (!status.batch) {
       promise = promise
-      .then(() => importMethod('bulk.batchStatus.fetch')({}))
-      .then(function (batchStatus) {
-        status.batch = batchStatus.reduce(function (all, record) {
-          all[record.name] = record.key
-          return all
-        }, {})
-      })
-      .then(() => importMethod('bulk.paymentStatus.fetch')({}))
-      .then(function (paymentStatus) {
-        status.payment = paymentStatus.reduce(function (all, record) {
-          all[record.name] = record.key
-          return all
-        }, {})
-      })
+        .then(() => importMethod('bulk.batchStatus.fetch')({}))
+        .then(function (batchStatus) {
+          status.batch = batchStatus.reduce(function (all, record) {
+            all[record.name] = record.key
+            return all
+          }, {})
+        })
     }
-    promise = promise.then(function () {
-      return dispatch('bulk.batch.edit', {
-        batchStatusId: status.batch.verifying // set verifying
-      })
-    })
-    .then(function (result) {
-      var params = {pageSize: 100, pageNumber: 1, actorId: msg.actorId}
-      if (msg.payments) {
-        params.paymentId = msg.payments
-      } else {
-        params.batchId = msg.batchId
-      }
-      function proceed () {
-        return checkPayments(params)
-          .then(function () {
-            return dispatch('bulk.batch.revertStatus', {partial: !!msg.payments})
-          })
-      }
-      if (msg.async) {
-        process.nextTick(proceed)
-        return result
-      }
-      return proceed()
-    })
+    if (!status.payment) {
+      promise = promise
+        .then(() => importMethod('bulk.paymentStatus.fetch')({}))
+        .then(function (paymentStatus) {
+          status.payment = paymentStatus.reduce(function (all, record) {
+            all[record.name] = record.key
+            return all
+          }, {})
+        })
+    }
     return promise
+      .then(function () {
+        return dispatch('bulk.batch.edit', {
+          batchStatusId: status.batch.verifying // set verifying
+        })
+      })
+      .then(function (result) {
+        var params = {pageSize: 100, pageNumber: 1, actorId: msg.actorId}
+        if (msg.payments) {
+          params.paymentId = msg.payments
+        } else {
+          params.batchId = msg.batchId
+        }
+        function proceed () {
+          return checkPayments(params)
+            .then(function () {
+              return dispatch('bulk.batch.revertStatus', {partial: !!msg.payments})
+            })
+        }
+        if (msg.async) {
+          process.nextTick(proceed)
+          return result
+        }
+        return proceed()
+      })
   }
 }

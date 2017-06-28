@@ -1,5 +1,6 @@
 var bus
 var cacheCollection
+var tranCount = 0
 module.exports = {
   id: 'dfsp',
   createPort: require('ut-port-script'),
@@ -48,5 +49,57 @@ module.exports = {
       })
     }
     return bus.importMethod($meta.method)(msg)
+  },
+  'bulk.payment.getForProcessing': function (msg, $meta) {
+    if (tranCount === 0) {
+      return bus.importMethod('dfsp/bulk.payment.getForProcessing')(msg)
+    }
+    return []
+  },
+  'bulk.payment.execute': function (msg, $meta) {
+    if (tranCount === 0) {
+      return this.bus.importMethod('bulk.payment.process')(msg, $meta)
+    }
+    return {}
+  },
+  'transfer.push.execute': function (msg, $meta) {
+    tranCount++
+    var memo = {}
+    if (msg.memo) {
+      memo = msg.memo
+      memo.debitIdentifier = msg.sourceIdentifier
+    }
+    return this.bus.importMethod('spsp.transfer.transfer.execute')({
+      transferId: msg.transferId,
+      receiver: msg.receiver,
+      sourceAccount: msg.sourceAccount,
+      destinationAmount: Number(msg.destinationAmount).toFixed(2),
+      memo: JSON.stringify(memo),
+      sourceIdentifier: msg.sourceIdentifier,
+      sourceAmount: (Number(msg.destinationAmount) + Number(msg.fee || 0)).toFixed(2)
+    })
+    .then((result) => {
+      return this.config.exec.call(this, result, $meta)
+      .then((res) => {
+        return this.bus.importMethod('notification.notification.add')({
+          channel: 'sms',
+          operation: msg.transferType,
+          target: 'source',
+          identifier: msg.sourceIdentifier,
+          params: {
+            amount: msg.destinationAmount,
+            currency: msg.currency
+          }
+        })
+        .then(() => {
+          tranCount--
+          return res
+        })
+      })
+    })
+    .catch((err) => {
+      tranCount--
+      throw err
+    })
   }
 }
