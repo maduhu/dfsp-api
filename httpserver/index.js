@@ -5,6 +5,11 @@ module.exports = {
   logLevel: 'trace',
   api: [],
   port: 8010,
+  allowXFF: true,
+  disableXsrf: {
+    http: true,
+    ws: true
+  },
   bundle: 'ussd',
   dist: path.resolve(__dirname, '../dist'),
   validationPassThrough: true,
