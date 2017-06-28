@@ -98,5 +98,5 @@ module.exports = {
         }
         return proceed()
       })
-    }
+  }
 }
