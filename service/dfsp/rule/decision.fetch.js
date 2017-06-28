@@ -1,5 +1,5 @@
 // joi.object().keys({
-//   transferId: joi.string().required().regex(/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/).example('3a2a1d9e-8640-4d2d-b06c-84f2cd613300').description('The UUID for the local transfer'),
+//   paymentId: joi.string().required().regex(/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/).example('3a2a1d9e-8640-4d2d-b06c-84f2cd613300').description('The UUID for the local transfer'),
 //   payer: joi.object().keys({
 //     identifier: joi.string().required().example('92806391'),
 //     identifierType: joi.string().required().example('eur')
@@ -83,7 +83,7 @@ module.exports = {
     // -------------------------------------------------
     // format message
     var msg = {
-      transferId: uuid(),
+      paymentId: uuid(),
       payer: {
         identifier: params.sourceIdentifier,
         identifierType: params.sourceIdentifierType || 'eur'
@@ -127,7 +127,7 @@ module.exports = {
           }
           msg.amount.amount = Number(msg.amount.amount) - Number(rule.fee.amount)
           return this.bus.importMethod('dfsp/ledger.quote.add')({
-            uuid: msg.transferId,
+            paymentId: msg.paymentId,
             identifier: msg.payer.identifier,
             identifierType: msg.payer.identifierType,
             destinationAccount: msg.destinationAccount,
@@ -142,7 +142,7 @@ module.exports = {
             return this.bus.importMethod('spsp.transfer.quote.add')(msg)
               .then((remoteQuote) => {
                 return { // hardcode for now
-                  transferId: msg.transferId,
+                  paymentId: msg.paymentId,
                   destinationAccount: remoteQuote.destinationAccount,
                   fee: {
                     amount: 1,
@@ -161,7 +161,7 @@ module.exports = {
         .then((remoteQuote) => {
           // result
           //  {
-          //     "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
+          //     "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
           //     "receiveAmount": {
           //       "amount": "9.25",
           //       "currency": "USD"
@@ -179,7 +179,7 @@ module.exports = {
           return ruleDecisionFetch.call(this, msg, $meta)
           .then((rule) => {
             return this.bus.importMethod('dfsp/ledger.quote.add')({
-              uuid: msg.transferId,
+              paymentId: msg.paymentId,
               identifier: msg.payer.identifier,
               identifierType: msg.payer.identifierType,
               destinationAccount: msg.payee.account,
@@ -192,7 +192,7 @@ module.exports = {
             })
             .then((localQuote) => {
               return { // hardcode for now
-                transferId: msg.transferId,
+                paymentId: msg.paymentId,
                 fee: {
                   amount: localQuote.fee,
                   currency: 'USD'

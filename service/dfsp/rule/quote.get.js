@@ -47,7 +47,7 @@ module.exports = {
       })
       .then((result) => {
         return {
-          transferId: result.transferId,
+          paymentId: result.paymentId,
           fee: result.fee,
           commission: result.commission
         }

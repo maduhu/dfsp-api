@@ -68,8 +68,8 @@ module.exports = {
     // /setup
   },
   'spsp.transfer.transfer.execute.request.send': function (msg, $meta) {
-    $meta.paymentId = msg.transferId || uuid()
-    delete msg.transferId
+    $meta.paymentId = msg.paymentId || uuid()
+    delete msg.paymentId
     return this.bus.importMethod('forensic.log')({
       message: 'transfer initiated',
       paymentId: $meta.paymentId,
@@ -205,7 +205,7 @@ module.exports = {
       httpMethod: 'post',
       payload: msg,
       headers: {
-        'L1p-Trace-Id': msg.transferId || uuid(),
+        'L1p-Trace-Id': msg.paymentId || uuid(),
         'content-type': 'application/json'
       }
     }

@@ -29,7 +29,7 @@ module.exports = {
   },
   'invoice.notify': function (msg, $meta) {
     return this.bus.importMethod('ledger.quote.get')({
-      uuid: msg.paymentId,
+      paymentId: msg.paymentId,
       isDebit: false
     })
     .catch(() => false)
