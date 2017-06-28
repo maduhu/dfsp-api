@@ -56,6 +56,12 @@ module.exports = {
     }
     return []
   },
+  'bulk.payment.execute': function (msg, $meta) {
+    if (tranCount === 0) {
+      return this.bus.importMethod('bulk.payment.process')(msg, $meta)
+    }
+    return {}
+  },
   'transfer.push.execute': function (msg, $meta) {
     tranCount++
     var memo = {}

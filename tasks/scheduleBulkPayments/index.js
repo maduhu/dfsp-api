@@ -6,7 +6,7 @@ module.exports = function (bus) {
         promise = promise.then(function () {
           return new Promise(function (resolve) {
             setTimeout(function () {
-              resolve(bus.importMethod('bulk.payment.process')(payment))
+              resolve(bus.importMethod('bulk.payment.execute')(payment))
             }, bus.config.tasks.scheduleBulkPayments.timeout * 1000 || 0)
           })
         })
