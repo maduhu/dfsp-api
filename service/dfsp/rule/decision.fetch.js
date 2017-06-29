@@ -90,7 +90,7 @@ module.exports = {
       },
       payee: {
         account: params.destinationAccount,
-        url: params.spspServer + '/quotes',
+        url: params.spspServer,
         identifier: params.destinationIdentifier,
         identifierType: params.destinationIdentifierType || 'eur'
       },
