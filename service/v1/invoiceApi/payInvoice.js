@@ -54,7 +54,7 @@ module.exports = {
             identifier: msg.identifier
           })
           .then((payer) => {
-            let fee = (rule.fee && rule.fee.amount) || 0
+            let fee = rule.fee || 0
             return this.bus.importMethod('transfer.push.execute')({
               paymentId: rule.paymentId,
               sourceIdentifier: msg.identifier,
@@ -64,6 +64,9 @@ module.exports = {
               currency: invoice.currencyCode,
               fee: fee,
               transferType: 'invoice',
+              ipr: rule.ipr,
+              sourceExpiryDuration: rule.sourceExpiryDuration,
+              connectorAccount: rule.connectorAccount,
               memo: {
                 fee: fee,
                 transferCode: 'invoice',

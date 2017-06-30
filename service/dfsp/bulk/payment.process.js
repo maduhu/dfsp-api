@@ -60,10 +60,13 @@ module.exports = {
           receiver: payee.spspServer + '/receivers/' + payment.identifier,
           destinationAmount: payment.amount,
           currency: payee.currencyCode,
-          fee: (rule.fee && rule.fee.amount) || 0,
+          fee: rule.fee || 0,
           transferType: 'bulkPayment',
+          ipr: rule.ipr,
+          sourceExpiryDuration: rule.sourceExpiryDuration,
+          connectorAccount: rule.connectorAccount,
           memo: {
-            fee: (rule.fee && rule.fee.amount) || 0,
+            fee: rule.fee || 0,
             transferCode: 'bulkPayment',
             creditName: payee.name,
             debitName: payer.firstName + ' ' + payer.lastName

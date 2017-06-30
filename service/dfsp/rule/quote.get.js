@@ -39,7 +39,7 @@ module.exports = {
         currency: params.currency,
         amount: params.amount,
         destinationIdentifier: params.destinationIdentifier,
-        destinationAccount: result.spspServer + '/receivers/' + params.destinationIdentifier,
+        destinationAccount: result.account,
         spspServer: result.spspServer,
         sourceAccount: params.sourceAccount,
         sourceIdentifier: params.sourceIdentifier,

@@ -71,12 +71,15 @@ module.exports = {
     }
     return this.bus.importMethod('spsp.transfer.transfer.execute')({
       paymentId: msg.paymentId,
-      receiver: msg.receiver,
+      // receiver: msg.receiver,
       sourceAccount: msg.sourceAccount,
-      destinationAmount: Number(msg.destinationAmount).toFixed(2),
-      memo: JSON.stringify(memo),
-      sourceIdentifier: msg.sourceIdentifier,
-      sourceAmount: (Number(msg.destinationAmount) + Number(msg.fee || 0)).toFixed(2)
+      // destinationAmount: Number(msg.destinationAmount).toFixed(2),
+      // memo: JSON.stringify(memo),
+      // sourceIdentifier: msg.sourceIdentifier,
+      sourceAmount: (Number(msg.destinationAmount) + Number(msg.fee || 0)).toFixed(2),
+      ipr: msg.ipr,
+      sourceExpiryDuration: msg.sourceExpiryDuration,
+      connectorAccount: msg.connectorAccount,
     })
     .then((result) => {
       return this.config.exec.call(this, result, $meta)

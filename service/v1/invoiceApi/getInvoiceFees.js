@@ -53,7 +53,7 @@ module.exports = {
     })
     .then((rule) => {
       return {
-        fee: (rule.fee && rule.fee.amount) || 0,
+        fee: (rule.fee && rule.fee) || 0,
         connectorFee: rule.connectorFee
       }
     })

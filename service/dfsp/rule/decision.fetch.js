@@ -183,25 +183,15 @@ module.exports = {
               identifier: msg.payer.identifier,
               identifierType: msg.payer.identifierType,
               destinationAccount: msg.payee.account,
+              receiver: params.spspServer + '/receivers/' + params.destinationIdentifier,
               currency: msg.amount.currency,
               fee: rule.fee.amount,
               amount: Number(remoteQuote.receiveAmount.amount) + Number(remoteQuote.payeeFee.amount),
               commission: (msg.transferType === 'cashIn') ? rule.commission.amount : 0,
               transferType: msg.transferType,
+              ipr: remoteQuote.ipr,
+              sourceExpiryDuration: remoteQuote.sourceExpiryDuration,
               isDebit: true
-            })
-            .then((localQuote) => {
-              return { // hardcode for now
-                paymentId: msg.paymentId,
-                fee: {
-                  amount: localQuote.fee,
-                  currency: 'USD'
-                },
-                commission: {
-                  amount: 0,
-                  currency: 'USD'
-                }
-              }
             })
           })
         })

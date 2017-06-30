@@ -39,11 +39,14 @@ module.exports = {
           paymentId: msg.paymentId,
           sourceIdentifier: res.identifier,
           sourceAccount: result.account,
-          receiver: res.destinationAccount,
+          receiver: res.receiver,
           destinationAmount: res.amount,
           currency: res.currencyId,
           fee: res.fee,
-          transferType: 'p2p'
+          transferType: 'p2p',
+          ipr: res.ipr,
+          sourceExpiryDuration: res.sourceExpiryDuration,
+          connectorAccount: res.connectorAccount,
         })
         .then((result) => {
           return {

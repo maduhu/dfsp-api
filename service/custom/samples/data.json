@@ -184,7 +184,8 @@
       "accountName": "dfsp1-testconnector",
       "balance": 1000000000,
       "phoneNumber": "dfsp1-testconnector",
-      "password": "1234"
+      "password": "1234",
+      "accountTypeId": 6
     },
     {
       "identifier": "43967083",
@@ -260,7 +261,8 @@
       "accountName": "dfsp2-testconnector",
       "balance": 1000000000,
       "phoneNumber": "dfsp2-testconnector",
-      "password": "1234"
+      "password": "1234",
+      "accountTypeId": 6
     },
     {
       "identifier": "60579369",
