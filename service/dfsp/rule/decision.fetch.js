@@ -140,20 +140,7 @@ module.exports = {
           })
           .then((localQuote) => {
             return this.bus.importMethod('spsp.transfer.quote.add')(msg)
-              .then((remoteQuote) => {
-                return { // hardcode for now
-                  paymentId: msg.paymentId,
-                  destinationAccount: remoteQuote.destinationAccount,
-                  fee: {
-                    amount: 1,
-                    currency: 'USD'
-                  },
-                  commission: {
-                    amount: 0,
-                    currency: 'USD'
-                  }
-                }
-              })
+              .then((remoteQuote) => localQuote)
           })
         })
     } else if (msg.amountType === 'RECEIVE') {

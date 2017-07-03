@@ -13,10 +13,8 @@ module.exports = {
           paymentId: joi.string().description('uuid').example('26711806-64a1-4196-85dd-37c64b61bb80')
         }),
         payload: joi.object({
-          senderIdentifier: joi.string().description('sender identifier').example('1234567890'),
           paymentId: joi.string().description('transfer id').example('6421cc77-fc43-4726-af3d-baaf5b18de9d'),
           destinationAmount: joi.string().description('destination amount').example('10.50'),
-          memo: joi.string().description('memo').example('Will you be my friend?'),
           status: joi.string().description('status').example('executed')
         })
       },
