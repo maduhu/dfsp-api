@@ -54,7 +54,7 @@ module.exports = {
         amount: invoiceAmount
       })
       .then(decisionResult => {
-        invoiceDetails.fee = (decisionResult.fee && decisionResult.fee.amount) || 0
+        invoiceDetails.fee = decisionResult.fee || 0
         return invoiceDetails
       })
     })

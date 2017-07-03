@@ -70,31 +70,33 @@ module.exports = {
       memo.debitIdentifier = msg.sourceIdentifier
     }
     return this.bus.importMethod('spsp.transfer.transfer.execute')({
+      // receiver: msg.receiver,
+      // sourceAccount: msg.sourceAccount,
+      // destinationAmount: Number(msg.destinationAmount).toFixed(2),
+      // memo: JSON.stringify(memo),
+      // sourceIdentifier: msg.sourceIdentifier,
+      // sourceAmount: (Number(msg.destinationAmount) + Number(msg.fee || 0)).toFixed(2)
       paymentId: msg.paymentId,
-      receiver: msg.receiver,
       sourceAccount: msg.sourceAccount,
-      destinationAmount: Number(msg.destinationAmount).toFixed(2),
-      memo: JSON.stringify(memo),
-      sourceIdentifier: msg.sourceIdentifier,
-      sourceAmount: (Number(msg.destinationAmount) + Number(msg.fee || 0)).toFixed(2)
+      sourceAmount: (Number(msg.destinationAmount) + Number(msg.fee || 0)).toFixed(2),
+      ipr: msg.ipr,
+      sourceExpiryDuration: msg.sourceExpiryDuration,
+      connectorAccount: msg.connectorAccount
     })
     .then((result) => {
-      return this.config.exec.call(this, result, $meta)
-      .then((res) => {
-        return this.bus.importMethod('notification.notification.add')({
-          channel: 'sms',
-          operation: msg.transferType,
-          target: 'source',
-          identifier: msg.sourceIdentifier,
-          params: {
-            amount: msg.destinationAmount,
-            currency: msg.currency
-          }
-        })
-        .then(() => {
-          tranCount--
-          return res
-        })
+      return this.bus.importMethod('notification.notification.add')({
+        channel: 'sms',
+        operation: msg.transferType,
+        target: 'source',
+        identifier: msg.sourceIdentifier,
+        params: {
+          amount: msg.destinationAmount,
+          currency: msg.currency
+        }
+      })
+      .then(() => {
+        tranCount--
+        return result
       })
     })
     .catch((err) => {
