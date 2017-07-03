@@ -1,6 +1,6 @@
 {
   "name": "@leveloneproject/dfsp-api",
-  "version": "1.0.0-quotes.15",
+  "version": "1.0.0-quotes.16",
   "description": "DFSP Api",
   "main": "index.js",
   "scripts": {
