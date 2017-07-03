@@ -1,4 +1,7 @@
 var joi = require('joi')
+var passValidation = require('./password-validation')
+var errors = require('./errors')
+
 module.exports = {
   rest: { // remove underscore to enable rest route
     rpc: 'wallet.add',
@@ -47,6 +50,9 @@ module.exports = {
         "password": 123
       }
     */
+    if (passValidation.isWeakPass(msg.password)) {
+      throw errors.weakPassword()
+    }
     var reversals = []
     var response = Object.assign({}, msg)
     return new Promise((resolve, reject) => {
