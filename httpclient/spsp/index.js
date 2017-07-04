@@ -77,7 +77,7 @@ module.exports = {
     })
     .then(() => {
       return {
-        uri: '/payments/' + $meta.paymentId, // whether the payment is executed after setup or directly
+        uri: '/payments',
         httpMethod: 'put',
         payload: msg,
         headers: {
@@ -157,13 +157,13 @@ module.exports = {
   },
   'spsp.transfer.invoice.get.request.send': function (msg, $meta) {
     return {
-      uri: '/query',
+      uri: '/invoices',
       httpMethod: 'get',
       headers: {
         'L1p-Trace-Id': uuid()
       },
       qs: {
-        receiver: msg.receiver
+        invoiceUrl: msg.receiver
       }
     }
   },
@@ -180,13 +180,10 @@ module.exports = {
     .then((res) => {
       $meta.spspServer = res.spspReceiver
       return {
-        uri: '/query',
+        uri: '/receivers/' + msg.identifier,
         httpMethod: 'get',
         headers: {
           'L1p-Trace-Id': uuid()
-        },
-        qs: {
-          receiver: res.spspReceiver + '/receivers/' + msg.identifier
         }
       }
     })
