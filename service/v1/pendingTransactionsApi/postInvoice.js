@@ -77,7 +77,7 @@ module.exports = {
             amount: msg.amount,
             identifier: msg.identifier,
             merchantIdentifier: msg.merchantIdentifier,
-            spspServer: centralDirectoryResponse.spspReceiver,
+            spspServer: centralDirectoryResponse.directory_details.find((el) => el.preferred).providerUrl,
             invoiceInfo: info
           }, $meta)
           .then((invoiceResponse) => {
