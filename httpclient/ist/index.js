@@ -6,9 +6,6 @@ module.exports = {
   createPort: require('ut-port-http'),
   url: 'http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/directory/v1',
   namespace: ['ist'],
-  headers: {
-    Authorization: 'Basic ' + new Buffer('dfsp1' + ':' + 'dfsp1').toString('base64')
-  },
   raw: {
     json: true,
     jar: true,
@@ -23,7 +20,8 @@ module.exports = {
       uri: '/resources',
       httpMethod: 'get',
       headers: {
-        'L1p-Trace-Id': uuid()
+        'L1p-Trace-Id': uuid(),
+        'Authorization': 'Basic ' + new Buffer(this.config.key + ':' + this.config.secret).toString('base64')
       },
       qs: {
         identifier: msg.identifier,
@@ -42,7 +40,8 @@ module.exports = {
     return {
       uri: '/user-registration/users',
       headers: {
-        'L1p-Trace-Id': uuid()
+        'L1p-Trace-Id': uuid(),
+        'Authorization': 'Basic ' + new Buffer(this.config.key + ':' + this.config.secret).toString('base64')
       },
       payload: {
         url: urlProps.hostname + ':8088/scheme/adapter/v1'

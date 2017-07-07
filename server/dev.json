@@ -75,7 +75,9 @@
     "host": "127.0.0.1"
   },
   "ist": {
-    "url": "http://localhost:8021"
+    "url": "http://localhost:8021",
+    "key": "The first DFSP",
+    "secret": "The first DFSP"
   },
   "spsp": {
     "url": "http://localhost:8021/spspclient"
