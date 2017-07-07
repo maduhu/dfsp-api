@@ -61,7 +61,7 @@
     "@leveloneproject/dfsp-identity": "0.x",
     "@leveloneproject/dfsp-account": "0.x",
     "@leveloneproject/dfsp-subscription": "0.x",
-    "@leveloneproject/dfsp-mock": ">=1.0.0-quotes.4 <1.0.0"
+    "@leveloneproject/dfsp-mock": ">=1.0.0-quotes.5 <1.0.0"
   },
   "repository": {
     "type": "git",

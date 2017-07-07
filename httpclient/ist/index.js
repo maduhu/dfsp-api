@@ -41,7 +41,8 @@ module.exports = {
         'Authorization': 'Basic ' + new Buffer(this.config.key + ':' + this.config.secret).toString('base64')
       },
       payload: {
-        identifier: (msg.identifierType || 'eur') + ':' + msg.identifier
+        identifier: (msg.identifierType || 'eur') + ':' + msg.identifier,
+        preferred: true
       }
     }
   },
