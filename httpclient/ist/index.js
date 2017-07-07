@@ -35,15 +35,14 @@ module.exports = {
     throw errors.userNotFound({error: err})
   },
   'ist.directory.user.add.request.send': function (msg) {
-    var urlProps = url.parse(this.config.url)
     return {
-      uri: '/user-registration/users',
+      uri: '/resources',
       headers: {
         'L1p-Trace-Id': uuid(),
         'Authorization': 'Basic ' + new Buffer(this.config.key + ':' + this.config.secret).toString('base64')
       },
       payload: {
-        url: urlProps.hostname + ':8088/scheme/adapter/v1'
+        identifier: (msg.identifierType || 'eur') + ':' + msg.identifier
       }
     }
   },
