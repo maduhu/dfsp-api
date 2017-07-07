@@ -24,7 +24,7 @@ module.exports = {
         'Authorization': 'Basic ' + new Buffer(this.config.key + ':' + this.config.secret).toString('base64')
       },
       qs: {
-        identifier: msg.identifier + ':eur'
+        identifier: 'eur:' + msg.identifier
       }
     }
   },
