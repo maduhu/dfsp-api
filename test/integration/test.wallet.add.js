@@ -4,6 +4,7 @@ var commonFunc = require('./../lib/commonFunctions.js')
 var joi = require('joi')
 var config = require('./../lib/appConfig')
 const merchant = {
+  identifier: commonFunc.generateRandomNumber(),
   firstName: 'firstname' + commonFunc.generateRandomNumber(),
   lastName: 'lastname' + commonFunc.generateRandomNumber(),
   dob: '10/12/1999',

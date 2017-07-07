@@ -16,7 +16,7 @@ module.exports = {
     return this.bus.importMethod('ist.directory.user.add')(msg)
       .then((res) => {
         var user = {
-          identifier: msg.identifier,
+          identifier: '' + msg.identifier,
           identifierTypeCode: msg.identifierTypeCode || 'phn',
           firstName: msg.firstName,
           lastName: msg.lastName,

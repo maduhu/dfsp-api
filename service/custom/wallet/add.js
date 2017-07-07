@@ -55,36 +55,16 @@ module.exports = {
     }
     var reversals = []
     var response = Object.assign({}, msg)
-    return new Promise((resolve, reject) => {
-      if (msg.identifier) {
-        return this.bus.importMethod('ist.directory.user.get')({
-          identifier: msg.identifier
-        })
-        .then((res) => {
-          return resolve({
-            identifier: msg.identifier
-          })
-        })
-        .catch((err) => {
-          return reject(err)
-        })
-      } else {
-        resolve({})
-      }
-    })
+    return this.bus.importMethod('directory.user.add')(msg)
     .then((res) => {
-      msg.identifier = res.identifier
-      return this.bus.importMethod('directory.user.add')(msg)
-      .then((res) => {
-        response.actorId = '' + res.actorId
-        reversals.push({
-          method: 'directory.user.remove',
-          msg: {
-            actorId: response.actorId
-          }
-        })
-        return res
+      response.actorId = '' + res.actorId
+      reversals.push({
+        method: 'directory.user.remove',
+        msg: {
+          actorId: response.actorId
+        }
       })
+      return res
     })
     .then((res) => {
       response.identifier = res.identifier

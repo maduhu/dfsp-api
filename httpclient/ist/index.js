@@ -1,5 +1,4 @@
 var errors = require('./errors')
-var url = require('url')
 var uuid = require('uuid/v4')
 module.exports = {
   id: 'ist',

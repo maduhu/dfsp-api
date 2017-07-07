@@ -46,7 +46,7 @@ module.exports = {
           transferType: 'p2p',
           ipr: res.ipr,
           sourceExpiryDuration: res.sourceExpiryDuration,
-          connectorAccount: res.connectorAccount,
+          connectorAccount: res.connectorAccount
         })
         .then((result) => {
           return {
