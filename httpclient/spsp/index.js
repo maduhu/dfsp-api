@@ -178,7 +178,7 @@ module.exports = {
       identifier: msg.identifier
     })
     .then((res) => {
-      $meta.spspServer = res.spspReceiver
+      $meta.spspServer = res.directory_details.find((el) => el.preferred).providerUrl
       return {
         uri: '/receivers/' + msg.identifier,
         httpMethod: 'get',
