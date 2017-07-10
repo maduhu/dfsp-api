@@ -31,7 +31,7 @@ module.exports = {
     method: 'post'
   },
   'quote.get': function (params, $meta) {
-    return this.bus.importMethod('spsp.transfer.payee.get')({
+    return this.bus.importMethod('ist.directory.user.get')({
       identifier: params.destinationIdentifier
     })
     .then((result) => {
@@ -39,8 +39,8 @@ module.exports = {
         currency: params.currency,
         amount: params.amount,
         destinationIdentifier: params.destinationIdentifier,
-        destinationAccount: result.account,
-        spspServer: result.spspServer,
+        destinationAccount: result.dfsp_details.account,
+        spspServer: result.directory_details.find((el) => el.preferred).providerUrl,
         sourceAccount: params.sourceAccount,
         sourceIdentifier: params.sourceIdentifier,
         transferType: 'p2p'

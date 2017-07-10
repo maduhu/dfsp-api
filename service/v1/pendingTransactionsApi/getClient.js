@@ -34,15 +34,15 @@ module.exports = {
       payee: '' + msg.identifier
     })
     .catch((e) => {
-      return this.bus.importMethod('spsp.transfer.payee.get')({
+      return this.bus.importMethod('ist.directory.user.get')({
         identifier: msg.identifier
       })
     })
     .then(res => {
       return {
-        firstName: res.firstName,
-        lastName: res.lastName,
-        imageUrl: res.imageUrl
+        firstName: res.dfsp_details.firstName,
+        lastName: res.dfsp_details.lastName,
+        imageUrl: res.dfsp_details.imageUrl
       }
     })
   }

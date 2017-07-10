@@ -173,29 +173,6 @@ module.exports = {
   'spsp.transfer.invoice.get.error.receive': function (err, $meta) {
     throw err
   },
-  'spsp.transfer.payee.get.request.send': function (msg, $meta) {
-    return this.bus.importMethod('ist.directory.user.get')({
-      identifier: msg.identifier
-    })
-    .then((res) => {
-      $meta.spspServer = res.directory_details.find((el) => el.preferred).providerUrl
-      return {
-        uri: '/receivers/' + msg.identifier,
-        httpMethod: 'get',
-        headers: {
-          'L1p-Trace-Id': uuid()
-        }
-      }
-    })
-  },
-  'spsp.transfer.payee.get.response.receive': function (msg, $meta) {
-    msg.payload.spspServer = $meta.spspServer
-    delete $meta.spspServer
-    if (!msg.payload.account || msg.payload.account.endsWith('/noaccount')) {
-      throw errors.noAccount(msg)
-    }
-    return msg.payload
-  },
   'spsp.transfer.quote.add.request.send': function (msg, $meta) {
     return {
       uri: '/quotes',

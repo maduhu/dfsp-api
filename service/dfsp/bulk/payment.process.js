@@ -22,7 +22,7 @@ module.exports = {
       if (this.bus.config.tasks.scheduleBulkPayments.skipPayeeGet && payment.payee) {
         return payment.payee
       } else {
-        return dispatch('spsp.transfer.payee.get', {
+        return dispatch('ist.directory.user.get', {
           identifier: payment.identifier
         }, 'payee not found')
       }
@@ -44,10 +44,10 @@ module.exports = {
     })
     .then((payer) => {
       return dispatch('rule.decision.fetch', {
-        currency: payee.currencyCode,
+        currency: payee.dfsp_details.currencyCode,
         amount: payment.amount,
         destinationIdentifier: payment.identifier,
-        destinationAccount: payee.spspServer + '/receivers/' + payment.identifier,
+        destinationAccount: payee.directory_details.find((el) => el.preferred).providerUrl + '/receivers/' + payment.identifier,
         sourceAccount: payment.account,
         sourceIdentifier: payer.identifiers[0].identifier,
         transferType: 'bulkPayment'
@@ -55,11 +55,11 @@ module.exports = {
       .then((rule) => {
         return dispatch('transfer.push.execute', {
           paymentId: rule.paymentId,
-          sourceIdentifier: payer.identifiers[0].identifier,
+          sourceIdentifier: payer.dfsp_details.identifiers[0].identifier,
           sourceAccount: payment.account,
-          receiver: payee.spspServer + '/receivers/' + payment.identifier,
+          receiver: payee.directory_details.find((el) => el.preferred).providerUrl + '/receivers/' + payment.identifier,
           destinationAmount: payment.amount,
-          currency: payee.currencyCode,
+          currency: payee.dfsp_details.currencyCode,
           fee: rule.fee || 0,
           transferType: 'bulkPayment',
           ipr: rule.ipr,
@@ -68,7 +68,7 @@ module.exports = {
           memo: {
             fee: rule.fee || 0,
             transferCode: 'bulkPayment',
-            creditName: payee.name,
+            creditName: payee.dfsp_details.name,
             debitName: payer.firstName + ' ' + payer.lastName
           }
         }, 'payment failed')

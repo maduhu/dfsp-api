@@ -45,7 +45,7 @@ module.exports = {
     return this.config.exec.call(this, msg, $meta)
       .then((result) => {
         return Promise.all(result.map((payer) => {
-          return this.bus.importMethod('spsp.transfer.payee.get')({
+          return this.bus.importMethod('ist.directory.user.get')({
             identifier: payer.identifier
           })
           .then((payee) => {

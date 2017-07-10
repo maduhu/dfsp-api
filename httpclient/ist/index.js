@@ -28,6 +28,9 @@ module.exports = {
     }
   },
   'ist.directory.user.get.response.receive': function (msg) {
+    if (!msg.payload.dfsp_details.account || msg.payload.dfsp_details.account.endsWith('/noaccount')) {
+      throw errors.noAccount(msg)
+    }
     return msg.payload
   },
   'ist.directory.user.get.error.receive': function (err) {

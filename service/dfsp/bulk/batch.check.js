@@ -22,7 +22,7 @@ module.exports = {
           var promise = Promise.resolve()
           payments.data.forEach((payment) => {
             promise = promise.then(function () {
-              return importMethod('spsp.transfer.payee.get')({identifier: payment.identifier})
+              return importMethod('ist.directory.user.get')({identifier: payment.identifier})
                 .then(function (result) {
                   var res = {
                     paymentStatusId: status.payment.verified,

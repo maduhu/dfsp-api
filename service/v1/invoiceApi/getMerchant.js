@@ -34,18 +34,18 @@ module.exports = {
     method: 'get'
   },
   'merchant.get': function (msg) {
-    return this.bus.importMethod('spsp.transfer.payee.get')({
+    return this.bus.importMethod('ist.directory.user.get')({
       identifier: msg.identifier
     })
     .then(res => {
       return {
-        account: res.account,
-        address: res.address,
-        firstName: res.firstName,
-        lastName: res.lastName,
-        currencyCode: res.currencyCode,
-        currencySymbol: res.currencySymbol,
-        spspServer: res.spspServer
+        account: res.dfsp_details.account,
+        address: res.dfsp_details.address,
+        firstName: res.dfsp_details.firstName,
+        lastName: res.dfsp_details.lastName,
+        currencyCode: res.dfsp_details.currencyCode,
+        currencySymbol: res.dfsp_details.currencySymbol,
+        spspServer: res.directory_details.find((el) => el.preferred).providerUrl
       }
     })
   }

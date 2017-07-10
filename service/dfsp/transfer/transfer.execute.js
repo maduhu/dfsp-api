@@ -31,14 +31,14 @@ module.exports = {
       isDebit: true
     })
     .then((res) => {
-      return this.bus.importMethod('spsp.transfer.payee.get')({
+      return this.bus.importMethod('ist.directory.user.get')({
         identifier: res.identifier
       })
       .then((result) => {
         return this.bus.importMethod('transfer.push.execute')({
           paymentId: msg.paymentId,
           sourceIdentifier: res.identifier,
-          sourceAccount: result.account,
+          sourceAccount: result.dfsp_details.account,
           receiver: res.receiver,
           destinationAmount: res.amount,
           currency: res.currencyId,
