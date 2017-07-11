@@ -32,7 +32,7 @@ module.exports = {
       throw errors.noAccount(msg)
     }
     if (msg.payload.fraud_details.score > this.bus.config.fraudThreshold.userScore) {
-      throw errors.userIsAboveFraudThreshold()
+      throw errors.userIsAboveFraudThreshold(msg)
     }
     return msg.payload
   },

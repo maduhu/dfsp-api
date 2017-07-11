@@ -15,7 +15,7 @@ module.exports = {
   noAccount: function (params) {
     return new NoAccount({message: 'User has no active mwallet accounts', params: params})
   },
-  userIsAboveFraudThreshold: function () {
-    return new UserIsAboveFraudThreshold({message: 'User is above fraud threshold'})
+  userIsAboveFraudThreshold: function (params) {
+    return new UserIsAboveFraudThreshold({message: 'User is above fraud threshold', params: params})
   }
 }
