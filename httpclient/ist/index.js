@@ -31,6 +31,9 @@ module.exports = {
     if (!msg.payload.dfsp_details.account || msg.payload.dfsp_details.account.endsWith('/noaccount')) {
       throw errors.noAccount(msg)
     }
+    if (msg.payload.fraud_details.score > this.bus.config.fraudThreshold.userScore) {
+      throw errors.userIsAboveFraudThreshold()
+    }
     return msg.payload
   },
   'ist.directory.user.get.error.receive': function (err) {
