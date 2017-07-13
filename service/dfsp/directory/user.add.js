@@ -3,7 +3,10 @@ var createUser = function (thisArg, msg, $meta) {
     .then((result) => {
       return thisArg.bus.importMethod('forensic.log')({
         message: 'User created',
-        payload: msg
+        payload: {
+          identifier: msg.identifier,
+          identifierTypeCode: msg.identifierTypeCode
+        }
       })
         .then(() => {
           return result
@@ -25,7 +28,10 @@ module.exports = {
         }
         return this.bus.importMethod('forensic.log')({
           message: 'User added in the central directory',
-          payload: user
+          payload: {
+            identifier: user.identifier,
+            identifierTypeCode: user.identifierTypeCode
+          }
         })
           .then(() => {
             return createUser(this, user, $meta)
