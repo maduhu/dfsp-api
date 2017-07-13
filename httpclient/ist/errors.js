@@ -4,6 +4,7 @@ var Ist = create('ist', DFSP)
 var UserNotFound = create('UserNotFound', Ist)
 var UserCouldNotBeAdded = create('UserNotFound', Ist)
 var NoAccount = create('noaccount', Ist)
+var UserIsAboveFraudThreshold = create('UserIsAboveFraudThreshold', Ist)
 module.exports = {
   userNotFound: function (params) {
     return new UserNotFound({message: 'User Not Found', params: params})
@@ -13,5 +14,8 @@ module.exports = {
   },
   noAccount: function (params) {
     return new NoAccount({message: 'User has no active mwallet accounts', params: params})
+  },
+  userIsAboveFraudThreshold: function (params) {
+    return new UserIsAboveFraudThreshold({message: 'User is above fraud threshold', params: params})
   }
 }

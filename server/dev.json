@@ -81,5 +81,8 @@
   },
   "spsp": {
     "url": "http://localhost:8021/spspclient"
+  },
+  "fraudThreshold": {
+    "userScore": 90
   }
 }
