@@ -58,7 +58,7 @@
   },
   "debug": true,
   "tasks": {
-    "scheduleBulkPayments": {
+    "_scheduleBulkPayments": {
       "interval": 10,
       "timeout": 0,
       "skipPayeeGet": false

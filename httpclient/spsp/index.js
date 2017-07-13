@@ -17,6 +17,16 @@ module.exports = {
   parseResponse: false,
   requestTimeout: 300000,
   logLevel: 'debug',
+  log: {
+    transform: {
+      payee: 'hide',
+      name: 'hide',
+      firstName: 'hide',
+      lastName: 'hide',
+      nationalId: 'hide',
+      dob: 'hide'
+    }
+  },
   method: 'post',
   'spsp.rule.decision.fetch.request.send': function (msg, $meta) {
     var params = {

@@ -27,6 +27,16 @@ module.exports = {
     'notification.target.get'
   ],
   logLevel: 'trace',
+  log: {
+    transform: {
+      payee: 'hide',
+      name: 'hide',
+      firstName: 'hide',
+      lastName: 'hide',
+      nationalId: 'hide',
+      dob: 'hide'
+    }
+  },
   start: function () {
     bus = this.bus
     cacheCollection = this.bus.importMethod('cache.collection')('dfsp')

@@ -13,6 +13,16 @@ module.exports = {
   parseResponse: false,
   requestTimeout: 300000,
   logLevel: 'debug',
+  log: {
+    transform: {
+      payee: 'hide',
+      name: 'hide',
+      firstName: 'hide',
+      lastName: 'hide',
+      nationalId: 'hide',
+      dob: 'hide'
+    }
+  },
   method: 'post',
   'ist.directory.user.get.request.send': function (msg) {
     return {

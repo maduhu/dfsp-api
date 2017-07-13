@@ -5,5 +5,15 @@ module.exports = {
     'pendingTransactionsApi',
     'invoiceApi'
   ],
-  logLevel: 'trace'
+  logLevel: 'trace',
+  log: {
+    transform: {
+      payee: 'hide',
+      name: 'hide',
+      firstName: 'hide',
+      lastName: 'hide',
+      nationalId: 'hide',
+      dob: 'hide'
+    }
+  }
 }
