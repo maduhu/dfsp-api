@@ -2,7 +2,7 @@ var joi = require('joi')
 module.exports = {
   rest: {
     rpc: 'transfer.invoice.execute',
-    path: '/receivers/invoices/{invoiceId}',
+    path: '/invoices/{invoiceId}',
     config: {
       description: 'Approve an invoice transfer',
       notes: 'Approve an invoice transfer',

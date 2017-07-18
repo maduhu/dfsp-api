@@ -9,7 +9,7 @@ module.exports = {
       tags: ['api', 'v1', 'getInvoiceFees', 'invoiceApi'],
       validate: {
         params: joi.object({
-          invoiceUrl: joi.string().description('Invoice URL').example('http://localhost:8010/receivers/invoices/1').required(),
+          invoiceUrl: joi.string().description('Invoice URL').example('http://localhost:8010/invoices/1').required(),
           identifier: joi.string().description('Payer identifier').example('17500419').required(),
           account: joi.string().description('Payer account number').example('bob').required()
         })
