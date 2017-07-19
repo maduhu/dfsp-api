@@ -50,7 +50,7 @@ module.exports = {
             destinationAccount: invoiceResult.account,
             sourceAccount: ledgerResult.id,
             sourceIdentifier: invoiceNotificationResult.identifier,
-            transferType: INVOICE_TRANSFER_CODE
+            transferType: INVOICE_TRANSFER_CODE + '_' + invoiceResult.invoiceId
           })
           .then((rule) => {
             return this.bus.importMethod('directory.user.get')({

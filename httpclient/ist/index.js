@@ -1,6 +1,5 @@
 var errors = require('./errors')
 var uuid = require('uuid/v4')
-var prefix
 module.exports = {
   id: 'ist',
   createPort: require('ut-port-http'),
@@ -15,9 +14,6 @@ module.exports = {
   requestTimeout: 300000,
   logLevel: 'debug',
   method: 'post',
-  start: function () {
-    prefix = this.bus.config.prefix || this.bus.config.cluster.split('-')[0].slice(-1)
-  },
   'ist.directory.user.get.request.send': function (msg) {
     return {
       uri: '/resources',
@@ -51,7 +47,7 @@ module.exports = {
         'Authorization': 'Basic ' + new Buffer(this.config.key + ':' + this.config.secret).toString('base64')
       },
       payload: {
-        identifier: (msg.identifierType || 'eur') + ':' + (msg.identifier || (prefix + Date.now().slice(-7))),
+        identifier: (msg.identifierType || 'eur') + ':' + msg.identifier,
         preferred: true
       }
     }

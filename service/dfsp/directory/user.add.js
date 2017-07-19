@@ -13,9 +13,15 @@ var createUser = function (thisArg, msg, $meta) {
         })
     })
 }
-
+var prefix
 module.exports = {
   'user.add': function (msg, $meta) {
+    if (!msg.identifier) {
+      if (!prefix) {
+        prefix = this.bus.config.prefix || this.bus.config.cluster.split('-')[0].slice(-1)
+      }
+      msg.identifier = prefix + ('' + Date.now()).slice(-7)
+    }
     return this.bus.importMethod('ist.directory.user.add')(msg)
       .then((res) => {
         var user = {

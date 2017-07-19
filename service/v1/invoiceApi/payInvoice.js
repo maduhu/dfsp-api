@@ -47,7 +47,7 @@ module.exports = {
           destinationAccount: invoice.account,
           sourceAccount: ledgerAccount.id,
           sourceIdentifier: msg.identifier,
-          transferType: 'invoice'
+          transferType: 'invoice_' + invoice.invoiceId
         })
         .then(rule => {
           return this.bus.importMethod('directory.user.get')({

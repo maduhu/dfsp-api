@@ -36,20 +36,33 @@ module.exports = {
       paymentId: msg.paymentId,
       isDebit: false
     })
-    .then((res) => {
-      return this.bus.importMethod('notification.notification.add')({
-        channel: 'sms',
-        operation: res.transferType,
-        target: 'destination',
-        identifier: res.identifier,
-        params: {
-          amount: res.amount,
-          currency: res.currencyId
-        }
-      })
-      .then(() => {
+    .catch(() => false)
+    .then((quote) => {
+      if (!quote) {
         return {}
+      }
+      let promise = Promise.resolve()
+      if ((quote.transferType === 'invoice' || quote.transferType === 'cashOut') && quote.params && quote.params.invoiceId) {
+        promise = promise.then(() => {
+          return this.bus.importMethod('transfer.invoice.execute')({
+            invoiceId: quote.params.invoiceId,
+            identifier: quote.identifier
+          })
+        })
+      }
+      return promise.then(() => {
+        return this.bus.importMethod('notification.notification.add')({
+          channel: 'sms',
+          operation: quote.transferType,
+          target: 'destination',
+          identifier: quote.identifier,
+          params: {
+            amount: quote.amount,
+            currency: quote.currencyId
+          }
+        })
       })
+      .then(() => {})
     })
   }
 }

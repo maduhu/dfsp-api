@@ -46,17 +46,19 @@ module.exports = {
     method: 'post'
   },
   'quote.add': function (msg, $meta) {
+    var transferTypeTokens = msg.transferType.split('_')
+    var transferType = transferTypeTokens[0]
     return this.bus.importMethod('ledger.transferType.fetch')({})
       .then((transferTypes) => {
         return this.bus.importMethod('dfsp/rule.decision.fetch')({
           currency: msg.amount.currency,
           amount: msg.amount.amount,
-          operationId: transferTypes.find((el) => el.transferCode === msg.transferType).transferTypeId
+          operationId: transferTypes.find((el) => el.transferCode === transferType).transferTypeId
         })
       })
       .then((rule) => {
         let fee = 0 // rule.fee.amount
-        let commission = (msg.transferType === 'cashOut') ? rule.commission.amount : 0 // debit receives commission only in case of cashOut
+        let commission = (transferType === 'cashOut') ? rule.commission.amount : 0 // debit receives commission only in case of cashOut
         if (msg.amountType === 'SEND') {
           msg.amount.amount = Number(msg.amount.amount) - fee
         }
@@ -68,8 +70,11 @@ module.exports = {
           currency: msg.amount.currency,
           fee: fee,
           commission: commission,
-          transferType: msg.transferType,
+          transferType: transferType,
           amount: msg.amount.amount,
+          params: {
+            invoiceId: transferTypeTokens[1]
+          },
           isDebit: false
         }, $meta)
         .then((quote) => {

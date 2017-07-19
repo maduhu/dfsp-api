@@ -47,7 +47,7 @@ module.exports = {
           destinationAccount: msg.invoiceUrl,
           sourceAccount: ledgerAccount.id,
           sourceIdentifier: msg.identifier,
-          transferType: 'invoice'
+          transferType: 'invoice_' + invoice.invoiceId
         })
       })
     })

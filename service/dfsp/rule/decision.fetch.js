@@ -82,6 +82,7 @@ module.exports = {
     // transferType: 'p2p'
     // -------------------------------------------------
     // format message
+    var transferType = params.transferType
     var msg = {
       paymentId: uuid(),
       payer: {
@@ -94,7 +95,7 @@ module.exports = {
         identifier: params.destinationIdentifier,
         identifierType: params.destinationIdentifierType || 'eur'
       },
-      transferType: params.transferType,
+      transferType: params.transferType.split('_')[0],
       amountType: params.amountType || 'RECEIVE',
       amount: {
         amount: params.amount,
@@ -139,12 +140,12 @@ module.exports = {
             isDebit: true
           })
           .then((localQuote) => {
-            return this.bus.importMethod('spsp.transfer.quote.add')(msg)
+            return this.bus.importMethod('spsp.transfer.quote.add')(Object.assign({}, msg, {transferType}))
               .then((remoteQuote) => localQuote)
           })
         })
     } else if (msg.amountType === 'RECEIVE') {
-      return this.bus.importMethod('spsp.transfer.quote.add')(msg)
+      return this.bus.importMethod('spsp.transfer.quote.add')(Object.assign({}, msg, {transferType}))
         .then((remoteQuote) => {
           // result
           //  {
