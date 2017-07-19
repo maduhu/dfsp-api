@@ -28,6 +28,9 @@ module.exports = {
     }
   },
   'ist.directory.user.get.response.receive': function (msg) {
+    if (!msg.payload.directory_details || !msg.payload.directory_details.find((el) => el.registered)) {
+      throw errors.userNotFound({})
+    }
     if (!msg.payload.dfsp_details.account || msg.payload.dfsp_details.account.endsWith('/noaccount')) {
       throw errors.noAccount(msg)
     }
