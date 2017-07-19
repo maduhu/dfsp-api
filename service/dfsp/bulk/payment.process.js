@@ -55,7 +55,7 @@ module.exports = {
       .then((rule) => {
         return dispatch('transfer.push.execute', {
           paymentId: rule.paymentId,
-          sourceIdentifier: payer.dfsp_details.identifiers[0].identifier,
+          sourceIdentifier: payer.identifiers[0].identifier,
           sourceAccount: payment.account,
           receiver: payee.directory_details.find((el) => el.preferred).providerUrl + '/receivers/' + payment.identifier,
           destinationAmount: payment.amount,
