@@ -43,38 +43,44 @@ module.exports = {
           invoiceNotificationId: msg.invoiceNotificationId
         })
         .then((invoiceResult) => {
-          return this.bus.importMethod('rule.decision.fetch')({
-            currency: invoiceResult.currencyCode,
-            amount: invoiceResult.amount,
-            destinationIdentifier: invoiceResult.merchantIdentifier,
-            destinationAccount: invoiceResult.account,
-            sourceAccount: ledgerResult.id,
-            sourceIdentifier: invoiceNotificationResult.identifier,
-            transferType: INVOICE_TRANSFER_CODE + '_' + invoiceResult.invoiceId
+          return this.bus.importMethod('ist.directory.user.get')({
+            identifier: invoiceResult.merchantIdentifier
           })
-          .then((rule) => {
-            return this.bus.importMethod('directory.user.get')({
-              identifier: invoiceNotificationResult.identifier
+          .then((payee) => {
+            return this.bus.importMethod('rule.decision.fetch')({
+              currency: invoiceResult.currencyCode,
+              amount: invoiceResult.amount,
+              destinationIdentifier: invoiceResult.merchantIdentifier,
+              destinationAccount: invoiceResult.account,
+              spspServer: payee.directory_details.find((el) => el.preferred).providerUrl,
+              sourceAccount: ledgerResult.id,
+              sourceIdentifier: invoiceNotificationResult.identifier,
+              transferType: INVOICE_TRANSFER_CODE + '_' + invoiceResult.invoiceId
             })
-            .then((directoryResult) => {
-              return this.bus.importMethod('transfer.push.execute')({
-                paymentId: invoiceResult.paymentId,
-                sourceIdentifier: invoiceNotificationResult.identifier,
-                sourceAccount: ledgerResult.id,
-                receiver: invoiceNotificationResult.invoiceUrl,
-                destinationAmount: '' + invoiceResult.amount,
-                currency: invoiceResult.currencyCode,
-                fee: invoiceResult.fee,
-                transferType: INVOICE_TRANSFER_CODE,
-                ipr: rule.ipr,
-                sourceExpiryDuration: rule.sourceExpiryDuration,
-                connectorAccount: rule.connectorAccount,
-                memo: {
+            .then((rule) => {
+              return this.bus.importMethod('directory.user.get')({
+                identifier: invoiceNotificationResult.identifier
+              })
+              .then((directoryResult) => {
+                return this.bus.importMethod('transfer.push.execute')({
+                  paymentId: invoiceResult.paymentId,
+                  sourceIdentifier: invoiceNotificationResult.identifier,
+                  sourceAccount: ledgerResult.id,
+                  receiver: invoiceNotificationResult.invoiceUrl,
+                  destinationAmount: '' + invoiceResult.amount,
+                  currency: invoiceResult.currencyCode,
                   fee: invoiceResult.fee,
-                  transferCode: INVOICE_TRANSFER_CODE,
-                  debitName: directoryResult.name,
-                  creditName: invoiceResult.name
-                }
+                  transferType: INVOICE_TRANSFER_CODE,
+                  ipr: rule.ipr,
+                  sourceExpiryDuration: rule.sourceExpiryDuration,
+                  connectorAccount: rule.connectorAccount,
+                  memo: {
+                    fee: invoiceResult.fee,
+                    transferCode: INVOICE_TRANSFER_CODE,
+                    debitName: directoryResult.name,
+                    creditName: invoiceResult.name
+                  }
+                })
               })
             })
           })

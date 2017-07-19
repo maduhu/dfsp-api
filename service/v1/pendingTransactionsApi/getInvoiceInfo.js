@@ -50,7 +50,7 @@ module.exports = {
       invoiceDetails.lastName = invoice.lastName
       invoiceDetails.amount = invoiceAmount
       invoiceDetails.invoiceId = invoice.invoiceId
-      return this.bus.importMethod('rule.decision.fetch')({
+      return this.bus.importMethod('dfsp/rule.decision.fetch')({
         currency: invoice.currencyCode,
         amount: invoiceAmount
       })

@@ -40,39 +40,45 @@ module.exports = {
         accountNumber: msg.account
       })
       .then((ledgerAccount) => {
-        return this.bus.importMethod('rule.decision.fetch')({
-          currency: invoice.currencyCode,
-          amount: invoice.amount,
-          destinationIdentifier: invoice.merchantIdentifier,
-          destinationAccount: invoice.account,
-          sourceAccount: ledgerAccount.id,
-          sourceIdentifier: msg.identifier,
-          transferType: 'invoice_' + invoice.invoiceId
+        return this.bus.importMethod('ist.directory.user.get')({
+          identifier: invoice.merchantIdentifier
         })
-        .then(rule => {
-          return this.bus.importMethod('directory.user.get')({
-            identifier: msg.identifier
+        .then((payee) => {
+          return this.bus.importMethod('rule.decision.fetch')({
+            currency: invoice.currencyCode,
+            amount: invoice.amount,
+            destinationIdentifier: invoice.merchantIdentifier,
+            destinationAccount: invoice.account,
+            spspServer: payee.directory_details.find((el) => el.preferred).providerUrl,
+            sourceAccount: ledgerAccount.id,
+            sourceIdentifier: msg.identifier,
+            transferType: 'invoice_' + invoice.invoiceId
           })
-          .then((payer) => {
-            let fee = rule.fee || 0
-            return this.bus.importMethod('transfer.push.execute')({
-              paymentId: rule.paymentId,
-              sourceIdentifier: msg.identifier,
-              sourceAccount: ledgerAccount.id,
-              receiver: msg.invoiceUrl,
-              destinationAmount: invoice.amount,
-              currency: invoice.currencyCode,
-              fee: fee,
-              transferType: 'invoice',
-              ipr: rule.ipr,
-              sourceExpiryDuration: rule.sourceExpiryDuration,
-              connectorAccount: rule.connectorAccount,
-              memo: {
+          .then(rule => {
+            return this.bus.importMethod('directory.user.get')({
+              identifier: msg.identifier
+            })
+            .then((payer) => {
+              let fee = rule.fee || 0
+              return this.bus.importMethod('transfer.push.execute')({
+                paymentId: rule.paymentId,
+                sourceIdentifier: msg.identifier,
+                sourceAccount: ledgerAccount.id,
+                receiver: msg.invoiceUrl,
+                destinationAmount: invoice.amount,
+                currency: invoice.currencyCode,
                 fee: fee,
-                transferCode: 'invoice',
-                debitName: payer.firstName + ' ' + payer.lastName,
-                creditName: invoice.name
-              }
+                transferType: 'invoice',
+                ipr: rule.ipr,
+                sourceExpiryDuration: rule.sourceExpiryDuration,
+                connectorAccount: rule.connectorAccount,
+                memo: {
+                  fee: fee,
+                  transferCode: 'invoice',
+                  debitName: payer.firstName + ' ' + payer.lastName,
+                  creditName: invoice.name
+                }
+              })
             })
           })
         })

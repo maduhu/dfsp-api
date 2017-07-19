@@ -48,6 +48,7 @@ module.exports = {
         amount: payment.amount,
         destinationIdentifier: payment.identifier,
         destinationAccount: payee.directory_details.find((el) => el.preferred).providerUrl + '/receivers/' + payment.identifier,
+        spspServer: payee.directory_details.find((el) => el.preferred).providerUrl,
         sourceAccount: payment.account,
         sourceIdentifier: payer.identifiers[0].identifier,
         transferType: 'bulkPayment'

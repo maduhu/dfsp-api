@@ -40,14 +40,20 @@ module.exports = {
         accountNumber: msg.account
       })
       .then((ledgerAccount) => {
-        return this.bus.importMethod('rule.decision.fetch')({
-          currency: invoice.currencyCode,
-          amount: Number(invoice.amount),
-          destinationIdentifier: invoice.merchantIdentifier,
-          destinationAccount: msg.invoiceUrl,
-          sourceAccount: ledgerAccount.id,
-          sourceIdentifier: msg.identifier,
-          transferType: 'invoice_' + invoice.invoiceId
+        return this.bus.importMethod('ist.directory.user.get')({
+          identifier: invoice.merchantIdentifier
+        })
+        .then((payee) => {
+          return this.bus.importMethod('rule.decision.fetch')({
+            currency: invoice.currencyCode,
+            amount: Number(invoice.amount),
+            destinationIdentifier: invoice.merchantIdentifier,
+            destinationAccount: msg.invoiceUrl,
+            spspServer: payee.directory_details.find((el) => el.preferred).providerUrl,
+            sourceAccount: ledgerAccount.id,
+            sourceIdentifier: msg.identifier,
+            transferType: 'invoice_' + invoice.invoiceId
+          })
         })
       })
     })
