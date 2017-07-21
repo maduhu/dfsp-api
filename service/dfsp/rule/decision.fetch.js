@@ -34,8 +34,10 @@ function ruleDecisionFetch (msg, $meta) {
     .then((rule) => {
       return this.bus.importMethod('ledger.transfer.fetch')({
         transferType: msg.transferType,
-        debitIdentifier: msg.payer.identifier,
-        currency: msg.amount.currency
+        identifier: msg.payer.identifier,
+        identifierType: msg.payer.identifierType,
+        currency: msg.amount.currency,
+        isDebit: true
       })
       .then((transfers) => {
         // decisions, decisions...
