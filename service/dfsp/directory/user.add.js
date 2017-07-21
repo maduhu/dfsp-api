@@ -1,4 +1,3 @@
-var errors = require('../../../httpclient/ist/errors')
 var createUser = function (thisArg, msg, $meta) {
   return thisArg.config.exec.call(thisArg, msg, $meta)
     .then((result) => {
