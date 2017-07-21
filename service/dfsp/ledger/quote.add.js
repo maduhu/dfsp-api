@@ -80,7 +80,7 @@ module.exports = {
         .then((quote) => {
           return {
             paymentId: msg.paymentId,
-            expiresAt: quote.expiresAt,
+            expiresAt: quote.expiresAt, // (new Date(Date.now() + (this.bus.config.quoteExpiration || 10) * 60000)).toISOString()
             payeeFee: {
               amount: fee,
               currency: msg.amount.currency

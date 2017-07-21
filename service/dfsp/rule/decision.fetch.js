@@ -164,7 +164,9 @@ module.exports = {
           //       "amount": "1",
           //       "currency": "USD"
           //     },
-          //     "ipr": "c29tZSBpcHIgaGVyZQ=="
+          //     "connectorAccount": "http://host:port/scheme/adapter/v1/ilp/ledger/v1/accounts/dfsp1-testconnector",
+          //     "ipr": "c29tZSBpcHIgaGVyZQ==",
+          //     "sourceExpiryDuration": "10"
           // }
           return ruleDecisionFetch.call(this, msg, $meta)
           .then((rule) => {
@@ -181,6 +183,7 @@ module.exports = {
               transferType: msg.transferType,
               ipr: remoteQuote.ipr,
               sourceExpiryDuration: remoteQuote.sourceExpiryDuration,
+              connectorAccount: remoteQuote.connectorAccount,
               isDebit: true
             })
           })
