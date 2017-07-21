@@ -35,7 +35,7 @@ module.exports = {
     })
     .catch(() => false)
     .then((quote) => {
-      if (!quote) {
+      if (!quote || !quote.identifier) {
         return {}
       }
       let promise = Promise.resolve()
