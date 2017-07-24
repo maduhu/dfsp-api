@@ -78,7 +78,7 @@ module.exports = {
       // sourceAmount: (Number(msg.destinationAmount) + Number(msg.fee || 0)).toFixed(2)
       paymentId: msg.paymentId,
       sourceAccount: msg.sourceAccount,
-      sourceAmount: (Number(msg.destinationAmount) + Number(msg.fee || 0)).toFixed(2),
+      sourceAmount: (Number(msg.destinationAmount)).toFixed(2),
       ipr: msg.ipr,
       sourceExpiryDuration: msg.sourceExpiryDuration,
       connectorAccount: msg.connectorAccount
