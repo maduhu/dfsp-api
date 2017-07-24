@@ -32,23 +32,21 @@ module.exports = {
     cacheCollection = this.bus.importMethod('cache.collection')('dfsp')
   },
   exec: function (msg, $meta) {
-    var method = $meta.method
-    $meta.method = 'dfsp/' + $meta.method
-    if (~this.config.cacheableMethods.indexOf(method)) {
+    if (~this.config.cacheableMethods.indexOf($meta.method)) {
       return cacheCollection.then((cache) => {
-        return cache.get(method)
+        return cache.get($meta.method)
         .then((res) => {
           if (!res) {
-            return bus.importMethod($meta.method)(msg)
+            return bus.importMethod('dfsp/' + $meta.method)(msg)
               .then((r) => {
-                return cache.set(method, r)
+                return cache.set($meta.method, r)
               })
           }
           return res
         })
       })
     }
-    return bus.importMethod($meta.method)(msg)
+    return bus.importMethod('dfsp/' + $meta.method)(msg)
   },
   'bulk.payment.getForProcessing': function (msg, $meta) {
     if (tranCount === 0) {
