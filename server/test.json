@@ -29,6 +29,9 @@
       "requireSession": true
     }
   },
+  "fraudThreshold": {
+    "userScore": 99
+  },
   "ist": {
     "url": "http://localhost:8021"
   },
