@@ -34,7 +34,7 @@ module.exports = {
     if (!msg.payload.dfsp_details.account || msg.payload.dfsp_details.account.endsWith('/noaccount')) {
       throw errors.noAccount(msg)
     }
-    if (msg.payload.fraud_details.score > this.bus.config.fraudThreshold.userScore) {
+    if (msg.payload.fraud_details.score > (this.bus.config.fraudThreshold.userScore || 100)) {
       throw errors.userIsAboveFraudThreshold(msg)
     }
     return msg.payload
