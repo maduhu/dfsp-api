@@ -45,7 +45,7 @@ module.exports = {
     .then((payer) => {
       return dispatch('rule.decision.fetch', {
         currency: payee.dfsp_details.currencyCode,
-        amount: payment.amount,
+        amount: Number(payment.amount),
         destinationIdentifier: payment.identifier,
         destinationAccount: payee.dfsp_details.account,
         spspServer: payee.directory_details.find((el) => el.preferred).providerUrl,
