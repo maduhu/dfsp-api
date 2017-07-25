@@ -47,7 +47,7 @@ module.exports = {
         currency: payee.dfsp_details.currencyCode,
         amount: payment.amount,
         destinationIdentifier: payment.identifier,
-        destinationAccount: payee.directory_details.account,
+        destinationAccount: payee.dfsp_details.account,
         spspServer: payee.directory_details.find((el) => el.preferred).providerUrl,
         sourceAccount: payment.account,
         sourceIdentifier: payer.identifiers[0].identifier,
