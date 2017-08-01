@@ -51,7 +51,7 @@ module.exports = {
       },
       payload: {
         identifier: (msg.identifierType || 'eur') + ':' + msg.identifier,
-        preferred: true
+        primary: true
       }
     }
   },

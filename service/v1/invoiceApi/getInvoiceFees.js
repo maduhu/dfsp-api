@@ -49,7 +49,7 @@ module.exports = {
             amount: Number(invoice.amount),
             destinationIdentifier: invoice.merchantIdentifier,
             destinationAccount: msg.invoiceUrl,
-            spspServer: payee.directory_details.find((el) => el.preferred).providerUrl,
+            spspServer: payee.directory_details.find((el) => el.primary).providerUrl,
             sourceAccount: ledgerAccount.id,
             sourceIdentifier: msg.identifier,
             transferType: 'invoice_' + invoice.invoiceId

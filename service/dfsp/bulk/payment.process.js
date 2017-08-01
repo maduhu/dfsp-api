@@ -48,7 +48,7 @@ module.exports = {
         amount: '' + Number(payment.amount),
         destinationIdentifier: payment.identifier,
         destinationAccount: payee.dfsp_details.account,
-        spspServer: payee.directory_details.find((el) => el.preferred).providerUrl,
+        spspServer: payee.directory_details.find((el) => el.primary).providerUrl,
         sourceAccount: payment.account,
         sourceIdentifier: payer.identifiers[0].identifier,
         transferType: 'bulkPayment'
@@ -58,7 +58,7 @@ module.exports = {
           paymentId: rule.paymentId,
           sourceIdentifier: payer.identifiers[0].identifier,
           sourceAccount: payment.account,
-          receiver: payee.directory_details.find((el) => el.preferred).providerUrl + '/receivers/' + payment.identifier,
+          receiver: payee.directory_details.find((el) => el.primary).providerUrl + '/receivers/' + payment.identifier,
           destinationAmount: payment.amount,
           currency: payee.dfsp_details.currencyCode,
           fee: rule.fee || 0,
