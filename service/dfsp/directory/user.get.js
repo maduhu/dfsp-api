@@ -6,7 +6,7 @@ module.exports = {
       directoryQuery = {
         actorId: msg.actorId
       }
-    } else if (msg.identifier && msg.identifier[0] === '0') {
+    } else if (msg.identifier && msg.identifier.length !== 8) {
       promise = promise.then(() => {
         return this.bus.importMethod('subscription.subscription.fetch')({
           phoneNumber: msg.identifier,

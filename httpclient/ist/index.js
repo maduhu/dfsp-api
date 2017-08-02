@@ -23,7 +23,7 @@ module.exports = {
         'Authorization': 'Basic ' + new Buffer(this.config.key + ':' + this.config.secret).toString('base64')
       },
       qs: {
-        identifier: (msg.identifier[0] === '0' ? 'tel:' : 'eur:') + msg.identifier
+        identifier: (msg.identifier.length !== 8 ? 'tel:' : 'eur:') + msg.identifier
       }
     }
   },
@@ -50,7 +50,7 @@ module.exports = {
         'Authorization': 'Basic ' + new Buffer(this.config.key + ':' + this.config.secret).toString('base64')
       },
       payload: {
-        identifier: (msg.identifier[0] === '0' ? 'tel:' : 'eur:') + msg.identifier,
+        identifier: (msg.identifier.length !== 8 ? 'tel:' : 'eur:') + msg.identifier,
         primary: true
       }
     }
