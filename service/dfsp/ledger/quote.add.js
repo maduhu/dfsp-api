@@ -45,7 +45,7 @@ module.exports = {
     },
     method: 'post'
   },
-  'quote.add': function (msg, $meta) {
+  'quote.add': function (msg, $meta) { // payee side
     var transferTypeTokens = msg.transferType.split('_')
     var transferType = transferTypeTokens[0]
     return this.bus.importMethod('ledger.transferType.fetch')({})
@@ -59,38 +59,39 @@ module.exports = {
       .then((rule) => {
         let fee = 0 // rule.fee.amount
         let commission = (transferType === 'cashOut') ? rule.commission.amount : 0 // debit receives commission only in case of cashOut
+        let expiresAt = (new Date(Date.now() + (this.bus.config.quoteExpiration || 10) * 60000)).toISOString()
         if (msg.amountType === 'SEND') {
           msg.amount.amount = Number(msg.amount.amount) - fee
         }
-        return this.config.exec.call(this, {
+        return {
           paymentId: msg.paymentId,
-          identifier: msg.payee.identifier,
-          identifierType: msg.payee.identifierType,
-          destinationAccount: msg.payee.account,
-          currency: msg.amount.currency,
-          fee: fee,
-          commission: commission,
-          transferType: transferType,
-          amount: msg.amount.amount,
-          params: {
-            invoiceId: transferTypeTokens[1]
+          expiresAt: expiresAt,
+          payeeFee: {
+            amount: fee,
+            currency: msg.amount.currency
           },
-          isDebit: false
-        }, $meta)
-        .then((quote) => {
-          return {
+          payeeCommission: {
+            amount: commission,
+            currency: msg.amount.currency
+          },
+          data: {
             paymentId: msg.paymentId,
-            expiresAt: quote.expiresAt, // (new Date(Date.now() + (this.bus.config.quoteExpiration || 10) * 60000)).toISOString()
-            payeeFee: {
-              amount: fee,
-              currency: msg.amount.currency
+            identifier: msg.payee.identifier,
+            identifierType: msg.payee.identifierType,
+            destinationAccount: msg.payee.account,
+            currency: msg.amount.currency,
+            fee: fee,
+            commission: commission,
+            transferType: transferType,
+            amount: msg.amount.amount,
+            params: {
+              peer: msg.payer,
+              invoiceId: transferTypeTokens[1]
             },
-            payeeCommission: {
-              amount: 0,
-              currency: msg.amount.currency
-            }
+            isDebit: false,
+            expiresAt: expiresAt
           }
-        })
+        }
       })
   }
 }

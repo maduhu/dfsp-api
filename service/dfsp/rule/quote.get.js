@@ -40,7 +40,7 @@ module.exports = {
         amount: params.amount,
         destinationIdentifier: params.destinationIdentifier,
         destinationAccount: result.dfsp_details.account,
-        spspServer: result.directory_details.find((el) => el.preferred).providerUrl,
+        spspServer: result.directory_details.find((el) => el.primary).providerUrl,
         sourceAccount: params.sourceAccount,
         sourceIdentifier: params.sourceIdentifier,
         transferType: 'p2p'

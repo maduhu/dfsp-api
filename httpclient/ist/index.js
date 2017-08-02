@@ -51,7 +51,7 @@ module.exports = {
       },
       payload: {
         identifier: (msg.identifier[0] === '0' ? 'tel:' : 'eur:') + msg.identifier,
-        preferred: true
+        primary: true
       }
     }
   },

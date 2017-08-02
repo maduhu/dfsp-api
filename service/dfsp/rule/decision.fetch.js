@@ -139,6 +139,9 @@ module.exports = {
             amount: msg.amount.amount,
             commission: (msg.transferType === 'cashIn') ? rule.commission.amount : 0,
             transferType: msg.transferType,
+            params: {
+              peer: msg.payee
+            },
             isDebit: true
           })
           .then((localQuote) => {
@@ -184,6 +187,9 @@ module.exports = {
               ipr: remoteQuote.ipr,
               sourceExpiryDuration: remoteQuote.sourceExpiryDuration,
               connectorAccount: remoteQuote.connectorAccount,
+              params: {
+                peer: msg.payee
+              },
               isDebit: true
             })
           })

@@ -52,7 +52,7 @@ module.exports = {
               amount: invoiceResult.amount,
               destinationIdentifier: invoiceResult.merchantIdentifier,
               destinationAccount: invoiceResult.account,
-              spspServer: payee.directory_details.find((el) => el.preferred).providerUrl,
+              spspServer: payee.directory_details.find((el) => el.primary).providerUrl,
               sourceAccount: ledgerResult.id,
               sourceIdentifier: invoiceNotificationResult.identifier,
               transferType: INVOICE_TRANSFER_CODE + '_' + invoiceResult.invoiceId

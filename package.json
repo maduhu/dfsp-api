@@ -1,6 +1,6 @@
 {
   "name": "@leveloneproject/dfsp-api",
-  "version": "1.0.0-quotes.49",
+  "version": "1.0.0-quotes.51",
   "description": "DFSP Api",
   "main": "index.js",
   "scripts": {
@@ -61,7 +61,7 @@
     "@leveloneproject/dfsp-identity": "0.x",
     "@leveloneproject/dfsp-account": "0.x",
     "@leveloneproject/dfsp-subscription": "0.x",
-    "@leveloneproject/dfsp-mock": ">=1.0.0-quotes.11 <1.0.0"
+    "@leveloneproject/dfsp-mock": ">=1.0.0-quotes.14 <1.0.0"
   },
   "repository": {
     "type": "git",

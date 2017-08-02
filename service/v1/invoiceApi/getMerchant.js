@@ -45,7 +45,7 @@ module.exports = {
         lastName: res.dfsp_details.lastName,
         currencyCode: res.dfsp_details.currencyCode,
         currencySymbol: res.dfsp_details.currencySymbol,
-        spspServer: res.directory_details.find((el) => el.preferred).providerUrl
+        spspServer: res.directory_details.find((el) => el.primary).providerUrl
       }
     })
   }

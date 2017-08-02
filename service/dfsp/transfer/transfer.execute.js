@@ -34,11 +34,16 @@ module.exports = {
       return this.bus.importMethod('ist.directory.user.get')({
         identifier: res.identifier
       })
+      .then((res) => {
+        return this.bus.importMethod('ledger.account.get')({
+          accountNumber: res.dfsp_details.account.split('/').pop()
+        })
+      })
       .then((result) => {
         return this.bus.importMethod('transfer.push.execute')({
           paymentId: msg.paymentId,
           sourceIdentifier: res.identifier,
-          sourceAccount: result.dfsp_details.account,
+          sourceAccount: result.id,
           receiver: res.receiver,
           destinationAmount: res.amount,
           currency: res.currencyId,

@@ -52,7 +52,7 @@ module.exports = {
           return Promise.all(payers.map((payer) => {
             return this.bus.importMethod('spsp.transfer.invoiceNotification.cancel')({
               invoiceId: '' + msg.invoiceId,
-              submissionUrl: payer.directory_details.find((el) => el.preferred).providerUrl + '/invoices',
+              submissionUrl: payer.directory_details.find((el) => el.primary).providerUrl + '/invoices',
               senderIdentifier: msg.identifier
             })
           }))
