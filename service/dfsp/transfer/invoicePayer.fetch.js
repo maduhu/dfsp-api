@@ -29,7 +29,7 @@ module.exports = {
                 nationalId: joi.string().example('123312123'),
                 dob: joi.string().example('1999/11/11'),
                 account: joi.string().example('account'),
-                currencyCode: joi.string().example('USD'),
+                currencyCode: joi.string().example('TZS'),
                 currencySymbol: joi.string().example('$'),
                 imageUrl: joi.string().example('https://red.ilpdemo.org/api/receivers/bob_dylan/profile_pic.jpg'),
                 spspServer: joi.string().example('http://localhost:3043/v1')
