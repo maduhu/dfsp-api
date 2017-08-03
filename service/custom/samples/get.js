@@ -14,7 +14,7 @@ module.exports = {
       .then((data) => {
         return Promise.all(data.map((sample) => {
           return this.bus.importMethod('payee.get')({
-            payee: sample.identifier
+            payee: sample.phoneNumber
           })
           .then((res) => {
             return Object.assign(res, sample)

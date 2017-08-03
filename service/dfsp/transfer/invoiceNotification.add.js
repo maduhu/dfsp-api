@@ -60,7 +60,7 @@ module.exports = {
           channel: 'sms',
           operation: $meta.method === 'transfer.invoiceNotification.cancel' === 'cancelled' ? 'invoiceCancel' : result.type,
           target: 'destination',
-          identifier: $meta.method === 'transfer.invoiceNotification.cancel' === 'cancelled' ? msg.senderIdentifier : res.identifier,
+          identifier: result.merchantIdentifier,
           params: {
             amount: result.amount,
             currency: result.currencyCode

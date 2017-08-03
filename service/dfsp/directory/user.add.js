@@ -1,17 +1,22 @@
 var createUser = function (thisArg, msg, $meta) {
-  return thisArg.config.exec.call(thisArg, msg, $meta)
-    .then((result) => {
-      return thisArg.bus.importMethod('forensic.log')({
-        message: 'User created',
-        payload: {
-          identifier: msg.identifier,
-          identifierTypeCode: msg.identifierTypeCode
-        }
+  return thisArg.bus.importMethod('ist.directory.user.add')({
+    identifier: msg.identifier
+  })
+  .then((res) => {
+    return thisArg.config.exec.call(thisArg, msg, $meta)
+      .then((result) => {
+        return thisArg.bus.importMethod('forensic.log')({
+          message: 'User created',
+          payload: {
+            identifier: msg.identifier,
+            identifierTypeCode: msg.identifierTypeCode
+          }
+        })
+        .then(() => {
+          return result
+        })
       })
-      .then(() => {
-        return result
-      })
-    })
+  })
 }
 var prefix
 module.exports = {
@@ -20,10 +25,11 @@ module.exports = {
       if (!prefix) {
         prefix = this.bus.config.prefix || this.bus.config.cluster.split('-')[0].slice(-1)
       }
-      msg.identifier = prefix + ('' + Date.now()).slice(-7)
+      msg.identifier = prefix + ('' + process.hrtime()[1]).slice(-7)
     }
+    msg.identifierTypeCode = msg.identifierTypeCode || (msg.phoneNumber[0] === '0' ? 'tel' : 'eur')
     return this.bus.importMethod('ist.directory.user.get')({
-      identifier: msg.identifier
+      identifier: msg.phoneNumber
     })
     .then((res) => {
       return this.bus.importMethod('directory.user.get')({
@@ -34,14 +40,16 @@ module.exports = {
     .catch((e) => {
       var user = {
         identifier: '' + msg.identifier,
-        identifierTypeCode: msg.identifierTypeCode || 'eur',
+        identifierTypeCode: msg.identifierTypeCode,
         firstName: msg.firstName,
         lastName: msg.lastName,
         dob: msg.dob,
         nationalId: msg.nationalId
       }
-      if (e.type === 'dfsp.ist.UserNotFound') {
-        return this.bus.importMethod('ist.directory.user.add')(msg)
+      if (e.type.endsWith('UserNotFound')) {
+        return this.bus.importMethod('ist.directory.user.add')({
+          identifier: msg.phoneNumber
+        })
         .then((res) => {
           return this.bus.importMethod('forensic.log')({
             message: 'User added in the central directory',
