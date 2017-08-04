@@ -12,11 +12,11 @@
 //   amountType: joi.string().required().valid(['SEND', 'RECEIVE']).example('SEND'),
 //   amount: joi.object().keys({
 //     amount: joi.string().required().example('10'),
-//     currency: joi.string().required().example('USD')
+//     currency: joi.string().required().example('TZS')
 //   }).required(),
 //   fees: joi.object().keys({
 //     amount: joi.string().required().example('0.25'),
-//     currency: joi.string().required().example('USD')
+//     currency: joi.string().required().example('TZS')
 //   }).required()
 // }).unknown().required()
 var error = require('./errors')
@@ -101,7 +101,7 @@ module.exports = {
       amountType: params.amountType || 'RECEIVE',
       amount: {
         amount: params.amount,
-        currency: params.currency || 'USD'
+        currency: params.currency || 'TZS'
       }
     }
     // joi.object().keys({
@@ -117,7 +117,7 @@ module.exports = {
     //     amountType: joi.string().required().valid(['SEND', 'RECEIVE']).example('SEND'),
     //     amount: joi.object().keys({
     //       amount: joi.string().required().example('10'),
-    //       currency: joi.string().required().example('USD')
+    //       currency: joi.string().required().example('TZS')
     //     }).required(),
     //   }).unknown()
     // }
@@ -157,15 +157,15 @@ module.exports = {
           //     "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
           //     "receiveAmount": {
           //       "amount": "9.25",
-          //       "currency": "USD"
+          //       "currency": "TZS"
           //     },
           //     "payeeFee": {
           //       "amount": "1",
-          //       "currency": "USD"
+          //       "currency": "TZS"
           //     },
           //     "payeeCommission": {
           //       "amount": "1",
-          //       "currency": "USD"
+          //       "currency": "TZS"
           //     },
           //     "connectorAccount": "http://host:port/scheme/adapter/v1/ilp/ledger/v1/accounts/dfsp1-testconnector",
           //     "ipr": "c29tZSBpcHIgaGVyZQ==",

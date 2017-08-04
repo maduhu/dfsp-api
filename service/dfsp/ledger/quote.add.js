@@ -24,11 +24,11 @@ module.exports = {
           amountType: joi.string().required().valid(['SEND', 'RECEIVE']).example('SEND'),
           amount: joi.object().keys({
             amount: joi.string().required().example('10'),
-            currency: joi.string().required().example('USD')
+            currency: joi.string().required().example('TZS')
           }).required(),
           fees: joi.object().keys({
             amount: joi.string().example('0.25'),
-            currency: joi.string().example('USD')
+            currency: joi.string().example('TZS')
           }).optional()
         }).unknown().required()
       },

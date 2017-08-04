@@ -11,7 +11,7 @@ module.exports = {
         payload: joi.object({
           account: joi.string().description('account').example('http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8014/ledger/accounts/merchant'),
           name: joi.string().description('name').example('merchant'),
-          currencyCode: joi.string().description('currencyCode').example('USD'),
+          currencyCode: joi.string().description('currencyCode').example('TZS'),
           currencySymbol: joi.string().description('currencySymbol').example('$'),
           amount: joi.number().description('amount').example(123),
           merchantIdentifier: joi.string().description('merchantIdentifier').example('99826154'),
@@ -48,10 +48,10 @@ module.exports = {
         // {
         // account:"http://localhost:8014/ledger/accounts/kkk"
         // amount:"32"
-        // currencyCode:"USD"
+        // currencyCode:"TZS"
         // currencySymbol:"$"
         // invoiceId:34
-        // invoiceInfo:"Invoice from kkk for 32 USD"
+        // invoiceInfo:"Invoice from kkk for 32 TZS"
         // name:"kkk"
         // status:"pending"
         // identifier:"33859321",

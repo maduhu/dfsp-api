@@ -89,7 +89,7 @@ module.exports = {
     .then((res) => { // create the account in the ledger
       if (msg.accountName) {
         return this.bus.importMethod('ledger.account.add')({
-          balance: msg.balance || 1000,
+          balance: msg.balance || 100000,
           name: msg.accountName,
           accountTypeId: msg.accountTypeId
         })

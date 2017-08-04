@@ -10,7 +10,7 @@ module.exports = {
       tags: ['api', 'spsp-server-backend'],
       validate: {
         payload: joi.object({
-          currency: joi.string().example('USD').required(),
+          currency: joi.string().example('TZS').required(),
           amount: joi.string().example('42').required(),
           destinationIdentifier: joi.string().example('alice').required(),
           sourceAccount: joi.string().example('bob').required(),
