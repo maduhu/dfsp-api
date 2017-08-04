@@ -37,6 +37,7 @@ module.exports = {
     if (msg.payload.fraud_details.score > (this.bus.config.fraudThreshold.userScore || 100)) {
       throw errors.userIsAboveFraudThreshold(msg)
     }
+    msg.payload.currentDFSP = this.bus.config.ist.key
     return msg.payload
   },
   'ist.directory.user.get.error.receive': function (err) {
@@ -60,5 +61,25 @@ module.exports = {
   },
   'ist.directory.user.add.error.receive': function (err) {
     throw errors.userCouldNotBeAdded({error: err})
+  },
+  'ist.directory.user.setPrimaryDFPS.request.send': function (msg) {
+    return {
+      uri: '/resources',
+      httpMethod: 'post',
+      headers: {
+        'L1p-Trace-Id': uuid(),
+        'Authorization': 'Basic ' + new Buffer(this.config.key + ':' + this.config.secret).toString('base64')
+      },
+      payload: {
+        identifier: 'tel:' + msg.identifier,
+        primary: true
+      }
+    }
+  },
+  'ist.directory.user.setPrimaryDFPS.response.receive': function (msg) {
+    return msg.payload
+  },
+  'ist.directory.user.setPrimaryDFPS.error.receive': function (err) {
+    throw errors.userDfspCouldNotBeChanged({error: err})
   }
 }
