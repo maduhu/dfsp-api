@@ -5,6 +5,7 @@ var UserNotFound = create('UserNotFound', Ist)
 var UserCouldNotBeAdded = create('UserNotFound', Ist)
 var NoAccount = create('noaccount', Ist)
 var UserIsAboveFraudThreshold = create('UserIsAboveFraudThreshold', Ist)
+var UserDfspCouldNotBeChanged = create('UserDfspCouldNotBeChanged', Ist)
 module.exports = {
   userNotFound: function (params) {
     return new UserNotFound({message: 'User Not Found', params: params})
@@ -17,5 +18,8 @@ module.exports = {
   },
   userIsAboveFraudThreshold: function (params) {
     return new UserIsAboveFraudThreshold({message: 'User is above fraud threshold', params: params})
+  },
+  userDfspCouldNotBeChanged: function (params) {
+    return new UserDfspCouldNotBeChanged({message: 'User\'s primary dfsp could not be changed ', params: params})
   }
 }
