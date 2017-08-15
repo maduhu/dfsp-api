@@ -125,15 +125,15 @@ module.exports = {
       return ruleDecisionFetch.call(this, msg, $meta)
         .then((rule) => {
           msg.fees = {
-            amount: rule.fee.amount,
+            amount: '' + rule.fee.amount,
             currency: msg.amount.currency
           }
-          msg.amount.amount = Number(msg.amount.amount) - Number(rule.fee.amount)
+          msg.amount.amount = '' + (Number(msg.amount.amount) - Number(rule.fee.amount))
           return this.bus.importMethod('dfsp/ledger.quote.add')({
             paymentId: msg.paymentId,
             identifier: msg.payer.identifier,
             identifierType: msg.payer.identifierType,
-            destinationAccount: msg.destinationAccount,
+            destinationAccount: msg.payee.account,
             currency: msg.amount.currency,
             fee: rule.fee.amount,
             amount: msg.amount.amount,

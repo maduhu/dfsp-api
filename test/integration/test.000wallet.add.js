@@ -28,7 +28,6 @@ test({
   steps: function (test, bus, run) {
     return run(test, bus, [
       {
-        // home screen
         name: 'Try add merchant with weak pass',
         method: 'wallet.add',
         params: (context) => {
@@ -40,7 +39,6 @@ test({
         }
       },
       {
-        // home screen
         name: 'Add merchant',
         method: 'wallet.add',
         params: (context) => {
