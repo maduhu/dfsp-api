@@ -5,6 +5,8 @@ machine:
     version: 6.1.0
   environment:
     UT_ENV: circleci
+    UT_APP: server
+    UT_METHOD: debug
 
 dependencies:
   pre:
