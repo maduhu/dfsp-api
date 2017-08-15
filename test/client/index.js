@@ -2,8 +2,31 @@ module.exports = {
   ports: [{
     id: 'jsonrpc',
     createPort: require('ut-port-jsonrpc'),
-    modules: {}
-  }]
+    logLevel: 'error',
+    uri: '/rpc',
+    url: 'http://127.0.0.1:8010',
+    method: 'post',
+    namespace: [
+       // custom
+      'wallet',
+      'payee',
+      'samples',
+      // dfsp
+      'identity',
+      'account',
+      'directory',
+      'ledger',
+      'notification',
+      'subscription',
+      'rule',
+      'transfer',
+      'bulk',
+      // v1
+      'pendingTransactionsApi',
+      'invoiceApi'
+    ]
+  }],
+  modules: {}
 }
 // module.exports = {
 //   ports: [{

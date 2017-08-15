@@ -11,13 +11,6 @@
     "workerBus": {
         "logLevel": "error"
     },
-    "jsonrpc": {
-        "logLevel": "error",
-        "uri": "/rpc",
-        "url": "http://127.0.0.1:8010",
-        "namespace": ["wallet"],
-        "method": "post"
-    },
     "performance": {
         "id": "dfsp-ussd",
         "influx": {
