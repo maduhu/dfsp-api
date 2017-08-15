@@ -5,13 +5,13 @@ module.exports = {
   client: require('../client'),
   clientConfig: require('../client/test'),
   peerImplementations: [
-    require('@leveloneproject/dfsp-directory/index_test'),
-    require('@leveloneproject/dfsp-rule/index_test'),
-    require('@leveloneproject/dfsp-transfer/index_test'),
-    require('@leveloneproject/dfsp-ledger/index_test'),
-    require('@leveloneproject/dfsp-identity/index_test'),
-    require('@leveloneproject/dfsp-account/index_test'),
-    require('@leveloneproject/dfsp-subscription/index_test'),
+    require('@leveloneproject/dfsp-directory'),
+    require('@leveloneproject/dfsp-rule'),
+    require('@leveloneproject/dfsp-transfer'),
+    require('@leveloneproject/dfsp-ledger'),
+    require('@leveloneproject/dfsp-identity'),
+    require('@leveloneproject/dfsp-account'),
+    require('@leveloneproject/dfsp-subscription'),
     require('@leveloneproject/dfsp-mock')
   ]
 }
