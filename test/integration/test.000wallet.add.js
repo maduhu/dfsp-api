@@ -6,7 +6,7 @@ var config = require('./../lib/appConfig')
 const WEAK_PASS_ERROR_MESSAGE = 'Password does not pass security requirements!'
 
 var merchant = {
-  identifier: commonFunc.generateRandomNumber(),
+  identifier: commonFunc.generateRandomNumber().toString(),
   firstName: 'firstname' + commonFunc.generateRandomNumber(),
   lastName: 'lastname' + commonFunc.generateRandomNumber(),
   dob: '10/12/1999',

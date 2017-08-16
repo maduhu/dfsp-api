@@ -5,41 +5,10 @@ var joi = require('joi')
 var config = require('./../lib/appConfig')
 var uuid = require('uuid/v4')
 
-var sender = {
-  identifier: commonFunc.generateRandomNumber(),
-  firstName: 'sender' + commonFunc.generateRandomNumber(),
-  lastName: 'sender' + commonFunc.generateRandomNumber(),
-  dob: '10/12/1999',
-  nationalId: '' + commonFunc.generateRandomNumber(),
-  phoneNumber: '' + commonFunc.generateRandomNumber(),
-  accountName: 'acc_' + commonFunc.generateRandomNumber(),
-  password: '1234',
-  roleName: 'customer'
-}
-
-var receiver = {
-  identifier: commonFunc.generateRandomNumber(),
-  firstName: 'receiver' + commonFunc.generateRandomNumber(),
-  lastName: 'receiver' + commonFunc.generateRandomNumber(),
-  dob: '10/12/1999',
-  nationalId: '' + commonFunc.generateRandomNumber(),
-  phoneNumber: '' + commonFunc.generateRandomNumber(),
-  accountName: 'acc_' + commonFunc.generateRandomNumber(),
-  password: '1234',
-  roleName: 'customer'
-}
-
-var connector = {
-  identifier: commonFunc.generateRandomNumber(),
-  firstName: 'connector' + commonFunc.generateRandomNumber(),
-  lastName: 'connector' + commonFunc.generateRandomNumber(),
-  dob: '10/12/1999',
-  nationalId: '' + commonFunc.generateRandomNumber(),
-  phoneNumber: '' + commonFunc.generateRandomNumber(),
-  accountName: 'acc_' + commonFunc.generateRandomNumber(),
-  password: '1234',
-  accountTypeId: 6
-}
+const SENDER = commonFunc.getCustomer('sender')
+const RECEIVER = commonFunc.getCustomer('receiver')
+const CONNECTOR = commonFunc.getConnector('connector')
+var ruleResult
 
 test({
   type: 'integration',
@@ -55,23 +24,25 @@ test({
         name: 'Add sender',
         method: 'wallet.add',
         params: (context) => {
-          return sender
+          return SENDER
         },
         result: (result, assert) => {
           assert.equals(joi.validate(result, joi.object().keys({
-            account: 'http://localhost:8014/ledger/accounts/' + sender.accountName,
-            accountName: joi.string().valid(sender.accountName),
-            accountNumber: joi.string().valid(sender.accountName),
+            account: 'http://localhost:8014/ledger/accounts/' + SENDER.accountName,
+            accountName: joi.string().valid(SENDER.accountName),
+            accountNumber: joi.string().valid(SENDER.accountName),
             actorId: joi.string().required(),
             currency: joi.string().required(),
-            dob: joi.string().valid('10/12/1999'),
-            firstName: joi.string().valid(sender.firstName),
+            dob: joi.string().valid(SENDER.dob),
+            firstName: joi.string().valid(SENDER.firstName),
             identifier: joi.string().required(),
-            lastName: joi.string().valid(sender.lastName),
-            nationalId: joi.string().valid(sender.nationalId),
-            password: joi.string().valid('1234'),
-            phoneNumber: joi.string().valid(sender.phoneNumber),
-            roleName: joi.string().valid('customer')
+            identifierTypeCode: joi.string(),
+            lastName: joi.string().valid(SENDER.lastName),
+            nationalId: joi.string().valid(SENDER.nationalId),
+            password: joi.string().valid(SENDER.password),
+            phoneNumber: joi.string().valid(SENDER.phoneNumber),
+            role: joi.string(),
+            roleName: joi.string().valid(SENDER.roleName)
           })).error, null)
         }
       },
@@ -79,23 +50,25 @@ test({
         name: 'Add receiver',
         method: 'wallet.add',
         params: (context) => {
-          return receiver
+          return RECEIVER
         },
         result: (result, assert) => {
           assert.equals(joi.validate(result, joi.object().keys({
-            account: 'http://localhost:8014/ledger/accounts/' + receiver.accountName,
-            accountName: joi.string().valid(receiver.accountName),
-            accountNumber: joi.string().valid(receiver.accountName),
+            account: 'http://localhost:8014/ledger/accounts/' + RECEIVER.accountName,
+            accountName: joi.string().valid(RECEIVER.accountName),
+            accountNumber: joi.string().valid(RECEIVER.accountName),
             actorId: joi.string().required(),
             currency: joi.string().required(),
-            dob: joi.string().valid('10/12/1999'),
-            firstName: joi.string().valid(receiver.firstName),
+            dob: joi.string().valid(RECEIVER.dob),
+            firstName: joi.string().valid(RECEIVER.firstName),
             identifier: joi.string().required(),
-            lastName: joi.string().valid(receiver.lastName),
-            nationalId: joi.string().valid(receiver.nationalId),
-            password: joi.string().valid('1234'),
-            phoneNumber: joi.string().valid(receiver.phoneNumber),
-            roleName: joi.string().valid('customer')
+            identifierTypeCode: joi.string(),
+            lastName: joi.string().valid(RECEIVER.lastName),
+            nationalId: joi.string().valid(RECEIVER.nationalId),
+            password: joi.string().valid(RECEIVER.password),
+            phoneNumber: joi.string().valid(RECEIVER.phoneNumber),
+            role: joi.string(),
+            roleName: joi.string().valid(RECEIVER.roleName)
           })).error, null)
         }
       },
@@ -103,24 +76,24 @@ test({
         name: 'Add connector',
         method: 'wallet.add',
         params: (context) => {
-          return connector
+          return CONNECTOR
         },
         result: (result, assert) => {
           assert.equals(joi.validate(result, joi.object().keys({
-            account: 'http://localhost:8014/ledger/accounts/' + connector.accountName,
-            accountName: joi.string().valid(connector.accountName),
-            accountNumber: joi.string().valid(connector.accountName),
+            account: 'http://localhost:8014/ledger/accounts/' + CONNECTOR.accountName,
+            accountName: joi.string().valid(CONNECTOR.accountName),
+            accountNumber: joi.string().valid(CONNECTOR.accountName),
             actorId: joi.string().required(),
             currency: joi.string().required(),
-            dob: joi.string().valid('10/12/1999'),
-            firstName: joi.string().valid(connector.firstName),
+            dob: joi.string().valid(CONNECTOR.dob),
+            firstName: joi.string().valid(CONNECTOR.firstName),
             identifier: joi.string().required(),
-            lastName: joi.string().valid(connector.lastName),
-            nationalId: joi.string().valid(connector.nationalId),
-            password: joi.string().valid('1234'),
-            phoneNumber: joi.string().valid(connector.phoneNumber),
-            accountTypeId: joi.number().valid(6)
-          })).error, null)
+            lastName: joi.string().valid(CONNECTOR.lastName),
+            nationalId: joi.string().valid(CONNECTOR.nationalId),
+            password: joi.string().valid(CONNECTOR.password),
+            phoneNumber: joi.string().valid(CONNECTOR.phoneNumber),
+            accountTypeId: joi.number().valid(CONNECTOR.accountTypeId)
+          }).unknown()).error, null)
         }
       },
       {
@@ -129,12 +102,12 @@ test({
         params: () => {
           return {
             paymentId: uuid(),
-            sourceIdentifier: '17902519',
-            sourceIdentifierType: 'eur',
-            destinationAccount: 'http://localhost:8014/ledger/accounts/bob',
+            sourceIdentifier: SENDER.phoneNumber,
+            sourceIdentifierType: SENDER.identifierType,
+            destinationAccount: 'http://localhost:8014/ledger/accounts/' + RECEIVER.accountName,
             spspServer: 'http://localhost:8010',
-            destinationIdentifier: '111111111',
-            destinationIdentifierType: 'eur',
+            destinationIdentifier: RECEIVER.phoneNumber,
+            destinationIdentifierType: RECEIVER.identifierType,
             transferType: 'p2p',
             amountType: 'RECEIVE',
             amount: '1001',
@@ -164,17 +137,83 @@ test({
         }
       },
       {
+        name: 'Rule decision fetch - Error incorrect amount type',
+        method: 'rule.decision.fetch',
+        params: () => {
+          return {
+            paymentId: uuid(),
+            sourceIdentifier: SENDER.phoneNumber,
+            sourceIdentifierType: SENDER.identifierType,
+            destinationAccount: 'http://localhost:8014/ledger/accounts/' + RECEIVER.accountName,
+            spspServer: 'http://localhost:8010',
+            destinationIdentifier: RECEIVER.phoneNumber,
+            destinationIdentifierType: RECEIVER.identifierType,
+            transferType: 'p2p',
+            amountType: 'FAIL',
+            amount: '1001',
+            currency: 'TZS'
+          }
+        },
+        error: (error, assert) => {
+          assert.equals(error.errorPrint, 'Incorrect amount type: FAIL. Amount type should be either [SEND] or [RECEIVE]', 'Check error message for inccorect amount type')
+        }
+      },
+      {
+        name: 'Rule decision fetch - Error min amount',
+        method: 'rule.decision.fetch',
+        params: () => {
+          return {
+            paymentId: uuid(),
+            sourceIdentifier: SENDER.phoneNumber,
+            sourceIdentifierType: SENDER.identifierType,
+            destinationAccount: 'http://localhost:8014/ledger/accounts/' + RECEIVER.accountName,
+            spspServer: 'http://localhost:8010',
+            destinationIdentifier: RECEIVER.phoneNumber,
+            destinationIdentifierType: RECEIVER.identifierType,
+            transferType: 'p2p',
+            amountType: 'RECEIVE',
+            amount: '0',
+            currency: 'TZS'
+          }
+        },
+        error: (error, assert) => {
+          assert.equals(error.errorPrint, 'Minimum amount of transaction is 1000', 'Check error message for inccorect min amount')
+        }
+      },
+      {
+        name: 'Rule decision fetch - Error max amount',
+        method: 'rule.decision.fetch',
+        params: () => {
+          return {
+            paymentId: uuid(),
+            sourceIdentifier: SENDER.phoneNumber,
+            sourceIdentifierType: SENDER.identifierType,
+            destinationAccount: 'http://localhost:8014/ledger/accounts/' + RECEIVER.accountName,
+            spspServer: 'http://localhost:8010',
+            destinationIdentifier: RECEIVER.phoneNumber,
+            destinationIdentifierType: RECEIVER.identifierType,
+            transferType: 'p2p',
+            amountType: 'RECEIVE',
+            amount: '99999999999',
+            currency: 'TZS'
+          }
+        },
+        error: (error, assert) => {
+          assert.equals(error.errorPrint, 'Transfer amount limit of 100000 reached', 'Check error message for inccorect max amount')
+        }
+      },
+      {
         name: 'Rule decision fetch - Send',
         method: 'rule.decision.fetch',
         params: () => {
           return {
             paymentId: uuid(),
-            sourceIdentifier: '17902519',
-            sourceIdentifierType: 'eur',
-            destinationAccount: 'http://localhost:8014/ledger/accounts/bob',
+            sourceIdentifier: SENDER.phoneNumber,
+            sourceIdentifierType: SENDER.identifierType,
+            destinationAccount: 'http://localhost:8014/ledger/accounts/' + RECEIVER.accountName,
             spspServer: 'http://localhost:8010',
-            destinationIdentifier: '111111111',
-            destinationIdentifierType: 'eur',
+            destinationIdentifier: RECEIVER.phoneNumber,
+            destinationIdentifierType: RECEIVER.identifierType,
             transferType: 'p2p',
             amountType: 'SEND',
             amount: '1001',
@@ -202,6 +241,191 @@ test({
             transferTypeId: joi.number().required()
           })).error, null)
         }
-      }])
+      },
+      {
+        name: 'Quote payment #0',
+        method: 'rule.quote.get',
+        params: () => {
+          return {
+            currency: 'TZS',
+            amount: '4200',
+            destinationIdentifier: RECEIVER.identifier,
+            sourceAccount: SENDER.accountName,
+            sourceIdentifier: SENDER.identifier
+          }
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            paymentId: joi.string().required(),
+            commission: joi.string().required(),
+            fee: joi.string().required()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Execute payment',
+        method: 'transfer.transfer.execute',
+        params: (context) => {
+          return {
+            paymentId: context['Quote payment #0'].paymentId
+          }
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            fulfillment: joi.string().required(),
+            status: joi.string().required()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Fetch rules for p2p transactions',
+        method: 'rule.rule.fetch',
+        params: () => {
+          return {
+            conditionId: 1
+          }
+        },
+        result: (result, assert) => {
+          ruleResult = result
+        }
+      },
+      {
+        name: 'Change max count daily restrictions for p2p transactions',
+        method: 'rule.rule.edit',
+        params: () => {
+          ruleResult.limit = ruleResult.limit.map((record) => {
+            if (record.currency === 'TZS') {
+              record.maxCountDaily = 1
+            }
+            return record
+          })
+          return ruleResult
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            commission: joi.array().required(),
+            condition: joi.array().required(),
+            fee: joi.array().required(),
+            limit: joi.array().required()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Quote payment #1',
+        method: 'rule.quote.get',
+        params: () => {
+          return {
+            currency: 'TZS',
+            amount: '1200',
+            destinationIdentifier: RECEIVER.identifier,
+            sourceAccount: SENDER.accountName,
+            sourceIdentifier: SENDER.identifier
+          }
+        },
+        error: (error, assert) => {
+          assert.equals(error.errorPrint, 'Daily transfer count limit of 1 reached', 'Check error message for daily limit')
+        }
+      },
+      {
+        name: 'Fetch rules for p2p transactions',
+        method: 'rule.rule.fetch',
+        params: () => {
+          return {
+            conditionId: 1
+          }
+        },
+        result: (result, assert) => {
+          ruleResult = result
+        }
+      },
+      {
+        name: 'Change max amount/count daily restrictions for p2p transactions',
+        method: 'rule.rule.edit',
+        params: () => {
+          ruleResult.limit = ruleResult.limit.map((record) => {
+            if (record.currency === 'TZS') {
+              record.maxCountDaily = 10
+              record.maxAmountDaily = 4000
+            }
+            return record
+          })
+          return ruleResult
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            commission: joi.array().required(),
+            condition: joi.array().required(),
+            fee: joi.array().required(),
+            limit: joi.array().required()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Quote payment #2',
+        method: 'rule.quote.get',
+        params: () => {
+          return {
+            currency: 'TZS',
+            amount: '4200',
+            destinationIdentifier: RECEIVER.identifier,
+            sourceAccount: SENDER.accountName,
+            sourceIdentifier: SENDER.identifier
+          }
+        },
+        error: (error, assert) => {
+          assert.equals(error.errorPrint, 'Daily transfer amount limit of 4000 reached', 'Check error message for daily amount limit')
+        }
+      },
+      {
+        name: 'Fetch rules for p2p transactions',
+        method: 'rule.rule.fetch',
+        params: () => {
+          return {
+            conditionId: 1
+          }
+        },
+        result: (result, assert) => {
+          ruleResult = result
+        }
+      },
+      {
+        name: 'Change max amount/count daily restrictions for p2p transactions',
+        method: 'rule.rule.edit',
+        params: () => {
+          ruleResult.limit = ruleResult.limit.map((record) => {
+            if (record.currency === 'TZS') {
+              record.maxCountDaily = 1
+              record.maxAmountDaily = 100000
+            }
+            return record
+          })
+          return ruleResult
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            commission: joi.array().required(),
+            condition: joi.array().required(),
+            fee: joi.array().required(),
+            limit: joi.array().required()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Quote payment #3',
+        method: 'rule.quote.get',
+        params: () => {
+          return {
+            currency: 'TZS',
+            amount: '5000',
+            destinationIdentifier: RECEIVER.identifier,
+            sourceAccount: SENDER.accountName,
+            sourceIdentifier: SENDER.identifier
+          }
+        },
+        error: (error, assert) => {
+          assert.equals(error.errorPrint, 'Daily transfer count limit of 1 reached', 'Check error message for daily limit')
+        }
+      }
+    ])
   }
 }, module.parent)
