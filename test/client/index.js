@@ -21,6 +21,7 @@ module.exports = {
       'rule',
       'transfer',
       'bulk',
+      'spsp',
       // v1
       'pendingTransactionsApi',
       'invoiceApi'

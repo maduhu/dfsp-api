@@ -47,26 +47,6 @@ module.exports = {
   'spsp.rule.decision.fetch.error.receive': function (err, $meta) {
     throw err
   },
-  'spsp.transfer.transfer.setup.request.send': function (msg, $meta) {
-    return {
-      uri: '/setup',
-      httpMethod: 'post',
-      payload: msg,
-      headers: {
-        'L1p-Trace-Id': uuid(),
-        'content-type': 'application/json'
-      }
-    }
-  },
-  'spsp.transfer.transfer.setup.response.receive': function (msg, $meta) {
-    return msg.payload || {}
-  },
-  'spsp.transfer.transfer.setup.error.receive': function (err, $meta) {
-    throw err
-  },
-  'spsp.transfer.transfer.get.request.send': function (msg, $meta) {
-    // /setup
-  },
   'spsp.transfer.transfer.execute.request.send': function (msg, $meta) {
     $meta.paymentId = msg.paymentId || uuid()
     delete msg.paymentId
