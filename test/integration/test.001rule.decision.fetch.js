@@ -449,7 +449,7 @@ test({
         }
       },
       {
-        name: 'Quote payment #3',
+        name: 'Quote payment #4',
         method: 'rule.quote.get',
         params: () => {
           return {
@@ -487,7 +487,7 @@ test({
         }
       },
       {
-        name: 'Quote payment #3',
+        name: 'Quote payment #5',
         method: 'rule.quote.get',
         params: () => {
           return {
@@ -526,7 +526,7 @@ test({
         }
       },
       {
-        name: 'Quote payment #3',
+        name: 'Quote payment #6',
         method: 'rule.quote.get',
         params: () => {
           return {
@@ -564,7 +564,7 @@ test({
         }
       },
       {
-        name: 'Quote payment #3',
+        name: 'Quote payment #7',
         method: 'rule.quote.get',
         params: () => {
           return {

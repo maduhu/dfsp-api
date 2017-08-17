@@ -162,6 +162,44 @@ test({
             type: joi.string()
           })).error, null)
         }
+      },
+      {
+        name: 'Cancel invoice',
+        method: 'transfer.invoice.cancel',
+        params: (context) => {
+          return {
+            invoiceId: context['Add invoice'].invoiceId,
+            identifier: RECEIVER.phoneNumber
+          }
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            account: 'http://localhost:8014/ledger/accounts/' + MERCHANT.accountName,
+            amount: joi.string(),
+            currencyCode: joi.string(),
+            currencySymbol: joi.string(),
+            invoiceId: joi.number(),
+            invoiceInfo: joi.string().allow(null),
+            invoiceType: joi.string(),
+            merchantIdentifier: joi.string(),
+            name: joi.string(),
+            status: joi.string(),
+            type: joi.string()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Try to cancel not pending invoice',
+        method: 'transfer.invoice.cancel',
+        params: (context) => {
+          return {
+            invoiceId: context['Add invoice'].invoiceId,
+            identifier: MERCHANT.phoneNumber
+          }
+        },
+        error: (error, assert) => {
+          assert.equals(joi.validate(error.errorPrint, joi.string().valid('Invoice is not in pending status').required()).error, null)
+        }
       }
     ])
   }
