@@ -425,6 +425,159 @@ test({
         error: (error, assert) => {
           assert.equals(error.errorPrint, 'Daily transfer count limit of 1 reached', 'Check error message for daily limit')
         }
+      },
+      {
+        name: 'Change max amount/count daily restrictions for p2p transactions',
+        method: 'rule.rule.edit',
+        params: () => {
+          ruleResult.limit = ruleResult.limit.map((record) => {
+            if (record.currency === 'TZS') {
+              record.maxCountDaily = 2
+              record.maxAmountWeekly = 4000
+            }
+            return record
+          })
+          return ruleResult
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            commission: joi.array().required(),
+            condition: joi.array().required(),
+            fee: joi.array().required(),
+            limit: joi.array().required()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Quote payment #3',
+        method: 'rule.quote.get',
+        params: () => {
+          return {
+            currency: 'TZS',
+            amount: '5000',
+            destinationIdentifier: RECEIVER.identifier,
+            sourceAccount: SENDER.accountName,
+            sourceIdentifier: SENDER.identifier
+          }
+        },
+        error: (error, assert) => {
+          assert.equals(error.errorPrint, 'Weekly transfer amount limit of 4000 reached', 'Check error message for weekly amount limit')
+        }
+      },
+      {
+        name: 'Change max count weekly restrictions for p2p transactions',
+        method: 'rule.rule.edit',
+        params: () => {
+          ruleResult.limit = ruleResult.limit.map((record) => {
+            if (record.currency === 'TZS') {
+              record.maxCountWeekly = 1
+              record.maxAmountWeekly = 40000
+            }
+            return record
+          })
+          return ruleResult
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            commission: joi.array().required(),
+            condition: joi.array().required(),
+            fee: joi.array().required(),
+            limit: joi.array().required()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Quote payment #3',
+        method: 'rule.quote.get',
+        params: () => {
+          return {
+            currency: 'TZS',
+            amount: '5000',
+            destinationIdentifier: RECEIVER.identifier,
+            sourceAccount: SENDER.accountName,
+            sourceIdentifier: SENDER.identifier
+          }
+        },
+        error: (error, assert) => {
+          assert.equals(error.errorPrint, 'Weekly transfer count limit of 1 reached', 'Check error message for weekly count limit')
+        }
+      },
+      {
+        name: 'Change max amount monthly restrictions for p2p transactions',
+        method: 'rule.rule.edit',
+        params: () => {
+          ruleResult.limit = ruleResult.limit.map((record) => {
+            if (record.currency === 'TZS') {
+              record.maxCountWeekly = 10
+              record.maxAmountWeekly = 100000
+              record.maxAmountMonthly = 4000
+            }
+            return record
+          })
+          return ruleResult
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            commission: joi.array().required(),
+            condition: joi.array().required(),
+            fee: joi.array().required(),
+            limit: joi.array().required()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Quote payment #3',
+        method: 'rule.quote.get',
+        params: () => {
+          return {
+            currency: 'TZS',
+            amount: '5000',
+            destinationIdentifier: RECEIVER.identifier,
+            sourceAccount: SENDER.accountName,
+            sourceIdentifier: SENDER.identifier
+          }
+        },
+        error: (error, assert) => {
+          assert.equals(error.errorPrint, 'Monthly transfer amount limit of 4000 reached', 'Check error message for monthly amount limit')
+        }
+      },
+      {
+        name: 'Change max count monthly restrictions for p2p transactions',
+        method: 'rule.rule.edit',
+        params: () => {
+          ruleResult.limit = ruleResult.limit.map((record) => {
+            if (record.currency === 'TZS') {
+              record.maxAmountMonthly = 100000
+              record.maxCountMonthly = 1
+            }
+            return record
+          })
+          return ruleResult
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            commission: joi.array().required(),
+            condition: joi.array().required(),
+            fee: joi.array().required(),
+            limit: joi.array().required()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Quote payment #3',
+        method: 'rule.quote.get',
+        params: () => {
+          return {
+            currency: 'TZS',
+            amount: '5000',
+            destinationIdentifier: RECEIVER.identifier,
+            sourceAccount: SENDER.accountName,
+            sourceIdentifier: SENDER.identifier
+          }
+        },
+        error: (error, assert) => {
+          assert.equals(error.errorPrint, 'Monthly transfer count limit of 1 reached', 'Check error message for monthly count limit')
+        }
       }
     ])
   }
