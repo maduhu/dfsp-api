@@ -46,7 +46,7 @@ module.exports = {
         .then((payee) => {
           return this.bus.importMethod('rule.decision.fetch')({
             currency: invoice.currencyCode,
-            amount: Number(invoice.amount),
+            amount: '' + Number(invoice.amount),
             destinationIdentifier: invoice.merchantIdentifier,
             destinationAccount: msg.invoiceUrl,
             spspServer: payee.directory_details.find((el) => el.primary).providerUrl,
