@@ -23,6 +23,7 @@ module.exports = {
                 amount: joi.number().description('Invoice amount'),
                 currencyCode: joi.string().description('Invoice currency code'),
                 currencySymbol: joi.string().description('Invoice symbol'),
+                merchantIdentifier: joi.string().description('Merchant identifier'),
                 fee: joi.number().description('Local fee amount')
               })
             }
@@ -50,6 +51,7 @@ module.exports = {
       invoiceDetails.lastName = invoice.lastName
       invoiceDetails.amount = invoiceAmount
       invoiceDetails.invoiceId = invoice.invoiceId
+      invoiceDetails.merchantIdentifier = invoice.merchantIdentifier
       return this.bus.importMethod('dfsp/rule.decision.fetch')({
         currency: invoice.currencyCode,
         amount: invoiceAmount

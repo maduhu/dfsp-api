@@ -34,8 +34,8 @@ module.exports = {
     })
     .then((response) => {
       return {
-        invoiceNotificationId: response.invoiceNotificationId,
-        status: response.status
+        invoiceNotificationId: msg.invoiceNotificationId,
+        status: 'rejeted'
       }
     })
   }

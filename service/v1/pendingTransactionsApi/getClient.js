@@ -30,13 +30,8 @@ module.exports = {
     method: 'get'
   },
   'client.get': function (msg) {
-    return this.bus.importMethod('payee.get')({
-      payee: '' + msg.identifier
-    })
-    .catch((e) => {
-      return this.bus.importMethod('ist.directory.user.get')({
-        identifier: msg.identifier
-      })
+    return this.bus.importMethod('ist.directory.user.get')({
+      identifier: msg.identifier
     })
     .then(res => {
       return {
