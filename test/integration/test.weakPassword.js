@@ -71,7 +71,7 @@ test('common patterns test', (t) => {
 })
 
 test('weak password test', (t) => {
-  t.plan(16)
+  t.plan(17)
   var test1 = passValidation.isWeakPass('1234', strongSecurity)
   t.equal(test1, true)
   var test2 = passValidation.isWeakPass('123', strongSecurity)
@@ -106,4 +106,6 @@ test('weak password test', (t) => {
   t.equal(test15, true)
   var test16 = passValidation.isWeakPass('iuytr', lowSecurity)
   t.equal(test16, true)
+  var test17 = passValidation.isWeakPass('ABCDE', lowSecurity)
+  t.equal(test17, true)
 })
