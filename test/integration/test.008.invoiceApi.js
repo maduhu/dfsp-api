@@ -116,6 +116,32 @@ test({
         }
       },
       {
+        name: 'Add pending invoice - without info',
+        method: 'invoiceApi.pending.add',
+        params: () => {
+          return {
+            account: MERCHANT.accountName,
+            amount: '5002',
+            merchantIdentifier: MERCHANT.phoneNumber
+          }
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            account: joi.string().required(),
+            amount: joi.string().required(),
+            currencyCode: joi.string().required(),
+            currencySymbol: joi.string().required(),
+            firstName: joi.string().required(),
+            lastName: joi.string().required(),
+            info: joi.string().required(),
+            invoiceId: joi.number().required(),
+            invoiceType: joi.string().required(),
+            merchantIdentifier: joi.string().required(),
+            status: joi.string().required()
+          })).error, null)
+        }
+      },
+      {
         name: 'Add product invoice',
         method: 'invoiceApi.product.add',
         params: () => {
@@ -143,6 +169,32 @@ test({
         }
       },
       {
+        name: 'Add product invoice without info',
+        method: 'invoiceApi.product.add',
+        params: () => {
+          return {
+            account: MERCHANT.accountName,
+            amount: '5002',
+            merchantIdentifier: MERCHANT.phoneNumber
+          }
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            account: joi.string().required(),
+            amount: joi.string().required(),
+            currencyCode: joi.string().required(),
+            currencySymbol: joi.string().required(),
+            firstName: joi.string().required(),
+            lastName: joi.string().required(),
+            info: joi.string().required(),
+            invoiceId: joi.number().required(),
+            invoiceType: joi.string().required(),
+            merchantIdentifier: joi.string().required(),
+            status: joi.string().required()
+          })).error, null)
+        }
+      },
+      {
         name: 'Add standard invoice',
         method: 'invoiceApi.standard.add',
         params: () => {
@@ -151,7 +203,35 @@ test({
             amount: '5002',
             identifier: CLIENT.phoneNumber,
             merchantIdentifier: MERCHANT.phoneNumber,
-            info: 'Test invoice API - pending invoice'
+            info: 'Test invoice API - standard invoice'
+          }
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            account: joi.string().required(),
+            amount: joi.string().required(),
+            currencyCode: joi.string().required(),
+            currencySymbol: joi.string().required(),
+            firstName: joi.string().required(),
+            lastName: joi.string().required(),
+            info: joi.string().required(),
+            invoiceId: joi.number().required(),
+            invoiceType: joi.string().required(),
+            identifier: joi.string().required(),
+            merchantIdentifier: joi.string().required(),
+            status: joi.string().required()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Add standard invoice without info',
+        method: 'invoiceApi.standard.add',
+        params: () => {
+          return {
+            account: MERCHANT.accountName,
+            amount: '5002',
+            identifier: CLIENT.phoneNumber,
+            merchantIdentifier: MERCHANT.phoneNumber
           }
         },
         result: (result, assert) => {
@@ -186,6 +266,32 @@ test({
             fee: joi.string().required(),
             connectorFee: joi.string()
           })).error, null)
+        }
+      },
+      {
+        name: 'Get invoice fees - missing identifier',
+        method: 'invoiceApi.invoiceFees.get',
+        params: (context) => {
+          return {
+            invoiceUrl: 'http://localhost:8010/invoices/' + context['Add standard invoice'].invoiceId,
+            account: CLIENT.accountName
+          }
+        },
+        error: (error, assert) => {
+          assert.true(typeof error.errorPrint === 'string', 'Check that there is an error')
+        }
+      },
+      {
+        name: 'Get invoice fees - broken invoiceUrl',
+        method: 'invoiceApi.invoiceFees.get',
+        params: (context) => {
+          return {
+            identifier: 'fail',
+            account: CLIENT.accountName
+          }
+        },
+        error: (error, assert) => {
+          assert.true(typeof error.errorPrint === 'string', 'Check that there is an error')
         }
       },
       {

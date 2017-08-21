@@ -1,4 +1,3 @@
-require('./errors')
 module.exports = {
   'check': function (msg, $meta) {
     var userPass = this.bus.config.cluster
@@ -41,7 +40,7 @@ module.exports = {
           })
       })
       .catch((e) => {
-        if (e.message === 'identity.invalidCredentials' && typeof msg.password !== 'undefined') {
+        if (e.message === 'Invalid credentials' && typeof msg.password !== 'undefined') {
           return this.bus.importMethod('forensic.log')({
             message: 'Unsuccessfull user login',
             username: msg.username

@@ -164,6 +164,50 @@ test({
         }
       },
       {
+        name: 'Add invoice #2',
+        method: 'transfer.invoice.add',
+        params: () => {
+          return {
+            account: 'http://localhost:8014/ledger/accounts/' + MERCHANT.accountName,
+            name: MERCHANT.firstName + ' ' + MERCHANT.lastName,
+            currencyCode: 'TZS',
+            currencySymbol: 'TSh',
+            amount: 4002,
+            merchantIdentifier: MERCHANT.phoneNumber,
+            identifier: RECEIVER.phoneNumber,
+            invoiceType: 'standard',
+            spspServer: 'http://localhost:8010'
+          }
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            account: 'http://localhost:8014/ledger/accounts/' + MERCHANT.accountName,
+            amount: joi.string(),
+            currencyCode: joi.string(),
+            currencySymbol: joi.string(),
+            invoiceId: joi.number(),
+            invoiceInfo: joi.string().allow(null),
+            invoiceType: joi.string(),
+            merchantIdentifier: joi.string(),
+            name: joi.string(),
+            status: joi.string(),
+            type: joi.string()
+          })).error, null)
+        }
+      },
+      {
+        name: 'Try to cancel invoice without identifier',
+        method: 'transfer.invoice.cancel',
+        params: (context) => {
+          return {
+            invoiceId: context['Add invoice #2'].invoiceId
+          }
+        },
+        error: (error, assert) => {
+          assert.true(typeof error.errorPrint === 'string', 'Check that there is an error for missing identifier')
+        }
+      },
+      {
         name: 'Cancel invoice',
         method: 'transfer.invoice.cancel',
         params: (context) => {
