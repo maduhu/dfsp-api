@@ -27,7 +27,7 @@ module.exports = {
       }
       msg.identifier = prefix + ('' + process.hrtime()[1]).slice(-7)
     }
-    msg.identifierTypeCode = msg.identifierTypeCode || (msg.phoneNumber[0] === '0' ? 'tel' : 'eur')
+    msg.identifierTypeCode = msg.identifierTypeCode || (msg.phoneNumber.length !== 8 ? 'tel' : 'eur')
     return this.bus.importMethod('ist.directory.user.get')({
       identifier: msg.phoneNumber
     })
