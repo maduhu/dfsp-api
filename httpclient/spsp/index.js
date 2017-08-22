@@ -1,5 +1,4 @@
 var uuid = require('uuid/v4')
-require('./errors')
 module.exports = {
   id: 'spsp',
   createPort: require('ut-port-http'),

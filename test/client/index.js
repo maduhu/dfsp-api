@@ -22,6 +22,7 @@ module.exports = {
       'transfer',
       'bulk',
       'spsp',
+      'ist',
       // v1
       'pendingTransactionsApi',
       'invoiceApi'
