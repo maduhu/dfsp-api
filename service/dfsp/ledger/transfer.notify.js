@@ -29,10 +29,9 @@ module.exports = {
     method: 'put'
   },
   'transfer.notify': function (msg, $meta) {
-    return this.bus.importMethod('ledger.quote.get')({
-      paymentId: msg.paymentId,
-      isDebit: false
-    })
+    return this.bus.importMethod('ledger.quote.edit')(
+      Object.assign({paymentId: msg.paymentId}, msg.quote)
+    )
     .catch(() => false)
     .then((quote) => {
       if (!quote || !quote.identifier) {
