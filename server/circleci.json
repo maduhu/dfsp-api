@@ -36,5 +36,9 @@
   "spsp": {
     "url": "http://localhost:8021/spspclient"
   },
-  "tasks": {}
+  "tasks": {},
+  "forensic": {
+      "port": 5678,
+      "host": "127.0.0.1"
+  }
 }
