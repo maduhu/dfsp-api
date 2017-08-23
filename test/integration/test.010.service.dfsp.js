@@ -6,6 +6,8 @@ var joi = require('joi')
 var commonFunc = require('./../lib/commonFunctions.js')
 const MERCHANT = commonFunc.getMerchant('merchant_1113')
 const CLIENT = commonFunc.getCustomer('client')
+const ACTOR = commonFunc.getCustomer('actor')
+const ACCOUNTSHARE = commonFunc.getCustomer('accountShare')
 var userWithoutAccount = commonFunc.getCustomer('withoutAccount')
 
 test({
@@ -74,6 +76,58 @@ test({
         }
       },
       {
+        name: 'Add new actor',
+        method: 'wallet.add',
+        params: (context) => {
+          return ACTOR
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            account: 'http://localhost:8014/ledger/accounts/' + ACTOR.accountName,
+            accountName: joi.string().valid(ACTOR.accountName),
+            accountNumber: joi.string().valid(ACTOR.accountName),
+            actorId: joi.string().required(),
+            currency: joi.string().required(),
+            dob: joi.string().valid(ACTOR.dob),
+            firstName: joi.string().valid(ACTOR.firstName),
+            identifier: joi.string().required(),
+            identifierTypeCode: joi.string(),
+            lastName: joi.string().valid(ACTOR.lastName),
+            nationalId: joi.string().valid(ACTOR.nationalId),
+            password: joi.string().valid(ACTOR.password),
+            phoneNumber: joi.string().valid(ACTOR.phoneNumber),
+            role: joi.string(),
+            roleName: joi.string().valid(ACTOR.roleName)
+          })).error, null)
+        }
+      },
+      {
+        name: 'Add new actor to share account with',
+        method: 'wallet.add',
+        params: (context) => {
+          return ACCOUNTSHARE
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            account: 'http://localhost:8014/ledger/accounts/' + ACCOUNTSHARE.accountName,
+            accountName: joi.string().valid(ACCOUNTSHARE.accountName),
+            accountNumber: joi.string().valid(ACCOUNTSHARE.accountName),
+            actorId: joi.string().required(),
+            currency: joi.string().required(),
+            dob: joi.string().valid(ACCOUNTSHARE.dob),
+            firstName: joi.string().valid(ACCOUNTSHARE.firstName),
+            identifier: joi.string().required(),
+            identifierTypeCode: joi.string(),
+            lastName: joi.string().valid(ACCOUNTSHARE.lastName),
+            nationalId: joi.string().valid(ACCOUNTSHARE.nationalId),
+            password: joi.string().valid(ACCOUNTSHARE.password),
+            phoneNumber: joi.string().valid(ACCOUNTSHARE.phoneNumber),
+            role: joi.string(),
+            roleName: joi.string().valid(ACCOUNTSHARE.roleName)
+          })).error, null)
+        }
+      },
+      {
         name: 'Payee get without account',
         method: 'payee.get',
         params: (context) => {
@@ -124,6 +178,31 @@ test({
         },
         error: (error, assert) => {
           assert.true(typeof error.errorPrint === 'string', 'Check error message')
+        }
+      },
+      {
+        name: 'Actor account add',
+        method: 'account.actorAccount.add',
+        params: (context) => {
+          return {
+            actorId: context['Add new actor'].actorId,
+            accountNumber: ACCOUNTSHARE.accountName,
+            identifier: ACCOUNTSHARE.phoneNumber,
+            isDefault: true,
+            isSignatory: true,
+            roleName: 'customer'
+          }
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            accountId: joi.string(),
+            accountNumber: joi.string(),
+            actorAccountId: joi.string(),
+            actorId: joi.string().required(),
+            isDefault: joi.boolean(),
+            isSignatory: joi.boolean(),
+            permissions: joi.array()
+          })).error, null)
         }
       }
     ])

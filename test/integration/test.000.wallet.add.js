@@ -4,6 +4,7 @@ var commonFunc = require('./../lib/commonFunctions.js')
 var joi = require('joi')
 var config = require('./../lib/appConfig')
 const WEAK_PASS_ERROR_MESSAGE = 'Password does not pass security requirements!'
+const AGENT = commonFunc.getAgent()
 
 var merchant = {
   identifier: commonFunc.generateRandomNumber().toString(),
@@ -60,6 +61,32 @@ test({
             password: joi.string().valid('1234'),
             phoneNumber: joi.string().valid(merchant.phoneNumber),
             roleName: joi.string().valid('merchant')
+          })).error, null)
+        }
+      },
+      {
+        name: 'Add agent',
+        method: 'wallet.add',
+        params: (context) => {
+          return AGENT
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            account: 'http://localhost:8014/ledger/accounts/' + AGENT.accountName,
+            accountName: joi.string().valid(AGENT.accountName),
+            accountNumber: joi.string().valid(AGENT.accountName),
+            actorId: joi.string().required(),
+            currency: joi.string().required(),
+            dob: joi.string(),
+            firstName: joi.string().valid(AGENT.firstName),
+            identifier: joi.string().required(),
+            identifierTypeCode: joi.string().required(),
+            lastName: joi.string().valid(AGENT.lastName),
+            nationalId: joi.string().valid(AGENT.nationalId),
+            password: joi.string().valid('1234'),
+            phoneNumber: joi.string().valid(AGENT.phoneNumber),
+            role: joi.string(),
+            roleName: joi.string().valid('agent')
           })).error, null)
         }
       }])
