@@ -95,5 +95,21 @@ module.exports = {
     }
 
     return testConnectors[identifier]
+  },
+
+  generateBulkPayments: function (customers) {
+    let payments = []
+    for (let i = 0; i < customers.length; i++) {
+      payments.push({
+        sequenceNumber: i,
+        identifier: customers[i].phoneNumber,
+        firstName: customers[i].firstName,
+        lastName: customers[i].lastName,
+        dob: customers[i].dob,
+        nationalId: customers[i].nationalId,
+        amount: i + 1000
+      })
+    }
+    return JSON.stringify(payments)
   }
 }

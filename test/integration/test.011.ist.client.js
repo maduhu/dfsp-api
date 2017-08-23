@@ -1,4 +1,5 @@
 /* eslint no-console: 0 */
+require('./../../tasks/postRules/rules')
 var test = require('ut-run/test')
 var config = require('./../lib/appConfig')
 
