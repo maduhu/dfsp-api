@@ -36,7 +36,13 @@
   "spsp": {
     "url": "http://localhost:8021/spspclient"
   },
-  "tasks": {},
+  "tasks": {
+    "scheduleBulkPayments": {
+      "interval": 10,
+      "timeout": 0,
+      "skipPayeeGet": false
+    }
+  },
   "forensic": {
       "port": 5678,
       "host": "127.0.0.1"

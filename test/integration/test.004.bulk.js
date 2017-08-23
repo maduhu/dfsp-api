@@ -246,6 +246,39 @@ test({
         result: (result, assert) => {
           assert.equals(joi.validate(result, joi.array()).error, null)
         }
+      },
+      {
+        name: 'Process paymen',
+        method: 'bulk.payment.process',
+        params: (context) => {
+          return {
+            paymentId: context['Get for processing'][0].paymentId
+          }
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.object().keys({
+            account: joi.string().allow(null),
+            actorId: joi.string(),
+            batchId: joi.number(),
+            amount: joi.string(),
+            createdAt: joi.string(),
+            dob: joi.string(),
+            expirationDate: joi.string().allow(null),
+            firstName: joi.string(),
+            lastName: joi.string(),
+            name: joi.string(),
+            identifier: joi.string(),
+            info: joi.string().allow(['', null]),
+            nationalId: joi.string(),
+            payee: joi.object(),
+            paymentId: joi.string(),
+            paymentStatusId: joi.number(),
+            sequenceNumber: joi.number(),
+            updatedAt: joi.string().allow(null),
+            startDate: joi.string().allow(null),
+            endDate: joi.string().allow(null)
+          })).error, null)
+        }
       }
     ])
   }

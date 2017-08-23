@@ -119,21 +119,30 @@ test({
             phoneNumber: UNREGISTERED.phoneNumber
           }
         },
-        result: (result, assert) => {
-          assert.equals(joi.validate(result, joi.object().keys({
-            accountType: joi.string().required(),
-            accountNumber: joi.string(),
-            balance: joi.string(),
-            currencyCode: joi.string(),
-            currencySymbol: joi.string(),
-            is_disabled: joi.boolean(),
-            id: joi.string(),
-            ledger: joi.string(),
-            name: joi.string()
-          })).error, null)
-        },
         error: (error, assert) => {
           assert.equals(error.errorPrint, 'Unknown phone', 'Check error message for unregistered phone number')
+        }
+      },
+      {
+        name: 'Ledger account fetch',
+        method: 'ledger.account.fetch',
+        params: (context) => {
+          return {
+            actorId: context['Add user'].actorId
+          }
+        },
+        result: (result, assert) => {
+          assert.equals(joi.validate(result, joi.array()).error, null)
+        }
+      },
+      {
+        name: 'Ledger account fetch - missing actorId',
+        method: 'ledger.account.fetch',
+        params: (context) => {
+          return {}
+        },
+        error: (error, assert) => {
+          assert.equals(error.errorPrint, 'Wrong params', 'Check error message')
         }
       }
     ])
