@@ -30,7 +30,7 @@ module.exports = {
   },
   'transfer.notify': function (msg, $meta) {
     return this.bus.importMethod('ledger.quote.edit')(
-      Object.assign({paymentId: msg.paymentId}, msg.quote)
+      Object.assign({paymentId: msg.paymentId}, msg.data)
     )
     .catch(() => false)
     .then((quote) => {
