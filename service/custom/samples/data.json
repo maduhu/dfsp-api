@@ -131,7 +131,7 @@
       "nationalId": "123456789",
       "accountName": "bob",
       "balance": 100000,
-      "phoneNumber": "111111111",
+      "phoneNumber": "27713803905",
       "password": "1234"
     },
     {
@@ -141,7 +141,7 @@
       "nationalId": "987654321",
       "accountName": "alice",
       "balance": 100000,
-      "phoneNumber": "122222222",
+      "phoneNumber": "27616790836",
       "password": "1234"
     },
     {
@@ -151,7 +151,7 @@
       "nationalId": "147852369",
       "accountName": "merchant",
       "balance": 100000,
-      "phoneNumber": "133333333",
+      "phoneNumber": "27638445864",
       "password": "1234",
       "roleName": "merchant"
     },
@@ -160,7 +160,7 @@
       "lastName": "agent",
       "dob": "1956-05-13",
       "nationalId": "1323333",
-      "phoneNumber": "144444444",
+      "phoneNumber": "27825773935",
       "accountName": "agent",
       "balance": 100000,
       "password": "1234",
@@ -173,7 +173,7 @@
       "nationalId": "369852147",
       "accountName": "dfsp1-testconnector",
       "balance": 1000000000,
-      "phoneNumber": "155555555",
+      "phoneNumber": "27721855610",
       "password": "1234",
       "accountTypeId": 6
     },
@@ -184,7 +184,7 @@
       "nationalId": "333333333",
       "accountName": "admin",
       "balance": 100000,
-      "phoneNumber": "166666666",
+      "phoneNumber": "27736020158",
       "password": "1234"
     },
     {
@@ -194,7 +194,7 @@
       "nationalId": "132132132",
       "accountName": "ibada",
       "balance": 100000,
-      "phoneNumber": "677013038",
+      "phoneNumber": "255620470901",
       "password": "1234"
     },
     {
@@ -204,7 +204,7 @@
       "nationalId": "321321321",
       "accountName": "asani",
       "balance": 100000,
-      "phoneNumber": "677013039",
+      "phoneNumber": "255624229652",
       "password": "1234"
     },
     {
@@ -214,7 +214,7 @@
       "nationalId": "123123123",
       "accountName": "ishara",
       "balance": 100000,
-      "phoneNumber": "677013040",
+      "phoneNumber": "255620319728",
       "password": "1234"
     }
   ],
@@ -226,7 +226,7 @@
       "nationalId": "123456789",
       "accountName": "bob",
       "balance": 100000,
-      "phoneNumber": "211111111",
+      "phoneNumber": "27145901062",
       "password": "1234"
     },
     {
@@ -236,7 +236,7 @@
       "nationalId": "987654321",
       "accountName": "alice",
       "balance": 100000,
-      "phoneNumber": "222222222",
+      "phoneNumber": "27213971461",
       "password": "1234"
     },
     {
@@ -246,7 +246,7 @@
       "nationalId": "147852369",
       "accountName": "merchant",
       "balance": 100000,
-      "phoneNumber": "233333333",
+      "phoneNumber": "27819518170",
       "password": "1234",
       "roleName": "merchant"
     },
@@ -255,7 +255,7 @@
       "lastName": "agent",
       "dob": "1956-05-13",
       "nationalId": "1323333",
-      "phoneNumber": "244444444",
+      "phoneNumber": "27659814919",
       "accountName": "agent",
       "balance": 100000,
       "password": "1234",
@@ -268,7 +268,7 @@
       "nationalId": "369852147",
       "accountName": "dfsp2-testconnector",
       "balance": 1000000000,
-      "phoneNumber": "255555555",
+      "phoneNumber": "277119794100",
       "password": "1234",
       "accountTypeId": 6
     },
@@ -279,7 +279,7 @@
       "nationalId": "444444444",
       "accountName": "admin",
       "balance": 100000,
-      "phoneNumber": "266666666",
+      "phoneNumber": "255774305483",
       "password": "1234"
     },
     {
@@ -289,7 +289,7 @@
       "nationalId": "132132132",
       "accountName": "ibada",
       "balance": 100000,
-      "phoneNumber": "677023038",
+      "phoneNumber": "255689546990",
       "password": "1234"
     },
     {
@@ -299,7 +299,7 @@
       "nationalId": "321321321",
       "accountName": "asani",
       "balance": 100000,
-      "phoneNumber": "677023039",
+      "phoneNumber": "255627126156",
       "password": "1234"
     },
     {
@@ -309,7 +309,7 @@
       "nationalId": "123123123",
       "accountName": "ishara",
       "balance": 100000,
-      "phoneNumber": "677023040",
+      "phoneNumber": "255625411852",
       "password": "1234"
     }
   ]
