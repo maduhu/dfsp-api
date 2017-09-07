@@ -246,7 +246,7 @@
       "nationalId": "147852369",
       "accountName": "merchant",
       "balance": 100000,
-      "phoneNumber": "27819518170",
+      "phoneNumber": "255772273582",
       "password": "1234",
       "roleName": "merchant"
     },
@@ -255,7 +255,7 @@
       "lastName": "agent",
       "dob": "1956-05-13",
       "nationalId": "1323333",
-      "phoneNumber": "27659814919",
+      "phoneNumber": "255773526419",
       "accountName": "agent",
       "balance": 100000,
       "password": "1234",
@@ -268,7 +268,7 @@
       "nationalId": "369852147",
       "accountName": "dfsp2-testconnector",
       "balance": 1000000000,
-      "phoneNumber": "277119794100",
+      "phoneNumber": "255774454054",
       "password": "1234",
       "accountTypeId": 6
     },
