@@ -96,7 +96,7 @@ test({
             currencySymbol: 'TSh',
             amount: 4002,
             merchantIdentifier: MERCHANT.phoneNumber,
-            identifier: RECEIVER.phoneNumber,
+            identifier: 'fail',
             invoiceType: 'standard',
             spspServer: 'http://localhost:8010'
           }
